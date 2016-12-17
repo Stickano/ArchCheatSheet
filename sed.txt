@@ -1,0 +1,96 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T14:17:55+02:00
+
+====== sed ======
+Created lørdag 22 oktober 2016
+
+sed is a tool for manipulation text. 
+
+== Spacing : ==
+**# Double spaces (doesn't make double blank lines)**
+$ sed '/^$/d;G'				
+
+**# Undo double spacing**
+$ sed 'n;d'					
+
+**# Insert blank line above lines matching example**
+$ sed '/example/{x;p;x;}'		
+
+**# Insert blank line below lines matching example**
+$ sed '/example/G'			
+
+**# Insert blank line below and above lines matching example**
+$ sed '/example/{x;p;x;G;}'		
+
+**# Add a blank line after every 5 lines**
+$ sed 'n;n;n;n;G;'			
+
+== Line numbering : ==
+**# Line number for each line**
+$ sed = filename | sed 'N;s/\n/\t/'			
+
+**# Only if the line is not empty**
+$ sed '/./=' filename | sed '/./N; s/\n/ /'		
+
+== Whitespaces : ==
+**# Remove whitespaces from beginning of each line**
+$ sed 's/^[ \t]*//' 			
+
+**# Remove whitespaces from end of each line**
+$ sed 's/[ \t]*$//' 			
+
+**# Remove whitespace from beginning and end of each line**
+$ sed 's/^[ \t]*//;s/[ \t]*$//'		
+
+== Find and Replace : ==
+**# Find and replaces all instances of foo and replaces it with bar**
+$ sed 's/foo/bar/g'			
+
+== Reverse  : ==
+**# Re-arrange the lines (bottom to top)**
+$ sed '1!G;h;$!d' 						
+
+**# Reverse each character** 
+$ sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'		
+
+== Selective Printing : ==
+**# Print out first line of a file**
+$ sed q	
+					
+**# Print out first 10 lines of a file**
+$ sed 10q	
+					
+**# Print out last 10 lines of a file**
+$ sed -e :a -e '$q;N;11,$D;ba'	
+	
+**# Print out lines witch contains example**
+$ sed -n '/example/p'			
+	
+**# Print out lines that does NOT contain example**
+$ sed -n '/example/!p'  	
+		
+**# Print out line 8 to 12**
+$ sed -n '8,12p'		
+			
+**# Print out line 52**
+$ sed -n '52p'					
+
+== Deleting : ==
+**# Delete all duplicate lines (consecutive duplicates)**
+$ sed '$!N; /^\(.*\)\n\1$/!P; D'		
+
+**# Delete the first 10 lines** 
+$ sed '1,10d'					
+
+**# Delete the last line**
+$ sed '$d'						
+
+**# Delete every 8th line**
+$ sed 'n;n;n;n;n;n;n;d;'			
+
+**# Delete lines containing example**
+$ sed '/example/d'				
+
+**# Delete all blank lines**
+$ sed '/^$/d'  					

@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-04T15:48:06+01:00
+
+====== Additionale Badass Software ======
+Created søndag 04 december 2016
+
+**# A list of some nice additions**
+
+== Record My Desktop ==
+**# **//gtk-recordmydesktop//** allows you to record videos of your dekstop**
+$ pacman -S gtk-recordmydesktop
+
+
+== System info and distro logo in terminal ==
+**# **//alsi//** will output systeminfo along with a distro logo in the terminal**
+$ yaourt -S alsi
+
+
+== Transparency for terminals and conky etc ==
+**# NOTE that dekstop environments typical have their own composite manager**
+**# **//xcompmgr //**is a composite Window-effect manager **
+$ pacman -S xcompmgr
+
+**# Add it to some autostart script **
+	(xcompmgr -c) &
+
+

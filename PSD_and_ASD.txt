@@ -1,0 +1,64 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-03T12:33:19+01:00
+
+====== PSD and ASD ======
+Created lørdag 03 december 2016
+
+**# PSD will sync browser profiles to memory - thus speeding up browser responsiveness and weardown on the drive.**
+**# PSD does not take in account, that the major browsers caches are seperate from their profile foler. **
+**# Therefore we use ASD to sync that folder.**
+
+===== Installation =====
+**# Install both PSD and ASD from the AUR**
+$ yaourt -S profile-sync-daemon anything-sync-daemon
+
+===== Profile Sync Daemon =====
+**# RUN psd once to create a initial config file**
+$ psd
+
+**#** **PSD has its configuration file in **//~/.config/psd/psd.conf//
+**# In this configuration file, define your browser - you can add more browser (space seperated list)**
+**# Uncomment and set to **//yes//** in the **//USE_OVERLAYFS//** variable - NOTE: the overlayfs point below.**
+
+== OVERLAYFS ==
+**# Overlayfs will reduce the memory footprint by only syncing what has changed, and not the whole profile.**
+**# In order for this to work though, you need some sudo rights. Edit your **//sudoer//** file**
+$ sudo visudo 
+
+**# And add this line **
+	foo ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
+
+
+== Enable the service ==
+$ systemctl --user enable psd.service
+
+== Usage ==
+**# You can get a informative parse with**
+$ psd p
+
+**# To remove the recovery snapshots**
+$ psd c
+
+
+===== Anything Sync Daemon =====
+**# The config file is stored in **///etc/asd.conf //**add you browsers cache folder to the **//WHATTOSYNC //**variable.**
+**# You browsers cache can be found in **//~/.cache/<browserChoice>/<profileName>	//**or something like that.**
+**# Ex. **//WHATTOSYNC=('/home/stick/.cache/mozilla/firefox/tta26zga.default')//
+
+**# Uncomment and add **///dev/shm//** (recommended on arch-wiki) to the **//VOLATILE //**variable**
+**# This is recommended since software like BleachBit clears files in **///tmp//** - so **///dev/shm//** is preferred**
+	VOLATILE="/dev/shm"
+
+**# Uncomment and set to **//yes//** in the **//USE_OVERLAYFS//** variable and modprobe **//overlay//
+$ modprobe overlay
+
+== Enable the service ==
+$ systemctl enable asd.service
+
+== Usage ==
+**# Works like PSD. To get information**
+$ asd p
+
+**# To clean the recovery snapshots**
+$ asd c

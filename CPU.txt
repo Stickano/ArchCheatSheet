@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T18:12:13+02:00
+
+====== CPU ======
+Created søndag 23 oktober 2016
+
+
+**To monitor CPU speed in real time, run : **
+$ watch grep \"cpu MHz\" /proc/cpuinfo
+
+
+===== Usefull Packages =====
+
+== Thermald ==
+Helps prevent overheating situations.
+Install the //thermald// (AUR) package
+
+== i7z ==
+Reporting tool for Intel processors. Can be invoked with //i7z// or //i7z-gui//
+Install the i7z package
+
+== CpuPower ==
+Assists with CPU frequency scaling. 
+Install the //cpupower// package
+Enable the //cpupower.service //file
+Edit 	///etc/default/cpupower//	change to 	**governor='performance'**
+

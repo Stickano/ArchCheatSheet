@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T13:12:22+02:00
+
+====== AUR Support ======
+Created søndag 23 oktober 2016
+
+== Yaourt Installation ==
+**Edit your pacman configuration file : **
+The pacman configuration file can be found at /etc/pacman.conf
+Add the following repository : 
+	[archlinuxfr]
+	SigLevel = Never
+	Server = http://repo.archlinux.fr/$arch
+
+**Update your database :** 
+$ pacman -Syy
+
+**Install the yaourt package : **
+$ pacman -S yaourt
+
+
+== General Usage ==
+**Update installed packages :**
+$ yaourt -Syua 			
+
+**Check, edit, merge or remove *.pac* files :**
+$ yaourt -C				

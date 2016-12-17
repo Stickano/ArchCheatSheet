@@ -1,0 +1,189 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T00:42:15+02:00
+
+====== Package Management ======
+Created søndag 23 oktober 2016
+
+===== Logging =====
+Pacman's output is logged to /var/log/pacman.log
+
+
+===== Configuration file =====
+The pacman configuration can be found at /etc/pacman.conf
+
+**Skip package from being upgraded : **
+Add packages to the //IgnorePkg= //option. Additional packages can be added with a space-seperated list.
+The same can be done for a group (Gnome ex.) with the //IgnoreGroup=// option.
+
+**Error supression : **
+Pacman will report an error when locales are missing. Suppress this error by commenting the //CheckSpace// option.
+
+**32-bit libraries **(multilib) **:**
+Uncomment the multilib repository for 32-bit supported packages (Steam ex.)
+
+
+===== General Usage =====
+
+== You can install a single or multiple packages : ==
+$ pacman -S //package1 package2//
+
+== Check if your newly installed package came with a service file : ==
+$ pacman -Qql //package// | grep -Fe .service -e .socket
+
+== Remove packages : ==
+$ pacman -Rs //package            # s = remove dependencies not needed by other packages too//
+$ pacman -Rn //package            # n = don't create a //.pacsave// file//
+
+== Upgrade system : ==
+$ pacman -Syyu
+
+== Searching packages : ==
+$ pacman -Ss //search_criteria             # Search in names and descriptions//
+$ pacman -Ss '^//search_criteria'          # Search in names only//
+$ pacman -Qs //search_criteria            # Search installed packages//
+
+== Extensive information about a package : ==
+$ pacman -Si //package//
+$ pacman -Qi //package                      # Installed packages//
+
+== List all installed packages (not dependecies) : ==
+$ pacman -Qet
+
+== List dependency tree for a package : ==
+$ pactree //package//
+
+== List all packages depending on a package : ==
+$ pactree -r //package//
+
+== List all orphans : ==
+$ pacman -Qdt
+
+
+===== Unofficial keys =====
+You can add a key as trusted to the pacman-key, in 3 simple steps.
+
+**First read the key :**
+$ pacman-key -r //keyid                                # Key from a server//
+$ pacman-key --add /path/to/file                 # Provided key-file
+
+**Verify it :**
+$ pacman-key -f //keyid//
+
+**Sign it :**
+$ pacman-key --lsign-key //keyid//
+
+**# If you get a dirmngr ERROR, run the following**
+$ dirmngr < /dev/null
+
+
+===== Tips and Tricks =====
+
+**Packages changelog : **
+Update changes can be viewed by installing //pacolog// (AUR)	run it with :
+$ pacolog //package//
+
+
+**Save a list of installed packages : **
+You can save a list of installed packages and speed up installation of same packages on a fresh install. 
+Create a list : 
+$ pacman -Qqen > pkglist.txt
+
+To install the packages from the newly created list : 
+pacman -S < pkglist.txt
+
+If the list include AUR packages, remove these from the list first : 
+$ pacman -S $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+
+
+**Optimize database access speed : **
+$ pacman -Sc && pacman-optimize
+
+
+===== Hooks =====
+A hook is an action (or set of) to be run when pacman remove/upgrade/install is invoked.
+Hooks can be saved in /etc/pacman.d/hooks/	Below is a default hook file : 
+
+	[Trigger]
+	Operation = 
+	Type = 
+	Target = 
+
+	[Action]
+	Description = 
+	When = 
+	Exec = 
+	Depends = 
+	AbortOnFail
+	NeedsTarget
+	
+**Triggers : **
+|                                          | Description                             | Required/repeatable    |
+|:-----------------------------------------|:----------------------------------------|:-----------------------|
+| Operation = Install \| Upgrade \| Remove |                                         | # Required, Repeatable |
+| Type = File \| Package                   | # Select Package                        | # Required             |
+| Target = <path> \| <package>             | # Files in a directory or specific file | # Required, Repeatable |
+
+                                     
+ 								
+			
+
+**Actions : **
+|                                          | Description                                                              | Required/repeatable |
+|:-----------------------------------------|:-------------------------------------------------------------------------|:--------------------|
+| Description =                            | # description for front-end view                                         |                     |
+| Exec = <command>                         | # Command to run                                                         | # Required          |
+| When = PreTransaction \| PostTransaction |                                                                          | # Required          |
+| Depends = <package>                      | # Packages that must be installed for hook to run                        |                     |
+| AbortOnFail                              | # Cancel the transaction if error occurs. Only works with PreTransaction |                     |
+| NeedsTarget                              | # Pass along if Trigger.Target is set                                    |                     |
+
+				
+
+
+== Useful Hooks ==
+**Sync storage caches to reduce the risk of system corruption :**
+
+ 
+	[Trigger]
+	Operation = Install
+	Operation = Upgrade
+	Operation = Remove
+	Type = Package
+	Target = *
+	
+	[Action]
+	Depends = coreutils
+	When = PostTransaction
+	Exec = /bin/sync
+
+
+===== Troubleshoot =====
+
+== "Failed to commit transaction (conflicting files)" error : ==
+	error: could not prepare transaction
+	error: failed to commit transaction (conflicting files)
+	package: /path/to/file exists in filesystem
+	Errors occurred, no packages were upgraded.
+
+The above indicates a conflict in packages. To fix this, first check if the file is owned by another package :
+$ pacman -Qo ///path/to///file
+If the file does not belong to any other package, it can be removed. If the file is owned, file a bug report.
+
+
+== "Failed to commit transaction (invalid or corrupted package)" error : ==
+Caused by partially downloaded packages (*.part) stored  in /var/cache/pacman/pkg/	Remove them with :
+$ find /var/cache/pacman/pkg/ -iname "*.part" -exec rm {} \;
+
+
+== "Failed to init transaction (unable to lock database)" error : ==
+Close all instances of pacman and run :
+$ rm /var/lib/pacman/db.lck
+
+
+
+
+
+
+
+

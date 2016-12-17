@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T22:35:50+02:00
+
+====== Clean the Filesystem ======
+Created lørdag 22 oktober 2016
+
+==== Cleaning the package cache ====
+Pacman stores downloaded packages in /var/cache/pacman/pkg	and it does not remove these versions automatic. 
+
+To remove all cached versions of uninstalled packages, run : 
+$ paccache -ruk0
+
+To remove remaining, installed, cache packages except for the most recent 2 versions, run :
+$ paccache -rk 2
+
+
+==== Removing orphans (unused packages) ====
+To list packages no longer used, run : 
+$ pacman -Qdt
+
+To remove orphans, run : 
+$ pacman -Rns $(pacman -Qtdq)
+If the above returns 	error: no targets specified	no orphans were found. 
+
+
+==== Old configuration files ====
+You can manually go through folders and clean up old configuration files from uninstalled packages. 
+Some typical destinations may be : 
+	~/.config/
+	~/.cache/ 
+	~/.local/share/
+	
+
+==== Broken symlinks ====
+Broken symlinks should be removed. To list all broken symlinks, run : 
+$ find . -type l -! -exec test -e {} \; -print
+
+
+==== Review installed packages ====
+Review a list of your installed packages - there might be some you don't use anymore^ : 
+$ pacman -Qet            # List installed packages (not dependencies)
+
+
+==== Tips and Tricks ====
+**GUI software to help clean out your system : **
+You can install the //bleachbit //package to help you remove unwanted files.

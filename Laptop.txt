@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T20:14:39+02:00
+
+====== Laptop ======
+Created søndag 23 oktober 2016
+
+
+===== Usefull Packages =====
+
+== Laptop Mode Tools ==
+Controls for many power-saving features. 
+Install the //laptop-mode-tools// (AUR) package
+
+Main configuration file is located at ///etc/laptop-mode.conf//	
+Configuration files are located at 	///etc/laptopmode/conf.d///
+
+**Check available modules and their status : **
+$ grep -r '^\(CONTROL\|ENABLE\)_' /etc/laptop-mode/conf.d
+
+**Enable ** //laptop-mode.service	//

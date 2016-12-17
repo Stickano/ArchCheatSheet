@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-31T16:31:32+01:00
+
+====== Devices ======
+Created mandag 31 oktober 2016
+
+==== Memory ====
+**To see available/used memory : **
+$ free -m
+
+
+==== Battery ====
+**Get the battery capacity/level**
+$ cat /sys/class/power_supply/BAT0/capacity
+
+
+===== Disks =====
+**Human-readable disk size/usage**
+$ df -h

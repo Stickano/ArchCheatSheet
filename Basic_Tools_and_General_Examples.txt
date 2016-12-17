@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T15:25:38+02:00
+
+====== Basic Tools and General Examples ======
+Created lørdag 22 oktober
+
+| Command | Example                 |                                          Description |
+|:--------|:------------------------|-----------------------------------------------------:|
+| man     | man [page] ip           |                           Program guidance and usage |
+| cd      | cd ~/Documents          |                                     Change directory |
+| mkdir   | mkdir ~/New_Folder      |                                 Creates a new folder |
+| rm      | rm ~/File_Name          |                                        Remove a file |
+| rm -r   | rm -r ~/New_Folder      |      Remove a folder recursively (folders and files) |
+| ls      | ls -al ~/Documents      | List files - inc. hidden files and owner information |
+| mv      | mv filename /new/path   |                                          Move a file |
+| cp      | cp filename /new/path   |                                          Copy a file |
+| cat     | cat filename            |                                    Show file content |
+| mount   | mount /dev/sdb /mnt/usb |                                       Mount a device |
+| ps      | ps -A                   |                         Show running processes (All) |
+| killall | killall mplayer         |                  Kill running instances of a process |
+
+
+							
+
+== locate ==
+Install the //mlocate// package. 
+//locate// depends on a database to perform its searches. Create this database by running //sudo updatedb//
+The database is updated daily, but you can at any time update it manually with above command.
+Now you can use //locate filename/folder 	//to find files and folders on the system.
+
+== htop ==
+Install the //htop// package.
+More a more detailed //top// command (process viewer). 
+
+== Create a bootable USB with dd ==
+$ dd bs=4M if=/path/to/image of=/dev/sdX && sync

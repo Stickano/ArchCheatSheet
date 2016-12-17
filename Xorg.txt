@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-24T01:39:52+02:00
+
+====== Xorg ======
+Created mandag 24 oktober 2016
+
+===== Installation =====
+**Install the following packages :**
+$ pacman -S xorg-serv xorg-server-utils

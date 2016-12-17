@@ -1,0 +1,108 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-23T00:21:15+01:00
+
+====== GPG ======
+Created onsdag 23 november 2016
+
+**GnuPG is a fork of the Pretty-Good-Privacy standards. **
+
+**GPG generates a pair of keys - one public and one private. The public key can be shared and the private key must be kept safe. When someone encrypts a message using your public key, only your private key+password will be able to decrypt the content. **
+
+**When signing files it's vice versa. You sign with your private key and others can verify with your public key.**
+
+**# In below examples a document called **//doc//** will be used as example file to encrypt/decrypt.**
+
+===== Installation and Setup =====
+
+== Installation ==
+**# Install the **//gnupg//** package**
+
+== Generate key-pair ==
+$ gpg --full-gen-key
+
+**# You will be prompted for several questions.**
+**# 1: RSA/RSA **
+**# 2: **
+**# 2: 1y	- One year expiration date**
+**# 3: Name and E-mail. This information will be public**
+**# 4: Say **//no//** to comment since it's not well-defined**
+**# 5: Password**
+	
+
+== List Keys ==
+**# Public keys**
+$ gpg --list-keys
+
+**# Secret keys**
+$ gpg --list-secret-keys
+
+== Export public key ==
+**# Will output a public key in ASCII**
+$ gpg --output public.key --armor --no-emit-version --export <user-id>  
+
+**# To register your key with a public key-server**
+$ gpg --send-keys <key-id>
+
+== Import public key ==
+**# In order to encrypt messages to others, you will need their public key. **
+**# To import locally stored keys (downloaded etc)**
+$ gpg --import //public.key//
+
+**# To retrieve information about a key on the keyserver**
+$ gpg --search-keys <key-id>
+
+**# To import keys from the keyserver**
+$ gpg --recv-keys <key-id>
+
+
+===== Signatures =====
+**# Signatures certify and timestamp documents. If the document is modified, the verification will fail.**
+
+== Signing files ==
+**# To sign a file without compressing it into binary - used for text I think**
+$ gpg --clearsign doc
+
+**# To sign and compress into binary format - used with files I think**
+$ gpg --output doc.sig --sign doc
+
+**# To make a detached signature file **
+$ gpg --output doc.sig --detach-sig doc
+
+== Verify signature ==
+$  $ gpg --verify doc.sig
+
+**# If verifying a detached signature, make sure the signature file and the .iso is located together**
+$ $ gpg --verify archlinux-<version>-dual.iso.sig        **# Ex**
+
+
+===== Usage (encrypt/decrypt) =====
+
+== To Encrypt a message ==
+**# To encrypt a message, in this example a file called **//doc//**, for a user in your keyring. **
+$ gpg -R <user-id> --no-emit-version -e doc 
+
+**# If you are only encrypting a text message, add **//--armor	//**which is suitable for text!**
+
+== To Decrypt a message ==
+**# To decrypt a message and output it to a file called **//doc//
+$ gpg -o doc -d //file//.pgp
+
+**# To output the content in **//stdout//** leave out the **//-o doc//
+
+
+===== Tips and Tricks =====
+
+== Edit private key ==
+**# You can edit your private key through a sub-menu. Change expiration date etc.**
+$ gpg --edit-key <user-id>
+
+== Encrypting own files ==
+**# You can use your own **//<user-id>//** to encrypt files - only one at the time though. It is possible to pack various files in a tarball though and then encrypting the entire tarball.**
+
+== Backup (export) and Import private key ==
+**# To backup (export) a private key**
+$ gpg --export-secret-keys --armor <user-id> > privkey.asc
+
+**# To import the backup key**
+$ gpg --allow-secret-key-import --import privkey.asc

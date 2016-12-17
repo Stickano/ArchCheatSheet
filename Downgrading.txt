@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T00:06:44+02:00
+
+====== Downgrading ======
+Created søndag 23 oktober 2016
+
+Package from an earlier stage can be found in /var/cache/pacman/pkg/	unless it was cleared with paccache ex.
+
+== Downgrade a package : ==
+To downgrade a package and its dependencies :
+$ cd /var/cache/pacman/pkg/
+$ pacman -U //name_of_the_package//
+
+You can then add it (temporarily) to be ignored on upgrades.
+Edit /etc/pacman.conf	and add the package name to I//gnorePkg	ex ://
+	IgnorePkg=mplayer vlc
+For multiple entries use a space-separated list. 
+
+
+== Downgrading the kernel : ==
+As minimum, downgrade linux, linux-headers and linux modules. 	Ex : 
+$ pacman -U linux-3.5.6-1-x86_64.pkg.tar.xz linux-headers-3.5.6-1-x86_64.pkg.tar.xz virtualbox-host-modules-4.2.0-5-x86_64.pkg.tar.xz
+

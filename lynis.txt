@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-16T23:54:35+01:00
+
+====== lynis ======
+Created fredag 16 december 2016
+
+**Lynis will perform a security audit in several areas. It has a simple usage and a nice thourough output/resukt.**
+
+== Installation ==
+$ pacman -S lynis
+
+===== Usage =====
+
+== Audits ==
+**# Perform a local security scan**
+$ lynis audit system
+
+**# To perform a remote security scan**
+$ lynis audit remote //<host>//
+
+== Options ==
+**# Additional options may be found by doing **
+$ lynis --help
+
+**# Non-priviledeged scan (useful for pentest)**
+$ lynis audit remote //<host> //--pentest

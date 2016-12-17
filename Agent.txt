@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-23T12:13:50+01:00
+
+====== Agent ======
+Created onsdag 23 november 2016
+
+**An SSH agent will cache your private-key, so it can be provided to other SSH clients (Git etc). **//ssh-agent//** is the default agent included with OpenSSH.**
+
+== Run the agent ==
+$ eval $(ssh-agent)
+
+== Add private key to agent ==
+$ ssh-add ~/.ssh///<private-key>//
+
+== To start the agent automatically ==
+**# Add the following to your **//~/.bashrc//** file. **
+**#** **This will also make sure, that only one instance of ssh-agent is running.**
+
+	if ! pgrep -u $USER ssh-agent > /dev/null; then
+		ssh-agent > ~/.ssh-agent-thing
+	fi
+	if [[ "$SSH_AGENT_PID" == "" ]]; then
+		eval $(<~/.ssh-agent-thing)
+	fi

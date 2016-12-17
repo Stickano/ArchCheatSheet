@@ -1,0 +1,102 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T14:54:15+02:00
+
+====== Functions ======
+Created søndag 23 oktober 2016
+
+Functions works as Aliasses. Add the preffered functions to your //~/.bashrc// file.
+
+== Extract ==
+# Make sure you add 	shopt -s extglob	to the .basrc file
+**# Use with** //ex filename//
+ex ()
+{
+  if [ -f $1 ] ; then
+	case $1 in
+	  *.tar.bz2)   tar xjf $1   ;;
+	  *.tar.gz)    tar xzf $1   ;;
+	  *.bz2)       bunzip2 $1   ;;
+	  *.rar)       unrar x $1     ;;
+	  *.gz)        gunzip $1    ;;
+	  *.tar)       tar xf $1    ;;
+	  *.tbz2)      tar xjf $1   ;;
+	  *.tgz)       tar xzf $1   ;;
+	  *.zip)       unzip $1     ;;
+	  *.Z)         uncompress $1;;
+	  *.7z)        7z x $1      ;;
+	  *)           echo "'$1' cannot be extracted via ex()" ;;
+	esac
+  else
+	echo "'$1' is not a valid file"
+  fi
+}
+
+== Copy and go to dir ==
+**# Use with** //cpg /path/to/file /new/path//
+cpg (){
+  if [ -d "$2" ];then
+	cp $1 $2 && cd $2
+  else
+	cp $1 $2
+  fi
+}
+
+== Move and go to dir ==
+**# Use with** //mvg /path/to/file /new/path//
+mvg (){
+  if [ -d "$2" ];then
+	mv $1 $2 && cd $2
+  else
+	mv $1 $2
+  fi
+}
+
+== Run in background ==
+# Will release a program from the terminal. Ex. mplayer whitch takes up the terminal, when run from terminal. 
+**# Use with** //quiet// //command//
+quiet (){
+  nohup $1 &>/dev/null &
+}
+complete -A command quiet
+
+== Get IP-address ==
+**# Use with** //myip//
+myip ()
+{
+  lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '{ print $4 }' | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g' 
+}
+
+== Show network information ==
+**# Use with **//netinfo//
+netinfo ()
+{
+echo "--------------- Network Information ---------------"
+/sbin/ifconfig | awk /'inet addr/ {print $2}'
+/sbin/ifconfig | awk /'Bcast/ {print $3}'
+/sbin/ifconfig | awk /'inet addr/ {print $4}'
+/sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
+myip=`lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g' `
+echo "${myip}"
+echo "---------------------------------------------------"
+}
+
+== Arch news feed (rss) ==
+**# Use with **//feed http://www.archlinux.org/feeds/news//
+feed() {
+	# The characters "ç, £, §" are used as metacharacters. They should not be encountered in a feed...
+	echo -e "$(echo $(curl --silent $1 | sed -e ':a;N;$!ba;s/\n/ /g') | \
+		sed -e 's/&gt;/ç/g' |
+		sed -e 's/&lt;\/aç/£/g' |
+		sed -e 's/href\=\"/§/g' |
+		sed -e 's/<title>/\\n\\n\\n   :: \\e[01;31m/g' -e 's/<\/title>/\\e[00m ::\\n/g' |
+		sed -e 's/<link>/ [ \\e[01;36m/g' -e 's/<\/link>/\\e[00m ]/g' |
+		sed -e 's/<description>/\\n\\n\\e[00;37m/g' -e 's/<\/description>/\\e[00m\\n\\n/g' |
+		sed -e 's/&lt;pç/\n/g' |
+		sed -e 's/&lt;bç\|&lt;strongç/\\e[01;30m/g' -e 's/&lt;\/bç\|&lt;\/strongç/\\e[00;37m/g' |
+		sed -e 's/&lt;a[^§]*§\([^\"]*\)\"[^ç]*ç\([^£]*\)[^£]*£/\\e[01;32m\2\\e[00;37m \\e[01;34m[ \\e[01;35m\1\\e[00;37m\\e[01;34m ]\\e[00;37m/g' |
+		sed -e 's/&lt;liç/\n \\e[01;34m*\\e[00;37m /g' |
+		sed -e 's/<[^>]*>/ /g' |
+		sed -e 's/&lt;[^ç]*ç//g' |
+		sed -e 's/[ç£§]//g')\n\n"
+}

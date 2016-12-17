@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-27T21:47:12+02:00
+
+====== Kernel ======
+Created torsdag 27 oktober 2016
+
+We'll be using a pre-compiled kernel with focus on improved benefits. The //zen-kernel//.
+
+==== Install the Kernel ====
+**The **//zen-kernel //** comes from the official repository : **
+$ pacman -S linux-zen
+
+
+==== Kernel Parameters ====
+To add kernel parameters, edit 	///etc/default/grub	//and add to the 	GRUB_CMDLINE_LINUX_DEFAULT=
+**Ex.** 	//GRUB_CMDLINE_LINUX_DEFAULT="quiet splash //parameter1 parameter2//"//
+Grub needs to generate a new config file afterwords. Do so with //grub-mkconfig -o /boot/grub/grub.cfg//
+
+== Enable the BFQ scheduler ==
+	GRUB_CMDLINE_LINUX_DEFAULT="elevator=bfq"
+
+
+==== Remove old kernels ====
+Reboot and check if everything works okay. If so, it is safe to remove //linux //**and**// linux-headers//

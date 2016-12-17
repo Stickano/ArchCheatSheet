@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T13:43:45+02:00
+
+====== ls ======
+Created lørdag 22 oktober 2016
+
+$ ls /path/to/folder			
+$ ls -a     # Display hidden files too
+$ ls -l      # File owner and permissions
+
+== Output with -l ==
+drwxr-xr-x  2 stick stick 4096 15.10.2016 17:25 Desktop/
+drwxr-xr-x  7 stick stick 4096 03.10.2016 14:52 Documents/
+drwxr-xr-x  6 stick stick 4096 16.10.2016 10:02 Downloads/
+etc.
+
+The **drwxr-xr-x** is the file-type and and permissions, followed by the user and group. 
+	[file type]  [owner]  [group]  [others]	user   group
+	  d               rwx        r-x         r-x       stick    stick
+
+
+== File types : ==
+$ info ls -n "What information is listed"        # Explanation of all values
+
+- = normal file
+d = directory
+l = symbolic 
+
+== Permissions ==
+Each owner, group and other has 3 characters that defines their permissions, //rwx //etc.
+|                 |                        |                     |
+|:----------------|:-----------------------|:--------------------|
+| First letter :  | - = cannot be read,    | r = read access     |
+| Second letter : | - = cannot be modified | w = can be modified |
+| Third letter :  | - = cannot be executed | x = executable      |
+

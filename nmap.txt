@@ -1,0 +1,115 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-11T14:36:12+01:00
+
+====== nmap ======
+Created søndag 11 december 2016
+
+== Installation ==
+$ pacman -S nmap
+
+===== Usage =====
+
+== Some basics - be aware that these might be easily spotted by FW/IDS ==
+**# Scan for open ports (**//verbose//**), use double for extra verbose **//-vv//
+$ nmap -v //host//
+
+**# Get OS**
+$ nmap -A <//host>//
+
+**# To scan for a specific port on an entire network (**//-p//** to define port)**
+**# Example for port 22, default SSH**
+$ nmap -p 22 192.168.0.*		
+
+**# Comprehensive scan**
+**# **//-g 53 //**to use port 53 (**//DNS//**) which has better chance of being allowed**
+$ nmap -sS -n -sU -T4 -A -v -PE -PP -PS -PA -PU -PY -g 53 //<host>//
+
+**# Normal quick scan**
+**# **//-T4 //**is pretty fast scan - you can use **//-T2//** to slow it down**
+**# **//-n//** is no DNS resolution, and **//-Pn//** is to treat all hosts as online (skip host discovery) **
+$ nmap -T4 -n -A -v -Pn //<host>//
+
+**# We can check if the server is using packet filtering with **//-PN//
+$ nmap -PN //<host>//
+
+**# Check host and interface**
+$ nmap --iflist //<host>//
+
+**# Some firewalls blocks PING requests, check it with TCP ACK and Syn packets**
+$ nmap -PS //<host>//
+
+== Evading FW/IDS ==
+**# Do **//ACK //**scan instead of the **//SYN//** scan**
+$ nmap -sA <//host>//
+
+**# nmap will produce one of the these four responses**
+	Open port		**(few will be the case if encountered a FW)**
+	Closed port	**(most ports are closed due to the FW)**
+	Filtered		**(not able to determine if open or not)**
+	Unfiltered		**(can access but is still uncertain if open or closed)**
+	
+**# In case of **//unfiltered//** you can try a **//TCP Window//** scan.**
+**# Very similar to **//ACK//** but designed to diferentiate between open and closed ports**
+$ nmap -sW <//host>//
+
+**# Should give you **//Filtered//** or **//Closed//
+
+**# You can also try and sent fragment packets with **//-f//
+**# To further break down packets, use double **//-ff//
+$ nmap -ff <//host>//
+
+**# **//nmap//** allows you to spoof a random vendor MAC -This will make it hard to determine where the attack came from.**
+**# **//nmap //**has a db with vendor prefixes, so whenever you provide a vendor, it looks in the db for a suitable MAC.**
+$ nmap -spoof-mac Cisco <//host>//
+
+**# Unit and value rules for the next two examples.**
+	5ms** = 5milliseconds)**
+	5s** = 5 seconds**
+	5m **= 5 minutes**
+	5h **= 5 hours**
+
+**# To not stress a network, you can delay the scans - specialy effective on larger networks.**
+$ nmap -scan_delay 5s //host//
+
+**# Sometimes a host might take a long time to respond - can be due to FW ex.**
+**# If you don't want to waste your time, set a timelimit per host**
+$ nmap -host-timeout 5s <//host>//
+
+== Scripting ==
+**# Scripts can be fount in **///usr/share/nmap/scripts///** and has the **//.nse //**extension.**
+**# **//nmap//** has a shit-load of scripts - here is some of the best.**
+**# **//-sV//** scans for apps on ports**
+
+**# Check for vulnerabilities**
+$ nmap -sV -script=smb-check-vulns <//host>//
+
+**# This will check for one of the following vulnerabilities**
+	MS08-067 Windows vulnerability that can be exploited
+	Conficker malware on the target machine
+	Denial of service vulnerability of Windows 2000
+	MS06-025 Windows 
+	MS07-029 Windows 
+
+**# You can scan a website directory with **//http-enum//
+**# This is also used to scan for open ports and the software with their version on each port**
+$ nmap -sV -script=http-enum <//host>//
+
+**# There is a Samba heap overflow vulnerability **//CVE-2012-1182//**, scan for it with the following**
+$ nmap -script=samba-vuln-cve-2012-1182 -p 139 //<host>//
+
+**# Alot of companies are not running their SMTP on the default port. **
+**# **//smtp-strangeport //** is a script to determine if the SMTP is running on the standard port or not,**
+$ nmap -sV -script=smtp-strangeport //<host>//
+
+**# We can get the PHP version with **//http-php-version//
+$ nmap -sV -script=http-php-version //<host>//
+
+**# There is several WordPress scripts**
+	http-wordpress-plugins
+	http-wordpress-enum
+	http-wordpress-brute
+	
+**# To find blacklisted IP addresses**
+$ nmap -sn //<host> //-script=dns-blacklist
+

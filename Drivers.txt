@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-31T16:31:53+01:00
+
+====== Drivers ======
+Created mandag 31 oktober 2016
+
+**We'll list a few methods of getting Driver information from the devices throughout the machine. **
+
+# **To show kernel drivers handling each device : **
+$ lspci -k
+
+**# Show which video-driver is being used by X-org**
+$ lspci -nnk | grep -i vga -A3 | grep 'in use'

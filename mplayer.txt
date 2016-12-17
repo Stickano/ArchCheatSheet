@@ -1,0 +1,70 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-31T21:36:55+01:00
+
+====== mplayer ======
+Created mandag 31 oktober 2016
+
+**Install the **//mplayer //**package**
+$ pacman -S mplayer
+
+**mplayer keyboard actions**
+| Key         | Descriptions                                      |
+|:------------|:--------------------------------------------------|
+| Space       | Toggle pause/play                                 |
+| Backspace   | Return to menu when you are using dvdnav          |
+| Left arrow  | Back ten seconds                                  |
+| Right arrow | Forward ten seconds                               |
+| Down arrow  | Back one minut                                    |
+| Up arrow    | Forward one minut                                 |
+| <           | Back in playlist                                  |
+| >           | Forward in playlist                               |
+| m           | Mute sound                                        |
+| 9,0         | Volume down/up                                    |
+| 1,2         | Adjust contrast                                   |
+| 3,4         | Adjust brightness                                 |
+| f           | Toggle fullscreen                                 |
+| o           | Toggle OnScreen Display (playtime/ time left etc) |
+| v           | Toggle subtitle visibility                        |
+| I (big i)   | Show filename                                     |
+| j           | Cycle available subtitles                         |
+| #           | Cycle available audio tracks                      |
+
+	
+
+== Creating and Playing playlists ==
+**You can create a playlist by navigating to the directory where the intended files are stored. The run : **
+$ find -maxdepth 1 -type f -name \*.//mkv// | sort > playlist
+
+**This will create a sorted file called **//playlist//** with all the **//mkv// **files in the directory. **
+**Change the **//mkv//** part if the file format differs. If files extension differs, you can use **//\*.*//
+**To use the playlist, append the **//-playlist//** option : **
+$ mplayer -playlist playlist
+
+== Browser Integration ==
+**Mplayer can control the video viewing in your browser. The **//gecko-mediaplayer//** package provides this feature for both Firefox and Chromium. The **//gecko-mediaplayer//** package depends on **//gnome-mplayer//** package, which is a GTK front end for mplayer.**
+
+**# Install the two packages : **
+$ pacman -S gnome-mplayer gecko-mediaplayer
+
+== Resume from where you last left off ==
+**There is a mplayer wrapper which can be invoked whenever you want to resume a move from where you last stopped.**
+
+**Install the wapper 	**//mplayer-resumer// (AUR) **package** **and invoke it with **
+$ mplayer-resumer //options path/to/file//
+
+== Allowing Framedrops ==
+**Allowing framedrops will increase fps on slower systems, but at the cost of quality. It'll allow a frame to be dropped here and there. To allow framedrops, run mplayer with the **//-framedrop //**option : **
+$ mplayer -framedrop ///path/to/file//
+
+== Watching streamed links ==
+**You can use the **//-playlist//** option to play e.g. ASK links**
+$ mplayer -playlist //link-to-stream.asx//
+
+== Taking screenshots ==
+**It is possible to take either a single sc or multiple sc's by appending the 	**//-vf screenshot //**option : **
+$ mplayer -vf screenshot //filename.mkv//
+
+**This will allow you to press 's' to take a single screenshot, or 'S' to take multiple screenshots until 'S' is pressed again.**
+**The files (PNG) will be stored in the current working directory.**
+

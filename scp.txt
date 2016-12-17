@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-03T15:47:15+01:00
+
+====== scp ======
+Created lørdag 03 december 2016
+
+**# scp will allow you to transfer to, or download from, a remote SSH server.**
+**# It works in contrast with Unix **//cp//** command **
+**# So you specify where the file you want copied, to where you want the file copied to**
+
+**# To specify the hosts filesystem	**//[user] //**@ **//[host] //**: **///path/to/folder//
+
+== Basic Examples ==
+**# Copy a single file to a remote server**
+$ scp //path/to/file <username>//@//<server-adress>//:///path/to/folder//
+
+**# To copy a single file from the remote server to your home folder (ex)**
+$ scp //<username>//@//<server-adress>//:///path/to/file /path/to/folder//
+
+
+== Basic folder and files handling ==
+**# In below examples, we'll use **//[host]//** instead of the **//<username>//@//<server-adress>//:///path/to/folder //**string**
+**# You can specify multiple files in a space seperated list**
+$ //file1 file2 file3 /path/to/file4 [host]//
+
+**# Specific (all) file types**
+**# Use the typical regex  * (star) sorting. F.ex. all **//.txt //**files.**
+$ [host]:/path/to/*.txt  //path/to/folder///
+
+**# Recursive **
+**# Use **//-r//** (recursive) to download/upload all the folder content, ex.**
+$ scp -r ~/path/to/folder  [host] 

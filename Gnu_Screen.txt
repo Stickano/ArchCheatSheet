@@ -1,0 +1,106 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-07T08:57:00+01:00
+
+====== Gnu Screen ======
+Created onsdag 07 december 2016
+
+**Gnu Screen allows you to put a wrapper upon a terminal application, given you several features when working in ther terminal**
+
+== Installation ==
+$ pacman -S screen
+
+== Configuration ==
+**# Create a file, **//~/.screenrc//
+
+**# To turn off the welcome message, add the following**
+	startup_message off
+	
+**# To get an informative statusbar**
+	hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+	
+**# To get a scrollbar **
+	termcapinfo xterm* ti@:te@
+
+
+===== Running =====
+**# You can run with **//screen//
+**# Or **//screen -r//** to resume a previous session**
+
+== Sessions ==
+**# You can open screen with a unique session name (for multiple screen sessions)**
+**# Create named session**
+$ screen -S //session_name//
+
+**# To list your screen sessions**
+$ screen -list
+
+**# To attach to a specific screen session**
+$ screen -r //session_name//
+
+
+===== Usage =====
+**# Use **//ctrl+a //**to open the escape/option. Then use one of the following commands.**
+
+== Misc ==
+**# To get help/additional information**
+crtl+a **?**
+
+**# Enter Copy Mode**
+crtl+a **Esc**
+
+**# Paste text**
+crtl+a **]**
+
+== Detaching Screen Session ==
+**# You can detach the screen/terminal to the background **
+crtl+a **d**
+
+**# To raise a detached screen, re-open it with**
+$ screen -r
+
+== Command prompt ==
+**# With the command prompt, you can type commands directly **
+**# To open the Command prompt**
+crtl+a **:**
+
+**# Close all windows and the screen session**
+**:quit**
+
+**# Source the screenrc file**
+**:source ~/.screenrc**
+
+**# Rename the session-name **
+**:sessionname **//session_name//
+
+== Windows ==
+**# Window list**
+crtl+a **"**
+
+**# Open window 0 etc**
+crtl+a **0**
+
+**# Rename the current Window**
+crtl+a **A**
+
+**# Create a new Window**
+crtl+a **c**
+
+**# Send crtl+a to the current window**
+crtl+a **a**
+
+== Regions ==
+**# Split current region into two**
+crtl+a **S**
+
+**# Switch between regions**
+crtl+a **tab**
+
+**# Toggle between current and previous region**
+crtl+a **crtl+a**
+
+**# Close all regions but the current one **
+crtl+a **Q**
+
+**# Close the current region**
+crtl+a **X**

@@ -1,0 +1,86 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T01:30:01+02:00
+
+====== Linux Cheat Sheat (Arch) ======
+Created lørdag 22 oktober 2016
+
+
+===== Installation (+additional system packages) =====
+[[Arch_Base]] 
+[[AUR_Support]] (yaourt)
+[[Xorg]] (Display Server)
+[[Display_Driver]] (intel/nvidia with bumblebee)
+[[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
+[[fuseiso]] (mount .iso files)
+
+===== Software Performance =====
+[[Kernel]] (zen)
+[[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
+
+===== Hardware Performance and Improvements for Weardown =====
+[[SSD]] 
+[[CPU]] 
+[[Laptop]] 
+
+===== Desktop Environments =====
+[[Gnome]] 
+
+===== Network =====
+[[netctl]] (management)
+
+===== Getting Information =====
+[[Devices]]
+[[Drivers]] 
+[[Logs]] 
+[[journalctl]] (system journal/log)
+[[Network]] (mainly ss)
+
+===== System Tools =====
+[[Basic_Tools_and_General_Examples]]  
+[[Service_Management]] (systemd)
+[[Package_Management]] (pacman)
+[[xdg-utils]] (mime-type/filetype default application)
+[[ls]] (output information)
+[[sed]] 
+
+===== Users =====
+[[Users and Groups]] 
+[[Permissions]]  (chmod)
+
+===== Maintenance =====
+[[Pacnew_and_Pacsave]] 
+[[Mirrors]] 
+[[Clean_the_Filesystem]] (pacman cache, orphans, old configurations, broken symlinks)
+[[Long_Time_Support]] (lts)
+[[Downgrading]] (package/kernel)
+
+===== Security =====
+[[clamav]] (anti-virus)
+[[lynis]] (security audit)
+
+===== Preferred Applications =====
+[[mplayer]]  (mediaplayer)
+[[LibreOffice]] (office-suite)
+[[Gnu_Screen]] 
+[[Additionale_Badass_Software]] (random list of keks)
+
+===== Development =====
+[[Git]] 
+
+===== Terminal =====
+[[Aliases]]
+[[Functions]] 
+[[Improvements]] (.bashrc/.inputrc)
+
+===== SSH =====
+[[Server_and_Client]] 
+[[Keys]] 
+[[Agent]] 
+[[scp]] (transfer files over SSH)
+
+===== Crypto =====
+[[GPG]]  (GnuPG)
+
+===== Analysis =====
+[[nmap]] 

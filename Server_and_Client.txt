@@ -1,0 +1,112 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-03T13:49:41+01:00
+
+====== Server and Client ======
+Created lørdag 03 december 2016
+
+**# Install the **//openssh//** package. This will have to be installed on both a client or a server machine.**
+$ pacman -S openssh
+
+===== Client Usage =====
+
+==== Usage ====
+**# Connecting to a server**
+$ ssh -p //<portnumber> <user>//@//<server-address>	//**# Note the **//@ //**between user and address.**
+
+== Tips and Tricks ==
+**# Run process on the server display output - ex. running **//mplayer//** on your media-server^**
+$ DISPLAY=:0 mplayer ///path/to/movie //-fs
+
+==== Configuration ====
+**# Add/edit **//~/.ssh/config	//**This will be referred to as the ssh config**
+**# Add a globel username for all the hosts you visit**
+	User //<username>//
+	
+**# Improved performance, add the following to the ssh config**
+	ControlMaster auto
+	ControlPersist yes
+	ControlPath ~/.ssh/sockets/socket-%r@%h:%p
+	
+**# Host Aliasses**
+**# To provide an alias for a commonly used host, add the following to the ssh config**
+	Host //<server-name>//
+		HostName //<server-address>//
+		Port     //<port>//
+
+**# You are now able to use alias shortcuts, instead of the full **//ssh user@host//** string**
+$ ssh //<server-name>//
+
+
+
+===== Server Usage =====
+
+==== Configuration ====
+**# The configuration file can be found in **///etc/ssh/sshd_config	//
+**#** **Note the "d" **//ssh//**d**_config **(daemon)	- This will be referred to as the config file **
+
+**# Disable root login, edit the followin in the config file**
+	PermitRootLogin no
+
+**# Change port number (optional) - default is port 22**
+	Port //<portnumber>//
+	
+**# To disable the SSH login (password login) - f.ex. to only use SSH key authentication (See below). **
+**# Uncomment and change to **//no//** in the following **
+	PasswordAuthentication no
+	ChallengeResponseAuthentication no
+
+
+== SSH key authentication ==
+**# The public key, from the client, will have to be located on the server machine.**
+**# Say our clients public SSH key is located on our servers home folder **//~///<somekey>//.pub//
+
+**# Create, if it doesn't already excist, a folder at **//.ssh//
+$ mkdir ~/.ssh
+$ chmod 700 ~/.ssh
+
+**# Import the public key, from the client, to the **//authorized_keys//** file **
+$ cat ~///<somekey>//.pub >> ~/.ssh/authorized_keys
+
+**# Remove the public key and change the folder permission back to only user-useable**
+$ rm ~///<somekey>//.pub
+$ chmod 600 ~/.ssh/authorized_keys
+
+
+==== Starting the daemon ====
+
+== The easy way ==
+**#** **just starting the daemon to constantly be running (preferred option below)**
+**# This method might come in handy if you have several (maybe unknown) IP-adresses connecting**
+$ systemctl enable sshd.service		**# Note the preferred option below!**
+
+== The preferred way ==
+**# To only start the daemon process when a allowed connection is incomming, enable the following**
+$ systemctl enable sshd.socket
+$ systemctl enable sshd@.service
+
+**# Edit your socket file to ONLY allow certain IP-adresses**
+$ systemctl edit sshd.socket
+
+**# Add the following - portnumber is the port that the SERVER/HOST is listening for (default 22)**
+	[socket]
+	FreeBind=true
+	ListenStream=		**# Add ip and portnumber, ex **//192.168.0.1:22//
+	ListenStream=//<ip-adress>//://<portnumber>//
+	
+
+
+==== Security ====
+
+== Fail2Ban ==
+**# This will add rules to the firewall if a password attempt fails to many times.**
+**# Note that this is not necessar if you are connecting through SSH keys**
+$ pacman -S fail2ban
+$ systemctl enable fail2ban.service
+
+
+==== Tips and Tricks ====
+
+== Keep Alive ==
+**# To make sure that the SSH server wont log you out, uncomment and change the following in the config file**
+	ClientAliveInterval 120

@@ -1,0 +1,51 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T01:57:52+02:00
+
+====== Aliases (.bashrc) ======
+Created lørdag 22 oktober 2016
+
+Add to your ~/.bashrc file for permanent settings.
+
+===== File and Folder =====
+
+== Listing ==
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
+
+== Handling ==
+**# confirm before overwrite**
+alias cp="cp -i" 		
+
+**# create parent folders too**
+alias mkdir="mkdir -pv"		
+
+== Navigation ==
+**# even when you forget the space**
+alias cd..="cd .."				
+
+
+===== Outputs =====
+**# Colorful grep**
+alias grep='grep --color=tty -d skip'
+
+
+===== System =====
+**# human readable size and a total amount**
+alias df="df -Tha --total"		
+
+**# human readable size**
+alias free="free -mt"			
+
+**# requires htop packages (better top view)**
+alias top="htop"				
+
+
+===== Download =====
+**# enables you to resume a download if something went wrong**
+alias wget="wget -c"			
+
+
+
+

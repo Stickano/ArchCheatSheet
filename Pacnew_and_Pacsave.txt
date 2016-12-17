@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-22T21:27:08+02:00
+
+====== Pacnew and Pacsave ======
+Created lørdag 22 oktober 2016
+
+When pacman removes a files it stores the packages configuration files with a //.pacsave// extension. 
+Likewise when pacman upgrades a package and a configuration files differs, it stores the new configuration file with the //.pacnew// extension.
+
+**Locate .pac* files : **
+Make sure you have the mlocate package for this. Update locates database with //updatedb//.
+$ locate --existing --regex "\.pac(new|save)$"
+

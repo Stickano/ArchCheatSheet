@@ -1,0 +1,76 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-04T20:01:55+01:00
+
+====== Network ======
+Created søndag 04 december 2016
+
+**#** **Get network device names**
+$ iw dev
+
+**#** **Network status **
+$ iw dev wlp2s0 link
+
+**#** **Intern Address and routing point **
+$ ip addr
+
+===== SS network tool =====
+
+== Analysis example ==
+**# To list all open ports ( **//-l //**) and what process using the socket ( **//-p //**)**
+$ ss -pl
+
+**# You can be more specific with **//|grep//** - Ex. if we'd like to know what is using port **//4949//
+$ ss -pl |grep 4949
+
+**# You might get a result with something like the following **
+	users:(("dleyna-renderer",pid=14620,fd=12))
+
+**# Now we can use the **//pid=14620//** to get more information about that process**
+$ cd /proc/14620
+$ ls -l
+
+== Basic Usage ==
+**# List all TCP sockets**
+$ ss -ta
+
+**# List all UDP sockets **
+$ ss -ua
+
+**# List all RAW sockets**
+$ ss -wa
+
+**# List all UNIX sockets**
+$ ss -xa
+
+== Filtering sockets ==
+**# IPv4 ( **//-4 //**) **
+$ ss -4 state //<state>//
+
+**# IPv6 ( **//-6 //**)**
+$ ss -6 state //<state>//
+
+**# **//<state>//** can be one of the following**
+	established
+	syn-sent
+	syn-recv
+	fin-wait-1
+	fin-wait-2
+	time-wait
+	closed
+	close-wait
+	last-ack
+	listen
+	closing
+	all **# All of the above states**
+	connected **# All the states except for listen and closed**
+	synchronized **# All the connected states except for syn-sent**
+	bucket **# Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.**
+	big **# Opposite to bucket state.**
+
+**# Show all connected ports to destionation (**//dst//**), ex**
+$ ss dst 123.1.2.100
+
+**# To show all IPs connected to your local machine**
+**# Get your **//<localaddress>//** with **//ip addr//
+$ ss src //<localaddress>//

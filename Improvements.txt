@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T13:55:13+02:00
+
+====== Improvements ======
+Created søndag 23 oktober 2016
+
+===== .bashrc =====
+Resides in ~/.bashrc	Below can be added to the .bashrc file for preferred configuration. 
+
+== Disable logging of identical commands : ==
+	export HISTCONTROL=ignoredups
+
+
+== Search official repositories when a command was invalid : ==
+**This requires the pkgfile package :** 
+$ pacman -S pkgfile
+
+**Once installed the pkgfile database can be synced with :**
+$ pkgfile -u
+
+**Enable its system timer servce :**
+$ systemctl enable pkgfile-update.timer
+
+**Then add to the .bashrc file :**  
+	source /usr/share/doc/pkgfile/command-not-found.bash
+
+
+== Auto cd when entering just a path : ==
+Allows you to write /etc		instead of cd /etc
+	shopt -s autocd
+
+
+== Line wrap on window resize : ==
+	shopt -s checkwinsize
+	
+
+== Complete sudo commands : ==
+	complete -cf sudo
+
+
+
+===== .inputrc =====
+Resides in ~/.inputrc	Below can be added to the .inputrc file for preffered configurations. 
+Make sure 	$include /etc/inputrc 	is present in the top of the .inputrc file. 
+
+== Search with arrow-keys : ==
+You can start to type a command, then use arrow keys to search through your history for that combination :
+	"\e[A": history-search-backward
+	"\e[B": history-search-forward
+
+
+== Faster completion : ==
+Single tab will show all available commands 		instead of double tab.
+	set show-all-if-ambiguous on
+	
+
+== Disable ^C echo on ctrl-c : ==
+	set echo-control-characters off

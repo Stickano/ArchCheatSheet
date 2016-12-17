@@ -1,0 +1,139 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-23T03:41:50+02:00
+
+====== Arch Base ======
+Created søndag 23 oktober 2016
+
+This will be a simple step-by-step guide. With an unserious attempt to put the process into categories,
+
+**# Editor**
+$ nano 		
+
+== Create the bootable USB ==
+# **Download your favourite Arch distro^	You can use dd to create the bootable USB** 
+$ dd if=/path/to/arch_image.iso of=/dev/sdX bs=4M && sync
+
+== Boot ==
+**# Boot the USB as UEFI**
+
+== Pre-installation ==
+**Set the keyboard layout : **
+$ loadkeys dk-latin1
+
+**Connect to the internet : **
+$ wifi-menu
+
+**Update the system clock : **
+$ timedatectl set-ntp true
+
+
+== Prepare the disk ==
+**Partition the disk : **
+Use the //gdisk //package (for GPT disks). Consult with ? for commands.
+Create 4 partitions. 
+	**EFI         **EFI bootable 
+	**/            **Linux Filesystem
+	**/home   **Your home for local files
+	**swap     **Your additional memory space
+	
+**Format the partitions : **
+Get partition information with 	//lsblk -f//
+
+# **EFI** partition
+$ mkfs.vfat /dev/sdaX
+		
+# **Linux Filesystem**
+$ mkfs.ext4 /dev/sdaX
+		
+# **Home **partition
+$ mkfs.ext4 /dev/sdaX		
+
+# **Swap **partition
+$ mkswap /dev/sdaX			
+
+
+== Mount the partitions ==
+First initialize the **swap** partition :
+$ swapon /dev/sdaX
+
+Then mount your **Linux Filesystem** :
+$ mount /dev/sdaX
+
+Create mount-point (folders) for the remaining partitions : 
+$ mkdir /mnt/boot
+$ mkdir /mnt/home
+
+And mount the remaining partitions : 
+$ mount /dev/sdaX /mnt/boot       # The **EFI** boorable partition
+$ mount /dev/sdaX /mnt/home      # The **Home** partition
+
+
+== Installation ==
+You can edit the /etc/pacman.d/mirrorlist and move preffered mirrors to the top, if you like.
+
+**Install the Arch Base : **
+$ pacstrap /mnt base
+
+
+== Post installation ==
+**Generate the fstab file : **
+$ genfstab -U /mnt >> /mnt/etc/fstab
+
+**Change root into the newly installed system : **
+$ arch-chroot /mnt
+
+**Set the time zone : **
+$ ln -s /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
+$ hwclock --systohc       **# Generates /etc/adjtime**		
+
+**Locale : **
+Edit /etc/locale.gen and uncomment **en_US.UTF-8 UTF-8 **and **da_DK.UTF-8 UTF-8**	then run :
+$ locale-gen
+
+Set the //LANG// variable in /etc/locale.conf accordingly
+	LANG=da_DK.UTF-8	
+	
+Make the keyboard layout persistent with the //KEYMAP// in /etc/vconsole.conf
+	KEYMAP=dk-latin1
+	
+**Hostname : **
+Create a desired hostname in /etc/hostname
+	dinnabo
+
+And add the entry to /etc/hosts
+	127.0.0.1      localhost.localdomain    localhost
+	::1                 localhost.localdomain    localhost
+	**127.0.1.1     dinnabo.localdomain    dinnabo**
+
+**Network : **
+Install the 	//iw, wpa_supplicant //and //dialog//	package for first time use (next step)
+
+**Remember to install the **//base-devel//** as well :**
+Install the 	//base-devel// 	package
+
+**Set the root password : **
+$ passwd
+
+
+== Boot Loader ==
+Grub will be used for this example. 
+
+**Needed packages : **
+Install the //grub// and //intel-ucode //packages. If dual-booting, also install the //os-prober// package. 
+Intel Microcode (ucode) provides system stability and is detected automaticly by mkconfig.
+
+**Install to /boot partition :** 
+$ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+
+**Generate configuration file : **
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+
+== Reboot ==
+**# Exit the chroot environment**
+**# Unmount the partitions** 
+$ exit				
+$ umount -R /mnt		
+$ reboot
+

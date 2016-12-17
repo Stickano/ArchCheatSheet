@@ -1,0 +1,202 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-23T10:53:06+01:00
+
+====== Git ======
+Created onsdag 23 november 2016
+
+**A usual Git workflow goes something like : **
+**#	Create a new project (will create an initial master branch)**
+**#	Do some initial file/project creation (project)**
+**#	Create a brance (git) and make changes/additions (project)**
+**#** 	**Then commit those changes.**
+**#	Merge the commits changes to the master branch**
+**#	(Optional) Push to remote server (github)**
+
+== Installation ==
+**Install the **//git//** package along with **//aspell//** for spell-checking**
+
+== Configuration ==
+**# Name and E-mail**
+$ git config --global user.name  "Henrik Jeppesen"
+$ git config --global user.email "Jeppesen@tutanota.com"
+
+**# Default editor (nano)**
+$ git config --global core.editor "nano -w"
+
+**# Default push action (?)**
+$ git config --global push.default simple
+
+
+===== File Handling =====
+
+== Create new repository ==
+$ cd //<your_project>///
+$ git init
+
+== Adding files to the index three ==
+**# Once you've created/modified some files, they need to be added to git's index tree. **
+**# This will make git able to record changes in files and commit those changes.**
+$ git add //file1 file2//
+
+**# To add all files **
+$ git add .        **# note the dot (.)**
+
+**# This will record the state of the files. **
+**#** If** files are later modified, run **//git add//** again to add a new version to the index.**
+
+== Ignoring files ==
+**# It is possible to create a list for files, which should not be included when running **//git add .//** 	(add all)**
+**# Create a file in your git directory called 	**//.gitignore	//**and choose from the following (add-able)**
+
+	# File I'll likely delete
+	test-script
+	
+	# Ignore all .html files, except 'important.html'
+	*.html
+	!important.html
+	
+	# Ignore all files recursively in 'DoNotInclude'
+	DoNotInclude/**
+
+
+== Removing files ==
+**# To remove one file**
+$ git rm --cached //<filename>//
+
+**# To remove all files**
+$ git rm --cached -r .        **# note the dot (.)**
+
+== Other file management options ==
+**# Rename a file**
+$ git mv //<oldname> <newname>//
+
+**# List files **
+$ git ls-files
+
+===== Commit Changes =====
+**# You should commit changes to a branch (See a little further down)**
+**# Once changes/additions has been made, commit those changes. Commit often.**
+**# **//a//** will add changes from all known files.**
+**# If **m "message"** is exluded, the default text-editor will open, alowing you to add a long message instead.**
+$ git commit -am "Short Message."
+
+**# Change/edit the message for the last commit**
+$ git commit --amend -m "Short Message."
+
+===== View Changes =====
+**# Between staging area and the working tree (commit to push)**
+$ git diff
+
+**# General overview of the changes**
+$ git status
+
+**# Hisory overview	**//-N//**	is the number of commits to include (numeric value)**
+$ git log -p (-N)
+
+===== Branches =====
+**# Added features, or bug-fixes, is usually tested in Branches. **
+**#** **Once the changes are as pleassed, they can be commited and then merged with the master (default)  branch.**
+
+**# Create a branch	which name accurately reflects its purpose**
+$ git branch //added-feature-addition//
+
+**# List branches**
+$ git branch
+
+**# Switch branches**
+$ git checkout //<branchname>//
+
+**# Merge a branch to the master branch**
+$ git checkout master
+$ git merge //<branchname>//
+
+**# Once done with a branch, delete it**
+$ git branch -d //<branchname>//
+
+===== Merge Conflicts =====
+**# Whenever git isn't able to merge commits/branches together, you will have to solve the conflict yourself.**
+**# Navigate to your project folder and run a **//git status//** for more information**
+**# Open the file(s) that are in conflict - with your favorite editor of couruse!^**
+
+**# The conflict will be marked within **//<<<< ===== >>>> //** markers.**
+	<<<<<<< HEAD
+		**# You local branch data**
+	======
+		**# Other branch data**
+	>>>>>>> //branchname//
+	
+**# Decide and make the changes that is wanted/needed. Remove the markers as well. **
+**# Once the document looks like you want it, stage the changes**
+$ git add .	**# note the dot (.)**
+
+**# Then commit the changes **
+$ git commit -m "Resolved merge conflict."
+
+===== Remote Repositories =====
+**Remote locations, like Github, can work in collaboration with your local repository.**
+**Add your **[[:Keys|SSH public key]]** to Github and run your **[[:Agent|SSH agent]]**.**
+
+**In below examples the **///Stickano/hello-world //**Github account and repository is used.**
+**The SSH connection to this account would be **ssh://git@github.com/Stickano/hello-world
+
+== Clone a repository ==
+**# Say you've created a new repository on Github**
+**# Create a new folder for the dump**
+$ mkdir ~///<foldername>//
+
+**# Clone the repository**
+$ git clone ssh://git@github.com/Stickano/hello-world //<foldername>//
+
+**# This will also create a label (see below) for the original location. This label is called 	**//origin//
+
+== Pull request ==
+**# A pull request will download the latest changes from the remote repository, so you can merge it with your own.**
+**# To fetch (download changes) and view the changes**
+$ git fetch ssh://git@github.com/Stickano/hello-world master
+$ git log -p HEAD..FETCH_HEAD
+
+**# To merge master branches**
+**# Remember to **//checkout master//** branch if you aren't already on it.**
+$ git merge FETCH_HEAD
+
+== Push repository ==
+**# Once your local master branch (this example) has merged changes, you can push (upload) to remote repository.**
+
+**# To push the current branch to the remote repository, FIRST TIME use**
+$ git push ssh://git@github.com/Stickano/hello-world //-u//
+
+**# Since the clone tool create a **//origin//** label, it would often look like this (FIRST TIME)**
+$ git push -u origin 
+
+**# The **//-u//** option will record the location, so next time you just have to use**
+$ git push
+
+**# Push a specific branch to remote repository. The branch will be created in it doesn't exist remote.**
+$ git push origin //<branchname>//
+
+**# Push current branch to the same name on remote repository**
+$ git push origin HEAD
+
+
+== Label your remote repository ==
+**# NOTE: If you cloned a repository, it has already been labelled 	**//origin//
+
+**# We can label our frequent visited remote repositories, like Github, to a meaningfull name**
+$ git remote add //<labelname> //ssh://git@github.com/Stickano/hello-world
+
+**#** **Fetch a label**
+$ git fetch //<labelname>//
+
+**# Show difference between local master and remote master**
+$ git log -p master..//<labelname>///master
+
+**# To view which label is used for current repository**
+$ git remote -v
+
+
+===== Tips and Tricks =====
+
+== Auto completion with Bash commands ==
+**# To add auto-complete on Git commands in your terminal, add the following to your **//.bashrc//** file**
+	source /usr/share/git/completion/git-completion.bash

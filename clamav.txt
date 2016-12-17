@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-04T18:29:41+01:00
+
+====== clamav ======
+Created søndag 04 december 2016
+
+== Installation ==
+$ pacman -S clamav
+
+== Update ==
+**# Update the virus definitions after installation**
+$ freshclam
+
+**# Enable clam update service, so clamav will always have the latest virus definitions**
+$ systemctl enable freshclamd.service
+
+== Additional virus definition/databases ==
+**# Install some un-official virus definitions as well**
+$ yaourt -S clamav-unofficial-sigs
+
+== Starting the daemon ==
+**# Start/enable the clam service file**
+$ systemctl start clamd.service
+
+== Test clamav ==
+**# Make sure your clamav and its definitions are installed correct (harmless file)**
+$ curl http://www.eicar.org/download/eicar.com.txt | clamscan -
+
+**# The output must include **
+	stdin: Eicar-Test-Signature FOUND
+	
+
+== Usage ==
+**# Scan a file**
+$ clamscan //<filename>//
+
+**# Scan a directory**
+$ clamscan -r -i ///path/to/folder//
+
+**# Scan entire system**
+$ clamscan -r -i --exclude-dir='^/sys|^/dev' /

@@ -10,7 +10,7 @@ Created lørdag 22 oktober 2016
 [[Arch_Base]] 
 [[CDM]] (display/login manager)
 [[Xorg]] (+xinit) (Display Server)
-[[AUR_Support]] (yaourt
+[[AUR_Support]] (yaourt)
 [[Display_Driver]] (intel/nvidia with bumblebee)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
 [[fuseiso]] (mount .iso files)
@@ -49,6 +49,7 @@ Created lørdag 22 oktober 2016
 ===== Users =====
 [[Users and Groups]] 
 [[Permissions]]  (chmod)
+[[:xdg_user_dirs]] (user directories)
 
 ===== Maintenance =====
 [[Pacnew_and_Pacsave]] 
@@ -71,7 +72,7 @@ Created lørdag 22 oktober 2016
 [[Theming]] 
 [[lxappearance]] (configure system wide themes and fonts)
 [[Fonts]] 
-[[Additional_sweetass_software]] 
+[[Additional_sweetass_software]] (random list of orgasms for the eyes)
 
 ===== Development =====
 [[Git]] 

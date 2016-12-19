@@ -12,5 +12,5 @@ Created mandag 19 december 2016
 **# Compton seems to be the best patched package.**
 $ pacman -S compton
 
-**# Start the application with **[[../Xorg.txt|xinitrc]]** and use your dotfile conf (Github)**
+**# Start the application in **[[../Xorg.txt|xinitrc]]** and use your dotfile conf (Github)**
 	compton -b --config ~/.compton.conf

@@ -16,6 +16,8 @@ Created søndag 18 december 2016
 **# To open the terminal **//$mod+Enter//
 **# To open dmenu **//Alt+F2//
 
+**# HDMI controls with **//$mod+p//
+
 == Applications ==
 **# Run Firefox with **//Alt+w//
 **# Run Gedit with **//Alt+e//

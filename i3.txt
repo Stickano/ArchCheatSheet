@@ -15,7 +15,7 @@ $ yaourt -S dmenu2
 **# My logout script requires **//polkit //**too**
 $ pacman -S polkit
 
-**# The screen locker needs **//xss-lock//** from the AUR**
+**# The screen locker needs **//xss-lock//** from the AUR (auto lock/ 10min.)**
 **# You can change the background image for the lockscreen in the **//i3//** config**
 $ yaourt -S xss-lock-git
 
@@ -25,7 +25,12 @@ $ pacman -S feh
 **# You need **//font-awesome//** to display icons in the workspace bar (AUR)**
 $ yaourt -S ttf-font-awesome
 
-**# NOTE! Also install the ttf-font-package that you chose. **
+**# NOTE! Also install the ttf-font-package that you chose and correct in **//i3//** config.**
+
+**# For the **//$mod+l//** lock screen you need **//imagemagick//** and **//scrot// 
+**# You also need a icon (**https://www.iconfinder.com**) and correct it in the **//i3 //**config.**
+$ pacman -S imagemagic scrot
+
 
 
 ===== Configuration =====
@@ -51,4 +56,4 @@ $ pacman -S xorg-xprop
 == Icons in Workspace bar ==
 **# You should have the **//font-awesome//** package installed.**
 **# A nice cheat-sheet for these icons can be found here **http://fontawesome.io/cheatsheet/
-**# Then just copy the icon you'd like into a string in the config file.**
+**# Then just copy the icon you'd like into the string in the config file.**

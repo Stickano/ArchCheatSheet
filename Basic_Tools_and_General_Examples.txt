@@ -31,7 +31,11 @@ Now you can use //locate filename/folder 	//to find files and folders on the sys
 
 == htop ==
 Install the //htop// package.
-More a more detailed //top// command (process viewer). 
+For a more detailed //top// command (process viewer). 
+$ htop
 
 == Create a bootable USB with dd ==
 $ dd bs=4M if=/path/to/image of=/dev/sdX && sync
+
+== Creating Symlinks ==
+$ ln -s //<file/folder> <target_location>//

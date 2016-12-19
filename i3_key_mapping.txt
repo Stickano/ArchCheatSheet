@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-18T23:06:32+01:00
+
+====== i3 key mapping ======
+Created søndag 18 december 2016
+
+**# This is based on my personal key-bindings. My **//i3//** .dotfile can be found at Github.**
+**# My **//$mod//**-key is set to Super-key.**
+
+== System ==
+**# To reload the configuration file **//$mod+Shift+c//
+**# To restart i3 in place **//$mod+Shift+r//
+**# Log out/ shutdown options **//$mod+Shift+e//
+
+**# To open the terminal **//$mod+Enter//
+**# To open dmenu **//Alt+F2//
+
+== Applications ==
+**# Run Firefox with **//Alt+w//
+**# Run Gedit with **//Alt+e//
+
+== Navigation ==
+**# Float a window with **//$mod+Shift+Space//
+**# Hold down **//$mod//** and drag with mouse, to position floating windows.**
+**# To switch focus between Tiling and Floating containers, use **//$mod+Space//
+
+**# Move around in the Window-three with **//$mod+Arrow-keys//
+
+**# Split between Horizontal and Vertical window tiling with **//$mod+v //**and **//$mod+h//
+
+**# Change the container layout (stacked, tabbed or split)**
+**# Stacking = **//$mod+s//
+**# Tabbed = **//$mod+w//
+**# Split = **//$mod+e//
+
+**# Focus the parent container with **//$mod+a//
+**# Focus the child container with **//$mod+d//
+
+**# Move to workspaces with **//$mod+1,2,3 etc//
+**# You are able to go back and forth workspaces hitting **//$mod+4//** twice etc.**
+**# Further more, you can drag a container along back and forth with **//$mod+z//
+
+== Containers ==
+**# To kill focused container **//$mod+Shift+q//
+**# To make a container fullscreen **//$mod+f//
+
+**# To move a container to a different workspace, use **//$mod+Shift+1,2,3 etc.//
+
+**# Resize a container with **//$mod+r//** this will enter resize mode. Use the arrow keys and hit ESC when satisfied.**

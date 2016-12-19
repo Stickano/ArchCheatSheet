@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-19T05:34:17+01:00
+
+====== Theming ======
+Created mandag 19 december 2016
+
+**I'll try to put-together a list of sweet ass themes. **
+**Manage your themes with **[[../lxappearance.txt|lxappearance]]**.**
+
+== Window Themes ==
+**# The **//arc-theme//** is pretty sweet**
+**# As long as you use Firefox, you should install the following **//arc-theme//
+$ yaourt -S arc-firefox-theme
+

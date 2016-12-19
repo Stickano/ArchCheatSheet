@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-19T02:37:39+01:00
+
+====== Feh ======
+Created mandag 19 december 2016
+
+**Feh can be used as both your image viewer and wallpaper manager. **
+
+== Installation ==
+$ pacman -S feh
+
+===== Image Viewer =====
+**# To browse images in a specific folder, you can invoke **//Feh//** as follows**
+$ feh -g 640x480 -d -S filename /path/to/directory
+
+**# **//-g //**= no larger than 640x480**
+**# **//-d//** = will get the filename as well**
+**# **//-S//** = sort by (filename in this example)**
+
+== SVG images ==
+**# This requires the **//imagemagick//** package**
+$ pacman -S imagemagick
+
+**# Then open SVG images with**
+$ feh --magick-timeout 1 file.svg
+
+
+===== Wallpaper manager =====
+**# Background script found on Github.**
+**# Copy your background script into your **//~/.script//** folder and start it from **[[../Xorg.txt|xinitrc]]**.**
+	./home/stick/.scripts/background &
+	

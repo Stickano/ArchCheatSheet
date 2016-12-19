@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-19T06:29:29+01:00
+
+====== Additional sweetass software ======
+Created mandag 19 december 2016
+
+**A list of candy to the eyes. **
+
+== Compton ==
+**# A composite manager for transparancy and shadows.**
+**# Compton seems to be the best patched package.**
+$ pacman -S compton
+
+**# Start the application with **[[../Xorg.txt|xinitrc]]** and use your dotfile conf (Github)**
+	compton -b --config ~/.compton.conf

@@ -8,8 +8,9 @@ Created lørdag 22 oktober 2016
 
 ===== Installation (+additional system packages) =====
 [[Arch_Base]] 
-[[AUR_Support]] (yaourt)
-[[Xorg]] (Display Server)
+[[CDM]] (display/login manager)
+[[Xorg]] (+xinit) (Display Server)
+[[AUR_Support]] (yaourt
 [[Display_Driver]] (intel/nvidia with bumblebee)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
 [[fuseiso]] (mount .iso files)
@@ -23,8 +24,9 @@ Created lørdag 22 oktober 2016
 [[CPU]] 
 [[Laptop]] 
 
-===== Desktop Environments =====
-[[Gnome]] 
+===== Window Manager =====
+[[i3]] 
+[[i3_key_mapping]] 
 
 ===== Network =====
 [[netctl]] (management)
@@ -59,19 +61,28 @@ Created lørdag 22 oktober 2016
 [[clamav]] (anti-virus)
 [[lynis]] (security audit)
 
-===== Preferred Applications =====
+===== Preferred Software =====
 [[mplayer]]  (mediaplayer)
 [[LibreOffice]] (office-suite)
-[[Gnu_Screen]] 
-[[Additionale_Badass_Software]] (random list of keks)
+[[Feh]] (image/wallpaper)
+[[Additional Badass Software]] (random list of keks)
+
+===== Eye Candy =====
+[[Theming]] 
+[[lxappearance]] (configure system wide themes and fonts)
+[[Fonts]] 
+[[Additional_sweetass_software]] 
 
 ===== Development =====
 [[Git]] 
 
-===== Terminal =====
+===== Terminal (+shell) =====
 [[Aliases]]
 [[Functions]] 
-[[Improvements]] (.bashrc/.inputrc)
+[[Zsh]] (+oh-my-zsh) (shell)
+[[Gnu_Screen]] 
+[[Xresources]] (terminal)
+[[Improvements]] (.bashrc/.inputrc) # SCRAPPED
 
 ===== SSH =====
 [[Server_and_Client]] 
@@ -81,6 +92,7 @@ Created lørdag 22 oktober 2016
 
 ===== Crypto =====
 [[GPG]]  (GnuPG)
+[[monero]] (currency)
 
 ===== Analysis =====
 [[nmap]] 

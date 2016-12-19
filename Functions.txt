@@ -60,29 +60,8 @@ quiet (){
 }
 complete -A command quiet
 
-== Get IP-address ==
-**# Use with** //myip//
-myip ()
-{
-  lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '{ print $4 }' | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g' 
-}
-
-== Show network information ==
-**# Use with **//netinfo//
-netinfo ()
-{
-echo "--------------- Network Information ---------------"
-/sbin/ifconfig | awk /'inet addr/ {print $2}'
-/sbin/ifconfig | awk /'Bcast/ {print $3}'
-/sbin/ifconfig | awk /'inet addr/ {print $4}'
-/sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
-myip=`lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g' `
-echo "${myip}"
-echo "---------------------------------------------------"
-}
-
 == Arch news feed (rss) ==
-**# Use with **//feed http://www.archlinux.org/feeds/news//
+**# Use with **//feed https://www.archlinux.org/feeds/news////
 feed() {
 	# The characters "ç, £, §" are used as metacharacters. They should not be encountered in a feed...
 	echo -e "$(echo $(curl --silent $1 | sed -e ':a;N;$!ba;s/\n/ /g') | \

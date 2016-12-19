@@ -10,13 +10,12 @@ Add to your ~/.bashrc file for permanent settings.
 ===== File and Folder =====
 
 == Listing ==
-alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
-alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
-alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=none -F'
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 
 == Handling ==
-**# confirm before overwrite**
-alias cp="cp -i" 		
+**# confirm before overwrite (**//verbose//**)**
+alias cp="cp -iv" 		
 
 **# create parent folders too**
 alias mkdir="mkdir -pv"		
@@ -38,7 +37,7 @@ alias df="df -Tha --total"
 **# human readable size**
 alias free="free -mt"			
 
-**# requires htop packages (better top view)**
+**# requires **//htop//** packages (better top view)**
 alias top="htop"				
 
 
@@ -47,5 +46,19 @@ alias top="htop"
 alias wget="wget -c"			
 
 
+===== List of Keks =====
+alias wtf='dmesg'
+alias onoz='cat /var/log/errors.log'
 
+alias icanhas='mkdir'
+alias donotwant='rm'
+alias dowant='cp'
+alias gtfo='mv'
 
+alias hai='cd'
+alias plz='pwd'
+
+alias nomnom='killall'
+
+alias cya='reboot'
+alias kthxbai='halt'

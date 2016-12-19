@@ -5,7 +5,7 @@ Creation-Date: 2016-10-23T00:42:15+02:00
 ====== Package Management ======
 Created søndag 23 oktober 2016
 
-===== Logging =====
+== Log files ==
 Pacman's output is logged to /var/log/pacman.log
 
 
@@ -78,7 +78,6 @@ $ dirmngr < /dev/null
 
 
 ===== Tips and Tricks =====
-
 **Packages changelog : **
 Update changes can be viewed by installing //pacolog// (AUR)	run it with :
 $ pacolog //package//
@@ -103,6 +102,7 @@ $ pacman -Sc && pacman-optimize
 ===== Hooks =====
 A hook is an action (or set of) to be run when pacman remove/upgrade/install is invoked.
 Hooks can be saved in /etc/pacman.d/hooks/	Below is a default hook file : 
+Hooks must be saved with the //.hook// extension
 
 	[Trigger]
 	Operation = 
@@ -124,9 +124,7 @@ Hooks can be saved in /etc/pacman.d/hooks/	Below is a default hook file :
 | Type = File \| Package                   | # Select Package                        | # Required             |
 | Target = <path> \| <package>             | # Files in a directory or specific file | # Required, Repeatable |
 
-                                     
- 								
-			
+                                     					
 
 **Actions : **
 |                                          | Description                                                              | Required/repeatable |

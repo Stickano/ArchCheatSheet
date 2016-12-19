@@ -20,9 +20,23 @@ $ pacman -Syy
 $ pacman -S yaourt
 
 
+== Configuration ==
+**Yaourt loves asking you if you'd like to edit pkgbuild.. And to confirm if you are really sure to install package.**
+**Yaourt can be a pain in the ass. Create a file in **//~/.yaourtrc//** and add the following**
+	NOCONFIRM=1
+	BUILD_NOCONFIRM=1
+	EDITFILES=0
+	
+
+
 == General Usage ==
 **Update installed packages :**
 $ yaourt -Syua 			
 
 **Check, edit, merge or remove *.pac* files :**
 $ yaourt -C				
+
+**Ignore pgp-key signature check**
+**Yaourt has fucked with me before. Change the **//siglevel//** variable in **//pacman.conf//** they said.. **
+**To make **//yaourt//** ignore key-signing (could not verify pgp-key yadada)**
+$ yaourt --m-arg --skippgpcheck -Sb

@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-19T04:52:55+01:00
+
+====== lxappearance ======
+Created mandag 19 december 2016
+
+**Lxappearance will allow you to set a system wide font in gtk themed application etc.**
+**One of the reason we use lxappearance, is to generate a couple of GTK files - Both for gtk-2 and gtk-3, which reads its configurations from different locations.**
+
+== Installation ==
+$ pacman -S lxappearance
+
+== Running ==
+**# You can run **//lxappearance //**to get the GUI controls. **
+
+== Configuration ==
+**# Changing a font value in lxappearance (and apply) will generate a couple of configs for gtk-2 and gtk-3.**
+**# Fint them in **//~/.gtkrc-2.0 //**and **//~/.config/gtk-3.0/settings.ini //**and change the font to your liking.**
+

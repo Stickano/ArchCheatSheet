@@ -1,0 +1,67 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-17T14:15:54+01:00
+
+====== monero ======
+Created lørdag 17 december 2016
+
+**Monero is a crypto currency, that we are still able to mine with our limping hardware^**
+**Mine the monero currency and change them into BitCoin - That is the plan. **
+
+== Installation ==
+**# Can be found in the AUR**
+$ yaourt -S bitmonero-git
+
+== Syncing the blockchain ==
+**# You need to import and sync the blockchain. It'll take some time^**
+$ monerod
+
+**# Once synced, save the blockchain **
+$ save
+
+
+== Creating your wallet ==
+**# When creating a new wallet, you will be put through a configuration wizard for a password etc.**
+$ mkdir ~/.monero_wallet
+$ cd ~/.monero_wallet
+$ monero-wallet-cli 
+
+**# The monero wallet will start to refresh**
+**# If it fails on its way, make sure the monerod (daemon) is running and enter **//refresh//** to start refreshing again.**
+
+**# Once your wallet i refreshed, save it**
+$ save
+
+== Using your wallet ==
+**# Start the monero daemon (needs to run in order for the wallet to work)**
+$ monerod
+
+**# and navigate to your wallet folder to run it **
+$ cd ~/.monero_wallet
+$ monero-wallet-cli
+
+**# This will prompt your first to enter the name of your wallet (chosen in the conf-wizard)**
+**# Then your password. Once succeeded, your wallet will be displayed. **
+
+**# To view your public address**
+$ address
+
+**# To view your balance**
+$ balance
+
+**# To send money**
+$ transfer //<address> <amount>//
+
+
+===== Mining =====
+**# To mine monero coins you'll have to be a member of a pool. **
+**# To first monero mining pools seems to have a 100% donation rate, which is nice.**
+**# They take a little higher fee though (1.9%), but it goes to a good cause I guess.**
+**# This pool can be found at **https://moneropool.com
+
+**# You will also need a mining software **
+**#** **(THIS IS A CPU MINER. There is also GPU miners)**
+$ yaourt -S cpuminer-multi
+
+**# To start mining**
+$ cpuminer -a cryptonight -o stratum+tcp://mine.moneropool.com:3333 -u //<YOUR_WALLET_ADDRESS>// -p x

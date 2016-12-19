@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-18T03:20:18+01:00
+
+====== i3 ======
+Created søndag 18 december 2016
+
+== Installation ==
+**# Install the **//i3//** package group**
+$ pacman -S i3
+
+**# **//i3//** also depends on **//dmneu//**. There is a AUR fork with additions added - such as **//dimming, opacity//** and **//underlining//**.**
+$ yaourt -S dmenu2
+
+**# My logout script requires **//polkit //**too**
+$ pacman -S polkit
+
+**# The screen locker needs **//xss-lock//** from the AUR**
+**# You can change the background image for the lockscreen in the **//i3//** config**
+$ yaourt -S xss-lock-git
+
+**# **//Feh //**for wallpapers handling**
+$ pacman -S feh
+
+**# You need **//font-awesome//** to display icons in the workspace bar (AUR)**
+$ yaourt -S ttf-font-awesome
+
+**# NOTE! Also install the ttf-font-package that you chose. **
+
+
+===== Configuration =====
+**# A complete user guide for **//i3//** can be fount at **https://i3wm.org/docs/userguide.htm
+**# Launch **//i3//** on login with **[[../Xorg.txt|xinitrc]]**. Add the following to your **//~/.xinitrc//** file.**
+	exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1 
+
+**# First time **//i3//** is run it'll provide you with a configuration wizard. **
+**# Quit the wizard and copy your config to **//~/.config/i3/config//
+
+== i3status ==
+**# Copy and edit the default configuration file - the folder might need to be created first.**
+$ cp /etc/i3status.conf ~/.config/i3status/config
+
+== Getting Window Information ==
+**# Should you change your applications and want information for key-binding etc**
+**# Install the **//xorg-xprop//** package**
+$ pacman -S xorg-xprop
+
+**# Run **//xprop//** and watch your cursor turn into a corsair. Now click the Window you want information about.**
+**# The **//WM_CLASS(STRING) = "Navigator", "Firefox" //**(etc) might be of interest - specialy the second string (**//Firefox//**)**
+
+== Icons in Workspace bar ==
+**# You should have the **//font-awesome//** package installed.**
+**# A nice cheat-sheet for these icons can be found here **http://fontawesome.io/cheatsheet/
+**# Then just copy the icon you'd like into a string in the config file.**

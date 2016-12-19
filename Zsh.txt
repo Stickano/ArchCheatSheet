@@ -1,0 +1,112 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-17T16:16:20+01:00
+
+====== Zsh ======
+Created lørdag 17 december 2016
+
+**Zsh is an alternate, improved, version from the Bash shell (default).**
+**My **//.zshrc//** file can be found at Github:LinuxConfigs**
+
+== Installation ==
+$ pacman -S zsh
+
+== Configuring $PATH ==
+**# Paths should be set in a different configuration, since there is some source conflict with /etc/profile**
+**# To prevent the path from being overwritten, set it in **//~/.zprofile//
+	typeset -U path
+	path=(~/bin /home/stick/.scripts /usr/local/bin $path[@])
+	
+
+===== Configuration =====
+**# User configuration is found in **//~/.zshrc//
+**# The following can be added to the **//.zshrc//** file for preferred functionality**
+
+== Auto completion ==
+**# The following includes SSH/scp and stfp **
+	autoload -Uz compinit
+	compinit
+
+**# For alias completion**
+	setopt COMPLETE_ALIASES
+
+
+== History Search ==
+**# With the arrow keys**
+	autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+	zle -N up-line-or-beginning-search
+	zle -N down-line-or-beginning-search
+	
+	[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
+	[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
+
+== Themes ==
+**# Allows you to use themes**
+	autoload -Uz promptinit
+	promptinit
+
+
+== Terminal Reset ==
+**# Reset terminal if application crashes abnormally**
+	ttyctl -f
+
+
+== Automaticly update new executeables in $PATH ==
+	zstyle ':completion:*' rehash true
+	
+
+== Search official repositories when a command was invalid ==
+**#** **This requires the pkgfile package **
+$ pacman -S pkgfile
+
+**#** **Once installed the pkgfile database can be synced with **
+$ pkgfile -u
+
+**#** **Enable its system timer servce **
+$ systemctl enable pkgfile-update.timer
+
+**# Then add the following to the **//~/.zshrc//** file**
+	source /usr/share/doc/pkgfile/command-not-found.zsh
+
+
+===== Oh my Zsh =====
+**# OMZsh is a shitload of additional functions and themes ready to use out-the-box**
+**# Below is still just added to the **//.zshrc//** file - OMZsh just adds a little extra.**
+**# A further explained (example) OMZsh **//.zshrc//** file can be found at gedit **///usr/share/oh-my-zsh/zshrc// 
+
+== Install from the AUR ==
+$ yaourt -S oh-my-zsh-git
+
+== Themes ==
+**# Original (supported) themes can be found at **https://github.com/robbyrussell/oh-my-zsh/wiki/themes
+**# I've found this one to be quite lovely**
+	ZSH_THEME="ys"
+
+
+== Functions ==
+**# Functions are added to the **//plugins=()//** line (space seperated list)**
+**# A full list of functions can be found here **https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+**# Below is a list of favorites^**
+
+**# dirhistory**
+**# Allows you to navigate back and forth in directories (history) with the arrow keys**
+**# Usage : **//ALT+left 	ALT+right	//
+
+**# encode64**
+**# Encode/decode base64**
+**# Usage : **//encode64 <string>	decode64 <string>//
+
+**# screen**
+**# Automaticly sets title and status for **[[../Gnu_Screen.txt|Gnu Screen]]
+
+**# sudo**
+**# **//ESC//** twice to put sudo infront of current command**
+
+**# urltools**
+**# For URL manipulation. Encode/decode the RFC 1738 standard**
+**# Usage : **//urlencode <string> 	urldecode <string>//
+
+**# web-search**
+**# adds **//bing, google, yahoo //**and **//DUCKDUCKGO! //**to command web search**
+**# Usage : **//ddg <search>		google <search> //

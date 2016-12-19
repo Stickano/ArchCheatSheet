@@ -2,9 +2,34 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-10-24T01:39:52+02:00
 
-====== Xorg ======
+====== Xorg and Xinit ======
 Created mandag 24 oktober 2016
 
-===== Installation =====
+**# Xorg is our display server and Xinit provides a way to start the server. **
+
+===== Xorg =====
 **Install the following packages :**
 $ pacman -S xorg-serv xorg-server-utils
+
+
+===== Xinit =====
+**# Xinit provodides **//startx, xinit //**and a basic **//xinitrc//** configuration file.**
+
+== Xserverrc ==
+**# Both **//startx //**and **//xinit//** executes **//~/.xserverrc//** which is not created by default. **
+**# You should create a **//~/.xserverrc//** file **
+**# The following will help maintain a session and help prevent bypassing the screen locker**
+	#!/bin/sh
+	exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
+
+
+== Xinitrc ==
+**# Create a copy of the default **//xinitrc //**file**
+$ $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+
+**# By default it starts a few applications. Theese can be outcommented in the **//~/xinitrc//** file.**
+**# You can append applications to start leading with a & for multiple entries.**
+**# Lines after **//exec//** won't be read.**
+	application1 &
+	application2 &
+	exec dekstop

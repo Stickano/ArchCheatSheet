@@ -200,3 +200,15 @@ $ git remote -v
 == Auto completion with Bash commands ==
 **# To add auto-complete on Git commands in your terminal, add the following to your **//.bashrc//** file**
 	source /usr/share/git/completion/git-completion.bash
+	
+== Aliases ==
+**# Consider these aliases for your **//~/.bashrc//** file**
+	alias such=git
+	alias very=git
+	alias wow='git status'
+	
+**# Would produce**
+$ wow
+$ such commit
+$ very push
+

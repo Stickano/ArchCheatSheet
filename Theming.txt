@@ -6,9 +6,26 @@ Creation-Date: 2016-12-19T05:34:17+01:00
 Created mandag 19 december 2016
 
 **I'll try to put-together a list of sweet ass themes. **
-**Manage your themes with **[[../lxappearance.txt|lxappearance]]**.**
+**Manage your themes with **lxappearance**.**
 
-== Window Themes ==
+**Lxappearance will allow you to set a system wide font in gtk themed application etc.**
+**One of the reason we use lxappearance, is to generate a couple of GTK files - Both for gtk-2 and gtk-3, which reads its configurations from different locations.**
+
+== Installation ==
+$ pacman -S lxappearance
+
+== Running ==
+**# You can run **//lxappearance //**to get the GUI controls. **
+
+== Configuration ==
+**# Changing a font value in lxappearance (and apply) will generate a couple of configs for gtk-2 and gtk-3.**
+**# Find them in **//~/.gtkrc-2.0 //**and **//~/.config/gtk-3.0/settings.ini //**and change the content to your liking.**
+
+
+
+===== Window Themes =====
+
+== Arc ==
 **# The **//arc-theme//** is pretty sweet**
 **# As long as you use Firefox, you should install the following **//arc-theme//
 $ yaourt -S arc-firefox-theme

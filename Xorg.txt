@@ -9,7 +9,7 @@ Created mandag 24 oktober 2016
 
 ===== Xorg =====
 **Install the following packages :**
-$ pacman -S xorg-serv xorg-server-utils
+$ pacman -S xorg-serv xorg-server-utils xorg-xinit
 
 
 ===== Xinit =====

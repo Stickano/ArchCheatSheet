@@ -28,10 +28,8 @@ $ pacman -S xorg-xrdb
 	**class = **Clasification used to group resources together.
 	**resource = **The name of the resource whose value is to be changed.
 	**value = **The actual value of the resource. Can be int, bool or string value. 
-	
-**Ex.**
-	xscreensaver.Dialog.headingFont: -*-fixed-bold-r-*-*-*-100-*-*-*-*-iso8859-1
-	
+
+**# The following can be added to you **//.Xresources//** file for preferred setup**
 
 == Xterm configurations ==
 **# Some applications may not display correct colors before an input has been made. Corret this with**
@@ -59,7 +57,7 @@ $ pacman -S xorg-xrdb
 **# Blinking Cursor**
 	XTerm*cursorBlink: true
 	
-**# Open links in terminal - Alt+Click to open the link in firefox (etc)**
+**# Open links in terminal - Shift+Click to open the link in firefox (etc)**
 	*VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY)
 	
 **# Remove black border from terminal window**

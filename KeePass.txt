@@ -1,0 +1,41 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-21T23:40:42+01:00
+
+====== KeePass ======
+Created onsdag 21 december 2016
+
+**KeePass is a local password manager. **
+**Some plugins are available for use with KeePass.**
+
+== Installation ==
+$ pacman -S keepass
+
+
+== Using with Firefox ==
+**# **//KeeFox//** is a Firefox plugin (install it via firefox-plugins/browser)**
+**# Once installed, the browser will restart and a setup guide is available.**
+**# The link in the bottom of this setup guide, will refer you to a .**//plgx//** file - download that!**
+
+**# Copy the downloaded file into KeePass plugins folder.**
+$ cp Downloads/KeePassRPC.plgx /usr/share/keepass/Plugins
+
+**# Click the **//KeeFox//** plugin icon in Firefox. Select Options.**
+**# Under **//KeePass//** set the installed dir**
+	/usr/share/keepass
+	
+**# In **//Advanced//** correct the path to your KeePass db file (.**//kdbx)//
+**# Check of the **//Usage Statistic//**.. Not so keen on sharing anything when it comes to my passwords^**
+
+**# In order for **//KeeFox//** to work, you'll need **//mono//
+$ pacman -S mono
+
+
+===== Troubleshoot =====
+
+== i3 Crash Issue ==
+**# The **//i3//** VM and **//KeePass//** works - well not so well together. **
+**# Edit **///usr/bin/keepass //**and add **//--verify-all //**to the string**
+	#!/bin/sh
+	exec mono **--verify-all** /usr/share/keepass/KeePass.exe "$@"
+	

@@ -61,10 +61,10 @@ quiet (){
 complete -A command quiet
 
 == Arch news feed (rss) ==
-**# Use with **//feed https://www.archlinux.org/feeds/news////
+**# Use with **//feed //
 feed() {
 	# The characters "ç, £, §" are used as metacharacters. They should not be encountered in a feed...
-	echo -e "$(echo $(curl --silent $1 | sed -e ':a;N;$!ba;s/\n/ /g') | \
+	echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news//// | sed -e ':a;N;$!ba;s/\n/ /g') | \
 		sed -e 's/&gt;/ç/g' |
 		sed -e 's/&lt;\/aç/£/g' |
 		sed -e 's/href\=\"/§/g' |

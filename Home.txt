@@ -9,7 +9,7 @@ Created lørdag 22 oktober 2016
 ===== Installation (+additional system packages) =====
 [[Arch_Base]] 
 [[Xorg]] (+xinit) (Display Server)
-[[:XDM]] (Display manager/login prompt)
+[[XDM]] (Display manager/login prompt)
 [[Display_Driver]] (intel/nvidia with bumblebee)
 [[AUR_Support]] (yaourt)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
@@ -49,7 +49,7 @@ Created lørdag 22 oktober 2016
 ===== Users =====
 [[Users and Groups]] 
 [[Permissions]]  (chmod)
-[[:xdg_user_dirs]] (user directories)
+[[xdg_user_dirs]] (user directories)
 
 ===== Maintenance =====
 [[Pacnew_and_Pacsave]] 
@@ -61,6 +61,7 @@ Created lørdag 22 oktober 2016
 ===== Security =====
 [[clamav]] (anti-virus)
 [[lynis]] (security audit)
+[[KeePass]] (password manager)
 
 ===== Preferred Software =====
 [[mplayer]]  (mediaplayer)
@@ -70,7 +71,6 @@ Created lørdag 22 oktober 2016
 
 ===== Eye Candy =====
 [[Theming]] 
-[[lxappearance]] (configure system wide themes and fonts)
 [[Fonts]] 
 [[Additional_sweetass_software]] (random list of orgasms for the eyes)
 

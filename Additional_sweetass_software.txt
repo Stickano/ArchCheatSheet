@@ -14,3 +14,12 @@ $ pacman -S compton
 
 **# Start the application in **[[../Xorg.txt|xinitrc]]** and use your dotfile conf (Github)**
 	compton -b --config ~/.compton.conf
+
+
+== Redshift ==
+**# Dim the screen (well the gamma actually) depending on time of day.**
+**# Config file on Github **
+$ yaourt -S redshift-minimal
+
+**# Enable the service (no sudo!)**
+$ systemctl --user enable redshift.service

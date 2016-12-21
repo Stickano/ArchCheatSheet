@@ -110,3 +110,6 @@ $ yaourt -S oh-my-zsh-git
 **# web-search**
 **# adds **//bing, google, yahoo //**and **//DUCKDUCKGO! //**to command web search**
 **# Usage : **//ddg <search>		google <search> //
+
+**# ssh-agent**
+**# Manage your ssh communication with a breeze^ 	**

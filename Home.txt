@@ -8,10 +8,10 @@ Created lørdag 22 oktober 2016
 
 ===== Installation (+additional system packages) =====
 [[Arch_Base]] 
-[[CDM]] (display/login manager)
 [[Xorg]] (+xinit) (Display Server)
-[[AUR_Support]] (yaourt)
+[[:XDM]] (Display manager/login prompt)
 [[Display_Driver]] (intel/nvidia with bumblebee)
+[[AUR_Support]] (yaourt)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
 [[fuseiso]] (mount .iso files)
 

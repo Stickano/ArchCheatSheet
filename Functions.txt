@@ -52,7 +52,7 @@ mvg (){
   fi
 }
 
-== Run in background ==
+== Run in background (only works with bash) ==
 # Will release a program from the terminal. Ex. mplayer whitch takes up the terminal, when run from terminal. 
 **# Use with** //quiet// //command//
 quiet (){

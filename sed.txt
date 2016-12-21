@@ -12,13 +12,13 @@ sed is a tool for manipulation text.
 $ sed '/^$/d;G'				
 
 **# Undo double spacing**
-$ sed 'n;d'					
+$ sed 'n;d'
 
 **# Insert blank line above lines matching example**
 $ sed '/example/{x;p;x;}'		
 
 **# Insert blank line below lines matching example**
-$ sed '/example/G'			
+$ sed $'s/regexp/\\\n/wqg'
 
 **# Insert blank line below and above lines matching example**
 $ sed '/example/{x;p;x;G;}'		

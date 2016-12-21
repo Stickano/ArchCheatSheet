@@ -31,6 +31,18 @@ $ yaourt -S ttf-font-awesome
 **# You also need a icon (**https://www.iconfinder.com**) and correct it in the **//i3 //**config.**
 $ pacman -S imagemagic scrot
 
+**# Status bar**
+**# You need the **//i3blocks//** for your i3status bar**
+$ yaourt -S i3blocks
+
+**# (Statusbar) The temp. indicator in the statusbar needs **//lm-sensors//
+$ pacman -S lm-sensors
+
+**# (Statusbar) Battery indicator needs **//ACPI//
+$ pacman -S acpi
+
+**# (Statusbar) CPU monitor needs **//sysstat//
+$ pacman -S sysstat
 
 
 ===== Configuration =====
@@ -57,3 +69,38 @@ $ pacman -S xorg-xprop
 **# You should have the **//font-awesome//** package installed.**
 **# A nice cheat-sheet for these icons can be found here **http://fontawesome.io/cheatsheet/
 **# Then just copy the icon you'd like into the string in the config file.**
+
+== Saving Window Layout ==
+**# Needs **//perl-anyevent-i3//** and **//perl-json-xs//
+$ pacman -S perl-anyevent-i3 perl-json-xs
+
+**# Create a layout your workspaces. Remember what programs/commands is run.**
+**# Then save that layout to a json file.**
+# //N//** = workspace.**
+$ i3-save-tree --workspace //N// > ~/.config/i3/layouts/workspace_//N//.json
+
+**# Once the workspace files has been created, they need to be edited**
+**# **//N//** still equals workspace^**
+$ tail -n +2 ~/.config/i3/layouts/workspace_N.json | fgrep -v '// splitv' | sed 's|//||g' > ~/.config/i3/layouts/workspace_N.json
+
+**# Then create execute-able Shell files to use the json snippets.**
+**# Let's say you have 2 workspaces set up. **
+# **Create 2 files in **//~/.config/i3/layouts//
+**# **//load_layout_1.sh //**AND	**// load_layout_2.sh load//
+**# These files needs to look like the following.**
+**# Note that the applications that needs to run on a desktop, needs to specified**
+**# **//N//** is funny enough still the number of the workspace^**
+
+	#!/bin/bash
+	# First we append the saved layout of worspace N to workspace M
+	i3-msg "workspace M; append_layout ~/.config/i3/layouts/workspace_N.json"
+	
+	# And finally we fill the containers with the programs they had
+	(uxterm &)
+	(firefox &)
+	(nautilus &)
+
+**# Make the Shell files executeable**
+$ chmod u+x ~/.config/i3/layouts/load_layout_//N//.sh
+
+**# You can now run the Shell scripts - or add them to your **[[../Xorg.txt|xinit]]**^**

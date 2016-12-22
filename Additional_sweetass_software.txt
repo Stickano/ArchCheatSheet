@@ -25,3 +25,5 @@ $ yaourt -S redshift-minimal
 $ systemctl --user enable redshift.service
 
 **# Get locations (lon/lat) here : **http://www.latlong.net/
+
+

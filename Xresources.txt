@@ -67,4 +67,3 @@ $ pacman -S xorg-xrdb
 == Cursor configurations ==
 **# To set a cursor-theme.**
 	Xcursor.theme: //<theme-name>//
-	

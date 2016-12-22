@@ -11,13 +11,6 @@ Created søndag 04 december 2016
 **# **//gtk-recordmydesktop//** allows you to record videos of your dekstop**
 $ pacman -S gtk-recordmydesktop
 
-== System info and distro logo in terminal ==
-**# **//alsi//** will output systeminfo along with a distro logo in the terminal**
-$ yaourt -S alsi
-
-== Analog clock in tty/terminal ==
-$ yaourt -S clockywock
-
 == PDF Reader ==
 **# **//MuPDF//** is a pretty simple/sweet reader**
 $ pacman -S mupdf

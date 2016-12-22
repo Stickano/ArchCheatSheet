@@ -33,3 +33,4 @@ $ $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 	application1 &
 	application2 &
 	exec dekstop
+

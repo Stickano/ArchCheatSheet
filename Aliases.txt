@@ -12,6 +12,7 @@ Add to your ~/.bashrc file for permanent settings.
 == Listing ==
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -ll --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 
 == Handling ==
 **# confirm before overwrite (**//verbose//**)**

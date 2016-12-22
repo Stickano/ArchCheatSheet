@@ -16,13 +16,11 @@ $ yaourt -S ttf-envy-code-r
 **# Fontconfig is a default library used by many linux distros. **
 **# Fontconfig comes with some presets that can be activated - found in **///etc/fonts/conf.avail///
 **# Do this, by creating a folder in **//~/.config/fontconfig/conf.d //**(Requires **[[../XDG_Base_Directories.txt|XDG]]** variables to be set)**
+
 **# Navigate to the folder and create symlinks, to the presets you'd like activated.**
 $ cd ~/.config/fontconfig/conf.d/
 
 **# Here are the presets that seems reasonable **
-**# Automatic hinting (hinting tries to match up fonts to a grid)**
-	ln -s /etc/fonts/conf.avail/10-autohint.conf
-
 **# Use RGB**
 	ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
 	

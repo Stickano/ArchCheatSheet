@@ -58,6 +58,7 @@ mvg (){
 quiet (){
   nohup $1 &>/dev/null &
 }
+**# The **//complete//** is a bash command. **
 complete -A command quiet
 
 == Arch news feed (rss) ==

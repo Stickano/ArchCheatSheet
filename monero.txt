@@ -13,11 +13,12 @@ Created lørdag 17 december 2016
 $ yaourt -S bitmonero-git
 
 == Syncing the blockchain ==
-**# You need to import and sync the blockchain. It'll take some time^**
+**# You need to import and sync the blockchain. **
 $ monerod
 
-**# Once synced, save the blockchain **
-$ save
+**# It'll take some time^**
+**# Once updated, leave the daemon running. **
+**Good for the community and your wallet needs fully synced chain anyways (when running).**
 
 
 == Creating your wallet ==
@@ -54,7 +55,7 @@ $ transfer //<address> <amount>//
 
 
 ===== Mining =====
-**# To mine monero coins you'll have to be a member of a pool. **
+**# To mine monero coins you'll have to mine with a pool. **
 **# To first monero mining pools seems to have a 100% donation rate, which is nice.**
 **# They take a little higher fee though (1.9%), but it goes to a good cause I guess.**
 **# This pool can be found at **https://moneropool.com

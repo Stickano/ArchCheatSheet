@@ -6,8 +6,84 @@ Creation-Date: 2016-12-19T04:37:25+01:00
 Created mandag 19 december 2016
 
 **I will try to collect a little info about sweet fonts and optimization. **
-**You should always go for ttf- fonts.**
 
-== Sweet Fonts ==
+== Sweet Infinality Fonts ==
+**# Eye-gasm! Envy-Code**
+$ yaourt -S ttf-envy-code-r
+
+
+===== Fontconfig =====
+**# Fontconfig is a default library used by many linux distros. **
+**# Fontconfig comes with some presets that can be activated - found in **///etc/fonts/conf.avail///
+**# Do this, by creating a folder in **//~/.config/fontconfig/conf.d //**(Requires **[[../XDG_Base_Directories.txt|XDG]]** variables to be set)**
+**# Navigate to the folder and create symlinks, to the presets you'd like activated.**
+$ cd ~/.config/fontconfig/conf.d/
+
+**# Here are the presets that seems reasonable **
+**# Automatic hinting (hinting tries to match up fonts to a grid)**
+	ln -s /etc/fonts/conf.avail/10-autohint.conf
+
+**# Use RGB**
+	ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+	
+**# If RGB is defined, so should LCD-filter**
+	ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf
+
+**# Personal fonts configuration - found at Github**
+**# The personal config should be stored in **//~/.config/fontconfig/fonts.conf//
+	ln -s /etc/fonts/conf.avail/50-user.conf
+
+**# Disable bitmap fonts**
+	ln -s /etc/fonts/conf.avail/70-no-bitmaps.con
+
+
+===== Infinality =====
+**# Infinality comes with a great deal of improvements for font rendering. **
+
+== Installation ==
+**# To install Infinality, you first have to add a couple of repositories to your **///etc/pacman.conf//
+	**# 1; The bundle **
+	[infinality-bundle]
+	Server = http://bohoomil.com/repo/$arch
+	
+	**# 2; Multilib**
+	[infinality-bundle-multilib]
+	Server = http://bohoomil.com/repo/multilib/$arch
+	
+	**# 3; Fonts**
+	[infinality-bundle-fonts]
+	Server = http://bohoomil.com/repo/fonts
+
+
+**# You also have to import the maintainers key (**//962DDE58//**)**
+$ pacman-key -r 962DDE58
+$ pacman-key -f 962DDE58
+$ pacman-key --lsign-key 962DDE58
+
+**# ** Then update your system
+$ pacman -Syyu
+
+**# And install core packages + multilib**
+**# There will be conflicts! **//Yes//** them all!**
+$ pacman -S infinality-bundle infinality-bundle-multilib
+
+**# Whenever you find a sweet font - always check if it's in the **//Infinality-bundle-fonts//** repository**
+**# Just look through the fonts from that repository first, when you package search a font **
+$ pacman -Ss //<someFont>//
+
+**# Recommended patches to install**
+$ yaourt -S freetype2-infinality
+$ yaourt -S fontconfig-infinality
+
+
+
+
+
+
+
+
+
+
+== Sweet Fonts # SCRAPPED FOR INFINALITY ==
 **# **//anonymous-pro //**is quite thin and crisp**
 $ yaourt -S ttf-anonymous-pro

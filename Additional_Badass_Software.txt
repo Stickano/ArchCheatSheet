@@ -17,3 +17,19 @@ $ yaourt -S alsi
 
 == Analog clock in tty/terminal ==
 $ yaourt -S clockywock
+
+== PDF Reader ==
+**# **//MuPDF//** is a pretty simple/sweet reader**
+$ pacman -S mupdf
+
+**# Launched from the terminal**
+$ mupdf ///path/to/pdf//
+
+**# Passwords, append **//-d//
+$ mupdf -d //<password>// ///path/to/pdf//
+
+**# Start page 225 (etc)**
+$ mupdf -p 225
+
+**# Zoom Level (etc)**
+$ mupdf -z 225%

@@ -30,6 +30,7 @@ $ pacman -S xorg-xrdb
 	**value = **The actual value of the resource. Can be int, bool or string value. 
 
 **# The following can be added to you **//.Xresources//** file for preferred setup**
+**# To see currently loaded configurations, run **//xrdb -query -all//
 
 == Xterm configurations ==
 **# Some applications may not display correct colors before an input has been made. Corret this with**

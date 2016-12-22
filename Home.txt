@@ -14,10 +14,12 @@ Created lørdag 22 oktober 2016
 [[AUR_Support]] (yaourt)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
 [[fuseiso]] (mount .iso files)
+[[:XDG_Base_Directories]] 
 
 ===== Software Performance =====
 [[Kernel]] (zen)
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
+[[:DKMS]] 
 
 ===== Hardware Performance and Improvements for Weardown =====
 [[SSD]] 

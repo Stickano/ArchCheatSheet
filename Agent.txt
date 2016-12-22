@@ -5,7 +5,13 @@ Creation-Date: 2016-11-23T12:13:50+01:00
 ====== Agent ======
 Created onsdag 23 november 2016
 
-**An SSH agent will cache your private-key, so it can be provided to other SSH clients (Git etc). **//ssh-agent//** is the default agent included with OpenSSH.**
+**An SSH agent will cache your private-key, so it can be provided to other SSH clients (Git etc). **
+//ssh-agent//** is the default agent included with OpenSSH.**
+
+**# Zsh!**
+**# There is a plugin in OMZ, that allows you to easily run a SSH-agent at startup. See **[[../Zsh.txt|Zsh]]**.**
+
+===== Bash =====
 
 == Run the agent ==
 $ eval $(ssh-agent)
@@ -23,3 +29,4 @@ $ ssh-add ~/.ssh///<private-key>//
 	if [[ "$SSH_AGENT_PID" == "" ]]; then
 		eval $(<~/.ssh-agent)
 	fi
+

@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-22T01:35:25+01:00
+
+====== Terminal Keks ======
+Created torsdag 22 december 2016
+
+**Fortune can display random qoutes.**
+**Cowsay is ASCII images - default is a cow duh'**
+**lolcat will give you rainbows in the terminal!**
+
+
+===== Fortune =====
+
+== Installation ==
+$ pacman -S fortune
+
+**# A set of "offensive" qoutes can be found in **///usr/share/fortune/off///
+
+===== Cowsay =====
+
+== Installation ==
+$ pacman -S cowsay
+
+**# ASCII images can be found in **///usr/share/cows///
+**# They can also be listed with **//cowsay -l//
+**# Use a specific image with **//cowsay -f <themeName>//
+
+===== Lolcat =====
+
+== Installation ==
+$ pacman -S lolcat
+
+== General Usage ==
+**# Pipe something with **//lolcat//**. The Calendar etc**
+$ cal | lolcat
+
+**# Animation (**//-a//**)**
+**# **//-d//** = duration**
+$ echo "You've been kekd" | lolcat -a -d 500
+
+
+
+
+===== Combining for Keks =====
+**# Random **//cowsay//** image, with random facial expression and random qoute from **//fortune//
+$ fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n
+

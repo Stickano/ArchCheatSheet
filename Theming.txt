@@ -27,6 +27,20 @@ $ pacman -S lxappearance
 
 == Arc ==
 **# The **//arc-theme//** is pretty sweet**
-**# As long as you use Firefox, you should install the following **//arc-theme//
+**# As long as you use Firefox, you should install the following **//arc-theme //**from the browser/plugins**
 $ yaourt -S arc-firefox-theme
 
+
+===== Grub2 =====
+**# Archlinux Grub theme**
+$ yaourt -S grub2-theme-archlinux
+
+**# Edit the **///etc/default/grub //**configuration file**
+**# Change, and out-comment, the **//GRUB_THEME="" //**line to**
+	GRUB_THEME="/boot/grub/themes/Archlinux/theme.txt"
+
+**# Also change the **//GRUB_GFXMODE=auto//** to (best viewed)**
+	GRUB_GFXMODE=1024x768
+	
+**# Then re-configure your grub **
+$ grub-mkconfig -o /boot/grub/grub.cfg

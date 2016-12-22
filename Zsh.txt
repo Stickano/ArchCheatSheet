@@ -112,4 +112,6 @@ $ yaourt -S oh-my-zsh-git
 **# Usage : **//ddg <search>		google <search> //
 
 **# ssh-agent**
-**# Manage your ssh communication with a breeze^ 	**
+**# Add the following to your **//.zshrc//** file to enable**
+	zstyle :omz:plugins:ssh-agent agent-forwarding on 	
+

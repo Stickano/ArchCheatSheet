@@ -37,6 +37,7 @@ $ mkdir /usr/local/share/backgrounds
 **# Change the **//xconsole//** command to the following**
 	 /usr/bin/qiv -zr /usr/local/share/backgrounds/*
 	
+
 == Font ==
 **# Edit the **///etc/X11/xdm/Xresources//** file**
 **# Twiggle with the following lines**

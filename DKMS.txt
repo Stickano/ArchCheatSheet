@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-22T04:42:03+01:00
+
+====== DKMS ======
+Created torsdag 22 december 2016
+
+**Dynamic Kernel Module Support - handles rebuild of package modules residing outsite the kernel three.**
+**This means, that modules will be rebuild when new kernels are installed - instead of waiting for maintainer to release new build.**
+
+== Installation ==
+$ pacman -S dkms
+
+**# DKMS also need the headers for ALL the installed kernels. **
+**# Let's assume you have the **//zen//** and **//lts//** kernels installed**
+$ pacman -S linux-zen-headers linux-lts-headers
+
+**# Only packages I've come along so far;**
+**# Nvidia Driver**
+$ pacman -S nvidia-dkms
+
+**# VirtualBox**
+$ pacman -S virtualbox-host-dkms
+$ pacman -S virtualbox-guest-dkms
+
+
+===== Usage =====
+**# Doubt you'll ever invoke dkms in anything.**
+**# You can see which DKMS packages you have installed though**
+$ dkms status
+
+**# To rebuild all modules on current kernel **
+$ dkms autoinstall
+
+
+===== Tips and Tricks =====
+**# Though, again, probably never used, you can add DKMS auto-complete to your Shell**
+**# Add the following to your **//.bashrc/.zshrc//** file.**
+	source /usr/share/bash-completion/completions/dkms

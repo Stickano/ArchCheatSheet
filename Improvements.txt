@@ -34,27 +34,33 @@ Allows you to write /etc		instead of cd /etc
 == Line wrap on window resize : ==
 	shopt -s checkwinsize	
 
+
 == Complete sudo commands : ==
 	complete -cf sudo
 	
+
 == Correct minor writing errors : ==
 	shopt -s cdspell
 	
+
 == Include . (dot) files in pathname ==
 	shopt -s dotglob
 	
+
 == Execute aliases instant, when combined with a different command ==
 **# If you run a **//command + alias//** in the same line, by default, the alias command will be read as a new line.**
 **# Therefore, it would execute the command, wait, then execute the alias. **
 **# This will correct that behaviour and run the alias in the first execute.**
 	shopt -s expand_aliases
 	
+
 == Extended pattern matching in pathnames ==
 		shopt -s extglob
 		
 
 
 ===== .inputrc =====
+**# The **//inputrc//** is a Bash only dotfile.**
 Resides in ~/.inputrc	Below can be added to the .inputrc file for preffered configurations. 
 Make sure 	$include /etc/inputrc 	is present in the top of the .inputrc file. 
 

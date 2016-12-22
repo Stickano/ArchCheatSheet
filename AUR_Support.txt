@@ -23,7 +23,6 @@ $ pacman -S yaourt
 == Configuration ==
 **Yaourt loves asking you if you'd like to edit pkgbuild.. And to confirm if you are really sure to install package.**
 **Yaourt can be a pain in the ass. Create a file in **//~/.yaourtrc//** and add the following**
-	NOCONFIRM=1
 	BUILD_NOCONFIRM=1
 	EDITFILES=0
 	

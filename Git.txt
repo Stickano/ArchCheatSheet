@@ -78,11 +78,15 @@ $ git ls-files
 **# You should commit changes to a branch (See a little further down)**
 **# Once changes/additions has been made, commit those changes. Commit often.**
 **# **//a//** will add changes from all known files.**
-**# If **m "message"** is exluded, the default text-editor will open, alowing you to add a long message instead.**
+**# If -**m "message"** is exluded, the default text-editor will open, alowing you to add a long message instead.**
 $ git commit -am "Short Message."
 
 **# Change/edit the message for the last commit**
 $ git commit --amend -m "Short Message."
+
+**# To reset a commit - or severals - use reset**
+**# This example, back up 1 commit.**
+$ git reset HEAD~1
 
 ===== View Changes =====
 **# Between staging area and the working tree (commit to push)**
@@ -92,6 +96,7 @@ $ git diff
 $ git status
 
 **# Hisory overview	**//-N//**	is the number of commits to include (numeric value)**
+**# You can append **//--oneline//** for a better overview**
 $ git log -p (-N)
 
 ===== Branches =====
@@ -201,6 +206,7 @@ $ git remote -v
 **# To add auto-complete on Git commands in your terminal, add the following to your **//.bashrc//** file**
 	source /usr/share/git/completion/git-completion.bash
 	
+
 == Aliases ==
 **# Consider these aliases for your **//~/.bashrc//** file**
 	alias such=git

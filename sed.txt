@@ -5,7 +5,7 @@ Creation-Date: 2016-10-22T14:17:55+02:00
 ====== sed ======
 Created lørdag 22 oktober 2016
 
-sed is a tool for manipulation text. 
+**sed is a tool for manipulation text.** 
 
 == Spacing : ==
 **# Double spaces (doesn't make double blank lines)**

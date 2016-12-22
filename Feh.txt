@@ -16,7 +16,7 @@ $ feh -g 640x480 -d -S filename /path/to/directory
 
 **# **//-g //**= no larger than 640x480**
 **# **//-d//** = will get the filename as well**
-**# **//-S//** = sort by (filename in this example)**
+**# **//-S//** = sort by (**//filename//** in this example)**
 
 == SVG images ==
 **# This requires the **//imagemagick//** package**

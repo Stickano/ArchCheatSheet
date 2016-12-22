@@ -24,7 +24,6 @@ Created søndag 18 december 2016
 
 == Navigation ==
 **# Float a window with **//$mod+Shift+Space//
-**# Hold down **//$mod//** and drag with mouse, to position floating windows.**
 **# To switch focus between Tiling and Floating containers, use **//$mod+Space//
 
 **# Move around in the Window-three with **//$mod+Arrow-keys//

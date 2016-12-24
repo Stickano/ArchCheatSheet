@@ -11,30 +11,9 @@ Created mandag 19 december 2016
 **# Eye-gasm! Envy-Code**
 $ yaourt -S ttf-envy-code-r
 
+**# **//anonymous-pro //**is quite thin and crisp**
+$ yaourt -S ttf-anonymous-pro
 
-===== Fontconfig =====
-**# Fontconfig is a default library used by many linux distros. **
-**# Fontconfig comes with some presets that can be activated - found in **///etc/fonts/conf.avail///
-**# Do this, by creating a folder in **//~/.config/fontconfig/conf.d //**(Requires **[[../XDG_Base_Directories.txt|XDG]]** variables to be set)**
-**# Navigate to the folder and create symlinks, to the presets you'd like activated.**
-$ cd ~/.config/fontconfig/conf.d/
-
-**# Here are the presets that seems reasonable **
-**# Automatic hinting (hinting tries to match up fonts to a grid)**
-	ln -s /etc/fonts/conf.avail/10-autohint.conf
-
-**# Use RGB**
-	ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
-	
-**# If RGB is defined, so should LCD-filter**
-	ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf
-
-**# Personal fonts configuration - found at Github**
-**# The personal config should be stored in **//~/.config/fontconfig/fonts.conf//
-	ln -s /etc/fonts/conf.avail/50-user.conf
-
-**# Disable bitmap fonts**
-	ln -s /etc/fonts/conf.avail/70-no-bitmaps.con
 
 
 ===== Infinality =====
@@ -60,12 +39,12 @@ $ pacman-key -r 962DDE58
 $ pacman-key -f 962DDE58
 $ pacman-key --lsign-key 962DDE58
 
-**# ** Then update your system
+**# Then update your system**
 $ pacman -Syyu
 
 **# And install core packages + multilib**
 **# There will be conflicts! **//Yes//** them all!**
-$ pacman -S infinality-bundle infinality-bundle-multilib
+$ pacman -S infinality-bundle infinality-bundle-multilib ibfonts-meta-extended
 
 **# Whenever you find a sweet font - always check if it's in the **//Infinality-bundle-fonts//** repository**
 **# Just look through the fonts from that repository first, when you package search a font **
@@ -82,8 +61,37 @@ $ yaourt -S fontconfig-infinality
 
 
 
+===== Fontconfig # SCRAPPED FOR INFINALITY! =====
+**# Do NOT add Fontconfig presets with Infinality!**
+**# Fontconfig is a default library used by many linux distros. **
+**# Fontconfig comes with some presets that can be activated - found in **///etc/fonts/conf.avail///
+**# Do this, by creating a folder in **//~/.config/fontconfig/conf.d //**(Requires **[[../XDG_Base_Directories.txt|XDG]]** variables to be set)**
+
+**# Navigate to the folder and create symlinks, to the presets you'd like activated.**
+$ cd ~/.config/fontconfig/conf.d/
+
+**# Here are the presets that seems reasonable **
+**# Use RGB**
+	ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+	
+**# If RGB is defined, so should LCD-filter**
+	ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf
+
+**# Personal fonts configuration - found at Github**
+**# The personal config should be stored in **//~/.config/fontconfig/fonts.conf//
+	ln -s /etc/fonts/conf.avail/50-user.conf
+
+**# Disable bitmap fonts**
+	ln -s /etc/fonts/conf.avail/70-no-bitmaps.con
 
 
-== Sweet Fonts # SCRAPPED FOR INFINALITY ==
-**# **//anonymous-pro //**is quite thin and crisp**
-$ yaourt -S ttf-anonymous-pro
+== TeX live packages ==
+**# By default, TeX packages are not read by Fontconfig. This will make some text render wrong/bad.**
+**# Correct this by installing TeX-live packages and Symlinking it to Fontconfig.**
+$ pacman -S texlive-core 
+
+**# Symlink the location**
+$ ln -s /etc/fonts/conf.avail/09-texlive-fonts.conf /etc/fonts/conf.d/09-texlive-fonts.conf
+
+**# Then update Fontconfig**
+$ fc-cache && mkfontscale && mkfontdir

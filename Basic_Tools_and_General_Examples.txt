@@ -38,5 +38,8 @@ $ htop
 $ dd bs=4M if=/path/to/image of=/dev/sdX && sync
 
 == Creating Symlinks ==
-**# Use total paths! Etc **///home/<user>/folder/file//
+**# Use absolute paths! Etc **///home/<user>/folder/file//
 $ ln -s //<file/folder> <target_location>//
+
+**# To remove a symlink**
+$ unlink //<file/folder>//

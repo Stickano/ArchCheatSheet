@@ -24,6 +24,9 @@ $ cp Downloads/KeePassRPC.plgx /usr/share/keepass/Plugins
 **# Under **//KeePass//** set the installed dir**
 	/usr/share/keepass
 	
+**# Also set the **//Mono Executeable//** (under **//KeePass//**)**
+	/usr/bin/mono
+	
 **# In **//Advanced//** correct the path to your KeePass db file (.**//kdbx)//
 **# Check of the **//Usage Statistic//**.. Not so keen on sharing anything when it comes to my passwords^**
 
@@ -38,4 +41,3 @@ $ pacman -S mono
 **# Edit **///usr/bin/keepass //**and add **//--verify-all //**to the string**
 	#!/bin/sh
 	exec mono **--verify-all** /usr/share/keepass/KeePass.exe "$@"
-	

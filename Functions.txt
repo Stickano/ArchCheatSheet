@@ -80,3 +80,14 @@ feed() {
 		sed -e 's/&lt;[^ç]*ç//g' |
 		sed -e 's/[ç£§]//g')\n\n"
 }
+
+== Disable monitor blank for 2 hours (i3 specific) ==
+**# Use with** blank
+blank () {
+	DUR="$(xset q | grep Standby | cut -d' ' -f4)"
+	xset s off
+	case $DUR in
+	7200) xset dpms 600 600 600;notify-send "Display" "Screen blank set to 10 mins.";;
+	*) xset dpms 7200 7200 7200;notify-send "Display" "Screen blank set to 2 hours.";;
+	esac
+}   

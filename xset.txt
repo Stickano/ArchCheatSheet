@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-26T05:44:50+01:00
+
+====== xset ======
+Created mandag 26 december 2016
+
+**# Display Power Management Signaling (DPMS) is easiest defined with **//xset//
+
+== Installation ==
+$ pacman -S xorg-xset
+
+== Usage ==
+**# Note that xset values can be defined in **[[../Xorg.txt|xinitrc]]**.**
+
+**# To query your current settings**
+$ xset q
+
+**# To see all available commands**
+$ xset
+
+| Command                 | Description                                         |
+|:------------------------|:----------------------------------------------------|
+| xset s off              | Disable screen blanking                             |
+| xset s 3600 3600 3600   | Change blank time to 1 hour (standby, suspend, off) |
+| xset -dpms              | Turn off DPMS                                       |
+| xset s off -dpms        | Disable DPMS and prevent blanking                   |
+| xset dpms force off     | Turn off screen                                     |
+| xset dpms force suspend | Standby screen                                      |
+| xset dpms force suspend | Suspend screen                                      |
+

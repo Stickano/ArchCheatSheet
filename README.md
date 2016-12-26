@@ -2,7 +2,7 @@
 My local Arch Linux (wiki)/cheat sheet
 
 Created in [Zim Desktop Wiki](http://zim-wiki.org/).
-You download the content of the wiki, along with Zim, to have a local example of this content. 
+You download the content of this repository, along with Zim, to have a local example of this Cheat Sheet. 
 A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html).
 
 ## Good-to-know

@@ -12,6 +12,7 @@ $ find / -user <//user>//
 
 ==== User management ====
 **To see all users : **sudo passwd -Sa
+**Getting UID's : **id -u //<username>//
 
 **To add a new user : **
 Adding users can be done with //useradd//		set password after creating the user.

@@ -1,0 +1,80 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-25T02:24:05+01:00
+
+====== Dunst ======
+Created søndag 25 december 2016
+
+**Dunst is a simple notification - It will catch notifications from **//libnotify //**and display them to the user.**
+
+== Installation ==
+$ pacman -S libnotify dunst
+
+**# Start Dunst through your **[[../Xorg.txt|xinitrc]] **file**
+	dunst &
+
+
+== Configuration ==
+**# Dunst reads its configuration from **//~/.config/dunst/dunstrc //**(Github)**
+
+== Usage ==
+**# Dunst will display **//normal//** and **//low//** urgency messages for 10sec.**
+**# **//important//** messages will stick. **
+
+**# mod4 = **//Super-key //
+**# To close all notifications**
+	mod4+n
+	
+**# To close 1 notification**
+	mod4+Shift+n
+	
+**# Message History**
+	mod4+h
+	
+	
+
+===== Tips and Tricks =====
+
+== Volume +/- message ==
+**# Dunst doesn't display volume up/dowm correctly - **
+**# Correct this by installing a independent xfc4-application**
+**# (Requires pulse audio)**
+$ yaourt -S xfce4-volumed-pulse
+
+**# Then start it from your **[[../Xorg.txt|xinitrc]]**.**
+	xfce4-volumed-pulse &
+
+
+===== Create your own notifications! =====
+**# You can send messages to **//libnotify//** with the **//notify-send //**command.**
+$ notify-send 'Hello world!' 'This is an example notification.' 
+
+**# The first string is the **//summary//**, the second is the **//body//**.**
+**# This could be placed in a **//.sh//** script somewhere.**
+
+== Writing notifications as root ==
+**# Get your UID - In my case, I had UID **//1000//
+$ //id -u //
+
+**# **//-u//** to define which user (**//stick//**)**
+**# Also correct the **//UID//** (1000) in the **//path=/run/usr///** string if necessary.**
+$ sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send 'Hello world!' 'This is an example notification.'
+
+== Csharp ==
+**# Dunst also accepts other languages - like c#**
+
+	using Notifications;
+	public class HelloWorld {
+		static void Main() {
+			var Hello = new Notification();
+			Hello.Summary  = "Hello world!";
+			Hello.Body     = "This is an example notification.";
+			Hello.IconName = "dialog-information";
+			Hello.Show();
+		}
+	}
+
+**# This requires a depedency though : **//pacman -S// //notify-sharp-3//
+**# This could be placed in a **//.cs//** file somewhere^**
+**# You've might noticed the **//IconName//** method**
+**# Icons can be fount here : **https://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html

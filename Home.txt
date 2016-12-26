@@ -14,12 +14,14 @@ Created lørdag 22 oktober 2016
 [[AUR_Support]] (yaourt)
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
 [[fuseiso]] (mount .iso files)
-[[:XDG_Base_Directories]] 
+[[XDG_Base_Directories]] 
+[[:xset]] (Display Power Management)
+[[:Xbindkeys]] (fn-key)
 
 ===== Software Performance =====
 [[Kernel]] (zen)
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
-[[:DKMS]] 
+[[DKMS]] 
 
 ===== Hardware Performance and Improvements for Weardown =====
 [[SSD]] 
@@ -69,6 +71,7 @@ Created lørdag 22 oktober 2016
 [[mplayer]]  (mediaplayer)
 [[LibreOffice]] (office-suite)
 [[Feh]] (image/wallpaper)
+[[Dunst]] (Notifications)
 [[Additional Badass Software]] (random list of keks)
 
 ===== Eye Candy =====
@@ -85,8 +88,8 @@ Created lørdag 22 oktober 2016
 [[Zsh]] (+oh-my-zsh) (shell)
 [[Gnu_Screen]] 
 [[Xresources]] (terminal)
-[[:Additional_Terminal_Packages]] 
-[[:Terminal_Keks]] (lolcat, fortune, cowsay)
+[[Additional_Terminal_Packages]] 
+[[Terminal_Keks]] (lolcat, fortune, cowsay)
 [[Improvements]] (.bashrc/.inputrc) # SCRAPPED
 
 ===== SSH =====

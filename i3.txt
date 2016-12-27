@@ -45,7 +45,7 @@ $ pacman -S sysstat
 ===== Configuration =====
 **# A complete user guide for **//i3//** can be fount at **https://i3wm.org/docs/userguide.htm
 **# Launch **//i3//** on login with **[[../Xorg.txt|xinitrc]]**. Add the following to your **//~/.xinitrc//** file.**
-	exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1 
+	exec i3 
 
 **# First time **//i3//** is run it'll provide you with a configuration wizard. **
 **# Quit the wizard and copy your config to **//~/.config/i3/config//
@@ -100,4 +100,5 @@ $ tail -n +2 ~/.config/i3/layouts/workspace_N.json | fgrep -v '// splitv' | sed 
 **# Make the Shell files executeable**
 $ chmod u+x ~/.config/i3/layouts/load_layout_//N//.sh
 
-**# You can now run the Shell scripts - or add them to your **[[../Xorg.txt|xinit]]**^**
+**# You can now run the Shell scripts - or add them to your **//i3//** config**
+

@@ -11,7 +11,7 @@ Created mandag 26 december 2016
 $ pacman -S xorg-xset
 
 == Usage ==
-**# Note that xset values can be defined in **[[../Xorg.txt|xinitrc]]**.**
+**# Note that xset values can be defined in **[[../Xorg.txt|xinitrc]] **or in other scripts use. **
 
 **# To query your current settings**
 $ xset q

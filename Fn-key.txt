@@ -1,0 +1,114 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-26T20:24:02+01:00
+
+====== Fn-key ======
+Created mandag 26 december 2016
+
+**Getting the Function-key to work took a little more work than I anticipated. **
+**Out of the box **//monitor-off //**and **//wifi-off//** worked (sort of)**
+
+**I was missing **//keyboard/screen-backlight, audio //**and **//touchpad//** controls.**
+
+**The **//wifi-off//** worked somewhat. **
+**It turns off the WIFI, but is unable to re-connect when re-enabled.**
+
+**All of the key-presses was registeret, and produced a **[[wiki.linuxquestions.org/wiki/XF86_keyboard_symbols|xf86*-multimedia output]]**.**
+**Well.. all except **//keyboard-backlight//** which is caused by a bug (fix below)**
+
+**This article will take help combine the **//xf86*-multimedia//** key-press with a function.**
+
+
+== Screen Backlight ==
+**#** **There is a** **bug causing **//FN+F5/F6//** not to produce any output at all.**
+**# This can be resolved by adding **//acpi_osi= //**as a kernel module. **
+
+**# Edit **///etc/default/grub//** and add **//acpi_osi=//** to the end of **//CMDLINE_LINUX_DEFAULT//
+**# Ex.**
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=bfq acpi_osi="
+	
+**# Generate new grub.cfg**
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+**# No further configuration is needed for the **//Screen-Backlight//**.**
+
+
+===== Xbindkeys =====
+**# **//Xbindkeys//** can be used to bind a key-press with a function.**
+**# **//Xbindkeys//** reads its configuration from **//~/.xbindkeysrc //**(Github)**
+
+**# Install the **//Xbindkeys//** package**
+$ pacman -S xbindkeys
+
+**# To autostart **//Xbindkeys//**, add it to your **[[../Xorg.txt|xinitrc.]]
+	xbindkeys &
+
+**# To get valueable information about a key-press**
+$ xbindkey -k
+
+**# This will produce 3 lines. Ex.**
+	"(Scheme function)"
+		m:0x0 + c:121
+		XF86AudioMute
+
+**# First line can be replaced with a command to run**
+**# Second and Third line can be used as binding parameters.**
+**# We just need one of the last two lines, and we'll be using the **//xf86*//** value.**
+
+**# All of these definings will be added to our **//~/.xbindkeysrc//** file.**
+
+== Volume Controls ==
+**# Toggle mute**
+	"amixer set Master toggle"
+		XF86AudioMute
+
+**# Volume Up**
+	"amixer set Master 5%+"
+		XF86AudioRaiseVolume
+
+**# Volume Down**
+	"amixer set Master 5%-"
+		XF86AudioLowerVolume
+
+
+== Keyboard Backlight ==
+**# Make it easy on yourself. Install this package.**
+$ yaourt -S asus-kbd-backlight
+
+**# You'll have to run this, to allow users to use the controls**
+$ asus-kbd-backlight allowusers
+
+**# Enable the service**
+$ systemctl enable asus-kbd-backlight.service
+
+**# Now you can manage keyboard-backlight with **
+$ asus-kbd-backlight up
+$ asus-kbd-backlight down
+$ asus-kbd-backlight max
+$ asus-kbd-backlight off
+$ asus-kbd-backlight night
+$ asus-kbd-backlight 2		**# (1, 2 or 3)**
+$ asus-kbd-backlight show
+
+**# Add these two snippets to the **//~/.xbindkeysrc//
+	"asus-kbd-backlight up"
+		XF86KbdBrightnessUp
+	
+	"asus-kbd-backlight down"
+		XF86KbdBrightnessDown
+
+
+== Toggle Touchpad ==
+**# This assumes you have installed the **[[../Touchpad.txt|libinput]]** driver installed.**
+**# Toggle touchpad can be done with 3 lines of code **
+**# Place it in a **//.sh//** file and make it executable (Github)**
+	xinput list-props "SynPS/2 Synaptics TouchPad" | grep -q "Device Enabled [^:]*:*1" &&
+		xinput disable "SynPS/2 Synaptics TouchPad" ||
+		xinput enable  "SynPS/2 Synaptics TouchPad"
+
+
+**# My location for this script would be **//~/.dotfiles/.scripts/toggle_touchpad.sh//
+**# Link to that script in the **//~/.xbindkeysrc//** file.**
+	"~/.dotfiles/.scripts/toggle_touchpad.sh"
+		XF86TouchpadToggle
+

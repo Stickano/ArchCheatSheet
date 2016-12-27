@@ -5,23 +5,23 @@ Creation-Date: 2016-10-23T21:04:41+02:00
 ====== Display Driver ======
 Created søndag 23 oktober 2016
 
-This will cover the installation and configuration of display drivers for intel and nvidia - along with optimus management with bumblebee.
+**This will cover the installation and configuration of display drivers for intel and nvidia - along with optimus management with bumblebee.**
 
 == NOTE ! ==
-**Be sure, that if you're are gonna use additional kernels, that you install and configure these kernels BEFORE you install your graphic drivers. Otherwise you will have to do these steps again.**
+Be sure, that if you're are gonna use additional kernels, that you install and configure these kernels BEFORE you install your graphic drivers. Otherwise you will have to do these steps again.
 
 ===== Intel HD =====
 
-==== Installation ====
-**Install the following packages (32-bit support included) : **
-$ pacman -S mesa xf86-video-intel mesa-libgl lib32-mesa-libgl //mesa-demos//
+== Installation ==
+Install the following packages (32-bit support included) : 
+$ pacman -S mesa xf86-video-intel mesa-libgl lib32-mesa-libgl mesa-demos
 
-==== Configuration ====
-**Get the BusID : **
+== Configuration ==
+Get the BusID : 
 $ lspci | grep -E "VGA|3D"
-**Note down the **//xx:xx.x //**value and convert the string from 		**//xx : xx . x 	//**to** 	xx : xx : x
+Note down the xx:xx.x value and convert the string from 		xx : xx . x 	to 	xx : xx : x
 
-**Create a configuration file in 	**///etc/X11/xorg.conf.d/20-intel.conf//
+Create a configuration file in 	/etc/X11/xorg.conf.d/20-intel.conf
 	Section "Device"
 	   Identifier  "Intel Graphics"
 	   Driver      "intel"
@@ -31,14 +31,14 @@ $ lspci | grep -E "VGA|3D"
 
 ===== nVidia =====
 
-==== Installation ====
-**Install the following packages (32-bit support included) :**
+== Installation ==
+Install the following packages (32-bit support included) :
 $ pacman -S nvidia nvidia-utils lib32-nvidia-utils
 
-==== Configuration ====
-**Get the BusID the same way as the example above (Intel HD). **
+== Configuration ==
+Get the BusID the same way as the example above (Intel HD). 
 
-**Create a configuration file in 	**///etc/X11/xorg.conf.d/20-nvidia.conf//
+Create a configuration file in 	/etc/X11/xorg.conf.d/20-nvidia.conf
 	Section "Device"
 		Identifier "nvidia"
 		Driver "nvidia"
@@ -48,56 +48,56 @@ $ pacman -S nvidia nvidia-utils lib32-nvidia-utils
 
 ===== Bumblebee =====
 
-==== Installation ====
-**The following packages is needed (32-bit support included) : **
-//bumblebee  nvidia lib32-virtualgl lib32-nvidia-utils //
+== Installation ==
+The following packages is needed (32-bit support included) : 
+bumblebee  nvidia lib32-virtualgl lib32-nvidia-utils 
 
-**Add user to the bumblebee group : **
-$ gpasswd -a //user// bumblebee
+Add user to the bumblebee group : 
+$ gpasswd -a user bumblebee
 
-**Enable ** //bumblebeed.service	//**and reboot your system.**
+Enable  bumblebeed.service	and reboot your system.
 
 
-==== Confirm Installation ====
-**Check if your installaton works as intended : **
+== Confirm Installation ==
+Check if your installaton works as intended : 
 $ optirun glxspheres64
 
 
 ==== Configuration ====
-The bumblebeed main configuration file can be found at 	///etc/bumblebee/bumblebee.conf//
+The bumblebeed main configuration file can be found at 	/etc/bumblebee/bumblebee.conf
 
 == Compression ==
-You can change/test the different compression methods with 	//optirun -c <compress-method>//
+You can change/test the different compression methods with 	optirun -c <compress-method>
 
-**Compressed methods** (adds load to the CPU) **:**
-	//jpeg, rgb //or //yuv//
+Compressed methods (adds load to the CPU) :
+	jpeg, rgb or yuv
 
-**Uncompressed methods **(adds load to the GPU) **:**
-	//proxy// or //xv//
+Uncompressed methods (adds load to the GPU) :
+	proxy or xv
 
-**I THINK**, that proxy is my preffered option. Less FPS and performance, but seems not to load the system as much.
+I THINK, that proxy is my preffered option. Less FPS and performance, but seems not to load the system as much.
 
-**Persistent change for all application : **
-Edit the configuration file and add your preffered //<compress-method>// to 	//VGLTransport// :
-**Ex. :** VGLTransport=proxy
+Persistent change for all application : 
+Edit the configuration file and add your preffered <compress-method> to 	VGLTransport :
+Ex. : VGLTransport=proxy
+
 
 == Pixel Readback ==
-**Setting **//VGL_READBACK//** to **//pbo//** in the configuration file should have improved performance - I did not notice any though.**
-
+Setting VGL_READBACK to pbo should have improved performance - I did not notice any though.
 $ VGL_READBACK=pbo optirun glxspheres64		# Should have improved performance
-$ VGL_READBACK=sync optirun glxspheres64		# Default value
+$ VGL_READBACK=sync optirun glxspheres64	# Default value
 
-**Persistent change : **
+Persistent change : 
 The preffered option can be set in the configuration file.
-**Ex. : **VGL_READBACK=pbo
+Ex. : VGL_READBACK=pbo
 
 
-==== General Usage ====
-**To run an application with the dedicated GPU (nvidia) : **
-$ optirun //application [application-parameter]//
+== General Usage ==
+To run an application with the dedicated GPU (nvidia) : 
+$ optirun application [application-parameter]
 
-**Ex. : **
+Ex. : 
 $ optirun firefox https://sloa.dk
 
-**To open the nvidia settings panel : **
+To open the nvidia settings panel : 
 $ optirun -b none nvidia-settings -c :8

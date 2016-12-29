@@ -1,0 +1,89 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-28T19:47:04+01:00
+
+====== Sound ======
+Created onsdag 28 december 2016
+
+**Getting Alsa to play over bluetooth proved tricky - and the management/control was terrible. **
+**The sound works out-the-box with **//PulseAudio//** and it made bluetooth output a lot easier.**
+
+
+== Alsa default device ==
+**# By default alsa doesn't detect the correct device for me. **
+**# To correct this, create/edit **///etc/modprobe.d/modprobe.conf//
+**# And add the following line. A reboot is required before it'll take effect.**
+	options snd_hda_intel index=1
+
+
+===== PulseAudio =====
+
+== Installation ==
+$ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
+
+== Configuration ==
+**# **//PulseAudio//** comes with a set of modules that can be loaded.**
+**# These modules will be loaded from **//~/.config/pulse/default.pa//
+**# To load a module, create/edit that file, and add**
+	load-module //<module_name>//
+	
+**# Modules available can be found here **https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/
+**# They can also be listed by entering the interactive **//PulseAudio //**shell**
+$ pacmd
+
+**# Then run**
+$ list-modules
+
+**# Havent been over the modules yet, but add this to begin with (**//~/.config/pulse/default.pa//**)**
+	**# Sets volume to loudest application**
+	load-module flat-volumes
+
+
+== Pavolume ==
+**# Also install **//pavolume//** which gives you CLI volume controls.**
+$ yaourt -S pavolume
+
+**# Use with;**
+	pavolume show              **# show volume and mute status as notification**
+	pavolume volup             **# increase volume**
+	pavolume voldown           **# increase volume**
+	pavolume volset 50%        **# set volume to 50%**
+	pavolume volset 200%       **# boost volume to 200%**
+	pavolume muteon            **# mute audio output**
+	pavolume muteoff           **# un-mute audio output**
+	pavolume mutetoggle        **# toggle mute**
+	
+
+== Pavucontrol ==
+**# To get GUI controls, install **//pavucontrol //
+$ pacman -S pavucontrol
+
+
+===== Bluetooth Speaker =====
+**# This requires you've to have been through **[[../Bluetooth.txt|bluetooth]]**.**
+
+== Installation ==
+$ pulseaudio-bluetooth bluez-libs bluez-firmware
+
+== Usage ==
+**# Connect to the device as explained in **[[../Bluetooth.txt|bluetooth]]**.**
+**# You should now be able to select the output through **//pavucontrol//**.**
+
+== Tips and Tricks ==
+**# To autoconnect when starting the **//bluetooth.service//
+**# First add this to the **//~/.config/pulse/default.pa//
+	**# automatically switch to newly-connected devices**
+	load-module module-switch-on-connect
+
+**# Then **//trust//** the device through the **//bluetoothctl//** shell**
+**# Obtain and pair the device MAC as explained in **[[../Bluetooth.txt|bluetooth]] 
+$ bluetoothctl
+$ trust //<MAC_ADDRESS>//
+
+**# The bluetooth adapter does not **//power on //**between reboots**
+**# (the **//bluetoothctl//** > **//power on//** powering on)**
+**# To correct this, create a udev rule in **///etc/udev/rules.d/10-local.rules//
+**# Add the following**
+	**# Set bluetooth power up**
+	ACTION=="add", SUBSYSTEM=="bluetooth", KERNEL=="hci[0-9]*", RUN+="/usr/bin/hciconfig %k up"
+

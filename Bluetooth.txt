@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-28T19:57:34+01:00
+
+====== Bluetooth ======
+Created onsdag 28 december 2016
+
+== Installation ==
+**# Install the following packages**
+$ pacman -S bluez bluez-utils
+
+**# Modprobe the bluetooth driver**
+$ modprobe btusb
+
+**# Then start the bluetooth service whenever needed**
+$ systemctl start bluetooth.service
+
+===== Usage =====
+**# Open the bluetooth interactive shell**
+$ bluetoothctl
+
+**# You can always run **//help//** in this shell, to list all commands^**
+
+**# Power on the controller (off by default)**
+$ power on
+
+**# If the device is NOT already on your list, begin a scan**
+$ scan on
+
+**# To get a list of all your registeret devices**
+$ devices
+
+**# Once you've found your device, pair it (You can **//<tab>//** complete)**
+$ pair //<MAC_ADDRESS>//
+
+**# If using a device without a PIN, trust the device to be able to reconnect**
+$ trust //<MAC_ADDRESS>//
+
+**# Then connect to the device**
+$ connect //<MAC_ADDRESS>//

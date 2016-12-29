@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-23T18:28:34+01:00
+
+====== Xbindkeys ======
+Created fredag 23 december 2016
+
+**We can use Xbindkeys to bind actions to our **//FN//**-key.**
+**Well actually we could bind any key with Xbindkey, but that's what we will be using it for in this example.**
+
+== Installation ==
+$ pacman -S xbindkeys
+
+== Configuration ==
+**# Xbindkey reads your custom binds from **//~/.xbindkeysrc//
+**# Custom **//.xbindkeysrc//** on Github.**
+**# Once you've made changes to **//.xbindkeysrc//**, reload it with **//xbindkeys -p//
+

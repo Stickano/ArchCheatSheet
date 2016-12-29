@@ -20,7 +20,8 @@ $ ip addr
 **# To list all open ports ( **//-l //**) and what process using the socket ( **//-p //**)**
 $ ss -pl
 
-**# You can be more specific with **//|grep//** - Ex. if we'd like to know what is using port **//4949//
+**# You can be more specific with **//|grep// 
+**#** **Ex. if we'd like to know what is using port **//4949//
 $ ss -pl |grep 4949
 
 **# You might get a result with something like the following **

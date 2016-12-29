@@ -14,7 +14,7 @@ Created søndag 18 december 2016
 **# Log out/ shutdown options **//$mod+Shift+e//
 
 **# To open the terminal **//$mod+Enter//
-**# To open dmenu **//Alt+F2//
+**# To open dmenu **//Alt+d//
 
 **# HDMI controls with **//$mod+p//
 
@@ -35,12 +35,19 @@ Created søndag 18 december 2016
 **# Tabbed = **//$mod+w//
 **# Split = **//$mod+e//
 
-**# Focus the parent container with **//$mod+a//
-**# Focus the child container with **//$mod+d//
-
 **# Move to workspaces with **//$mod+1,2,3 etc//
 **# You are able to go back and forth workspaces hitting **//$mod+4//** twice etc.**
 **# Further more, you can drag a container along back and forth with **//$mod+z//
+
+**# Navigate back and forth between the last two containers  **//Alt+<tap>//
+
+== Scratchpad ==
+**# Scrachpad is a hidden workspace. **
+**# Items from the Scrachpad can be pulled to your currently working workspace - as a sort of floating window.**
+**# This feature is good for quickly taken notes etc. **
+
+**# Move focused window to Scratchpad : **//$mod+m//
+**# Focus Scrachpad container : **//$mod+o//
 
 == Containers ==
 **# To kill focused container **//$mod+Shift+q//

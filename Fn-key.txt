@@ -99,14 +99,7 @@ $ asus-kbd-backlight show
 
 
 == Toggle Touchpad ==
-**# This assumes you have installed the **[[../Touchpad.txt|libinput]]** driver installed.**
-**# Toggle touchpad can be done with 3 lines of code **
-**# Place it in a **//.sh//** file and make it executable (Github)**
-	xinput list-props "SynPS/2 Synaptics TouchPad" | grep -q "Device Enabled [^:]*:*1" &&
-		xinput disable "SynPS/2 Synaptics TouchPad" ||
-		xinput enable  "SynPS/2 Synaptics TouchPad"
-
-
+**# Touchpad Toggle script is found at Github.**
 **# My location for this script would be **//~/.dotfiles/.scripts/toggle_touchpad.sh//
 **# Link to that script in the **//~/.xbindkeysrc//** file.**
 	"~/.dotfiles/.scripts/toggle_touchpad.sh"

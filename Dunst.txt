@@ -31,7 +31,6 @@ $ pacman -S libnotify dunst
 **# Message History**
 	mod4+h
 	
-	
 
 ===== Tips and Tricks =====
 
@@ -47,7 +46,7 @@ $ yaourt -S xfce4-volumed-pulse
 
 ===== Create your own notifications! =====
 **# You can send messages to **//libnotify//** with the **//notify-send //**command.**
-$ notify-send 'Hello world!' 'This is an example notification.' 
+$ notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
 
 **# The first string is the **//summary//**, the second is the **//body//**.**
 **# This could be placed in a **//.sh//** script somewhere.**
@@ -62,7 +61,6 @@ $ sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
 == Csharp ==
 **# Dunst also accepts other languages - like c#**
-
 	using Notifications;
 	public class HelloWorld {
 		static void Main() {

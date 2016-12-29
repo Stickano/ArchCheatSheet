@@ -25,7 +25,7 @@ $ pacman -S xorg-serv xorg-server-utils xorg-xinit
 
 == Xinitrc ==
 **# Create a copy of the default **//xinitrc //**file**
-$ $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 
 **# By default it starts a few applications. Theese can be outcommented in the **//~/xinitrc//** file.**
 **# You can append applications to start leading with a & for multiple entries.**

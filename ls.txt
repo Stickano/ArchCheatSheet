@@ -15,8 +15,8 @@ drwxr-xr-x  7 stick stick 4096 03.10.2016 14:52 Documents/
 drwxr-xr-x  6 stick stick 4096 16.10.2016 10:02 Downloads/
 etc.
 
-The **drwxr-xr-x** is the file-type and and permissions, followed by the user and group. 
-	[file type]  [owner]  [group]  [others]	user   group
+The **drwxr-xr-x** is the file-type and the permissions, followed by the user and group. 
+	[file type]     [owner]    [group]     [others]    user     group
 	  d               rwx        r-x         r-x       stick    stick
 
 

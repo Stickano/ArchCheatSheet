@@ -28,12 +28,6 @@ $ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
 	load-module //<module_name>//
 	
 **# Modules available can be found here **https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/
-**# They can also be listed by entering the interactive **//PulseAudio //**shell**
-$ pacmd
-
-**# Then run**
-$ list-modules
-
 **# Havent been over the modules yet, but add this to begin with (**//~/.config/pulse/default.pa//**)**
 	**# Sets volume to loudest application**
 	load-module flat-volumes

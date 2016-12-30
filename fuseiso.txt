@@ -5,7 +5,7 @@ Creation-Date: 2016-12-04T16:52:07+01:00
 ====== fuseiso ======
 Created søndag 04 december 2016
 
-**# Fuseiso will allow you to mount .iso images. **
+**Fuseiso will allow you to mount .iso images. **
 
 == Installation ==
 $ yaourt -S fuseiso

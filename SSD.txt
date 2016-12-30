@@ -5,73 +5,83 @@ Creation-Date: 2016-10-23T15:55:48+02:00
 ====== SSD ======
 Created søndag 23 oktober 2016
 
-===== Usefull Packages =====
-
 == HDparm ==
-Allows you to set spin down/up (power-saving) parameters for a disk. Also affects SSD disks. 
-Install the //hdparm// package
-You can get information about your disk with :
+**# Allows you to set spin down/up (power-saving) parameters for a disk. Also affects SSD disks.** 
+$ pacman -S hdparm
+
+**# You can get information about your disk with**
 $ hdparm -I /dev/sda
 
-**Power Parameters : **
-**-B 	**= 	the value, that will determine the paramter. 
-	The lower a value, the more aggresive power-saving (PS) is used. Aggressive PS tears on the disk. 
-	**1 - 127            **allows spin down
-	**128 - 254        **doesn't allow spin down
-	**255	               **disables the feature
+**#** **Power Parameters **
+**#** //-B//** = the value, that will determine the parameter.** 
+**# The lower a value, the more aggressive power-saving (PS) is used. Aggressive PS tears on the disk.** 
+	1 - 127**		# allows spin down**
+	128 - 254**	# doesn't allow spin down**
+	255**			# disables the feature**
 	
-**Set persistent configuration : **
-Create a udev rule (file) in 	///etc/udev/rules.d/50-hdparm.rules	//and add the following
-	ACTION=="add", SUBSYSTEM=="block", KERNEL=="sda", RUN+="/usr/bin/hdparm -B 254 -S 0 /dev/sda"
+**#** **Set persistent configuration **
+**# Create a udev rule in** ///etc/udev/rules.d/50-hdparm.rules //**and add the following**
+{{{code: lang="texinfo" linenumbers="True"
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sda", RUN+="/usr/bin/hdparm -B 254 -S 0 /dev/sda"
+}}}
+
 	
 
 == I/O Top ==
-Follow what, and how often, an application writes to the disk. 
-Install the //iotop// package and invoke it with 
+**# Follow what, and how often, an application writes to the disk.** 
+$ pacman -S iotop
+
+**# invoke it with** 
 $ iotop -boqqq
 
 
 ===== TRIM =====
-Trim is used for sustained long term performance and wear-leveling. 	
-Your SSD supports TRIM. To verify TRIM support for a SSD : 
+**# Trim is used for sustained long term performance and wear-leveling. 	**
+**# Your SSD supports TRIM. To verify TRIM support for a SSD** 
 $ hdparm -I /dev/sda | grep TRIM
 
-**Enable the fstrim.timer service for TRIM to take place once a week :** 
+**#** **Enable the fstrim.timer service for TRIM to take place once a week **
 $ systemctl enable fstrim.timer
 
-**Change value in LVM : **
-Edit ///etc/lvm/lvm.conf 	//and change the value of// 	issue_discards	//from 0 to 1
+**#** **Change value in LVM;**
+**# Edit** ///etc/lvm/lvm.conf //**and change the value of** issue_discards **from** //0// **to** //1//
 
 
 ===== Fstab atime options =====
-Edit the 	///etc/fstab// 	to change the atime options - whitch writes time to a file everytime it's read.
-Change the <option> line for each of the partitions. 	A <option> field may look like the following : 
+**# Edit the** ///etc/fstab// **to change the** //atime// **options - which writes time to a file every time it's read.**
+**# Change the** <option> **line for each of the partitions. A** <option> **field may look like the following**  
 	rw,realtime,discard,data=ordered	
 
-**atime options : **
+**#** **atime options : **
 	**realtime = **Writes changes depending on previous access time was earlier than last modify time.
 	**noatime = **Do not allow time writes to a file. 
 	
 
 ===== Reduce swap writes =====
-Swappiness determines how happy you are with writing from the RAM to swap partition. Default is 60.
-To see current swappiness value : 
+**# Swappiness determines how happy you are with writing from the RAM to swap partition. Default is 60.**
+**# To see current swappiness value** 
 $ cat /proc/sys/vm/swappiness
 
-**Add a sysctl configuration file : **
-Add and edit a file, 		/etc/sysctl.d/99-sysctl.conf	and add the following line : 
-	vm.swappiness=10
+**#** **Add a sysctl configuration file  **
+**# Add and edit a file,** /etc/sysctl.d/99-sysctl.conf **and add the following ** 
+{{{code: lang="texinfo" linenumbers="True"
+vm.swappiness=10
+}}}
+
 
 
 ===== Kernel Parameters =====
-To add kernel parameters, edit 	///etc/default/grub	//and add to the 	GRUB_CMDLINE_LINUX_DEFAULT=
-Ex. 	//GRUB_CMDLINE_LINUX_DEFAULT="quiet splash //parameter1 parameter2//"//
-Grub needs to generate a new config file afterwords. Do so with //grub-mkconfig -o /boot/grub/grub.cfg//
+**# To add kernel parameters, edit** ///etc/default/grub //**and add to the** //GRUB_CMDLINE_LINUX_DEFAULT=//
+**# Ex. **//GRUB_CMDLINE_LINUX_DEFAULT="quiet splash //parameter1 parameter2//"//
 
-== I/O Schedulers	( DON'T USE! we are using btq scheduler instead - see zen kernel ) ==
-Improved performance with the multi-queue block scheduler (modern hardware). 	# DON'T USE
-**Add		 **//scsi_mod.use_blk_mq=1									# DON'T USE//
+**# Grub needs to generate a new configuration file afterwords** 
+$ //grub-mkconfig -o /boot/grub/grub.cfg//
 
 == Enable zswap ==
-Compresses and stores swap cache in RAM, instead of writing it to the disk. 
-**Add		**zswap.enabled=1
+**#** **Compresses and stores swap cache in RAM, instead of writing it to the disk.** 
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_CMDLINE_LINUX_DEFAULT="zswap.enabled=1"
+}}}
+
+
+

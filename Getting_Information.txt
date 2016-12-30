@@ -2,7 +2,7 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-12-04T20:01:55+01:00
 
-====== Network ======
+====== Getting Information ======
 Created søndag 04 december 2016
 
 **#** **Get network device names**
@@ -15,6 +15,7 @@ $ iw dev wlp2s0 link
 $ ip addr
 
 ===== SS network tool =====
+**# **//ss//** replaces the **//netstat //**tool**
 
 == Analysis example ==
 **# To list all open ports ( **//-l //**) and what process using the socket ( **//-p //**)**

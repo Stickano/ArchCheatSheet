@@ -8,64 +8,67 @@ Created mandag 31 oktober 2016
 **Netctl is a network configuration tool that works with profiles stored in **///etc/netctl//
 
 ===== WIFI =====
+**# Setting up wifi requires one to create a profile for the network - then start/enable it.**
 
 == Creating Profiles ==
-A basic example, of a profile, is stored in ///etc/netctl/example// 
+**# A basic example, of a profile, is stored in** ///etc/netctl/example// 
 
-**Using dialog ( wifi-menu ) : **
-$ wifi-menu -o                 # Automaticly generates a profile in /etc/netctl 
+**#** **Using dialog ( wifi-menu ) **
+$ wifi-menu -o                 **# Automatically generates a profile in **///etc/netctl// 
 
 == General Usage ==
-**# Start the profile : **
-$ netctl start //profile          # Profile //refers to a saved profile in ///etc/netctl//
+**# Start the profile **
+$ netctl start //<PROFILE_NAME>     //**# Profile refers to a saved profile in** ///etc/netctl//
 
-**# Stop the profile : **
-$ netctl stop //profile//
+**# Stop the profile **
+$ netctl stop //<PROFILE_NAME>//
 
-**# Reenable the profile : **
-$ netctl reenable //profile//
+**# Reenable the profile **
+$ netctl reenable //<PROFILE_NAME>//
 
 ==== Automatic Connection on System Logon ====
-**The **//wpa_actiond//** packages is actually for automaticly switching profiles, when moving from on saved hotspot to another saved hotspot - This package can also be used to automaticly connect to a profile when logging on though.**
+# **The **//wpa_actiond//** packages is actually for automatically switching profiles**
+#** when moving from on saved hotspot to another saved hotspot.**
+# **This package can also be used to automatically connect to a profile when logging on though.**
 
-**Install the **//wpa_actiond//** package : **
+**#** **Install the **//wpa_actiond//** package **
 $ pacman -S wpa_actiond
 
-**Enable with systemd : **
-$ netctl-auto@wlp2s0.service          # You can get your device name with //	iw dev//
+**#** **Enable with systemd **
+$ netctl-auto@wlp2s0.service          **# You can get your device name with** //iw dev//
 
 **# To reconnect a network, restart the service**
 $ systemctl restart netctl-auto@wlp2s0.service
 
 == General Usage ==
-To get a complete list of options, run 	//netctl-auto --help	//The list is short^
+**# To get a complete list of options, run**  //netctl-auto --help  //**The list is short^**
 
 **# List all profile**
-$ netctl-auto list            # If there is a * infront of the profile, it means this is the connected profile
+$ netctl-auto list            **# If there is a * in front of the profile, it means this is the connected profile**
 
 == Good-to-Know ==
-**Profiles Configuration when using auto-connect**
-The profiles that will auto-connect, needs to use a wpa parameter at Security in the profile itself	**ex :**
-Edit the profile in /etc/netctl and make sure the following is present : 
-	//Security=wpa-configsection          //**OR**	//Security=wpa//
-	**It must NOT be                                **//Security=wpa-config//
-	
-**Disable auto-connect for a specific profile**
-You can exclude a profile from auto-connecting, by editing the profile in ///etc/netcl //and adding :
-	ExcludeAuto=yes
+**#** **Disable auto-connect for a specific profile**
+**#** **You can exclude a profile from auto-connecting, by editing the profile in **///etc/netcl//** and adding **
+{{{code: lang="texinfo" linenumbers="True"
+ExcludeAuto=yes
+}}}
+
 
 
 ===== Ethernet =====
+**# There should probably be a more thorough guide for the Ethernet.. Maybe later^**
 
 ==== Tips and Tricks ====
+**# Some random Tips and Tricks**
 
 == Ethernet cable hotplug ==
-**You can bring a device up/down upon ethernet cable insertion/removal with the **//	ifplugd//**	package**
+**#** **You can bring a device up/down upon ethernet cable insertion/removal with the **//ifplugd//**	package**
 $ pacman -S ifplugd
 
-**Ifplugd default configuration file can be found at 	**///etc/ifplugd/ifplugd.conf	//**note: default device is **//eth0//
+**#** //Ifplugd//** default configuration file can be found at **///etc/ifplugd/ifplugd.conf	//
+**#** **note: default device is **//eth0//
 
-**Enable the service : **
+**#** **Enable the service **
 $ systemctl enable netctl-ifplugd@wlp2s0.service
 
 

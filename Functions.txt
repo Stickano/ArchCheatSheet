@@ -5,11 +5,12 @@ Creation-Date: 2016-10-23T14:54:15+02:00
 ====== Functions ======
 Created søndag 23 oktober 2016
 
-Functions works as Aliasses. Add the preffered functions to your //~/.bashrc// file.
+**Functions works as Aliases. Add the preferred functions to your** //.bashrc/.zshrc// **file.**
 
 == Extract ==
-# Make sure you add 	shopt -s extglob	to the .basrc file
+**# Make sure you add** //shopt -s extglob// **to the** //.basrc/.zshrc// **file**
 **# Use with** //ex filename//
+{{{code: lang="texinfo" linenumbers="True"
 ex ()
 {
   if [ -f $1 ] ; then
@@ -31,9 +32,12 @@ ex ()
 	echo "'$1' is not a valid file"
   fi
 }
+}}}
+
 
 == Copy and go to dir ==
 **# Use with** //cpg /path/to/file /new/path//
+{{{code: lang="texinfo" linenumbers="True"
 cpg (){
   if [ -d "$2" ];then
 	cp $1 $2 && cd $2
@@ -41,9 +45,12 @@ cpg (){
 	cp $1 $2
   fi
 }
+}}}
+
 
 == Move and go to dir ==
 **# Use with** //mvg /path/to/file /new/path//
+{{{code: lang="texinfo" linenumbers="True"
 mvg (){
   if [ -d "$2" ];then
 	mv $1 $2 && cd $2
@@ -51,18 +58,25 @@ mvg (){
 	mv $1 $2
   fi
 }
+}}}
+
 
 == Run in background (only works with bash) ==
-# Will release a program from the terminal. Ex. mplayer whitch takes up the terminal, when run from terminal. 
+**# Will release a program from the terminal. **
+**# Ex. mplayer whitch takes up the terminal, when run from terminal.** 
 **# Use with** //quiet// //command//
+{{{code: lang="texinfo" linenumbers="True"
 quiet (){
   nohup $1 &>/dev/null &
 }
-**# The **//complete//** is a bash command. **
+# The complete is a bash command. 
 complete -A command quiet
+}}}
+
 
 == Arch news feed (rss) ==
 **# Use with **//feed //
+{{{code: lang="texinfo" linenumbers="True"
 feed() {
 	# The characters "ç, £, §" are used as metacharacters. They should not be encountered in a feed...
 	echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news//// | sed -e ':a;N;$!ba;s/\n/ /g') | \
@@ -80,9 +94,12 @@ feed() {
 		sed -e 's/&lt;[^ç]*ç//g' |
 		sed -e 's/[ç£§]//g')\n\n"
 }
+}}}
 
-== Disable monitor blank for 2 hours (i3 specific) ==
+
+== Disable monitor blank for 2 hours ==
 **# Use with** blank
+{{{code: lang="texinfo" linenumbers="True"
 blank () {
 	DUR="$(xset q | grep Standby | cut -d' ' -f4)"
 	xset s off
@@ -91,3 +108,6 @@ blank () {
 	*) xset dpms 7200 7200 7200;notify-send "Display" "Screen blank set to 2 hours.";;
 	esac
 }   
+}}}
+
+

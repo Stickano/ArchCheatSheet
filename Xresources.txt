@@ -7,14 +7,13 @@ Created søndag 18 december 2016
 
 **Xterm is the Xorg Terminal Emulator. **
 **User specified configuration will be read from the **//~/.Xresources //**which is not created by default. **
-**Create this file for **//defining terminal colors, configure terminal preferences, setting DPI, antialiasing, hinting //**and other X font settings.**
-**You can also theme your **//screensaver //**or**// Xcoursor //**along with altering preferences for low-level X applications (**//xclock//** etc).**
+**Create this file for **//defining terminal colors, configure terminal preferences, setting DPI, antialiasing, hinting //**and other X font settings. You can also theme your **//screensaver //**or**// Xcoursor //**along with altering preferences for low-level X applications (**//xclock//** etc).**
 
 == Installation ==
 $ pacman -S xorg-xrdb
 
 == Configuration ==
-**# Add the following to your **[[../Xorg.txt|xinitrc]]** file.**
+**# Add the following to your **xinitrc** file.**
 **# NOTE: This is not needed if you are using the default **//xinit//** file**
 	 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
@@ -29,42 +28,5 @@ $ pacman -S xorg-xrdb
 	**resource = **The name of the resource whose value is to be changed.
 	**value = **The actual value of the resource. Can be int, bool or string value. 
 
-**# The following can be added to you **//.Xresources//** file for preferred setup**
+**# My Xterm configuration file can be found at Github.**
 **# To see currently loaded configurations, run **//xrdb -query -all//
-
-== Xterm configurations ==
-**# Some applications may not display correct colors before an input has been made. Corret this with**
-	xterm*termName: xterm-256color
-	
-**# Make sure your locale settings is UTF-8, then add the following to make xterm interpret all data as UTF-8**
-	XTerm*locale: true
-
-**# Make **//Alt//**-key behave as - well pretty much every other terminal I guess..**
-	XTerm*metaSendsEscape: true
-	
-**# Copy marked text to **//clipboard//** instead of **//primary//**. Ctrl+v (gui) vs Shift+Ins**
-	XTerm*selectToClipboard: on
-
-**# **//Ctrl+Shift+c//** and **//Ctrl+Shift+v//**. Make Xterm behave - again - like all other terminals.**
-	xterm*VT100.Translations: #override Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n Ctrl Shift <Key>C: copy-selection(CLIPBOARD)
-	
-**# Revert from **//White Background / Black Text //**to **//Black Background / White Text//
-	XTerm*reverseVideo: on
-	
-**# Setting fonts **
-	xterm*faceName: Liberation Mono:size=10:antialias=false
-	xterm*font: 7x13
-
-**# Blinking Cursor**
-	XTerm*cursorBlink: true
-	
-**# Open links in terminal - Shift+Click to open the link in firefox (etc)**
-	*VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY)
-	
-**# Remove black border from terminal window**
-	xterm*borderWidth: 0
-
-
-== Cursor configurations ==
-**# To set a cursor-theme.**
-	Xcursor.theme: //<theme-name>//

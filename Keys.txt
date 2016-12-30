@@ -5,16 +5,16 @@ Creation-Date: 2016-11-22T23:38:53+01:00
 ====== Keys ======
 Created tirsdag 22 november 2016
 
-# **SSH Keys are used instead of passwords - an fast authentication. **
+**SSH Keys are used instead of passwords - an fast authentication. **
 
 == A quick info ==
 **SSH keys are generated in pairs - one public and one private. Share the public key all you want, but safeguard the private key. **
 
-**The public key is then used to encrypt a message - the public key is NOT able to decrypt this very same message - so the trick is, that the public key gives you an encryptet message which only the private key-holder will be able to give the appropriate responds to. **
+**The public key is then used to encrypt a message - the public key is NOT able to decrypt this very same message - so the trick is, that the public key gives you an **encrypted** message which only the private key-holder will be able to give the appropriate responds to. **
 
 == Storage ==
-**The keys is by default stored in 	**//~/.ssh///
-**The public key will be the one with the 	**//.pub//**	suffix**
+**#** **The keys is by default stored in  **//~/.ssh///
+**#** **The public key will be the one with the **//.pub //**suffix**
 
 == Generate a pair of SSH keys ==
 **# We append **//-C//** to add a comment. In this case the user, host and date is used for easy verification**
@@ -27,5 +27,5 @@ $ ssh-keygen -C "$(whoami)@$(hostname)-$(date -I)"
 $ ssh-keygen -f ~/.ssh///key-id// -p
 
 == Copy public key to remote server ==
-**# If the SSH server does not run on port 22, append the 	**//-p <portnumber>//
+**# If the SSH server does not run on port 22, append the 	**//-p <PORT_NUMBER>//
 $ ssh-copy-id -i ~/.ssh///key_id//.pub username@remote-server.org

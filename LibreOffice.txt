@@ -27,10 +27,14 @@ $ yaourt -S hunspell-da
 	Uncheck Use a Java Runtime Environment
 	
 	
+
 ===== Tips and Tricks =====
+**# Some random Tips and Tricks**
 
 == Disable the startup logo ==
 **# Edit **///etc/libreoffice/sofficerc //**find and change **//Logo=//
-	Logo=0
+{{{code: lang="texinfo" linenumbers="True"
+Logo=0
+}}}
 
 

@@ -8,18 +8,18 @@ Created mandag 19 december 2016
 **A list of candy to the eyes. **
 
 == Compton ==
-**# A composite manager for transparancy and shadows.**
+**# A composite manager for transparency and shadows.**
 **# Compton seems to be the best patched package.**
 $ pacman -S compton
 
-**# Start the application in **[[../Xorg.txt|xinitrc]]** and use your dotfile conf (Github)**
+**# Start the application in **xinitrc** and use your dotfile configuration (Github)**
 	compton -b --config ~/.compton.conf
 
 
 == Redshift ==
 **# Dim the screen (well the gamma actually) depending on time of day.**
 **# Get locations (lon/lat) here : **http://www.latlong.net/
-**# Config file on Github **
+**# Configuration file on Github **
 $ yaourt -S redshift-minimal
 
 **# Enable the service (no sudo!)**

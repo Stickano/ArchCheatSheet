@@ -10,8 +10,10 @@ Created søndag 25 december 2016
 == Installation ==
 $ pacman -S libnotify dunst
 
-**# Start Dunst through your **[[../Xorg.txt|xinitrc]] **file**
-	dunst &
+**# Start Dunst through your **xinitrc **file**
+{{{code: lang="texinfo" linenumbers="True"
+dunst &
+}}}
 
 
 == Configuration ==
@@ -32,18 +34,6 @@ $ pacman -S libnotify dunst
 	mod4+h
 	
 
-===== Tips and Tricks =====
-
-== Volume +/- message ==
-**# Dunst doesn't display volume up/dowm correctly - **
-**# Correct this by installing a independent xfc4-application**
-**# (Requires pulse audio)**
-$ yaourt -S xfce4-volumed-pulse
-
-**# Then start it from your **[[../Xorg.txt|xinitrc]]**.**
-	xfce4-volumed-pulse &
-
-
 ===== Create your own notifications! =====
 **# You can send messages to **//libnotify//** with the **//notify-send //**command.**
 $ notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
@@ -61,16 +51,19 @@ $ sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
 == Csharp ==
 **# Dunst also accepts other languages - like c#**
-	using Notifications;
-	public class HelloWorld {
-		static void Main() {
-			var Hello = new Notification();
-			Hello.Summary  = "Hello world!";
-			Hello.Body     = "This is an example notification.";
-			Hello.IconName = "dialog-information";
-			Hello.Show();
-		}
+{{{code: lang="texinfo" linenumbers="True"
+using Notifications;
+public class HelloWorld {
+	static void Main() {
+		var Hello = new Notification();
+		Hello.Summary  = "Hello world!";
+		Hello.Body     = "This is an example notification.";
+		Hello.IconName = "dialog-information";
+		Hello.Show();
 	}
+}
+}}}
+
 
 **# This requires a depedency though : **//pacman -S// //notify-sharp-3//
 **# This could be placed in a **//.cs//** file somewhere^**

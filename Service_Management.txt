@@ -5,7 +5,7 @@ Creation-Date: 2016-10-22T20:34:05+02:00
 ====== Service Management ======
 Created lørdag 22 oktober 2016
 
-systemd manages system units 	//.sockets	.service	.mount	.device	//files.
+**systemd manages system units **//.sockets .service .mount //**and**// .device  //**files.**
 
 **List running units : **systemctl
 **Failed units : **systemctl --failed
@@ -17,6 +17,6 @@ systemd manages system units 	//.sockets	.service	.mount	.device	//files.
 **Disable a unit on boot : **systemctl disable //unit//
 **See if is enabled or not : **systemctl is-enabled //unit//
 
-
-===== Tips and Tricks =====
-**GUI tool for systemd : **install the //systemd-ui// package
+== Tips and Tricks ==
+**#** **GUI tool for systemd **
+$ pacman -S systemd-ui

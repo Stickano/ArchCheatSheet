@@ -9,7 +9,7 @@ Created lørdag 03 december 2016
 **# It works in contrast with Unix **//cp//** command **
 **# So you specify where the file you want copied, to where you want the file copied to**
 
-**# To specify the hosts filesystem	**//[user] //**@ **//[host] //**: **///path/to/folder//
+**# To specify the hosts filesystem   **//[user] //**@ **//[host] //**: **///path/to/folder//
 
 == Basic Examples ==
 **# Copy a single file to a remote server**

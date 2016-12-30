@@ -8,7 +8,7 @@ Created søndag 04 december 2016
 **# A list of some nice additions**
 
 == Record My Desktop ==
-**# **//gtk-recordmydesktop//** allows you to record videos of your dekstop**
+**# **//gtk-recordmydesktop//** allows you to record videos of your desktop**
 $ pacman -S gtk-recordmydesktop
 
 == PDF Reader ==
@@ -26,3 +26,19 @@ $ mupdf -p 225
 
 **# Zoom Level (etc)**
 $ mupdf -z 225%
+
+== Zim Desktop Wiki ==
+**# Amazing for keeping notes**
+$ pacman -S zim
+
+**# You can add additional plugins from the **//Edit > Preferences//** option.**
+**# Noticeable might be **//Source View, Table Editor //**and **//Spell Checker//
+ 
+**# **//Source View//**, which can display code snippets in the wiki, requires this package**
+$  pacman -S python-gtksourceview2
+
+**# **//Spell Checker//** needs these packages from the official repository**
+$ pacman -S gtkspell python2-gtkspell aspell-en 
+
+**# And the Danish language package from the AUR**
+$ yaourt -S aspell-da

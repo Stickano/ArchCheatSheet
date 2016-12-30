@@ -5,21 +5,16 @@ Creation-Date: 2016-12-22T01:35:25+01:00
 ====== Terminal Keks ======
 Created torsdag 22 december 2016
 
-**Fortune can display random qoutes.**
-**Cowsay is ASCII images - default is a cow duh'**
-**lolcat will give you rainbows in the terminal!**
-
+**Just pass along - nothing to see here. **
 
 ===== Fortune =====
-
-== Installation ==
+**# Fortune will display a random quote **
 $ pacman -S fortune
 
-**# A set of "offensive" qoutes can be found in **///usr/share/fortune/off///
+**# A set of "offensive" quotes can be found in **///usr/share/fortune/off///
 
 ===== Cowsay =====
-
-== Installation ==
+**# Cowsay will produce a ASCII image of - well the default is a cow (who'd know)**
 $ pacman -S cowsay
 
 **# ASCII images can be found in **///usr/share/cows///
@@ -27,8 +22,7 @@ $ pacman -S cowsay
 **# Use a specific image with **//cowsay -f <themeName>//
 
 ===== Lolcat =====
-
-== Installation ==
+**# Lolcat will produce rainbow colors in your terminal**
 $ pacman -S lolcat
 
 == General Usage ==
@@ -38,8 +32,6 @@ $ cal | lolcat
 **# Animation (**//-a//**)**
 **# **//-d//** = duration**
 $ echo "You've been kekd" | lolcat -a -d 500
-
-
 
 
 ===== Combining for Keks =====

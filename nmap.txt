@@ -9,6 +9,7 @@ Created søndag 11 december 2016
 $ pacman -S nmap
 
 ===== Usage =====
+**# Some basic usage for full blown mad-man, and the bit more discreet approaches.**
 
 == Some basics - be aware that these might be easily spotted by FW/IDS ==
 **# Scan for open ports (**//verbose//**), use double for extra verbose **//-vv//
@@ -59,8 +60,10 @@ $ nmap -sW <//host>//
 **# To further break down packets, use double **//-ff//
 $ nmap -ff <//host>//
 
-**# **//nmap//** allows you to spoof a random vendor MAC -This will make it hard to determine where the attack came from.**
-**# **//nmap //**has a db with vendor prefixes, so whenever you provide a vendor, it looks in the db for a suitable MAC.**
+**# **//nmap//** allows you to spoof a random vendor MAC -**
+**#** **This will make it hard to determine where the attack came from.**
+**# **//nmap //**has a db with vendor prefixes, so whenever you provide a vendor, **
+**#** **it looks in the db for a suitable MAC.**
 $ nmap -spoof-mac Cisco <//host>//
 
 **# Unit and value rules for the next two examples.**

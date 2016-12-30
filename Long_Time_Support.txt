@@ -5,13 +5,18 @@ Creation-Date: 2016-10-22T23:48:33+02:00
 ====== Long Time Support ======
 Created lørdag 22 oktober 2016
 
-You can use the lts kernel as fallback, should your system encounter a critical/kernel error. 
-Install the //linux-lts// package. 
+**You can use the lts kernel as fallback, should your system encounter a critical/kernel error.** 
 
-**The bootloader needs to be updated afterwords. This example uses Grub.** 
-Grub, by default, groups the linux and linux-lts kernel in a category tree (subcategory). 
-To disable this, edit /etc/default/grub	and add the following line : 
-	GRUB_DISABLE_SUBMENU=y
+**# Install it from the official repository**
+$ pacman -S linux-lts 
 
-Update the bootloader with : 
+== A little additional configuration ==
+**# Grub, by default, groups the **//linux//** and **//linux-lts//** kernel in a category tree (subcategory).** 
+**# To disable this, edit** ///etc/default/grub //**and add the following line** 
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_DISABLE_SUBMENU=y
+}}}
+
+
+**# Update the bootloader with ** 
 $ grub-mkconfig -o /boot/grub/grub.cfg

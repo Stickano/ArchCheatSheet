@@ -14,13 +14,22 @@ $ pacman -S screen
 **# Create a file, **//~/.screenrc//
 
 **# To turn off the welcome message, add the following**
-	startup_message off
+{{{code: lang="texinfo" linenumbers="True"
+startup_message off
+}}}
+
 	
 **# To get an informative statusbar**
-	hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
-	
+{{{code: lang="texinfo" linenumbers="True"
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+}}}
+
+
 **# To get a scrollbar **
-	termcapinfo xterm* ti@:te@
+{{{code: lang="texinfo" linenumbers="True"
+termcapinfo xterm* ti@:te@
+}}}
+
 
 
 ===== Running =====
@@ -43,26 +52,21 @@ $ screen -r //session_name//
 **# Use **//ctrl+a //**to open the escape/option. Then use one of the following commands.**
 
 == Misc ==
-**# To get help/additional information**
-crtl+a **?**
+**# To get help/additional information : **crtl+a **?**
 
-**# Enter Copy Mode**
-crtl+a **Esc**
+**# Enter Copy Mode : **crtl+a **Esc**
 
-**# Paste text**
-crtl+a **]**
+**# Paste text : **crtl+a **]**
 
 == Detaching Screen Session ==
-**# You can detach the screen/terminal to the background **
-crtl+a **d**
+**# You can detach the screen/terminal to the background : **crtl+a **d**
 
 **# To raise a detached screen, re-open it with**
 $ screen -r
 
 == Command prompt ==
 **# With the command prompt, you can type commands directly **
-**# To open the Command prompt**
-crtl+a **:**
+**# To open the Command prompt : **crtl+a **:**
 
 **# Close all windows and the screen session**
 **:quit**
@@ -71,36 +75,26 @@ crtl+a **:**
 **:source ~/.screenrc**
 
 **# Rename the session-name **
-**:sessionname **//session_name//
+**:sessionname **//<NEW_NAME>//
 
 == Windows ==
-**# Window list**
-crtl+a **"**
+**# Window list : **crtl+a **"**
 
-**# Open window 0 etc**
-crtl+a **0**
+**# Open window 0 etc : **crtl+a **0**
 
-**# Rename the current Window**
-crtl+a **A**
+**# Rename the current Window : **crtl+a **A**
 
-**# Create a new Window**
-crtl+a **c**
+**# Create a new Window : **crtl+a **c**
 
-**# Send crtl+a to the current window**
-crtl+a **a**
+**# Send crtl+a to the current window : **crtl+a **a**
 
 == Regions ==
-**# Split current region into two**
-crtl+a **S**
+**# Split current region into two : **crtl+a **S**
 
-**# Switch between regions**
-crtl+a **tab**
+**# Switch between regions : **crtl+a **tab**
 
-**# Toggle between current and previous region**
-crtl+a **crtl+a**
+**# Toggle between current and previous region : **crtl+a **crtl+a**
 
-**# Close all regions but the current one **
-crtl+a **Q**
+**# Close all regions but the current one : **crtl+a **Q**
 
-**# Close the current region**
-crtl+a **X**
+**# Close the current region : **crtl+a **X**

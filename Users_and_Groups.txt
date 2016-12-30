@@ -5,69 +5,76 @@ Creation-Date: 2016-10-22T18:02:37+02:00
 ====== Users and Groups ======
 Created lørdag 22 oktober 2016
 
-**List files owned by a user or group :**
-$ find / -group <//group>//
-$ find / -user <//user>//
+**#** **List files owned by a user or group **
+$ find / -group <//GROUP_NAME>//
+$ find / -user <USER_NAME//>//
 
 
 ==== User management ====
-**To see all users : **sudo passwd -Sa
-**Getting UID's : **id -u //<username>//
+**#** **To see all users : **sudo passwd -Sa
+**#** **Getting UID's : **id -u //<USER_NAME>//
 
-**To add a new user : **
-Adding users can be done with //useradd//		set password after creating the user.
-	-G = add user to additional groups
-	-m = create a /home folder for the user
-	-s = path to default login shell
-	
-$ useradd -m -G wheel -s /bin/bash stickano
-$ passwd stickano
+== Adding a user ==
+**# Adding users can be done with** //useradd //**- set password after creating the user.**
+	-G **= add user to additional groups**
+	-m **= create a /home folder for the user**
+	-s **= path to default login shell**
 
-**Change login name : **usermod -l //newname oldname//
+**# Creating the user and setting the password**
+$ useradd -m -G wheel -s /bin/bash //<USER_NAME>//
+$ passwd //<USER_NAME>//
 
-**Change home directory : **usermod -d ///my/new/home// -m //username//
--m creates the required folders and move the content there
+== Delete user ==
+**#** //-r// **removes the home directory for the user**
+$ userdel -r //<USER_NAME>//
 
-**Add user to a group : **usermod -aG //additional_groups username//
-**Or :				    **gpasswd --add //username group//
+== Change login name ==
+$ usermod -l //<NEW_NAME> <OLD_NAME>//
 
-**Remove user from a group : **gpasswd -d //user group//
-If the user is logged in, changes will take affect after logout
+== Change home directory ==
+**#** -m **creates the required folders and move the content there**
+$ usermod -d ///my/new/home// -m //<USER_NAME>//
 
-**Expire password requiring them to create a new on first login : **chage -d 0 //username//
+== Add user to a group ==
+$ usermod -aG //<ADDITIONAL_GROUPS> <USER_NAME>//
+# **Or **
+$ gpasswd --add //<USER_NAME> <GROUP_NAME>//
 
-**Delete user : **userdel -r //username//
--r removes the home directory for the user
+== Remove user from a group ==
+**# If the user is logged in, changes will take affect after logout**
+$ gpasswd -d //<USER_NAME> <GROUP_NAME>//
+
+== Expire password requiring them to create a new on first login ==
+$ chage -d 0 //<USER_NAME>//
 
 
 ==== Group management ====
-**List groups that a user is member of : **groups //username//
+**#** **List groups that a user is member of **
+$ groups //<USER_NAME>//
 
-**List all groups on the system : **cat /etc/group
+**#** **List all groups on the system **
+$ cat /etc/group
 
-**Create a new group : **groupadd //newgroup//
+**#** **Create a new group **
+$ groupadd //<GROUP_NAME>//
 
-**Delete group : **groupdel //group//
+**#** **Delete group **
+$ groupdel //<GROUP_NAME>//
 
-**User groups : **
-Below is a list of general user groups - users can, and sometimes have to, be added to these groups without worries. 
+== User groups ==
+**# Below is a list of general user groups.**
+**# users can, and sometimes have to, be added to these groups without worries.** 
 
-adm	                # admin group, similar to //wheel//
-ftp                    # access to file-server by ftp-servers
-games               # access to some game software
-http                  # access to files served by the HTTP server
-log                   # access to logs in /var/log/ 	
-rfkill                 # access to control wireless power (TX-power)
-sys                   # access to administor printers
-users                # standard user group
-uucp                 # access to the RS-232 ports and their connected devices (old keyboard, printer, mouses etc)
-wheel               # administration group commonly used to give access to sudo/su	none is set by default
+adm	                **# admin group, similar to wheel**
+ftp                    **# access to file-server by ftp-servers**
+games               **# access to some game software**
+http                  **# access to files served by the HTTP server**
+log                   **# access to logs in **///var/log/// 	
+rfkill                 **# access to control wireless power (TX-power)**
+sys                   **# access to administor printers**
+users                **# standard user group**
+uucp                 **# RS-232 ports and their connected devices (old keyboard, printer, mouses etc)**
+wheel               **# administration group commonly used to give access to **//sudo/su//** none is set by default**
 
 
-==== Tips and Tricks ====
-**Add user to the sudoers file, to disable asking for password for a user when using **//sudo// **command :**
-The sudoers configuration file is located at /etc/sudoers. This file should always be edited with the //visudo// editor. 
-$ EDITOR=nano visudo
 
-**Add the following to the bottom of the file** 
-Defaults:////username////      !authenticate

@@ -28,6 +28,6 @@ $ feh --magick-timeout 1 file.svg
 
 ===== Wallpaper manager =====
 **# Background script found on Github.**
-**# Copy your background script into your **//~/.script//** folder and start it from **[[../Xorg.txt|xinitrc]]**.**
+**# Copy your background script into your **//~/.script//** folder and start it from **xinitrc**.**
 	./home/stick/.scripts/background &
 	

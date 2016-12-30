@@ -18,8 +18,7 @@ $ monerod
 
 **# It'll take some time^**
 **# Once updated, leave the daemon running. **
-**Good for the community and your wallet needs fully synced chain anyways (when running).**
-
+**#** **Good for the community and your wallet needs fully synced chain anyways (when running).**
 
 == Creating your wallet ==
 **# When creating a new wallet, you will be put through a configuration wizard for a password etc.**
@@ -28,7 +27,8 @@ $ cd ~/.monero_wallet
 $ monero-wallet-cli 
 
 **# The monero wallet will start to refresh**
-**# If it fails on its way, make sure the monerod (daemon) is running and enter **//refresh//** to start refreshing again.**
+**# If it fails on its way, make sure the monerod (daemon) is running **
+**#** **and enter **//refresh//** to start refreshing again.**
 
 **# Once your wallet i refreshed, save it**
 $ save

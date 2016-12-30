@@ -10,22 +10,27 @@ Created torsdag 22 december 2016
 
 **# Edit/create your **//.zprofile/.profile //**to define (add) the variables.**
 **# Directories must be given in absolute paths!**
-	# User specific configs
-	XDG_CONFIG_HOME=/home/stick/.config; 
-	export XDG_CONFIG_HOME
-	
-	# User specific cache
-	XDG_CACHE_HOME=/home/stick/.cache; 
-	export XDG_CACHE_HOME
-	
-	# User specific data
-	XDG_DATA_HOME=/home/stick/.local/share; 
-	export XDG_DATA_HOME
-	
-	# System specific data
-	XDG_DATA_DIRS=/usr/local/share:/usr/share; 
-	export XDG_DATA_DIRS
-	
-	# System specific configs
-	XDG_CONFIGS_DIRS=/etc/xdg;
-	export XDG_CONFIGS_DIRS
+{{{code: lang="texinfo" linenumbers="True"
+# User specific configs
+XDG_CONFIG_HOME=/home/stick/.config; 
+export XDG_CONFIG_HOME
+
+# User specific cache
+XDG_CACHE_HOME=/home/stick/.cache; 
+export XDG_CACHE_HOME
+
+# User specific data
+XDG_DATA_HOME=/home/stick/.local/share; 
+export XDG_DATA_HOME
+
+# System specific data
+XDG_DATA_DIRS=/usr/local/share:/usr/share; 
+export XDG_DATA_DIRS
+
+# System specific configs
+XDG_CONFIGS_DIRS=/etc/xdg;
+export XDG_CONFIGS_DIRS
+}}}
+
+
+

@@ -17,6 +17,7 @@ Created onsdag 28 december 2016
 
 
 ===== PulseAudio =====
+**# **//PulseAudio//** is the sound server that will manage our sound through Alsa. **
 
 == Installation ==
 $ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
@@ -27,26 +28,8 @@ $ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
 **# To load a module, create/edit that file, and add**
 	load-module //<module_name>//
 	
-**# Modules available can be found here **https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/
-**# Havent been over the modules yet, but add this to begin with (**//~/.config/pulse/default.pa//**)**
-	**# Sets volume to loudest application**
-	load-module flat-volumes
-
-
-== Pavolume ==
-**# Also install **//pavolume//** which gives you CLI volume controls.**
-$ yaourt -S pavolume
-
-**# Use with;**
-	pavolume show              **# show volume and mute status as notification**
-	pavolume volup             **# increase volume**
-	pavolume voldown           **# increase volume**
-	pavolume volset 50%        **# set volume to 50%**
-	pavolume volset 200%       **# boost volume to 200%**
-	pavolume muteon            **# mute audio output**
-	pavolume muteoff           **# un-mute audio output**
-	pavolume mutetoggle        **# toggle mute**
-	
+**# Modules available is fount here; **
+**# **https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/
 
 == Pavucontrol ==
 **# To get GUI controls, install **//pavucontrol //
@@ -54,13 +37,13 @@ $ pacman -S pavucontrol
 
 
 ===== Bluetooth Speaker =====
-**# This requires you've to have been through **[[../Bluetooth.txt|bluetooth]]**.**
+**# This requires you've to have been through **bluetooth**.**
 
 == Installation ==
-$ pulseaudio-bluetooth bluez-libs bluez-firmware
+$ pacman -S pulseaudio-bluetooth bluez-libs bluez-firmware
 
 == Usage ==
-**# Connect to the device as explained in **[[../Bluetooth.txt|bluetooth]]**.**
+**# Connect to the device as explained in **bluetooth**.**
 **# You should now be able to select the output through **//pavucontrol//**.**
 
 == Tips and Tricks ==

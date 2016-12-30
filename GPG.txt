@@ -14,9 +14,8 @@ Created onsdag 23 november 2016
 **# In below examples a document called **//doc//** will be used as example file to encrypt/decrypt.**
 
 ===== Installation and Setup =====
-
-== Installation ==
 **# Install the **//gnupg//** package**
+$ pacman -S gnupg
 
 == Generate key-pair ==
 $ gpg --full-gen-key
@@ -57,7 +56,8 @@ $ gpg --recv-keys <key-id>
 
 
 ===== Signatures =====
-**# Signatures certify and timestamp documents. If the document is modified, the verification will fail.**
+**# Signatures certify and timestamp documents. **
+**#** **If the document is modified, the verification will fail.**
 
 == Signing files ==
 **# To sign a file without compressing it into binary - used for text I think**
@@ -70,13 +70,15 @@ $ gpg --output doc.sig --sign doc
 $ gpg --output doc.sig --detach-sig doc
 
 == Verify signature ==
-$  $ gpg --verify doc.sig
+$ gpg --verify doc.sig
 
 **# If verifying a detached signature, make sure the signature file and the .iso is located together**
-$ $ gpg --verify archlinux-<version>-dual.iso.sig        **# Ex**
+ **# Ex.**
+$ gpg --verify archlinux-<version>-dual.iso.sig       
 
 
-===== Usage (encrypt/decrypt) =====
+===== Usage =====
+**# Encrypt / Decrypt **
 
 == To Encrypt a message ==
 **# To encrypt a message, in this example a file called **//doc//**, for a user in your keyring. **
@@ -92,13 +94,15 @@ $ gpg -o doc -d //file//.pgp
 
 
 ===== Tips and Tricks =====
+**# Some random Tips and Tricks**
 
 == Edit private key ==
 **# You can edit your private key through a sub-menu. Change expiration date etc.**
 $ gpg --edit-key <user-id>
 
 == Encrypting own files ==
-**# You can use your own **//<user-id>//** to encrypt files - only one at the time though. It is possible to pack various files in a tarball though and then encrypting the entire tarball.**
+**# You can use your own **//<user-id>//** to encrypt files - only one at the time though. **
+**#** **It is possible to pack various files in a tarball though and then encrypting the entire tarball.**
 
 == Backup (export) and Import private key ==
 **# To backup (export) a private key**

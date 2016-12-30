@@ -15,8 +15,6 @@ $ yaourt -S ttf-envy-code-r
 $ yaourt -S ttf-anonymous-pro
 
 
-
-
 ===== Fontconfig =====
 **# Fontconfig is a default library used by many linux distros. **
 
@@ -27,9 +25,9 @@ $ cd ~/.config/fontconfig/conf.d/
 $ ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
 
 **# The same rules defined in **///etc/fonts/conf.avail///
-**# can also be defined in a user-config **//~/.config/fontconfig/fonts.conf//
-**# User-defined config at Github.**
-**# When using the **//fonts.conf//** yould should Symlink to **//50-user.conf//
+**# can also be defined in a user-configuration **//~/.config/fontconfig/fonts.conf//
+**# User-defined configuration at Github.**
+**# When using the **//fonts.conf//** you should Symlink to **//50-user.conf//
 $ cd ~/.config/fontconfig/conf.d/
 $ ln -s /etc/fonts/conf.avail/50-user.conf
 
@@ -54,23 +52,24 @@ $ ln -s /etc/fonts/conf.avail/09-texlive-fonts.conf /etc/fonts/conf.d/09-texlive
 $ fc-cache && mkfontscale && mkfontdir
 
 
-
 ===== Infinality =====
 **# Infinality comes with a great deal of improvements for font rendering. **
 
 == Installation ==
 **# To install Infinality, you first have to add a couple of repositories to your **///etc/pacman.conf//
-	**# 1; The bundle **
-	[infinality-bundle]
-	Server = http://bohoomil.com/repo/$arch
-	
-	**# 2; Multilib**
-	[infinality-bundle-multilib]
-	Server = http://bohoomil.com/repo/multilib/$arch
-	
-	**# 3; Fonts**
-	[infinality-bundle-fonts]
-	Server = http://bohoomil.com/repo/fonts
+{{{code: lang="texinfo" linenumbers="True"
+# 1; The bundle 
+[infinality-bundle]
+Server = http://bohoomil.com/repo/$arch
+
+# 2; Multilib
+[infinality-bundle-multilib]
+Server = http://bohoomil.com/repo/multilib/$arch
+
+# 3; Fonts
+[infinality-bundle-fonts]
+Server = http://bohoomil.com/repo/fonts
+}}}
 
 
 **# You also have to import the maintainers key (**//962DDE58//**)**
@@ -87,11 +86,10 @@ $ pacman -S infinality-bundle infinality-bundle-multilib ibfonts-meta-extended
 
 **# Whenever you find a sweet font - always check if it's in the **//Infinality-bundle-fonts//** repository**
 **# Just look through the fonts from that repository first, when you package search a font **
-$ pacman -Ss //<someFont>//
+$ pacman -Ss //<FONT_NAME>//
 
 **# Recommended patches to install**
-$ yaourt -S freetype2-infinality
-$ yaourt -S fontconfig-infinality
+$ yaourt -S freetype2-infinality fontconfig-infinality
 
 == Configuration ==
 **# By default, Infinality ships with a **//Ultimate3//** setting, which works fine.**

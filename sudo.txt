@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-30T01:24:35+01:00
+
+====== sudo ======
+Created Friday 30 December 2016
+
+**By default, you aren't allowed to use the **//sudo//** command as a user. **
+**Further more, running X applications with sudo is not possible by default.**
+**This is because, that root does not have access to the primary screen by default.**
+
+**# The sudoers configuration file is located at **///etc/sudoers//**. **
+**# This file should always be edited with the visudo editor.** 
+$ EDITOR=nano visudo
+
+== Enable user to use sudo ==
+**# Edit the sudoers file**
+$ EDITOR=nano visudo
+
+**# And add the user**
+{{{code: lang="texinfo" linenumbers="True"
+stick ALL=(ALL) ALL
+}}}
+
+	
+
+== Allow sudo to use X applications ==
+**# Edit **///etc/profile//** and add the following line - remember to change **//username//
+{{{code: lang="texinfo" linenumbers="True"
+export XAUTHORITY=/home/<username>/.Xauthority
+}}}
+
+
+
+===== Tips and Tricks =====
+**# Some random Tips and Tricks**
+
+== Don't ask for PW when using sudo ==
+**# Edit the sudoers file**
+$ EDITOR=nano visudo
+
+**# Add the following to the bottom of the file**
+{{{code: lang="texinfo" linenumbers="True"
+Defaults:<USERNAME>      !authenticate
+}}}
+
+

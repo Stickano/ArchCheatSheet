@@ -9,8 +9,10 @@ Created lørdag 03 december 2016
 $ pacman -S openssh
 
 ===== Client Usage =====
+**# Client side usage**
+**# The default SSH port is **//22//
 
-==== Usage ====
+== Usage ==
 **# Connecting to a server**
 $ ssh -p //<portnumber> <user>//@//<server-address>	//**# Note the **//@ //**between user and address.**
 
@@ -18,62 +20,80 @@ $ ssh -p //<portnumber> <user>//@//<server-address>	//**# Note the **//@ //**bet
 **# Run process on the server display output - ex. running **//mplayer//** on your media-server^**
 $ DISPLAY=:0 mplayer ///path/to/movie //-fs
 
-==== Configuration ====
-**# Add/edit **//~/.ssh/config	//**This will be referred to as the ssh config**
-**# Add a globel username for all the hosts you visit**
-	User //<username>//
+== Configuration ==
+**# Add/edit **//~/.ssh/config  //**This will be referred to as the ssh configuration**
+**# Add a global username for all the hosts you visit**
+{{{code: lang="texinfo" linenumbers="True"
+User <USER_NAME>
+}}}
+
 	
-**# Improved performance, add the following to the ssh config**
-	ControlMaster auto
-	ControlPersist yes
-	ControlPath ~/.ssh/sockets/socket-%r@%h:%p
-	
-**# Host Aliasses**
+**# Improved performance, add the following to the ssh configuration**
+{{{code: lang="texinfo" linenumbers="True"
+ControlMaster auto
+ControlPersist yes
+ControlPath ~/.ssh/sockets/socket-%r@%h:%p
+}}}
+
+
+== Host Aliasses ==
 **# To provide an alias for a commonly used host, add the following to the ssh config**
-	Host //<server-name>//
-		HostName //<server-address>//
-		Port     //<port>//
+{{{code: lang="texinfo" linenumbers="True"
+Host <SERVER_NAME> # Give it a optional name
+	HostName <SERVER_ADDRESS>
+	Port     <PORT_NUMBER>
+}}}
+
 
 **# You are now able to use alias shortcuts, instead of the full **//ssh user@host//** string**
-$ ssh //<server-name>//
-
+$ ssh //<SERVER_NAME>//
 
 
 ===== Server Usage =====
+**# Server side usage**
 
-==== Configuration ====
+== Configuration ==
 **# The configuration file can be found in **///etc/ssh/sshd_config	//
-**#** **Note the "d" **//ssh//**d**_config **(daemon)	- This will be referred to as the config file **
+**#** **Note the "d" **//ssh//**d**_config **(daemon)	- This will be referred to as the configuration file **
 
-**# Disable root login, edit the followin in the config file**
-	PermitRootLogin no
+**# Disable root login, edit the following in the configuration file**
+{{{code: lang="texinfo" linenumbers="True"
+PermitRootLogin no
+}}}
+
 
 **# Change port number (optional) - default is port 22**
-	Port //<portnumber>//
+{{{code: lang="texinfo" linenumbers="True"
+Port <PORT_NUMBER>
+}}}
+
 	
 **# To disable the SSH login (password login) - f.ex. to only use SSH key authentication (See below). **
 **# Uncomment and change to **//no//** in the following **
-	PasswordAuthentication no
-	ChallengeResponseAuthentication no
+{{{code: lang="texinfo" linenumbers="True"
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+}}}
 
 
 == SSH key authentication ==
 **# The public key, from the client, will have to be located on the server machine.**
 **# Say our clients public SSH key is located on our servers home folder **//~///<somekey>//.pub//
 
-**# Create, if it doesn't already excist, a folder at **//.ssh//
+**# Create, if it doesn't already exists, a folder at **//.ssh//
 $ mkdir ~/.ssh
 $ chmod 700 ~/.ssh
 
 **# Import the public key, from the client, to the **//authorized_keys//** file **
 $ cat ~///<somekey>//.pub >> ~/.ssh/authorized_keys
 
-**# Remove the public key and change the folder permission back to only user-useable**
+**# Remove the public key and change the folder permission back to only user-usable**
 $ rm ~///<somekey>//.pub
 $ chmod 600 ~/.ssh/authorized_keys
 
 
 ==== Starting the daemon ====
+**# Starting the server side daemon**
 
 == The easy way ==
 **#** **just starting the daemon to constantly be running (preferred option below)**
@@ -89,14 +109,17 @@ $ systemctl enable sshd@.service
 $ systemctl edit sshd.socket
 
 **# Add the following - portnumber is the port that the SERVER/HOST is listening for (default 22)**
+{{{code: lang="texinfo" linenumbers="True"
 	[socket]
 	FreeBind=true
-	ListenStream=		**# Add ip and portnumber, ex **//192.168.0.1:22//
-	ListenStream=//<ip-adress>//://<portnumber>//
-	
+	ListenStream=		# Add ip and portnumber, ex 192.168.0.1:22
+	ListenStream=<IP_ADDRESS>:<PORT_NUMBER>
+}}}
+
 
 
 ==== Security ====
+**# Some good to know security tips**
 
 == Fail2Ban ==
 **# This will add rules to the firewall if a password attempt fails to many times.**
@@ -106,7 +129,13 @@ $ systemctl enable fail2ban.service
 
 
 ==== Tips and Tricks ====
+**# Some random Tips and Tricks**
 
 == Keep Alive ==
-**# To make sure that the SSH server wont log you out, uncomment and change the following in the config file**
-	ClientAliveInterval 120
+**# To make sure that the SSH server wont log you out, **
+**#** **uncomment and change the following in the configuration file**
+{{{code: lang="texinfo" linenumbers="True"
+ClientAliveInterval 120
+}}}
+
+

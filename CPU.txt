@@ -5,24 +5,29 @@ Creation-Date: 2016-10-23T18:12:13+02:00
 ====== CPU ======
 Created søndag 23 oktober 2016
 
-
-**To monitor CPU speed in real time, run : **
+**#** **To monitor CPU speed in real time, run **
 $ watch grep \"cpu MHz\" /proc/cpuinfo
 
-
-===== Usefull Packages =====
-
 == Thermald ==
-Helps prevent overheating situations.
-Install the //thermald// (AUR) package
+**# Helps prevent overheating situations.**
+$ yaourt -S thermald
 
 == i7z ==
-Reporting tool for Intel processors. Can be invoked with //i7z// or //i7z-gui//
+**# Reporting tool for Intel processors**
 Install the i7z package
 
-== CpuPower ==
-Assists with CPU frequency scaling. 
-Install the //cpupower// package
-Enable the //cpupower.service //file
-Edit 	///etc/default/cpupower//	change to 	**governor='performance'**
+**# Invoke with **
+$ i7z		**# CLI**
+$ i7z-gui		**# GUI**
 
+== CpuPower ==
+**# Assists with CPU frequency scaling** 
+$ pacman -S cpupower
+
+**#** **Enable the service**
+$ systemctil enable cpupower.service
+
+**# Edit **///etc/default/cpupower //**and change **//governor=//
+{{{code: lang="texinfo" linenumbers="True"
+governor='performance'
+}}}

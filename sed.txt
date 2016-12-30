@@ -7,7 +7,7 @@ Created lørdag 22 oktober 2016
 
 **sed is a tool for manipulation text.** 
 
-== Spacing : ==
+== Spacing ==
 **# Double spaces (doesn't make double blank lines)**
 $ sed '/^$/d;G'				
 
@@ -26,14 +26,14 @@ $ sed '/example/{x;p;x;G;}'
 **# Add a blank line after every 5 lines**
 $ sed 'n;n;n;n;G;'			
 
-== Line numbering : ==
+== Line numbering ==
 **# Line number for each line**
 $ sed = filename | sed 'N;s/\n/\t/'			
 
 **# Only if the line is not empty**
 $ sed '/./=' filename | sed '/./N; s/\n/ /'		
 
-== Whitespaces : ==
+== Whitespaces ==
 **# Remove whitespaces from beginning of each line**
 $ sed 's/^[ \t]*//' 			
 
@@ -43,18 +43,18 @@ $ sed 's/[ \t]*$//'
 **# Remove whitespace from beginning and end of each line**
 $ sed 's/^[ \t]*//;s/[ \t]*$//'		
 
-== Find and Replace : ==
+== Find and Replace ==
 **# Find and replaces all instances of foo and replaces it with bar**
 $ sed 's/foo/bar/g'			
 
-== Reverse  : ==
+== Reverse ==
 **# Re-arrange the lines (bottom to top)**
 $ sed '1!G;h;$!d' 						
 
 **# Reverse each character** 
 $ sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'		
 
-== Selective Printing : ==
+== Selective Printing ==
 **# Print out first line of a file**
 $ sed q	
 					
@@ -76,7 +76,7 @@ $ sed -n '8,12p'
 **# Print out line 52**
 $ sed -n '52p'					
 
-== Deleting : ==
+== Deleting ==
 **# Delete all duplicate lines (consecutive duplicates)**
 $ sed '$!N; /^\(.*\)\n\1$/!P; D'		
 

@@ -5,43 +5,43 @@ Creation-Date: 2016-10-22T17:31:52+02:00
 ====== Permissions ======
 Created lørdag 22 oktober 2016
 
-To change permissions of a file/folder, 	use //chmod//
-$ chmod //who=permissions filename//
+**#** **To change permissions of a file/folder, use** //chmod//
+$ chmod //who=<PERMISSIONS> <FILE_NAME>//
 
-**who : **
-	u = user that owns the file
-	g = group the file belongs to
-	o = other users (everyone else)
-	a = all of the above (use instead of //ugo//)
+**#** **Who  **
+	u **= user that owns the file**
+	g **= group the file belongs to**
+	o **= other users (everyone else)**
+	a **= all of the above (use instead of ugo)**
 	
-**permissions : **
-	r = read access
-	w = write access
-	x = execute-able
+**#** **Permissions **
+	r **= read access**
+	w **= write access**
+	x **= execute-able**
 
 
-== Basic Examples : ==
-$ chmod og=rx ~/Documents            # //owner //and //group// gets //read// and //execute// access
-$ chmod g=	~/Documents            # no access for //group// 	(empty space means no access)
+== Basic Examples ==
+$ chmod og=rx ~/Documents          **# owner and group gets read and execute access**
+$ chmod g=	~/Documents            **# no access for group (empty space means no access)**
 
-**You'll sometimes see numeric given permissions. **
-r = 4	w = 2	x = 1
-**So as an example, we could say :**
-[owner] : rwx = 4+2+1 = 7
-[group] : r-x = 4+0+1 = 5
-[other] : r-x = 4+0+1 = 5
+**#** **You'll sometimes see numeric given permissions**
+	r = 4	w = 2	x = 1
+	
+**#** **So as an example, we could say **
+	[owner] : rwx = 4+2+1 = 7
+	[group] : r-x = 4+0+1 = 5
+	[other] : r-x = 4+0+1 = 5
 
-$ chmod 755 //filename//
+**# Would be produce as**
+$ chmod 755 //<FILE_NAME>//
 
-
-== Bulk chmod : ==
-**chmod directories to 755**	-type d  	for directory
+== Bulk chmod ==
+# **chmod directories to 755**	//-type d//  **for directory**
 $ find //directory// -type d -exec chmod 755 {} +
 
-**chmod files to 644**		-type f	for files
+**#** **chmod files to 644 **//-type f//	**for files**
 $ find //directory// -type f -exec chmod 644 {} +
 
-
-== Change ownership : ==
-Let's say we have a folder owned by root - maybe we created a new partition with gparted ex. 
+== Change ownership ==
+**# Let's say we have a folder owned by **//root//** - maybe we created a new partition with **//gparted//** ex.** 
 $ chown //username// /path/to/folder

@@ -6,55 +6,27 @@ Creation-Date: 2016-12-17T16:16:20+01:00
 Created lørdag 17 december 2016
 
 **Zsh is an alternate, improved, version from the Bash shell (default).**
-**My **//.zshrc//** file can be found at Github:LinuxConfigs**
+**My **//.zshrc//** file can be found at Github**
 
 == Installation ==
 $ pacman -S zsh
 
+**# Then make it the default Shell - don't run with sudo!**
+$ chsh -s /bin/zsh
+
 == Configuring $PATH ==
 **# Paths should be set in a different configuration, since there is some source conflict with /etc/profile**
 **# To prevent the path from being overwritten, set it in **//~/.zprofile//
-	typeset -U path
-	path=(~/bin /home/stick/.scripts /usr/local/bin $path[@])
-	
+{{{code: lang="texinfo" linenumbers="True"
+typeset -U path
+path=(~/bin /home/stick/.scripts /usr/local/bin $path[@])
+}}}
+
+
 
 ===== Configuration =====
 **# User configuration is found in **//~/.zshrc//
-**# The following can be added to the **//.zshrc//** file for preferred functionality**
-
-== Auto completion ==
-**# The following includes SSH/scp and stfp **
-	autoload -Uz compinit
-	compinit
-
-**# For alias completion**
-	setopt COMPLETE_ALIASES
-
-
-== History Search ==
-**# With the arrow keys**
-	autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-	zle -N up-line-or-beginning-search
-	zle -N down-line-or-beginning-search
-	
-	[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
-	[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-
-
-== Themes ==
-**# Allows you to use themes**
-	autoload -Uz promptinit
-	promptinit
-
-
-== Terminal Reset ==
-**# Reset terminal if application crashes abnormally**
-	ttyctl -f
-
-
-== Automaticly update new executeables in $PATH ==
-	zstyle ':completion:*' rehash true
-	
+**# My Zsh configuration file can be found at Github. **
 
 == Search official repositories when a command was invalid ==
 **#** **This requires the pkgfile package **
@@ -66,14 +38,18 @@ $ pkgfile -u
 **#** **Enable its system timer servce **
 $ systemctl enable pkgfile-update.timer
 
-**# Then add the following to the **//~/.zshrc//** file**
+**# Then add the following to the **//~/.zshrc//** file **
+**#** **(My configuration already includes this, just make sure to install the package and enable the service)**
+{{{code: lang="texinfo" linenumbers="True"
 	source /usr/share/doc/pkgfile/command-not-found.zsh
+}}}
+
 
 
 ===== Oh my Zsh =====
 **# OMZsh is a shitload of additional functions and themes ready to use out-the-box**
 **# Below is still just added to the **//.zshrc//** file - OMZsh just adds a little extra.**
-**# A further explained (example) OMZsh **//.zshrc//** file can be found at gedit **///usr/share/oh-my-zsh/zshrc// 
+**# A further explained (example) OMZsh **//.zshrc//** file can be found at **///usr/share/oh-my-zsh/zshrc// 
 
 == Install from the AUR ==
 $ yaourt -S oh-my-zsh-git
@@ -81,11 +57,13 @@ $ yaourt -S oh-my-zsh-git
 == Themes ==
 **# Original (supported) themes can be found at **https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 **# I've found this one to be quite lovely**
-	ZSH_THEME="ys"
+{{{code: lang="texinfo" linenumbers="True"
+ZSH_THEME="ys"
+}}}
 
 
 == Functions ==
-**# Functions are added to the **//plugins=()//** line (space seperated list)**
+**# Functions are added to the **//plugins=()//** line (space separated list)**
 **# A full list of functions can be found here **https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
 **# Below is a list of favorites^**
 
@@ -98,7 +76,7 @@ $ yaourt -S oh-my-zsh-git
 **# Usage : **//encode64 <string>	decode64 <string>//
 
 **# screen**
-**# Automaticly sets title and status for **[[../Gnu_Screen.txt|Gnu Screen]]
+**# Automaticly sets title and status for **Gnu Screen
 
 **# sudo**
 **# **//ESC//** twice to put sudo infront of current command**
@@ -112,6 +90,9 @@ $ yaourt -S oh-my-zsh-git
 **# Usage : **//ddg <search>		google <search> //
 
 **# ssh-agent**
-**# Add the following to your **//.zshrc//** file to enable**
-	zstyle :omz:plugins:ssh-agent agent-forwarding on 	
+**# Add the following to your **//.zshrc//** file to enable (already included in my configuration)**
+{{{code: lang="texinfo" linenumbers="True"
+zstyle :omz:plugins:ssh-agent agent-forwarding on 
+}}}
+	
 

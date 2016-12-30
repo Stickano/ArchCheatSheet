@@ -33,7 +33,7 @@ $ curl http://www.eicar.org/download/eicar.com.txt | clamscan -
 
 == Usage ==
 **# Scan a file**
-$ clamscan //<filename>//
+$ clamscan //<FILE_NAME>//
 
 **# Scan a directory**
 $ clamscan -r -i ///path/to/folder//

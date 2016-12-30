@@ -5,10 +5,9 @@ Creation-Date: 2016-10-22T21:44:58+02:00
 ====== Mirrors ======
 Created lørdag 22 oktober 2016
 
-
 ==== Use European servers ====
-Edit the /etc/pacman.conf file. Add the following server lines before the include lines.
-
+**# Edit the **///etc/pacman.conf//** file. Add the following server lines before the include lines.**
+{{{code: lang="texinfo" linenumbers="True"
 [core]
 Server = ftp://ftp.hosteurope.de/mirror/ftp.archlinux.org/core/os/$arch
 Include = /etc/pacman.d/mirrorlist
@@ -20,26 +19,32 @@ Include = /etc/pacman.d/mirrorlist
 [community]
 Server = ftp://ftp.hosteurope.de/mirror/ftp.archlinux.org/community/os/$arch
 Include = /etc/pacman.d/mirrorlist
+}}}
+
 
 
 ==== Using Reflector ====
-Reflector is a package that retrieve the latest mirror list, filter the most up-to-date, sort them by speed and overwrite the /etc/pacman.d/mirrorlist. Install the //reflector //package.
+**# Reflector is a package that retrieve the latest mirror list, filter the most up-to-date -**
+**# sort them by speed and overwrite the **///etc/pacman.d/mirrorlist//**.**
+$ pacman -S reflector
 
-**To rate and update the mirrorlist, run :**
+**#** **To rate and update the mirrorlist**
 $ reflector --verbose -l 30 --number 20 -p https --sort rate --save /etc/pacman.d/mirrorlist
 
-**Automatic update mirrorlist when a new is installed **(.pacnew) **:** 
-You can create a pacman hook to run reflector everytime pacman-mirrorlist gets an upgrade.
-Create a new hook (file)		/etc/pacman.d/hooks/mirrorupgrade.hook
+== Automatic update mirrorlist when a new is installed (.pacnew) ==
+**# You can create a pacman hook to run reflector everytime pacman-mirrorlist gets an upgrade.**
+**# Create a new hook** ///etc/pacman.d/hooks/mirrorupgrade.hook//
+{{{code: lang="texinfo" linenumbers="True"
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
 
-	[Trigger]
-	Operation = Upgrade
-	Type = Package
-	Target = pacman-mirrorlist
-	
-	[Action]
-	Description = Updating pacman-mirrorlist with reflector and removing pacnew...
-	When = PostTransaction
-	Depends = reflector
-	Exec = /usr/bin/bash -c "reflector --verbose -l 30 --number 20 -p https --sort rate --save /etc/pacman.d/mirrorlist && [[ -f /etc/pacman.d/mirrorlist.pacnew ]] && rm /etc/pacman.d/mirrorlist.pacnew"
+[Action]
+Description = Updating pacman-mirrorlist with reflector and removing pacnew...
+When = PostTransaction
+Depends = reflector
+Exec = /usr/bin/bash -c "reflector --verbose -l 30 --number 20 -p https --sort rate --save /etc/pacman.d/mirrorlist &&  -f /etc/pacman.d/mirrorlist.pacnew  && rm /etc/pacman.d/mirrorlist.pacnew"
+}}}
+
 	

@@ -14,7 +14,8 @@ Created onsdag 23 november 2016
 **#	(Optional) Push to remote server (github)**
 
 == Installation ==
-**Install the **//git//** package along with **//aspell//** for spell-checking**
+# **Install the **//git//** package along with **//aspell//** for spell-checking**
+$ pacman -S git aspell
 
 == Configuration ==
 **# Name and E-mail**
@@ -24,18 +25,16 @@ $ git config --global user.email "Jeppesen@tutanota.com"
 **# Default editor (nano)**
 $ git config --global core.editor "nano -w"
 
-**# Default push action (?)**
-$ git config --global push.default simple
-
 
 ===== File Handling =====
+**# Handling files with Git manages them in Git index HEAD. The files themselves are not touched.**
 
 == Create new repository ==
 $ cd //<your_project>///
 $ git init
 
 == Adding files to the index three ==
-**# Once you've created/modified some files, they need to be added to git's index tree. **
+**# Once you've created/modified some files, they need to be added to Gits index tree. **
 **# This will make git able to record changes in files and commit those changes.**
 $ git add //file1 file2//
 
@@ -48,16 +47,17 @@ $ git add .        **# note the dot (.)**
 == Ignoring files ==
 **# It is possible to create a list for files, which should not be included when running **//git add .//** 	(add all)**
 **# Create a file in your git directory called 	**//.gitignore	//**and choose from the following (add-able)**
+{{{code: lang="texinfo" linenumbers="True"
+# File I'll likely delete
+test-script
 
-	# File I'll likely delete
-	test-script
-	
-	# Ignore all .html files, except 'important.html'
-	*.html
-	!important.html
-	
-	# Ignore all files recursively in 'DoNotInclude'
-	DoNotInclude/**
+# Ignore all .html files, except 'important.html'
+*.html
+!important.html
+
+# Ignore all files recursively in 'DoNotInclude'
+DoNotInclude/**
+}}}
 
 
 == Removing files ==
@@ -74,19 +74,21 @@ $ git mv //<oldname> <newname>//
 **# List files **
 $ git ls-files
 
+
 ===== Commit Changes =====
 **# You should commit changes to a branch (See a little further down)**
 **# Once changes/additions has been made, commit those changes. Commit often.**
 **# **//a//** will add changes from all known files.**
-**# If -**m "message"** is exluded, the default text-editor will open, alowing you to add a long message instead.**
-$ git commit -am "Short Message."
+**# If -**m "message"** is excluded, the default text-editor will open, allowing you to add a long message.**
+$ git commit -m "Short Message."
 
 **# Change/edit the message for the last commit**
 $ git commit --amend -m "Short Message."
 
-**# To reset a commit - or severals - use reset**
+**# To reset a commit - or several - use reset**
 **# This example, back up 1 commit.**
 $ git reset HEAD~1
+
 
 ===== View Changes =====
 **# Between staging area and the working tree (commit to push)**
@@ -95,32 +97,36 @@ $ git diff
 **# General overview of the changes**
 $ git status
 
-**# Hisory overview	**//-N//**	is the number of commits to include (numeric value)**
+**# History overview **//-N //**is the number of commits to include (numeric value)**
 **# You can append **//--oneline//** for a better overview**
 $ git log -p (-N)
 
+
 ===== Branches =====
 **# Added features, or bug-fixes, is usually tested in Branches. **
-**#** **Once the changes are as pleassed, they can be commited and then merged with the master (default)  branch.**
+**#** **Once the changes are as pleased, they can be committed and then merged with the master branch.**
 
 **# Create a branch	which name accurately reflects its purpose**
-$ git branch //added-feature-addition//
+$ git branch //<BRANCH_NAME>//
 
 **# List branches**
 $ git branch
 
 **# Switch branches**
-$ git checkout //<branchname>//
+$ git checkout //<BRANCH_NAME>//
 
 **# Merge a branch to the master branch**
 $ git checkout master
-$ git merge //<branchname>//
+$ git merge //<BRANCH_NAME>//
 
 **# Once done with a branch, delete it**
-$ git branch -d //<branchname>//
+$ git branch -d //<BRANCH_NAME>//
+
 
 ===== Merge Conflicts =====
-**# Whenever git isn't able to merge commits/branches together, you will have to solve the conflict yourself.**
+**# Whenever git isn't able to merge commits/branches together**
+**# you will have to solve the conflict yourself.**
+
 **# Navigate to your project folder and run a **//git status//** for more information**
 **# Open the file(s) that are in conflict - with your favorite editor of couruse!^**
 
@@ -138,25 +144,28 @@ $ git add .	**# note the dot (.)**
 **# Then commit the changes **
 $ git commit -m "Resolved merge conflict."
 
-===== Remote Repositories =====
-**Remote locations, like Github, can work in collaboration with your local repository.**
-**Add your **[[:Keys|SSH public key]]** to Github and run your **[[:Agent|SSH agent]]**.**
 
-**In below examples the **///Stickano/hello-world //**Github account and repository is used.**
-**The SSH connection to this account would be **ssh://git@github.com/Stickano/hello-world
+===== Remote Repositories =====
+**#** **Remote locations, like Github, can work in collaboration with your local repository.**
+**#** **Add your **//SSH public key//** to Github and run your **//SSH agent//**.**
+
+**#** **In below examples the **///Stickano/hello-world //**Github account and repository is used.**
+**#** **The SSH connection to this account would be **ssh://git@github.com/Stickano/hello-world
 
 == Clone a repository ==
 **# Say you've created a new repository on Github**
 **# Create a new folder for the dump**
-$ mkdir ~///<foldername>//
+$ mkdir ~///<FOLDER_NAME>//
 
 **# Clone the repository**
-$ git clone ssh://git@github.com/Stickano/hello-world //<foldername>//
+$ git clone ssh://git@github.com/Stickano/hello-world //<FOLDER_NAME>//
 
-**# This will also create a label (see below) for the original location. This label is called 	**//origin//
+**# This will also create a label (see below) for the original location. This label is called  **//origin//
 
 == Pull request ==
-**# A pull request will download the latest changes from the remote repository, so you can merge it with your own.**
+**# A pull request will download the latest changes from the remote repository, **
+**#** **so that you can merge it with your own.**
+
 **# To fetch (download changes) and view the changes**
 $ git fetch ssh://git@github.com/Stickano/hello-world master
 $ git log -p HEAD..FETCH_HEAD
@@ -166,7 +175,8 @@ $ git log -p HEAD..FETCH_HEAD
 $ git merge FETCH_HEAD
 
 == Push repository ==
-**# Once your local master branch (this example) has merged changes, you can push (upload) to remote repository.**
+**# Once your local master branch (this example) has merged changes, **
+**#** **you can push (upload) to remote repository.**
 
 **# To push the current branch to the remote repository, FIRST TIME use**
 $ git push ssh://git@github.com/Stickano/hello-world //-u//
@@ -178,40 +188,46 @@ $ git push -u origin
 $ git push
 
 **# Push a specific branch to remote repository. The branch will be created in it doesn't exist remote.**
-$ git push origin //<branchname>//
+$ git push origin //<BRANCH_NAME>//
 
 **# Push current branch to the same name on remote repository**
 $ git push origin HEAD
 
-
 == Label your remote repository ==
-**# NOTE: If you cloned a repository, it has already been labelled 	**//origin//
+**# NOTE: If you cloned a repository, it has already been labeled**// origin//
 
-**# We can label our frequent visited remote repositories, like Github, to a meaningfull name**
-$ git remote add //<labelname> //ssh://git@github.com/Stickano/hello-world
+**# We can label our frequent visited remote repositories, like Github, to a meaningful name**
+$ git remote add //<LABEL_NAME> //ssh://git@github.com/Stickano/hello-world
 
 **#** **Fetch a label**
-$ git fetch //<labelname>//
+$ git fetch //<LABEL_NAME>//
 
 **# Show difference between local master and remote master**
-$ git log -p master..//<labelname>///master
+$ git log -p master..//<LABEL_NAME>///master
 
 **# To view which label is used for current repository**
 $ git remote -v
 
 
 ===== Tips and Tricks =====
+**#** **Some random Tips and Tricks**
 
-== Auto completion with Bash commands ==
+== Auto completion with Bash commands (Bash) ==
 **# To add auto-complete on Git commands in your terminal, add the following to your **//.bashrc//** file**
-	source /usr/share/git/completion/git-completion.bash
+{{{code: lang="texinfo" linenumbers="True"
+source /usr/share/git/completion/git-completion.bash
+}}}
+
 	
 
 == Aliases ==
 **# Consider these aliases for your **//~/.bashrc//** file**
-	alias such=git
-	alias very=git
-	alias wow='git status'
+{{{code: lang="texinfo" linenumbers="True"
+alias such=git
+alias very=git
+alias wow='git status'
+}}}
+
 	
 **# Would produce**
 $ wow

@@ -8,13 +8,10 @@ Created mandag 19 december 2016
 **I'll try to put-together a list of sweet ass themes. **
 **Manage your themes with **lxappearance**.**
 
-**Lxappearance will allow you to set a system wide font in gtk themed application etc.**
-**One of the reason we use lxappearance, is to generate a couple of GTK files - Both for gtk-2 and gtk-3, which reads its configurations from different locations.**
-
-== Installation ==
+===== Lxappearance =====
+**#** **Lxappearance will allow you to set a system wide font in gtk themed application etc.**
 $ pacman -S lxappearance
 
-== Running ==
 **# You can run **//lxappearance //**to get the GUI controls. **
 
 == Configuration ==
@@ -22,8 +19,8 @@ $ pacman -S lxappearance
 **# Find them in **//~/.gtkrc-2.0 //**and **//~/.config/gtk-3.0/settings.ini //**and change the content to your liking.**
 
 
-
 ===== Window Themes =====
+**# Some sweet ass Window Themes**
 
 == Arc ==
 **# The **//arc-theme//** is pretty sweet**
@@ -32,15 +29,24 @@ $ yaourt -S arc-firefox-theme
 
 
 ===== Grub2 =====
-**# Archlinux Grub theme**
+**# Some sweet ass Grub Themes**
+
+== Archlinux Grub theme ==
+**# Not sure if I like the default better, but hey**
 $ yaourt -S grub2-theme-archlinux
 
 **# Edit the **///etc/default/grub //**configuration file**
 **# Change, and out-comment, the **//GRUB_THEME="" //**line to**
-	GRUB_THEME="/boot/grub/themes/Archlinux/theme.txt"
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_THEME="/boot/grub/themes/Archlinux/theme.txt"
+}}}
+
 
 **# Also change the **//GRUB_GFXMODE=auto//** to (best viewed)**
-	GRUB_GFXMODE=1024x768
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_GFXMODE=1024x768
+}}}
+
 	
 **# Then re-configure your grub **
 $ grub-mkconfig -o /boot/grub/grub.cfg

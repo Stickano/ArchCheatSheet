@@ -11,7 +11,6 @@ Created onsdag 21 december 2016
 == Installation ==
 $ pacman -S keepass
 
-
 == Using with Firefox ==
 **# **//KeeFox//** is a Firefox plugin (install it via firefox-plugins/browser)**
 **# Once installed, the browser will restart and a setup guide is available.**
@@ -28,16 +27,19 @@ $ cp Downloads/KeePassRPC.plgx /usr/share/keepass/Plugins
 	/usr/bin/mono
 	
 **# In **//Advanced//** correct the path to your KeePass db file (.**//kdbx)//
+**# Also under **//Advanced//** you can open the **//Message//** options. Disable general messages (piss annoying)**
 **# Check of the **//Usage Statistic//**.. Not so keen on sharing anything when it comes to my passwords^**
-
-**# In order for **//KeeFox//** to work, you'll need **//mono//
-$ pacman -S mono
 
 
 ===== Troubleshoot =====
+**# Some issues I've found along the way**
 
 == i3 Crash Issue ==
 **# The **//i3//** VM and **//KeePass//** works - well not so well together. **
 **# Edit **///usr/bin/keepass //**and add **//--verify-all //**to the string**
-	#!/bin/sh
-	exec mono **--verify-all** /usr/share/keepass/KeePass.exe "$@"
+{{{code: lang="texinfo" linenumbers="True"
+#!/bin/sh
+exec mono --verify-all /usr/share/keepass/KeePass.exe "$@"
+}}}
+
+

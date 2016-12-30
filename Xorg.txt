@@ -5,32 +5,37 @@ Creation-Date: 2016-10-24T01:39:52+02:00
 ====== Xorg and Xinit ======
 Created mandag 24 oktober 2016
 
-**# Xorg is our display server and Xinit provides a way to start the server. **
+**Xorg is our display server and Xinit provides a way to start the server. **
 
 ===== Xorg =====
-**Install the following packages :**
-$ pacman -S xorg-serv xorg-server-utils xorg-xinit
-
+**#** **Install the following packages :**
+$ pacman -S xorg-server xorg-server-utils xorg-xinit
 
 ===== Xinit =====
-**# Xinit provodides **//startx, xinit //**and a basic **//xinitrc//** configuration file.**
+**# Xinit provides **//startx, xinit //**and a basic **//xinitrc//** configuration file.**
 
 == Xserverrc ==
 **# Both **//startx //**and **//xinit//** executes **//~/.xserverrc//** which is not created by default. **
 **# You should create a **//~/.xserverrc//** file **
 **# The following will help maintain a session and help prevent bypassing the screen locker**
-	#!/bin/sh
-	exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
+{{{code: lang="texinfo" linenumbers="True"
+#!/bin/sh
+exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
+}}}
 
 
 == Xinitrc ==
+**# **//.xinitrc//** file can be found at GitHub. Else, follow below for a quick setup.**
+
 **# Create a copy of the default **//xinitrc //**file**
 $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 
-**# By default it starts a few applications. Theese can be outcommented in the **//~/xinitrc//** file.**
+**# By default it starts a few applications. **These** can be out commented in the **//~/xinitrc//** file.**
 **# You can append applications to start leading with a & for multiple entries.**
 **# Lines after **//exec//** won't be read.**
-	application1 &
-	application2 &
-	exec dekstop
+{{{code: lang="texinfo" linenumbers="True"
+application1 &
+application2 &
+exec dekstop
+}}}
 

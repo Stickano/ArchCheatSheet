@@ -5,7 +5,7 @@ Creation-Date: 2016-12-27T05:40:10+01:00
 ====== Touchpad ======
 Created tirsdag 27 december 2016
 
-**To get a proper working touch - specialy lousy on the Asus Zenbook models - a little setting up is required. **
+**To get a proper working touch - specially lousy on the Asus Zenbook models - a little setting up is required. The default mouse behavior is terrible, so you will want to set this at a early state.**
 
 == Installation ==
 **# The Wayland driver is a better solution. Install it with a Xorg-wrapper.**
@@ -20,8 +20,11 @@ $ pacman -S xf86-input-libinput
 **# Install **//touchegg//** from the AUR**
 $ yaourt -S touchegg
 
-**# Start it with your **[[../Xorg.txt|xinitrc]]**.**
-	touchegg &
+**# Start it with your **xinitrc**.**
+{{{code: lang="texinfo" linenumbers="True"
+touchegg &
+}}}
+
 	
 **# Configuration can be found in **//~/.config/touchegg/touchegg.conf//
 **# Even better, get the GUI tool**
@@ -32,21 +35,25 @@ $ yaourt -S touchegg-gce-git
 **# The following is placed in **///etc/X11/xorg.conf.d/30-touchpad.conf//
 **# This will disable some **libinput** driver features - **
 **# Which will** **allow gestures (**//touchegg//**) to work.**
-	
-	 Section "InputClass"
-			Identifier "touchpad"
-			Driver "libinput"
-			MatchIsTouchpad "on"
-			Option "Tapping" "on"
-			MatchDevicePath "/dev/input/event*"
-			Option "TapButton1" "1"
-			Option "TapButton2" "0"
-			Option "TapButton3" "0"
-			Option "ClickFinger2" "0"
-			Option "ClickFinger3" "0"
-			Option "HorizTwoFingerScroll" "0"
-			Option "VertTwoFingerScroll" "0"
-			Option "ClickPad" "true"
-			Option "EmulateMidButtonTime" "0"
-			Option "SoftButtonAreas" "50% 0 82% 0 0 0 0 0"
-	 EndSection
+{{{code: lang="texinfo" linenumbers="True"
+Section "InputClass"
+		Identifier "touchpad"
+		Driver "libinput"
+		MatchIsTouchpad "on"
+		Option "Tapping" "on"
+		MatchDevicePath "/dev/input/event*"
+		Option "TapButton1" "1"
+		Option "TapButton2" "0"
+		Option "TapButton3" "0"
+		Option "ClickFinger2" "0"
+		Option "ClickFinger3" "0"
+		Option "HorizTwoFingerScroll" "0"
+		Option "VertTwoFingerScroll" "0"
+		Option "ClickPad" "true"
+		Option "EmulateMidButtonTime" "0"
+		Option "SoftButtonAreas" "50% 0 82% 0 0 0 0 0"
+ EndSection
+}}}
+
+ 
+

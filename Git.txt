@@ -8,7 +8,7 @@ Created onsdag 23 november 2016
 **A usual Git workflow goes something like : **
 **#	Create a new project (will create an initial master branch)**
 **#	Do some initial file/project creation (project)**
-**#	Create a brance (git) and make changes/additions (project)**
+**#	Create a branch (git) and make changes/additions (project)**
 **#** 	**Then commit those changes.**
 **#	Merge the commits changes to the master branch**
 **#	(Optional) Push to remote server (github)**
@@ -128,7 +128,7 @@ $ git branch -d //<BRANCH_NAME>//
 **# you will have to solve the conflict yourself.**
 
 **# Navigate to your project folder and run a **//git status//** for more information**
-**# Open the file(s) that are in conflict - with your favorite editor of couruse!^**
+**# Open the file(s) that are in conflict - with your favorite editor of course!^**
 
 **# The conflict will be marked within **//<<<< ===== >>>> //** markers.**
 	<<<<<<< HEAD

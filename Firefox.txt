@@ -1,0 +1,81 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-30T23:46:49+01:00
+
+====== Firefox ======
+Created Friday 30 December 2016
+
+**I find Firefox to be just a little slower than Chromium. It also renders the web-content a bit worse than its popular opponent - I just really want to get away from the evil Google empire completely. By this time, I do not have any accounts/relations with Google - and I intend to keep it that way^**
+
+== Installation ==
+**# Firefox from the official repository **
+$ pacman -S firefox
+
+**# Spell Checking **
+$ pacman -S hunspell hunspell-en
+$ yaourt -S hunspell-da
+
+
+===== Configuration =====
+**# You should check out **//ASD_and_PSD//** in**// Software Performance //**after setting up Firefox.**
+
+== Firefox Preferences ==
+**# Select Preferences from the browser menu**
+**# To turn off Disk Cache; **//Advanced //**> **Network** >** "Cached Web Content"** specify **//0//
+
+== About Config ==
+**# For additional configuration you can type in **//about:config//** in the address bar.**
+
+**# Default save-session is 15sec; Search for **//browser.sessionstore.interval //**and specify **//300000//
+
+**# Recommended header control settings;**
+	**# Search for **//network.http.sendRefererHeader//** and specify **//1//
+	**# Search for **//network.http.referer.XOriginPolicy //**and specify **//1// 
+	**# Search for **//network.http.referer.spoofSource//** and specify **//true//
+	**# Search for **//network.http.referer.trimmingPolicy//** and specify **//2//
+
+**# Turn off sponsored content;**
+	**# Search for **//browser.newtabpage.directory.source //**and leave it blank**
+	**# Search for **//browser.newtabpage.directory.ping //**and leave it blank**
+	
+**# Disable the Pocket Service (save website for offline read);**
+	**# Search for **//extensions.pocket.api //**and leave it blank**
+	**# Search for **//extensions.pocket.site //**and leave it blank**
+	**# Search for **//extensions.pocket.enabled //**and specify **//false//
+
+**# Disable the Social Service API;**
+	**# Search for **//social.directories //**and leave it blank**
+	**# Search for **//social.shareDirectory //**and leave it blank**
+	**# Search for **//social.whitelist //**and leave it blank**
+	**# Search for **//social.remote-install.enabled //**and specify **//false//
+	**# Search for **//social.share.activationPanelEnabled //**and specify **//false//
+	**# Search for **//social.toast-notifications.enabled //**and specify **//false//
+	
+**# Piss annoying feature (on touchpad at least) is the load url on middle-click thingy**
+	**# Search for **//middlemouse.contentLoadURL//** and specify **//false//
+
+
+== Preferred Addons ==
+**# Select Add-ons from the browser menu **
+
+**# Safer Browsing**
+	**# **//HTTPS Everywhere//**; Use SSL/TLS when possible.**
+	**# **//Disconnect//**; Blocks a lot of the common tracking services**
+	**# **//AddBlock Ultimate//**; Disable adds**
+	**# **//uBlock//**; Another popular blocker**
+
+**# Nice Tweaks**
+	**# **//FindBar//**; Displays search-results in the scroll-bar**
+	**# **//Disable Ctrl-Q Shortcut//**; I've hit that key-combo once to many..**
+
+
+===== Tips and Tricks =====
+**# Some random Tips and Tricks **
+
+== Clean the SQLite database ==
+**# Firefox might become slower over time due to bad database management**
+**# You can defragment and trim the database with **//profile-cleaner//
+$ yaourt -S profile-cleaner
+
+**# Clean the database with**
+$ profile-cleaner f

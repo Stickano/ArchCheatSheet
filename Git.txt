@@ -23,7 +23,7 @@ $ git config --global user.name  "Henrik Jeppesen"
 $ git config --global user.email "Jeppesen@tutanota.com"
 
 **# Default editor (nano)**
-$ git config --global core.editor "nano -w"
+$ git config --global core.editor "vim"
 
 
 ===== File Handling =====
@@ -213,15 +213,14 @@ $ git remote -v
 **#** **Some random Tips and Tricks**
 
 == Auto completion with Bash commands (Bash) ==
-**# To add auto-complete on Git commands in your terminal, add the following to your **//.bashrc//** file**
+**# To add auto-complete on Git commands in your terminal, add the following to your **//.zshrc//** file**
 {{{code: lang="texinfo" linenumbers="True"
 source /usr/share/git/completion/git-completion.bash
 }}}
 
-	
 
 == Aliases ==
-**# Consider these aliases for your **//~/.bashrc//** file**
+**# Consider these aliases for your **//~/.zshrc//** file**
 {{{code: lang="texinfo" linenumbers="True"
 alias such=git
 alias very=git

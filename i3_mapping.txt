@@ -1,8 +1,8 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
-Creation-Date: 2016-12-18T23:06:32+01:00
+Creation-Date: 2016-12-31T02:58:51+01:00
 
-====== i3 key mapping ======
+====== i3 mapping ======
 Created søndag 18 december 2016
 
 **# This is based on my personal key-bindings. My **//i3//** .dotfile can be found at Github.**

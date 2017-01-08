@@ -24,6 +24,15 @@ Created søndag 23 oktober 2016
 == 32-bit libraries (multilib) ==
 **# Uncomment the multilib repository for 32-bit supported packages (Steam ex.)**
 
+== A little extra sweetness ==
+**# Add colors to your pacman output, by outcommenting **//#Color //**in **//#// //Misc Options//
+**# Also, a little nice Easter Egg is the pacman (game) imitation. Add **//ILoveCandy//** to **//#// //Misc Options// 
+{{{code: lang="texinfo" linenumbers="True"
+Color
+ILoveCandy
+}}}
+
+
 
 ===== General Usage =====
 **# You can install a single or multiple packages**

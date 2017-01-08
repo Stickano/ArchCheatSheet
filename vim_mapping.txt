@@ -1,0 +1,88 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-07T03:57:30+01:00
+
+====== vim mapping ======
+Created Saturday 07 January 2017
+
+**Vim editor works a bit different than other editors (I've used at least). **
+**Vim works in a concept of modes - and you will not be able to type directly once you run it. **
+**This is because Vim opens in its normal mode - not insert mode. **
+**The normal mode allows you to push a key, and what-ever action bound to that key will be run.**
+
+===== Command Mode =====
+**# Commands can be entered by hitting : (colon) from Normal Mode**
+
+== Save and/or Exit ==
+**# To save (write) **//:w//
+**# Save to specific file **//:w file_name//
+**# Save and Exit **//:x//
+**# Exit (quit) **//:q//
+**# (Save) Forgot to open document as sudo? Use **//:w!! //**(double exclamation)**
+
+== Find and Replace ==
+**# Below examples will replace instances of **//original//** with **//replacement//
+**# Search and replace the first instance **//:%s/original/replacement//
+**# Search and replace all instances **//:%s/original/replacement/g//
+**# All instances, but confirm before replacing **//:%s/original/replacement/gc//
+
+
+===== Normal mode =====
+**# You can reach normal mode by hitting **//Esc//** at any time**
+**# In Normal Mode you just hit the key - or key combo - to activate the action attached**
+**#** **<leader> = , (comma) **
+
+== Insert Mode (edit content) ==
+**# Insert mode **//i//
+**# New line below, and enter Insert mode **//o//
+**# New line above, and enter Insert mode **//O//
+**# End of line **//A//
+
+== Navigating Lines ==
+**# You can specify the number of lines to jump by entering a numeric value before using the arrow-keys**
+**# Etc. type **//40//** then press arrow-down, tell Vim to jump down 40 lines.**
+
+== Deleting Text ==
+**# Delete character at cursor **//x//
+**# Delete a word **//dw//
+**# Delete line **//dd//
+**# Delete 3 lines (ex) **3dd
+
+== Searching ==
+**# Search forward **/
+**# Search backwards **//?//
+**# Next result **//n//
+**# Previous result **//N//
+**# Clear Search (command) **//:noh//
+
+== Searching for words under cursor ==
+**# You can place your cursor at a word and hit **//* //**(star) to find next instance of that word.**
+**# To search backwards use **//#//
+
+== Matching parenthesis ==
+**# You can navigate to a parenthesis and hit **//%//** to jump to the opening/closing parenthesis. **
+
+== Navigation ==
+**# Navigate to the beginning of the document **//gg//
+**# Navigate to the end of the document **//G//
+
+== Folds ==
+**# You can engulf code in **//{{{ }}} //**to make it fold-able**
+**# Navigate to a fold and hit **//Space//** to open/close toggle**
+**# Open all folds **//zR//
+**# Close all folds **//zM//
+**# Quickly create a set of fold markers **//zf Space//
+
+
+===== Visual Mode =====
+**# Visual Mode is used for selecting text**
+**# Visual Mode for single characters **//v//
+**# Visual Mode for lines **//V//
+**# You can also hold down **//Shift//** and navigate left/right to start marking **
+**# Once in Visual Mode, navigate around to select text**
+**# Below is a few options, that seems logic for selected text**
+
+**# Copy (yank) **y	**# (modified to **//Ctrl+c //**)**
+**# Switch case **//~//
+**# Indent right **//>//
+**# Indent left **//<//

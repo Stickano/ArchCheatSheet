@@ -22,10 +22,20 @@ $ mupdf ///path/to/pdf//
 $ mupdf -d //<password>// ///path/to/pdf//
 
 **# Start page 225 (etc)**
-$ mupdf -p 225
+$ mupdf -p 225 ///path/to/pdf//
 
-**# Zoom Level (etc)**
-$ mupdf -z 225%
+**# Binds;**
+	**# **//Ctrl+Scroll//** to zoom**
+	**# **/////** = (slash) to start a search**
+	**# **//n//** = find next place for searched word**
+	**# **//N//** = find previous place for searched word**
+	**# **//[ ]//** = rotate clock/counter-clockwise **
+	**# **//< > //**=** **jump ten pages back/forth**
+	**# **//i//** = display document metadata**
+	**# **//m//** = save current page to bookmark**
+	**# **//t//** = go back in bookmarks**
+	**# **//T//** = go forward in bookmarks**
+
 
 == Zim Desktop Wiki ==
 **# Amazing for keeping notes**

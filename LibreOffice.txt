@@ -15,17 +15,26 @@ $ pacman -S libreoffice
 $ pacman -S hunspell-en
 $ yaourt -S hunspell-da
 
+**# (**//hunspell-da//**, by the time of writing this, has a pkg-build error)**
+**# If you still encounter an error, two items needs to be changed in the pkg-build. **
+**# Yaourt will ask if you want to edit pkg-build. Unless you've asked it not to of course (.yaourtrc)**
+**# Accept this Edit and change **//arch//** and **//source //**variables to the following. **
+**# (You might have to check and see if the source link is still correct. It is of the time writing this)**
+{{{code: lang="texinfo" linenumbers="True"
+arch=('any')
+source=(https://extensions.libreoffice.org/extensions/stavekontrolden-danish-dictionary/2.3/@@download/file/dict-da-2-3.oxt)
+}}}
+
+
 == Configuration ==
 **# Open LibreOffice and navigate to **//Tools > Options//
 
 **# Under **//Memory// 
-	Reduce undo steps to 20
-	Set Graphic Cache to 128MB
-	Set Memory Per Object to 20MB
+	**# Set** Use for LibreOffice **(GPU) to** //128MB//
+	**# Set** Memory Per Object **to** //20MB//
 	
 **# Under **//Advanced//
-	Uncheck Use a Java Runtime Environment
-	
+	# **Uncheck** Use a Java Runtime Environment
 	
 
 ===== Tips and Tricks =====

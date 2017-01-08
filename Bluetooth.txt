@@ -27,7 +27,7 @@ $ power on
 **# If the device is NOT already on your list, begin a scan**
 $ scan on
 
-**# To get a list of all your registeret devices**
+**# To get a list of all your **registered** devices**
 $ devices
 
 **# Once you've found your device, pair it (You can **//<tab>//** complete)**
@@ -38,3 +38,30 @@ $ trust //<MAC_ADDRESS>//
 
 **# Then connect to the device**
 $ connect //<MAC_ADDRESS>//
+
+
+===== Troubleshoot =====
+**# I've encountered quite a few issues with Bluetooth. Here's the fixes I've come about. **
+
+== Not being able to power on the bluetooth device ==
+**# Failed to set power on: org.bluez.Error.Blocked (**//bluetoothctl//**)**
+**# You can check and see, if the device is up/down**
+$ hciconfig
+
+**# And be able to turn the device on with **
+$ hciconfig hci0 up
+
+**# But you might get a '**//Can't init device hci0: Operation not possible due to RF-kill (132)//**'**
+**# This means some software is blocking the device.. Great**
+**# We're be able to check further with **//rfkill//
+**# **//rfkill//** is a package that can manage wireless devices**
+$ pacman -S rfkill
+
+**# Running **//rfkill//** might give you an output like this**
+	0: hci0: Bluetooth
+			Soft blocked: yes	**# soft-blocked.. Those bastards!**
+			Hard blocked: no
+	
+**# Unblock it **
+**# Note the index no. above, in this example it's 0 (zero)**
+$ rfkill unblock 0

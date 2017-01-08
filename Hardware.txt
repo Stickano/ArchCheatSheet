@@ -1,0 +1,85 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-31T16:31:32+01:00
+
+====== Hardware ======
+Created mandag 31 oktober 2016
+
+===== PCI Busses =====
+**# Get a list of connected devices connected through the PCI-bus.**
+**# VGA, network adapter, GPU etc.**
+$ lspci
+
+**# You can be more specific/verbose when invoking **//lspci//
+$ lspci -v | grep "VGA"
+
+==== Memory ====
+**#** **To see available/used memory **
+$ free -m
+
+
+==== Battery ====
+**#** **Get the battery capacity/level**
+$ cat /sys/class/power_supply/BAT0/capacity
+
+
+===== Disks =====
+**#** **Human-readable disk size/usage**
+$ df -h
+
+**# All disks and their associated partitions**
+$ lsblk -f
+
+
+===== CPU =====
+**# Pretty well overview of the architecture**
+$ lscpu
+
+
+===== Additional Packages =====
+**# Some addition tools to output Hardware information.**
+
+== General Hardware Output ==
+**# **//lshw//** can produce a general detailed overview of devices in your system.**
+**# It'll output information about cpu, memory, disks, USB, network etc. **
+$ sudo pacman -S lshw
+
+**# For a short overview**
+$ lshw -short
+
+== Another - even more detailed - general hardware output ==
+**# Another tool is **//hwinfo//** which should produce a even more detailed output**
+$ pacman -S hwinfo
+
+**# A short overview**
+$ hwinfo --short
+
+== Hardware information served straight from the BIOS! ==
+**# **//dmidecode//** reads BIOS based information. **
+**#** **It can, a.a, not only tell you how much ram you have installed-**
+**# But also what the maximum amount of ram your system will accept.**
+$ pacman -S dmidecode
+
+**# CPU **
+$ dmidecode -t processor
+
+**# Memory**
+$ dmidecode -t memory
+
+**# BIOS details (etc etc)**
+$ dmidecode -t bios
+
+
+===== Tips and Tricks =====
+**# Some random Tips and Tricks - additional places to locate information**
+
+== /proc ==
+**# Some information can also be found at **///proc//
+**# Like CPU information **
+$ cat /proc/cpuinfo
+
+**# Memory**
+$ cat /proc/meminfo
+
+**# Kernel Information (kinda software, but hey)**
+$ cat /proc/version

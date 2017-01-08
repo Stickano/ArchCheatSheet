@@ -24,7 +24,7 @@ $ pacman -S xorg-xrdb
 	**name.Class.resource: value**
 	
 	**name = **The name of the applications, such as xterm, xpdf etc
-	**class = **Clasification used to group resources together.
+	**class = **Classification used to group resources together.
 	**resource = **The name of the resource whose value is to be changed.
 	**value = **The actual value of the resource. Can be int, bool or string value. 
 

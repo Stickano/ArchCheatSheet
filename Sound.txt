@@ -53,7 +53,7 @@ $ pacman -S pulseaudio-bluetooth bluez-libs bluez-firmware
 	load-module module-switch-on-connect
 
 **# Then **//trust//** the device through the **//bluetoothctl//** shell**
-**# Obtain and pair the device MAC as explained in **[[../Bluetooth.txt|bluetooth]] 
+**# Obtain and pair the device MAC as explained in **bluetooth 
 $ bluetoothctl
 $ trust //<MAC_ADDRESS>//
 

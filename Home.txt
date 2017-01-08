@@ -9,9 +9,9 @@ Created lørdag 22 oktober 2016
 **# Follow the order to a stable base setup**
 **1 )** [[Arch_Base]] (Arch installation)
 **2 ) Check out **//netctl//** in **//Network//** for wifi setup and auto connection **
-3** ) Check out **//Users// //and Groups//** in **//Users//** to create a user**
-4** ) Check out **//sudo//** in **//System Tools//** to give your user privileges **
-**5 ) Check out **//Mirrors//** in **//Maintenance //**and include the 32bit repositories**
+**3 ) Check out **//Users// //and Groups//** in **//Users//** to create a user**
+**4 ) **[[sudo]] 
+**5 ) **[[Mirrors]] 
 **6 )** [[Xorg]] (+xinit) (Display Server)
 **7 ) **[[Touchpad]] 
 **8 )** [[XDM]] (Display manager/login prompt)
@@ -23,13 +23,15 @@ Created lørdag 22 oktober 2016
 **14 ) **[[i3]] (window manager)
  
 
-===== Additional System Packages =====
+===== Additional System Packages and Configuration =====
 [[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
+[[External_Stroage_Devices]] (auto/mount usb/hdd) (udisk2 + udevil)
 [[fuseiso]] (mount .iso files)
 [[xset]] (Display Power Management)
 [[Fn-key]] (Function/multimedia-keys) (xbindkeys)
 [[Bluetooth]] 
 [[Sound]] (pulseaudio + bluetooth speaker)
+[[XDG_Base_Directories]] (environment variables)
 
 ===== Software Performance =====
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
@@ -43,8 +45,6 @@ Created lørdag 22 oktober 2016
 [[Basic_Tools_and_General_Examples]]  
 [[Service_Management]] (systemd)
 [[Package_Management]] (pacman)
-[[sudo]] 
-[[XDG_Base_Directories]] 
 [[xdg-utils]] (mime-type/filetype default application)
 [[ls]] (output information)
 [[sed]] 
@@ -56,20 +56,20 @@ Created lørdag 22 oktober 2016
 
 ===== Maintenance =====
 [[Pacnew_and_Pacsave]] 
-[[Mirrors]] 
 [[Clean_the_Filesystem]] (pacman cache, orphans, old configurations, broken symlinks)
 [[Downgrading]] (package/kernel)
 
-===== Window Manager =====
-[[i3_key_mapping]] 
+===== Key Mappings =====
+[[i3_mapping]] 
+[[:vim_mapping]] 
 
 ===== Network =====
 [[netctl]] (management)
 [[Getting Information]] (mainly ss)
 
 ===== Getting Information =====
-[[Devices]]
-[[Drivers]] 
+[[Hardware]]
+[[Software]] 
 [[Logs]] 
 [[journalctl]] (system journal/log)
 
@@ -79,11 +79,13 @@ Created lørdag 22 oktober 2016
 [[KeePass]] (password manager)
 
 ===== Preferred Software =====
+[[Firefox]] 
+[[Vim]] (text editor)
 [[mplayer]]  (mediaplayer)
 [[LibreOffice]] (office-suite)
 [[Feh]] (image/wallpaper)
 [[Dunst]] (Notifications)
-[[Additional Badass Software]] (random list of keks)
+[[Additional Badass Software]] (random list of goodies)
 
 ===== Eye Candy =====
 [[Theming]] 
@@ -92,6 +94,7 @@ Created lørdag 22 oktober 2016
 
 ===== Development =====
 [[Git]] 
+[[:Sublime]] 
 
 ===== Terminal (+shell) =====
 [[Aliases]]

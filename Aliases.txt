@@ -71,6 +71,15 @@ alias wget="wget -c"
 }}}
 
 
+== File Utilities ==
+**# Mother of aliases! Makes the typical fileutils more verbose**
+{{{code: lang="texinfo" linenumbers="True"
+for c in cp rm chmod chown rename; do
+    alias $c="$c -v"
+done
+}}}
+
+
 
 ===== List of Keks =====
 **# Because why not?**

@@ -30,3 +30,15 @@ $ pacman -S xorg-xrdb
 
 **# My Xterm configuration file can be found at Github.**
 **# To see currently loaded configurations, run **//xrdb -query -all//
+
+== Character Classes ==
+**# Might come in handy some day**
+{{{code: lang="texinfo" linenumbers="True"
+!    "    #    $    %    &    '    (    )    *    +    ,    -    .    / 
+33,  34,  35,  36,  37,  38,  39,  40,  41,  42,  43,  44,  45,  46,  47,
+
+@         [    \    ]    ^    _    `    {    |    }     
+64,  91,  92,  93,  94,  48,  96,  123, 124, 125, 126
+}}}
+
+

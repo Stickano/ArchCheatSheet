@@ -1,0 +1,71 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-10T00:57:48+01:00
+
+====== Sublime mapping ======
+Created Tuesday 10 January 2017
+
+**Sublime comes with a great bunch of features - we'll note some of em' down, along with our installed Plugins controls. **
+
+== Smart Selecting ==
+**# Select a word and hit **//Ctrl+d//** to select the next instance of that word**
+**# Select a whole line with **//Ctrl+l//
+**# Select everything within a bracket (a whole CSS snippet etc) with **//Ctrl+Shift+m//
+**# You can hold down **//Ctrl//** and select multiple lines with your mouse**
+
+== Smart Moving ==
+**# Move current line up/down with **//Ctrl+Shift+Arrows//
+
+== Merge Lines ==
+**# Mark the lines you'd like to merge and hit **//Ctrl+j//
+**# If you don't mark lines, the below line will be merged**
+
+== Sort your code alphabetic ==
+**# Select some variables and hit **//F9//
+**# This will order the variables in alphabetic order - pretty genius! Especially for CSS.**
+
+== Browse through your CSS tags ==
+**# I think this only work with your created CSS tags - but gives a good overview inside a large CSS file**
+**# Hit **//Ctrl+r //**to bring up the palette with an easy overview**
+
+== Toggle Spellchecking ==
+**# Hit **//F6//** to toggle between spellcheck on/off**
+
+== Distraction free environment ==
+**# Enter a distraction free code environment with **//Shift+F11//
+
+== Navigation; Files, Classes - or jump to linenumber ==
+**# Navigate files in projekt, hit **//Ctrl+p//
+**# Navigate Classes in files, hit **//Ctrl+p//** and type **//#//
+**# Jump to linenumber, hit **//Ctrl+p//** and type**// :105//** (ex) to go to line 105. Note the colon ( : ) in front. **
+
+
+===== Command Palette =====
+**# Here's a couple of sweet examples from the Command Palette**
+**# Open the Command Palette with **//Ctrl+Shift+p//
+
+== Syntax ==
+**# You can select what syntax to highlight from, type **//syntax//** to display the list.**
+
+== Rename File ==
+**# Simply type **//rename //**and hit Enter to rename a file**
+
+== Snippet Examples ==
+**# To get some snippet examples, type **//snippet//
+
+
+===== Plugin Usage =====
+**# According to the plugins in the Sublime installation article**
+
+== ClickAble URLs ==
+**# Navigate over a link and hit **//Ctrl+Alt+Enter//
+
+== Trailing Spaces ==
+**# Open the Command Palette and type **//trailing//** for options**
+
+== Alignment ==
+**# Make the code that you'd like aligned and hit **//Ctrl+Alt+a//
+
+== DocBlockr ==
+**# Start to type **///**//** and hit **//<tab> //**to jump to next line and enclose comment**
+**# If there is a function directly below, dockblor will prepare documentation for you **

@@ -1,0 +1,162 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-10T02:47:06+01:00
+
+====== LAMP ======
+Created Tuesday 10 January 2017
+
+**This is a setup guide for the **//Linux Apache MySQL PHP//** development environment (web-development)**
+
+**# Once below installation steps has been followed, you can enter you web-directory from the browser**
+	//localhost                 //**# Your web-directory**
+	localhost/adminer   **# Database management**
+
+
+===== Apache =====
+**# Install the package**
+$ pacman -S apache
+
+**# And enable/start the service**
+**# For every configuration you make, the service has to be restarted before the changes take affect.**
+$ systemctl enable httpd.service
+
+**# In order for Apache to read your web-directory, a few permissions has to be changed**
+$ chmod o+x ~
+$ chmod o+rx ~/Dropbox
+
+==== Configuration ====
+**# Apaches configuration files can be found at **///etc/httpd/conf/httpd.conf //
+
+== Limit access only from local machine ==
+**# Change **//Listen 80//** to your localhost**
+{{{code: lang="texinfo" linenumbers="True"
+Listen 127.0.0.1:80
+}}}
+
+
+== Change directory ==
+**# Change to the location where you store all your web-projects. Mine would be **//~/Dropbox/www//
+{{{code: lang="texinfo" linenumbers="True"
+DocumentRoot "/home/stick/Dropbox/www"
+<Directory "/home/stick/Dropbox/www">
+}}}
+
+
+== Setup to use PHP ==
+**# One line needs to be commented out and another needs to be uncommented - as shown **
+{{{code: lang="texinfo" linenumbers="True"
+#LoadModule mpm_event_module modules/mod_mpm_event.so
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+}}}
+
+
+**# This needs to go AFTER **//LoadModule dir_module modules/mod_dir.so//
+{{{code: lang="texinfo" linenumbers="True"
+LoadModule php7_module modules/libphp7.so
+}}}
+
+
+**# This goes at the END of the **//include//** list**
+{{{code: lang="texinfo" linenumbers="True"
+Include conf/extra/php7_module.conf
+}}}
+
+
+**# This goes at the END in **//LoadModule//
+{{{code: lang="texinfo" linenumbers="True"
+AddHandler php7-script php
+}}}
+
+
+== Setup to use MySQL ==
+**# Add this line to enable **//adminer //**- which will be our front-end for administrating our databases**
+{{{code: lang="texinfo" linenumbers="True"
+Include conf/extra/httpd-adminer.conf
+}}}
+
+
+== A few security measures ==
+**# This is from a separate configuration file found in **///etc/httpd/conf/extra/httpd-default.conf//
+**# Turn off **//ServerSignature//** and hide additional information with **//ServerTokens//
+{{{code: lang="texinfo" linenumbers="True"
+ServerSignature Off
+ServerTokens Prod
+}}}
+
+
+
+===== PHP =====
+**# Install these two packages **
+$ pacman -S php php-apache
+
+==== Configuration ====
+**# The PHP configuration files can be found at **///etc/php/php.ini//
+
+== Change the Timezone ==
+**# Edit and uncomment the Timezone line**
+{{{code: lang="texinfo" linenumbers="True"
+date.timezone = Europe/Copenhagen
+}}}
+
+
+== Turn on Errors ==
+**# Edit the error_reporting line nd turn on errors in the display_errors line**
+{{{code: lang="texinfo" linenumbers="True"
+error_reporting = E_ALL 
+display_errors=On
+}}}
+
+
+== Setup to use MySQL ==
+**# Uncomment the following two lines**
+{{{code: lang="texinfo" linenumbers="True"
+extension=pdo_mysql.so
+extension=mysqli.so
+}}}
+
+
+
+===== MySQL =====
+**# We'll use mariadb **
+$ pacman -S mariadb
+
+**# Our front-end to administrate our databases **
+$ yaourt -S adminer
+
+==== Configuration ====
+**# This needs to be run BEFORE enabling/starting the service file**
+$ mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+**# Then enable and start the mariadb service file**
+$ systemctl enable mariadb.service
+$ systemctl start mariadb.service
+
+**# And run the Setup Wizard AS ROOT! - follow the few steps. Basically just yes to it all^**
+$ sudo mysql_secure_installation
+
+**# The remaining configuration is done in **///etc/mysql/my.cnf//
+
+== Only allow local access ==
+**# Uncomment **//skip-networking //**and** **leave **//Port//** blank in both **//[client]//** and **//[mysqld]//
+{{{code: lang="texinfo" linenumbers="True"
+[client]
+Port = 
+
+[mysqld]
+Port = 
+
+skip-networking
+}}}
+
+
+== Use UTF-8 ==
+**# Add these lines to the **//[mysqld]//** group**
+{{{code: lang="texinfo" linenumbers="True"
+[mysqld]
+....
+init_connect                = 'SET collation_connection = utf8_general_ci,NAMES utf8'
+collation_server            = utf8_general_ci
+character_set_client        = utf8
+character_set_server        = utf8
+}}}
+'

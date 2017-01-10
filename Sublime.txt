@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-09T22:21:32+01:00
+
+====== Sublime ======
+Created Monday 09 January 2017
+
+**We'll be using the bleeding edge Sublime Text 3 as our IDE. **
+
+== Installation ==
+$ yaourt -S sublime-text-dev
+
+
+===== Plugins =====
+**# Sublime gives the opportunity to add a great amount of addons. Here's some of the favorites^**
+**# Enter the Command Palette with **//Ctrl+Shift+p//
+
+== Package Control ==
+**# In order to get access to all these wonderful addons, one first have to add Package Control.**
+**# In Sublime, go to **//View > Show Console//** and paste the following**
+{{{code: lang="texinfo" linenumbers="True"
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) 
+}}}
+
+
+**# You can now launch **//Package *//** from the Command Palette**
+
+== Sidebar Enhancement ==
+**# For the commonly used open/close etc etc in sidebar. **
+**# Install with Package Controll; **//SidebarEnhancement//
+
+== Clickable URLs ==
+**# Underlines and let you open links from Sublime**
+**# Install with Package Control; **//Clickable URLs//
+
+== Alignment ==
+**# Lets you align the code more neatly, lining up = (equals) etc.**
+**# Install with Package Control; **//Alignment//
+
+== TrailingSpaces ==
+**# Trim whitespaces **
+**# Install with Package Control; **//TrailingSpaces//
+
+== MarkDown Editing ==
+**# Better Markdown (.MD) support**
+**# Install with Package Control; **//MarkdownEditing//
+
+== DocBlockr ==
+**# Documentation/comments with ease**
+**# Install with Package Control; **//DocBlcokr//
+
+== Spacegray (theme) ==
+**# Pretty sweet theme**
+**# Install with Package control; **//Theme - Spacegray//
+**# Then add this to your settings file (**//Preferences > Settings//**)**
+{{{code: lang="texinfo" linenumbers="True"
+{
+  "theme": "Spacegray.sublime-theme",
+  "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme"
+}
+}}}
+

@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-10T07:07:55+01:00
+
+====== Terminal ======
+Created Tuesday 10 January 2017
+
+===== Zsh =====
+**# Some of the default Zsh features + a few additions according to the **//.zshrc//** (Github)**
+
+== Search in History ==
+**# You can start typing a command and hit **//ArrowUp//** to find exact matching commands**
+**# For a more loose history search, hit **//Ctrl+r //
+**# If you started searching and hit **//Ctrl+r//** again, it'll browse through the history records**
+
+== Open Command in Editor ==
+**# Useful for long commands - open it in your edit **//Ctrl+x    Ctrl+e//
+
+
+===== Zsh Plugins =====
+**# Here's the shortcuts provided by the plugins in the Zsh installation article **
+
+== Dirhistory ==
+**# Navigate back and forth in folder with **//Alt+Left/Right	//
+
+== Encode64 ==
+**# Encode **
+$ encode64 //<string>//
+
+**# Decode **
+$ decode64 //<string>//
+
+== Sudo ==
+**# Hit **//Esc//** twice to place a **//sudo//** in front of your current command**
+
+== Urltools ==
+**# Encode **
+$ urlencode //<string>//
+
+**# Decode **
+$ urldecode //<string>//
+
+== Web-search ==
+**# Opens your browser > search engine**
+	**# DuckDuckGo; **ddg //<string>//
+	**# Google; **google //<string>//

@@ -11,7 +11,7 @@ Created lørdag 22 oktober 2016
 **2 ) Check out **//netctl//** in **//Network//** for wifi setup and auto connection **
 **3 ) Check out **//Users// //and Groups//** in **//Users//** to create a user**
 **4 ) **[[sudo]] 
-**5 ) **[[Mirrors]] 
+**5 ) Enable 32bit support from **//Mirros//** in**// Maintenance //
 **6 )** [[Xorg]] (+xinit) (Display Server)
 **7 ) **[[Touchpad]] 
 **8 )** [[XDM]] (Display manager/login prompt)
@@ -31,7 +31,6 @@ Created lørdag 22 oktober 2016
 [[Fn-key]] (Function/multimedia-keys) (xbindkeys)
 [[Bluetooth]] 
 [[Sound]] (pulseaudio + bluetooth speaker)
-[[XDG_Base_Directories]] (environment variables)
 
 ===== Software Performance =====
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
@@ -49,19 +48,22 @@ Created lørdag 22 oktober 2016
 [[ls]] (output information)
 [[sed]] 
 
+===== Maintenance =====
+[[Mirrors]] 
+[[Pacnew_and_Pacsave]] 
+[[Clean_the_Filesystem]] (pacman cache, orphans, old configurations, broken symlinks)
+[[Downgrading]] (package/kernel)
+
 ===== Users =====
 [[Users and Groups]] 
 [[Permissions]]  (chmod)
 [[xdg_user_dirs]] (user directories)
 
-===== Maintenance =====
-[[Pacnew_and_Pacsave]] 
-[[Clean_the_Filesystem]] (pacman cache, orphans, old configurations, broken symlinks)
-[[Downgrading]] (package/kernel)
-
 ===== Key Mappings =====
 [[i3_mapping]] 
-[[:vim_mapping]] 
+[[vim_mapping]] 
+[[Sublime_mapping]]  
+[[Terminal]] (Zsh + plugins and Xterm)
 
 ===== Network =====
 [[netctl]] (management)
@@ -77,6 +79,7 @@ Created lørdag 22 oktober 2016
 [[clamav]] (anti-virus)
 [[lynis]] (security audit)
 [[KeePass]] (password manager)
+[[Tor]] 
 
 ===== Preferred Software =====
 [[Firefox]] 
@@ -94,7 +97,8 @@ Created lørdag 22 oktober 2016
 
 ===== Development =====
 [[Git]] 
-[[:Sublime]] 
+[[Sublime]] 
+[[LAMP]] (Apache, MySql and PHP)
 
 ===== Terminal (+shell) =====
 [[Aliases]]

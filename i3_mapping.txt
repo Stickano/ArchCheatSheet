@@ -18,10 +18,6 @@ Created søndag 18 december 2016
 
 **# HDMI controls with **//$mod+p//
 
-== Applications ==
-**# Run Firefox with **//Alt+w//
-**# Run Gedit with **//Alt+e//
-
 == Navigation ==
 **# Float a window with **//$mod+Shift+Space//
 **# To switch focus between Tiling and Floating containers, use **//$mod+Space//
@@ -43,7 +39,7 @@ Created søndag 18 december 2016
 
 == Scratchpad ==
 **# Scrachpad is a hidden workspace. **
-**# Items from the Scrachpad can be pulled to your currently working workspace - as a sort of floating window.**
+**# Items from the Scrachpad can be pulled to your currently working workspace - a floating window.**
 **# This feature is good for quickly taken notes etc. **
 
 **# Move focused window to Scratchpad : **//$mod+m//

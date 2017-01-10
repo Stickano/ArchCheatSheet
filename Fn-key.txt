@@ -59,52 +59,40 @@ $ xbindkey -k
 **# All of these definings will be added to our **//~/.xbindkeysrc//** file.**
 
 == Volume Controls ==
-**# Toggle mute**
+**# Requires PulseAudio and Pulseaudio-ctl**
+**# Toggle mute **
 {{{code: lang="texinfo" linenumbers="True"
-"amixer set Master toggle"
+"pulseaudio-ctl mute"
 	XF86AudioMute
 }}}
 
 
 **# Volume Up**
 {{{code: lang="texinfo" linenumbers="True"
-"amixer set Master 5%+"
+"pulseaudio-ctl up"
 	XF86AudioRaiseVolume
 }}}
 
 
 **# Volume Down**
 {{{code: lang="texinfo" linenumbers="True"
-"amixer set Master 5%-"
+"pulseaudio-ctl down"
 	XF86AudioLowerVolume
 }}}
 
 
 == Keyboard Backlight ==
-**# Make it easy on yourself. Install this package.**
-$ yaourt -S asus-kbd-backlight
-
-**# You'll have to run this, to allow users to use the controls**
-$ asus-kbd-backlight allowusers
-
-**# Enable the service**
-$ systemctl enable asus-kbd-backlight.service
-
-**# Now you can manage keyboard-backlight with **
-$ asus-kbd-backlight up
-$ asus-kbd-backlight down
-$ asus-kbd-backlight max
-$ asus-kbd-backlight off
-$ asus-kbd-backlight night
-$ asus-kbd-backlight 2		**# (1, 2 or 3)**
-$ asus-kbd-backlight show
+**# We wont get the full experience with 3 steps backlight strenght - rather a 1 setting on/off**
+**# This is still preferable from the lousy **//asus-kbd-backlight//** package from AUR, which works for 5 min.**
+**# Install the **//upower //**package (used by all major DE basically) **
+$ pacman -S upower
 
 **# Add these two snippets to the **//~/.xbindkeysrc//
 {{{code: lang="texinfo" linenumbers="True"
-"asus-kbd-backlight up"
+"dbus-send --type=method_call --print-reply=literal --system --dest="org.freedesktop.UPower" /org/freedesktop/UPower/KbdBacklight org.freedesktop.UPower.KbdBacklight.SetBrightness int32:2"
 	XF86KbdBrightnessUp
 
-"asus-kbd-backlight down"
+"dbus-send --type=method_call --print-reply=literal --system --dest="org.freedesktop.UPower" /org/freedesktop/UPower/KbdBacklight org.freedesktop.UPower.KbdBacklight.SetBrightness int32:0"
 	XF86KbdBrightnessDown
 }}}
 

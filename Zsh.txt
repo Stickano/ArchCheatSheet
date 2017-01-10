@@ -41,7 +41,7 @@ $ systemctl enable pkgfile-update.timer
 **# Then add the following to the **//~/.zshrc//** file **
 **#** **(My configuration already includes this, just make sure to install the package and enable the service)**
 {{{code: lang="texinfo" linenumbers="True"
-	source /usr/share/doc/pkgfile/command-not-found.zsh
+source /usr/share/doc/pkgfile/command-not-found.zsh
 }}}
 
 

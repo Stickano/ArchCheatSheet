@@ -22,18 +22,23 @@ Created onsdag 28 december 2016
 == Installation ==
 $ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
 
-== Configuration ==
-**# **//PulseAudio//** comes with a set of modules that can be loaded.**
-**# These modules will be loaded from **//~/.config/pulse/default.pa//
-**# To load a module, create/edit that file, and add**
-	load-module //<module_name>//
-	
-**# Modules available is fount here; **
-**# **https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/
-
 == Pavucontrol ==
 **# To get GUI controls, install **//pavucontrol //
 $ pacman -S pavucontrol
+
+== Pulseaudio-ctl ==
+**# Get CLI controls as well (used for multimedia keys)**
+$ yaourt -S pulseaudio-ctl
+
+**# Control with; **
+	pulseaudio-ctl mute		**# Toggle status of mute**
+	pulseaudio-ctl mute-input	**# Toggle status of mute for mic**
+	pulseaudio-ctl up			**# Increase vol by 5 %**
+	pulseaudio-ctl up 25		**# Increase vol by 25 %**
+	pulseaudio-ctl down		**# Decrease vol by 5 %**
+	pulseaudio-ctl down 50		**# Decrease vol by 50 %**
+	pulseaudio-ctl set 40		**# Set vol to 40%**
+	pulseaudio-ctl atmost 30	**# Set vol to 30% if current higher than that**
 
 
 ===== Bluetooth Speaker =====

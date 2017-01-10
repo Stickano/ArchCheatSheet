@@ -14,7 +14,7 @@ $ yaourt -S thermald
 
 == i7z ==
 **# Reporting tool for Intel processors**
-Install the i7z package
+$ pacman -S i7z
 
 **# Invoke with **
 $ i7z		**# CLI**
@@ -25,7 +25,7 @@ $ i7z-gui		**# GUI**
 $ pacman -S cpupower
 
 **#** **Enable the service**
-$ systemctil enable cpupower.service
+$ systemctl enable cpupower.service
 
 **# Edit **///etc/default/cpupower //**and change **//governor=//
 {{{code: lang="texinfo" linenumbers="True"

@@ -65,7 +65,7 @@ $ yaourt -S hunspell-da
 	**# **//uBlock//**; Another popular blocker**
 
 **# Nice Tweaks**
-	**# **//FindBar//**; Displays search-results in the scroll-bar**
+	**# **//FindBar Tweak//**; Displays search-results in the scroll-bar**
 	**# **//Disable Ctrl-Q Shortcut//**; I've hit that key-combo once to many..**
 
 

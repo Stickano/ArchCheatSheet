@@ -26,20 +26,12 @@ $ systemctl enable devmon@//<USER_NAME>//.service
 
 **# Create a file in **///etc/polkit-1/rules.d/50-udevil.rules//
 {{{code: lang="texinfo" linenumbers="True"
-required for udisks1:
-    "org.freedesktop.udisks.fi Udisk2 to read/write to our external devices and Udevil to automatic mount the devices when plugged in. 
-
-Installationpolkit.addRule(function(action, subject) {
+polkit.addRule(function(action, subject) {
   var YES = polkit.Result.YES;
   // NOTE: there must be a comma at the end of each line except for the last:
   var permission = {
-    // 
-# Both Udisks2 and Udevil comes from the official repository
-$ pacman -S udisks2 udevil
-
-# Remove the SUID permission from Udevil (with sudo)
-$ chmod u+s,go-s,ugo+x /usr/bin/udevil
-lesystem-mount": YES,
+    // required for udisks1:
+    "org.freedesktop.udisks.filesystem-mount": YES,
     "org.freedesktop.udisks.luks-unlock": YES,
     "org.freedesktop.udisks.drive-eject": YES,
     "org.freedesktop.udisks.drive-detach": YES,
@@ -51,8 +43,7 @@ lesystem-mount": YES,
     // required for udisks2 if using udiskie from another seat (e.g. systemd):
     "org.freedesktop.udisks2.filesystem-mount-other-seat": YES,
     "org.freedesktop.udisks2.filesystem-unmount-others": YES,
-    "org.freedesktop.udisk
-    s2.encrypted-unlock-other-seat": YES,
+    "org.freedesktop.udisks2.encrypted-unlock-other-seat": YES,
     "org.freedesktop.udisks2.eject-media-other-seat": YES,
     "org.freedesktop.udisks2.power-off-drive-other-seat": YES
   };

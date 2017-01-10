@@ -117,14 +117,14 @@ dinnabo
 
 **# And add the entry to** /etc/hosts
 {{{code: lang="texinfo" linenumbers="True"
-	127.0.0.1	localhost.localdomain	localhost
-	::1			localhost.localdomain	localhost
-	127.0.1.1	dinnabo.localdomain		dinnabo
+127.0.0.1	localhost.localdomain	localhost
+::1			localhost.localdomain	localhost
+127.0.1.1	dinnabo.localdomain		dinnabo
 }}}
 
 
 **#** **Network tools**
-$ pacman -S iw wpa_supplicant
+$ pacman -S iw wpa_supplicant dialog
 
 **#** **Remember to install the **//base-devel//** as well **
 $ pacman -S base-devel

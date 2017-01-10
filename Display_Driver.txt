@@ -45,7 +45,7 @@ $ pacman -S nvidia-utils lib32-nvidia-utils
 
 == Configuration ==
 **# Get the BusID the same way as the example above (Intel HD)** 
-**# Create a configuration file in /etc/X11/xorg.conf.d/20-nvidia.conf**
+**# Create a configuration file in **///etc/X11/xorg.conf.d/20-nvidia.conf//
 {{{code: lang="texinfo" linenumbers="True"
 Section "Device"
 	Identifier "nvidia"

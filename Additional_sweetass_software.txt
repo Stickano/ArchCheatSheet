@@ -18,12 +18,9 @@ $ pacman -S compton
 
 == Redshift ==
 **# Dim the screen (well the gamma actually) depending on time of day.**
+**# Configuration files is read from **//~/.config/redshift.conf //**(Github)**
 **# Get locations (lon/lat) here : **http://www.latlong.net/
-**# Configuration file on Github **
 $ yaourt -S redshift-minimal
 
 **# Enable the service (no sudo!)**
 $ systemctl --user enable redshift.service
-
-
-

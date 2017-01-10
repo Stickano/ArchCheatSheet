@@ -45,7 +45,7 @@ $ pacman -S zim
 **# Noticeable might be **//Source View, Table Editor //**and **//Spell Checker//
  
 **# **//Source View//**, which can display code snippets in the wiki, requires this package**
-$  pacman -S python-gtksourceview2
+$  pacman -S pygtksourceview2
 
 **# **//Spell Checker//** needs these packages from the official repository**
 $ pacman -S gtkspell python2-gtkspell aspell-en 

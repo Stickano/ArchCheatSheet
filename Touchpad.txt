@@ -11,49 +11,18 @@ Created tirsdag 27 december 2016
 **# The Wayland driver is a better solution. Install it with a Xorg-wrapper.**
 $ pacman -S xf86-input-libinput
 
-**# This will by default have auto-disable when typing, palm detection and more.**
-
-== Gestures ==
-**# You'll have to disable some driver features, for gestures to work.**
-**# The configuration needed is found at the bottom of this page.**
-
-**# Install **//touchegg//** from the AUR**
-$ yaourt -S touchegg
-
-**# Start it with your **xinitrc**.**
-{{{code: lang="texinfo" linenumbers="True"
-touchegg &
-}}}
-
-	
-**# Configuration can be found in **//~/.config/touchegg/touchegg.conf//
-**# Even better, get the GUI tool**
-$ yaourt -S touchegg-gce-git
-
-
-===== Xorg Touchpad Configuration =====
-**# The following is placed in **///etc/X11/xorg.conf.d/30-touchpad.conf//
-**# This will disable some **libinput** driver features - **
-**# Which will** **allow gestures (**//touchegg//**) to work.**
+== Configuration ==
+**# Create a file in **///etc/X11/xorg.conf.d/30-touchpad.conf//** and add the following**
 {{{code: lang="texinfo" linenumbers="True"
 Section "InputClass"
-		Identifier "touchpad"
-		Driver "libinput"
-		MatchIsTouchpad "on"
-		Option "Tapping" "on"
-		MatchDevicePath "/dev/input/event*"
-		Option "TapButton1" "1"
-		Option "TapButton2" "0"
-		Option "TapButton3" "0"
-		Option "ClickFinger2" "0"
-		Option "ClickFinger3" "0"
-		Option "HorizTwoFingerScroll" "0"
-		Option "VertTwoFingerScroll" "0"
-		Option "ClickPad" "true"
-		Option "EmulateMidButtonTime" "0"
-		Option "SoftButtonAreas" "50% 0 82% 0 0 0 0 0"
- EndSection
-}}}
+        Identifier "ETPS/2 Elantech Touchpad"
+        Driver "libinput"
+        MatchIsTouchpad "on"
+        Option "PalmDetect" "1"
+        Option "PalmMinWidth" "8"
+        Option "PalmMinZ" "100"
+        Option "Tapping" "on"
+EndSection
 
- 
+}}}
 

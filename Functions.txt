@@ -111,3 +111,10 @@ blank () {
 }}}
 
 
+== Get current weather + forecast in some sweet output! ==
+**# Use with **//weather <CITY_NAME>//
+{{{code: lang="texinfo" linenumbers="True"
+weather () {
+	curl -4 http://wttr.in/$1
+}
+}}}

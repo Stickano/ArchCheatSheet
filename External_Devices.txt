@@ -2,10 +2,10 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-12-31T03:38:27+01:00
 
-====== External Stroage Devices ======
+====== External Devices ======
 Created Saturday 31 December 2016
 
-**We'll need **//Udisk2//** to read/write to our external devices and **//Udevil//** to automatic mount the devices when plugged in. For NTFS support, make sure you've gone through the **//ntfs-3g_and_dosfstools //**in the **//Additional System Packages //**category**//.//
+**We'll need **//Udisk2//** to read/write to our external devices and **//Udevil//** to automatic mount the devices when plugged in. We'll also add some extra partition scheme support - **//fat//** and **//ntfs//** to be specific. **
 
 == Usage ==
 **# Once the installation steps below has been completed, devices should mount automatic. **
@@ -15,7 +15,10 @@ Created Saturday 31 December 2016
 $ udevil unmount /media///<USER_NAME>/////<DEVICE_NAME>//
 
 == Installation ==
-**# Both **//Udisks2//** and **//Udevil//** comes from the official repository**
+**# For **//ntfs //**and **//fat//** support **
+$ pacman -S ntfs-3g dosfstools
+
+**# For mount/auto-mount **
 $ pacman -S udisks2 udevil
 
 **# Remove the SUID permission from **//Udevil //**(with sudo)**

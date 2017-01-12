@@ -1,0 +1,137 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-12T09:23:03+01:00
+
+====== Ranger mapping ======
+Created Thursday 12 January 2017
+
+**Ranger is very much based on Vi - learning the Vi commands and binds will be key.**
+
+**# To run a Shell command from Ranger, hit **//! //**(exclamation)**
+
+===== Bind and Command functionality =====
+**# Here's a few examples of functionality, that uses both commands and key-pushes**
+
+== Move to and Empty Trash ==
+**# Don't forget to create the **//.Trash//** directory; **//mkdir// //~/.Trash//
+**# To move files/folders to the Trash, hit **//DD//
+**# To empty the Trash, use the command **//:empty//
+
+== Extraction ==
+**# In order to extract you have to copy (**//yy//**) a compressed - or multiple - files**
+**# Then navigate to the place you want the file(s) extracted, and use the command **//:extracthere//
+
+===== Commands =====
+**# Commands are accessed by hitting : (colon), then typing the wanted command**
+
+== Compression ==
+**# Highlight the files you'd like to compress and type**// :compress <FILE_NAME>.<EXT>//
+**# **//<EXT>//** can be one of the following;**
+	**# **//.zip//
+	**# **//.tar.gz//
+	**# **//.rar//
+	**# **//.7z//
+
+
+== Metadata ==
+**# You can leave comments (metadata) on a file (Ranger specific) with **//:meta <KEY> <VALUE>//
+**# A couple of examples; you get the point^**
+	:meta title a very interesting title	**# would set the key to **//title //**and the value to **//a very interesting title//
+	:meta author Some Student		**# Key = **//author//**  and Value = **//Some Student//
+	:meta year 1970				**# Key = **//year//**  and Value = **//1970//
+	:meta comment Pretty Good Stuff	**# Key = **//comment//** and Value = **//Pretty Good Stuff//
+	
+
+== Filename Output ==
+**# The file titles is called with **//:linemode //**which can be altered to display different outputs**
+**# If a linemode does not apply to a file, it'll fallback to default (**//filename//**)**
+**# Here are the values you can append to **//linemode //**(some are custom);**
+	**# **//filename//** = The default, filenames **
+	**# **//permissions//** = File permission are displayed next to the file**
+	**# **//metatitle//** = Shows metadata keys; **//year - title  author  //**(requires the **//title//** key to be set) **
+	**# **//metaauthor //**= Show the metadata key **//author//
+	**# **//metayear//** = Show the metadata key **//year//
+	**# **//metacomment //**= show the metadata key **//comment//
+
+
+== Directory Flattening ==
+**# **//N//** = number of subfolders to dig into**
+**# You can, without highlighting, get the content of **//N//** subfolders in your current view**
+**# Though a little messy, it works by displaying **//N//** subfolders items it a long list down**
+**# It'll display a **//<SUB_FOLDER>/<FILE_NAME> //**string**
+**# To recursive get the files 3 subfolders down **//:flat 3//
+**# Toggle flattening (ALL subfolders) **//:toggle_flat	//**# (Custom)**
+
+== Bulk Renaming ==
+**# Highlight the files you'd like to rename and type **//:bulkrename//
+**# This will open your text editor with the filenames. Edit, save and exit^**
+
+== Toggle Renaming ==
+**# Made a few toggle's available for renaming files**
+	**# **//toggle_under //**= changes **//foo-bar-text //**to **//foo_bar_text//
+	**# **//toggle_space //**= changes "**//foo bar text//**" to **//foo-bar-text//
+	
+
+
+===== Key Binds =====
+**# General key actions - or key combos**
+
+== Navigating and Launching ==
+**# Up/Down with **//j k//
+**# Parent folder with **//h//
+**# Open file/folder **//Enter, E//** or **//l//
+**# Move to bottom with **//G//
+**# Move to top with **//gg//
+
+== Quick View File ==
+**# You can read text directly from Ranger (instead of opening in editor) with **//i//
+
+== Quick Navigation ==
+**# **//gh//** = ~**
+**# **//ge//** = /etc**
+**# **//gu//** = /usr**
+**# **//gd //**= /dev**
+**# **//go//** = /opt**
+**# **//gv //**= /var**
+**# **//gm //**= /media	(external devices)**
+**# **//gM //**= /mnt**
+**# **//gs //**= /srv**
+**# **//gr//** = /**
+
+== Show Hidden Files ==
+**# Show hidden files with **//zh//
+
+== Search Files or Folders ==
+**# To open the search, hit **//Ctrl+f//
+**# This will search all the files - subfolders too - from the current directory **
+**# To only search for Directories, type (minus)  **//-// //<FOLDER_NAME>//
+**# **//Esc //**to exit search**
+
+== Rename ==
+**# To rename current selected file/folder, hit **//cw//
+
+== Tabs ==
+**# **//N //** = tab-number (numeric) **
+**# You can navigate to a tab with **//Alt+N//
+**# If the tab doesn't already exist, it will be created **
+**# To close a tab **//Ctrl+w//
+**# You can **//<tab> / Shift+<tab>//** to go back and forth in tabs**
+
+== Close Ranger or Tab ==
+**# Tabs, or Ranger if last tab, can be closed with **//q//
+
+== Copy and Move files ==
+**# You can highlight multiple files by hitting **//Space//
+**# Copy highlighted file(s) with **//yy//
+**# Move highlighted file(s) with **//dd//
+**# Paste file(s) with **//pp//
+
+== Marking Files ==
+**# You can mark files persistently - perhaps for read e-books. Toggle the default * (star) with **//t//
+**# You can also mark with a custom symbol with the quotation-mark  **//" <SYMBOL>// 
+
+== Reload Directory ==
+**# You can refresh the directory with **//R//
+
+== Disk Usage of current Directory ==
+**# To view how much disk each file/folder uses, hit **//dU//

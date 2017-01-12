@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-12T07:29:21+01:00
+
+====== Ranger ======
+Created Thursday 12 January 2017
+
+**Ranger is a Vi like file manager - simply put, file manager from the terminal.**
+
+== Installation ==
+**# The File Manager**
+$ pacman -S ranger
+
+**# My config also uses **//atool//** for file extraction/compression**
+$ pacman -S atool
+
+**# The sweet image previewer also needs **//w3w//
+$ pacman -S w3m 
+
+**# Folder/file Search (custom command) also needs **//zfz//
+$ pacman -S zfz
+
+===== Configuration =====
+**# Configuration files at Github**
+**# **//Ranger//** reads its configuration files from **//~/.config/ranger//
+
+**# Three files worth looking at; **
+	**# **//rc.conf //**= startup commands and keybinds**
+	**# **//commands.py //**= commands which are launched with : (colon)**
+	**# **//rifle.conf //**= applications to use, when a file is launched **
+
+
+== Default Configurations ==
+**# To get a copy of the default configuration files, run**
+$ ranger --copy-config=all
+
+===== Themes =====
+**# You can find some sweet themes here **http://dotshare.it/category/fms/ranger/
+**# To use a different theme than the default, first create a new subfolder **
+$ mkdir ~/.config/ranger/colorschemes
+
+**# Then add the colorscheme to a **//.py//** file (**//colorscheme.py //**ex)**
+
+**# Look at the ClassName for the scheme you find**
+**# And the name to the **//colorscheme//** variable in **//~/.config/ranger/rc.conf// 
+{{{code: lang="texinfo" linenumbers="True"
+set colorscheme ColorScheme
+}}}
+
+
+
+===== Troubleshoot =====
+**# If you're experiencing problems with Ranger, it's probably caused by your personal configurations **
+**# Run a clean instance (without the local **//~/.config/ranger/* //**configurations)**
+$ ranger --clean
+
+**# If this solves the issue - you can ex. do the **//Copy Default Configurations//** from above - or sort your own out**
+

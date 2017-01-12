@@ -35,11 +35,11 @@ $ pacman -S sysstat
 **# You need the **//i3blocks//** for your i3status bar**
 $ yaourt -S i3blocks
 
-**# The screen locker needs **//xss-lock//** from the AUR (auto lock/ 10min.)**
+**# The screen locker needs **//xss-lock//** (auto lock/ 10min.)**
 **# You can change the background image for the lockscreen in the **//i3//** config**
 $ yaourt -S xss-lock-git
 
-**# You need **//font-awesome//** to display icons in the workspace bar (AUR)**
+**# You need **//font-awesome//** to display icons in the workspace bar **
 $ yaourt -S ttf-font-awesome
 
 == NOTE ==

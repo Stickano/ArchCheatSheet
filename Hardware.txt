@@ -13,6 +13,7 @@ $ lspci
 **# You can be more specific/verbose when invoking **//lspci//
 $ lspci -v | grep "VGA"
 
+
 ==== Memory ====
 **#** **To see available/used memory **
 $ free -m

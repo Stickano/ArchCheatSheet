@@ -15,22 +15,20 @@ Created lørdag 22 oktober 2016
 **6 )** [[Xorg]] (+xinit) (Display Server)
 **7 ) **[[Touchpad]] 
 **8 )** [[XDM]] (Display manager/login prompt)
-**9 )** [[zen]] (kernel)
-**10 )** [[Long_Time_Support]] (lts) (kernel)
-**11 ) **[[DKMS]] 
-**12 )** [[Display_Driver]] (intel/nvidia with bumblebee)
-**13 )** [[AUR_Support]] (yaourt)
-**14 ) **[[i3]] (window manager)
- 
+**9 )** [[Kernels]] (zen & lts)
+**10 ) **[[DKMS]] 
+**11 )** [[Display_Driver]] (intel/nvidia with bumblebee)
+**12 )** [[AUR_Support]] (yaourt)
+**13 ) **[[i3]] (window manager)
 
 ===== Additional System Packages and Configuration =====
-[[ntfs-3g_and_dosfstools]] (broader partition support - Windows etc)
-[[External_Stroage_Devices]] (auto/mount usb/hdd) (udisk2 + udevil)
+[[External Devices]] (ntfs/fat) (mount/auto-mount with udisk and udevil)
 [[fuseiso]] (mount .iso files)
 [[xset]] (Display Power Management)
 [[Fn-key]] (Function/multimedia-keys) (xbindkeys)
 [[Bluetooth]] 
 [[Sound]] (pulseaudio + bluetooth speaker)
+[[:Additional_rather_useful_software]] 
 
 ===== Software Performance =====
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
@@ -64,15 +62,15 @@ Created lørdag 22 oktober 2016
 [[vim_mapping]] 
 [[Sublime_mapping]]  
 [[Terminal]] (Zsh + plugins and Xterm)
+[[:Ranger_mapping]] 
 
 ===== Network =====
 [[netctl]] (management)
-[[Getting Information]] (mainly ss)
 
 ===== Getting Information =====
 [[Hardware]]
 [[Software]] 
-[[Logs]] 
+[[Network]] (mainly ss)
 [[journalctl]] (system journal/log)
 
 ===== Security =====
@@ -84,6 +82,7 @@ Created lørdag 22 oktober 2016
 ===== Preferred Software =====
 [[Firefox]] 
 [[Vim]] (text editor)
+[[:Ranger]] (file-manager)
 [[mplayer]]  (mediaplayer)
 [[LibreOffice]] (office-suite)
 [[Feh]] (image/wallpaper)

@@ -52,3 +52,21 @@ $ pacman -S gtkspell python2-gtkspell aspell-en
 
 **# And the Danish language package from the AUR**
 $ yaourt -S aspell-da
+
+
+== Dropbox ==
+$ yaourt -S dropbox
+
+ **# and enable the service on a user level**
+$ systemctl --user enable dropbox.service
+
+**# To login to your dropbox account, run **//dropbox//** from your terminal/dmenu - whatevs. **
+
+**# To have the Dropbox icon in the statusbar, edit the service file (empty)**
+$ systemctl --user edit dropbox
+
+**# Add these lines**
+{{{code: lang="texinfo" linenumbers="True"
+[Service]
+Environment=DISPLAY=:0
+}}}

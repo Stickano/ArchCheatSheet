@@ -5,10 +5,20 @@ Creation-Date: 2016-10-31T16:31:53+01:00
 ====== Software ======
 Created mandag 31 oktober 2016
 
-**We'll list a few methods of getting Driver information from the devices throughout the machine. **
+**We'll list a few methods of getting Driver, kernel and log information**
 
+== Logs ==
+**#** Y**ou can use **//|grep //** for a more specific result**
+**#** **You'll usually find error logs in **///var/logs//
+
+== dmesg ==
+**# dmesg is an event viewer**
+$ dmesg
+
+== Kernel ==
 # **To show kernel drivers handling each device **
 $ lspci -k
 
+== GPU driver ==
 **# Show which video-driver is being used by X-org**
 $ lspci -nnk | grep -i vga -A3 | grep 'in use'

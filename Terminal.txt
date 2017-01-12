@@ -5,6 +5,13 @@ Creation-Date: 2017-01-10T07:07:55+01:00
 ====== Terminal ======
 Created Tuesday 10 January 2017
 
+== Secure Keyboard ==
+**# Xterm has this - one and only - sweet feature for securing keyboard inputs. **
+**# No other application will be allowed to record key-activity while active. **
+**# Sweet for being super tinfoil about passwords - but it has to be disabled once typed!**
+**# Toggle activation with **//Ctrl+Alt+s//
+
+
 ===== Zsh =====
 **# Some of the default Zsh features + a few additions according to the **//.zshrc//** (Github)**
 
@@ -14,7 +21,7 @@ Created Tuesday 10 January 2017
 **# If you started searching and hit **//Ctrl+r//** again, it'll browse through the history records**
 
 == Open Command in Editor ==
-**# Useful for long commands - open it in your edit **//Ctrl+x    Ctrl+e//
+**# Useful for long commands - open it in your editor **//Ctrl+x    Ctrl+e//
 
 
 ===== Zsh Plugins =====

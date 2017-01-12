@@ -5,7 +5,7 @@ Creation-Date: 2017-01-08T21:56:00+01:00
 ====== Tor ======
 Created Sunday 08 January 2017
 
-**Tor is a Proxy service best used with Tor-Browser. We'll install and configure both - along with adding the possibility to enable it through our browser (firefox) too. **
+**Tor is a Proxy service best used with Tor-Browser. We'll install and configure both - along with adding the possibility to enable it through our browser (Firefox) too. **
 
 ===== Installation =====
 **# Tor**
@@ -85,9 +85,10 @@ KillSignal=SIGINT
 
 
 ===== Usage (running) =====
-**# Try and use the Tor browser to browse with the Tor proxy.**
 **# You can now start/stop the service whenever needed**
 $ systemctl start tor.service
+
+**# Use the **//tor-browser//** for your dirty deeds **
 
 **# If you want applications to run over tor, these are the settings needed;**
 	//SOCKS5//** 	# Connection Type**

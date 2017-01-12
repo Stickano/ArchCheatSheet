@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-12T08:22:03+01:00
+
+====== Additional rather useful software ======
+Created Thursday 12 January 2017
+
+== Cipboard ==
+**# **//Xclip//** is a lightweight clipboard manager**
+$ pacman -S xclip
+

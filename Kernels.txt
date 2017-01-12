@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-27T21:47:12+02:00
+
+====== Kernels ======
+Created torsdag 27 oktober 2016
+
+**We'll install two Kernels - the Zen kernel, which is a good all' round desktop kernel, and the Long Time Support (lts) kernel in case we should ever get a Kernel panic.  **
+
+== Installation ==
+**# Both kernels comes from the official repository **
+$ pacman -S linux-zen linux-lts 
+
+===== Grub Configuration =====
+**# Edit the Grub configuration in **///etc/default/grub //
+**# We'll add a parameter and disable the sub-tree feature.**
+
+== Kernel Parameter ==
+**#** **Kernel parameters can be added to the** //GRUB_CMDLINE_LINUX_DEFAULT=// 
+**Ex.** 	//GRUB_CMDLINE_LINUX_DEFAULT="quiet splash //parameter1 parameter2//"//
+
+**#** **Enable the BFQ scheduler**
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_CMDLINE_LINUX_DEFAULT="elevator=bfq"
+}}}
+
+
+== Disable Sub-tree ==
+**# Grub, by default, groups the **//linux//** and **//linux-lts//** kernel in a category tree (subcategory).** 
+**# To disable this, add the following to the Grub configuration**
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_DISABLE_SUBMENU=y
+}}}
+
+
+== Update Grub ==
+**# Regenerate the configuration file for the above settings to take affect**
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+
+==== Remove old kernels ====
+**#** **Reboot and check if everything works okay. If so, it is safe to remove** //linux //**and**// linux-headers//
+
+

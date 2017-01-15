@@ -5,11 +5,19 @@ Creation-Date: 2017-01-10T07:07:55+01:00
 ====== Terminal ======
 Created Tuesday 10 January 2017
 
+===== Xterm =====
+**# A little sweetnes from Xterm itself **
+
 == Secure Keyboard ==
 **# Xterm has this - one and only - sweet feature for securing keyboard inputs. **
 **# No other application will be allowed to record key-activity while active. **
 **# Sweet for being super tinfoil about passwords - but it has to be disabled once typed!**
 **# Toggle activation with **//Ctrl+Alt+s//
+
+== Put to Background ==
+**# Place programs that take up the terminal - like Vim - in the background with **//Ctrl+z//
+**# To get the background process back to the **//ForeGround//** again, type**
+$ //fg//
 
 
 ===== Zsh =====

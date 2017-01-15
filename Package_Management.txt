@@ -38,7 +38,7 @@ ILoveCandy
 **# You can install a single or multiple packages**
 $ pacman -S //package1 package2//
 
-**# Check if your newly installed package came with a service file **
+**# Check if package came with a service file **
 $ pacman -Qql //<PACKAGE_NAME>// | grep -Fe .service -e .socket
 
 **#** **Remove packages**
@@ -110,6 +110,11 @@ $ pacman -S $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
 
 == Optimize database access speed ==
 $ pacman -Sc && sudo pacman-optimize
+
+== Update notifier ==
+**# If you'd like to be notified when there's an update, you can install **//Kalu//** (AUR)**
+**# Though, you can expect there to be updates pretty much every day^**
+$ yaourt -S kalu
 
 
 ===== Hooks =====

@@ -53,7 +53,7 @@ Created Saturday 07 January 2017
 **# Search backwards **//?//
 **# Next result **//n//
 **# Previous result **//N//
-**# Clear Search (command) **//:noh//
+**# Clear Search (command) **//:noh	//**# Modified to **//<leader>Space//
 
 == Searching for words under cursor ==
 **# You can place your cursor at a word and hit **//* //**(star) to find next instance of that word.**

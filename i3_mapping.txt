@@ -40,7 +40,7 @@ Created søndag 18 december 2016
 == Scratchpad ==
 **# Scrachpad is a hidden workspace. **
 **# Items from the Scrachpad can be pulled to your currently working workspace - a floating window.**
-**# This feature is good for quickly taken notes etc. **
+**# This feature is good for quickly taking notes etc. **
 
 **# Move focused window to Scratchpad : **//$mod+m//
 **# Focus Scrachpad container : **//$mod+o//

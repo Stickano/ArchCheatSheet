@@ -35,7 +35,7 @@ Created Tuesday 10 January 2017
 **# Enter a distraction free code environment with **//Shift+F11//
 
 == Navigation; Files, Classes - or jump to linenumber ==
-**# Navigate files in projekt, hit **//Ctrl+p//
+**# Navigate files in project, hit **//Ctrl+p//
 **# Navigate Classes in files, hit **//Ctrl+p//** and type **//#//
 **# Jump to linenumber, hit **//Ctrl+p//** and type**// :105//** (ex) to go to line 105. Note the colon ( : ) in front. **
 
@@ -64,8 +64,8 @@ Created Tuesday 10 January 2017
 **# Open the Command Palette and type **//trailing//** for options**
 
 == Alignment ==
-**# Make the code that you'd like aligned and hit **//Ctrl+Alt+a//
+**# Mark the code that you'd like aligned and hit **//Ctrl+Alt+a//
 
 == DocBlockr ==
 **# Start to type **///**//** and hit **//<tab> //**to jump to next line and enclose comment**
-**# If there is a function directly below, dockblor will prepare documentation for you **
+**# If there is a function directly below, dockblokr will prepare documentation for that function**

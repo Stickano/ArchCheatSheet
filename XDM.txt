@@ -24,13 +24,13 @@ $ chmod 700 ~/.xinitrc
 **# To change wallpaper you have to install the **//qiv//** package.**
 $ pacman -S qiv
 
-**# create a folder (and store the wallpapers you'd like displayed in)**
+**# create a folder (and store the wallpapers you'd like displayed in) **
 $ mkdir /usr/local/share/backgrounds
 
 **# Edit the **///etc/X11/xdm/Xsetup_0//
 **# Change the **//xconsole//** command to the following**
 {{{code: lang="texinfo" linenumbers="True"
-/usr/bin/qiv -zr /usr/local/share/backgrounds/*
+ /usr/bin/qiv -zr /root/backgrounds/*
 }}}
 
 

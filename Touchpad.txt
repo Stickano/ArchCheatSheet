@@ -23,6 +23,5 @@ Section "InputClass"
         Option "PalmMinZ" "100"
         Option "Tapping" "on"
 EndSection
-
 }}}
 

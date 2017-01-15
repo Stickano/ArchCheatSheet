@@ -80,6 +80,10 @@ $ yaourt -S profile-cleaner
 **# Clean the database with**
 $ profile-cleaner f
 
+== Disable the Auto-Restore feature ==
+**# Just in case^**
+**# Enter **//about:config//** search for **//browser.sessionstore.resume_from_crash;true //**and specify **//false//
+
 
 ===== Troubleshoot =====
 **# This is a silly matter, that became of great annoyance to me. **

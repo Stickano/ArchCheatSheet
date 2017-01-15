@@ -23,12 +23,12 @@ Created lørdag 22 oktober 2016
 
 ===== Additional System Packages and Configuration =====
 [[External Devices]] (ntfs/fat) (mount/auto-mount with udisk and udevil)
-[[fuseiso]] (mount .iso files)
 [[xset]] (Display Power Management)
 [[Fn-key]] (Function/multimedia-keys) (xbindkeys)
 [[Bluetooth]] 
 [[Sound]] (pulseaudio + bluetooth speaker)
-[[:Additional_rather_useful_software]] 
+[[Cron]] (scheduled jobs)
+[[Additional_rather_useful_software]] 
 
 ===== Software Performance =====
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
@@ -62,7 +62,7 @@ Created lørdag 22 oktober 2016
 [[vim_mapping]] 
 [[Sublime_mapping]]  
 [[Terminal]] (Zsh + plugins and Xterm)
-[[:Ranger_mapping]] 
+[[Ranger_mapping]] 
 
 ===== Network =====
 [[netctl]] (management)
@@ -78,14 +78,18 @@ Created lørdag 22 oktober 2016
 [[lynis]] (security audit)
 [[KeePass]] (password manager)
 [[Tor]] 
+[[iptables]] (Firewall) 
+[[iptable_rules]] (25 common rules)
+[[ipset]] (block IPs + blocklist)
+[[Fail2ban]] 
 
 ===== Preferred Software =====
 [[Firefox]] 
 [[Vim]] (text editor)
-[[:Ranger]] (file-manager)
-[[mplayer]]  (mediaplayer)
+[[Ranger]] (file-manager)
+[[mplayer]]  (media player)
 [[LibreOffice]] (office-suite)
-[[Feh]] (image/wallpaper)
+[[Feh]] (images/wallpaper)
 [[Dunst]] (Notifications)
 [[Additional Badass Software]] (random list of goodies)
 
@@ -105,6 +109,7 @@ Created lørdag 22 oktober 2016
 [[Zsh]] (+oh-my-zsh) (shell)
 [[Gnu_Screen]] 
 [[Xresources]] (terminal)
+[[SSMTP]] (send E-mails from the terminal)
 [[Additional_Terminal_Packages]] 
 [[Terminal_Keks]] (lolcat, fortune, cowsay)
 

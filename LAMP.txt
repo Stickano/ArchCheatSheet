@@ -153,7 +153,6 @@ skip-networking
 **# Add these lines to the **//[mysqld]//** group**
 {{{code: lang="texinfo" linenumbers="True"
 [mysqld]
-....
 init_connect                = 'SET collation_connection = utf8_general_ci,NAMES utf8'
 collation_server            = utf8_general_ci
 character_set_client        = utf8

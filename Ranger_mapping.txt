@@ -18,7 +18,7 @@ Created Thursday 12 January 2017
 **# To empty the Trash, use the command **//:empty//
 
 == Extraction ==
-**# In order to extract you have to copy (**//yy//**) a compressed - or multiple - files**
+**# In order to extract you have to copy (**//yy//**) a compressed - or multiple - file(s)**
 **# Then navigate to the place you want the file(s) extracted, and use the command **//:extracthere//
 
 ===== Commands =====
@@ -68,8 +68,8 @@ Created Thursday 12 January 2017
 
 == Toggle Renaming ==
 **# Made a few toggle's available for renaming files**
-	**# **//toggle_under //**= changes **//foo-bar-text //**to **//foo_bar_text//
-	**# **//toggle_space //**= changes "**//foo bar text//**" to **//foo-bar-text//
+	**# **//toggle_under //**= changes **//foo-bar-text //**to/from **//foo_bar_text//
+	**# **//toggle_space //**= changes "**//foo bar text//**" to/from **//foo-bar-text//
 	
 
 

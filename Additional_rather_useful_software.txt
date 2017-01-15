@@ -5,7 +5,19 @@ Creation-Date: 2017-01-12T08:22:03+01:00
 ====== Additional rather useful software ======
 Created Thursday 12 January 2017
 
-== Cipboard ==
+== Clipboard ==
 **# **//Xclip//** is a lightweight clipboard manager**
 $ pacman -S xclip
 
+**# You can pipe content to the Clipboard, ex **
+$ uptime | xclip
+
+== Fuseiso ==
+**# We can mount **//.iso//** files with fuseiso**
+$ yaourt -S fuseiso
+
+**# To mount a image file**
+$ fuseiso -p //<image>//.iso ///path/to/mountpoint//
+
+**# To unmount a image file**
+$ fusermount -u ///path/to/mountpoint//

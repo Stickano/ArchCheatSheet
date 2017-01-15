@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-13T23:55:21+01:00
+
+====== SSMTP ======
+Created Friday 13 January 2017
+
+**SSMTP is a program that can deliver E-mails from our local computer. **
+
+== Installation ==
+$ pacman -S ssmtp
+
+== Configuration ==
+**# This is setup to deliver mails to my private domain mail (info@sloa.dk)**
+**# For obvious reasons, the password has been left out **
+**# Corrected this, then override the default **///etc/ssmtp/ssmtp.conf//** with the following **
+{{{code: lang="texinfo" linenumbers="True"
+# The user that gets all the mails (UID < 1000, usually the admin)
+root=info@sloa.dk
+
+# The mail server (where the mail is sent to), both port 465 or 587 should be acceptable
+# See also https://support.google.com/mail/answer/78799
+mailhub=asmtp.unoeuro.com:587
+
+# The address where the mail appears to come from for user authentication.
+rewriteDomain=unoeuro.com
+
+# The full hostname
+hostname=dinnabo
+
+# Use SSL/TLS before starting negotiation
+UseTLS=Yes
+UseSTARTTLS=Yes
+
+# Username/Password
+AuthUser=info@sloa.dk
+AuthPass=
+AuthMethod=LOGIN
+
+# Email 'From header's can override the default domain?
+FromLineOverride=yes
+}}}
+
+
+**# Having passwords in plaintext is insecure - so we'll secure the newly edited **//ssmtp.conf//** file**
+**# Create a ssmtp group**
+$ groupadd ssmtp
+
+**# Set the newly created group as owner of the **//ssmtp.conf//** file**
+$ chown :ssmtp /etc/ssmtp/ssmtp.conf
+
+**# Set the newly created group as owner of the ssmtp binary**
+$ chown :ssmtp /usr/bin/ssmtp
+
+**# Limit access to just root and ssmtp**
+$ chmod 640 /etc/ssmtp/ssmtp.conf
+
+**# And set the SGID on the ssmtp binary**
+$ chmod g+s /usr/bin/ssmtp
+
+== Usage ==
+**# Test if everything works**
+$ echo "this is the body" | mail -s "Subject" jeppesen@tutanota.com
+
+**# You can also send mails by creating a empty text file and providing it to the mail function.**
+**# Here's a template; **//~/test-mail.txt//
+{{{code: lang="texinfo" linenumbers="True"
+To:jeppesen@tutanota.com
+From:info@sloa.dk
+Subject: Test
+
+This is a test mail.
+}}}
+
+
+**# Then provide the text-file to the mail function**
+$ mail jeppesen@tutanota.com < ~/test-mail.txt

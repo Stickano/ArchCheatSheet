@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-14T02:47:43+01:00
+
+====== Cron ======
+Created Saturday 14 January 2017
+
+**By default, Arch doesn't come with a Cron implementation. We'll be using **//cronie//** which handles scheduled jobs, even if the computer was shut down when the job was supposed to run.**
+
+== Installation ==
+$ pacman -S cronie
+
+**# And enable its service file**
+$ systemctl enable cronie.service
+
+**# In order to use Cron, a user needs to be a member of the **//users//** group (not default)**
+$ gpasswd --add stick users
+
+
+===== Usage =====
+**# If you installed **//SSMTP//** as explained in **//Terminal (+shell)//**, you will be notified when a job has been run**
+**# Cron can be used in two ways - either you place executable Shell scripts in one of the job folder**
+**# This will execute the file in the appropriate time according to which folder the script is located**
+**# Places for Shell executable **
+	** # **///etc/cron.hourly//
+	** # **///etc/cron.daily//
+	** # **///etc/cron.weekly 		//
+
+**# Or, you place a Cron command inside the crontab file, which is provided for each user.**
+**# The basic format for Cron is; (separated with a space)**
+	//<MINUTE>  <HOUR>  <DAY_OF_MONTH>  <MONTH>  <DAY_OF_WEEK>  <COMMAND>//
+		**#** //<MINUTE> //**: from 0 to 59**
+		**#** //<HOUR> //**: from 0 to 23**
+		**#** //<DAY_OF_MONTH> //**: from 1 to 31**
+		**#** //<MONTH> //**: from 1 to 12**
+		**#** //<DAY_OF_WEEK> //**: 0 to 6  where 0 is Sunday**
+		**#** //<COMMAND> //**: The command to run**
+	
+**# Cron also has some basic keywords;**
+	//@reboot //**: at startup**
+	//@yearly//** : once a year**
+	//@annually //**: same as yearly**
+	//@monthly //**: once a month**
+	//@weekly //**: once a week**
+	//@daily //**: once a day**
+	//@midnight //**: same as daily**
+	//@hourly //**: once an hour**
+	
+**# Ex;  **//@reboot ~/bin/i_love_cron.sh  //**will execute the script at startup**
+
+== Basic Commands ==
+**# To view Crontabs (tasks)**
+$ contab -l
+
+**# To edit Crontabs**
+$ crontab -e
+
+**# Or edit root jobs (system based) with sudo**
+$ sudo crontab -e
+
+**# To remove all Crontabs**
+$ crontab -r
+
+== Examples and further Syntax explained ==
+**# Using the crontab/cron syntax**
+
+**# * (star) is used as wildcard - ex, every hour, every day, every month (15min. past)**
+15 * * * * someCommand
+
+**# , (comman) is used to specify multiple time - ex, at 12 and 16 o'clock **
+00 12,16 * * * someCommand
+
+**# / (slash) to specify a interval - ex to run something every 10min.**
+*/10 * * * * someCommand
+
+**# - (subtract) is to specify a range - ex, 1215 daily, except the summer months (June, July & August)**
+15 12 * 1-5,9-12 * someCommand

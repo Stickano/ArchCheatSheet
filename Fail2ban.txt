@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-13T21:26:48+01:00
+
+====== Fail2ban ======
+Created Friday 13 January 2017
+
+**Fail2ban will help protect against brute force attacks, by adding the host to the IP-block list. This is done by adding rules to iptables. We'll also configure, so that a E-mail will be sent, whenever a host has been blocked.**
+**# We'll added a little extra security for Fail2Ban**
+
+== Installation ==
+$ pacman -S fail2ban
+
+**# Then enable the service**
+$ systemctl enable fail2ban.service
+
+===== Configuration =====
+**# We'll add a little extra security**
+
+== Allow full Read access ==
+**# Which will also fail2ban to set firewall rules with iptables. **
+**# The last two lines limits Fail2ban to places deemed necessary **
+**# Create a file in **///etc/systemd/system/fail2ban.service.d/capabilities.conf //**and add the following**
+{{{code: lang="texinfo" linenumbers="True"
+[Service]
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_NET_ADMIN CAP_NET_RAW
+ReadOnlyDirectories=/
+ReadWriteDirectories=/var/run/fail2ban /var/lib/fail2ban /var/spool/postfix/maildrop /tmp /var/log/fail2ban
+}}}
+
+
+== Jails ==
+**# Jails are the configuration for Fail2ban**
+**# It comes with paths/locations for some different distros - but not for Arch. The Fedora paths should work.**
+$ cp /etc/fail2ban/paths-fedora.conf /etc/fail2ban/paths-archlinux.conf
+
+**# The default Jail configuration can be found at **///etc/fail2ban/jail.conf //**but this file should not be edited **
+**# Instead, rules defined in the default Jail, can copied and defined to a separate file in **///etc/fail2ban/jail.d///
+
+**# Make sure the Fedora paths has been copied **
+**# Then create a file at **///etc/fail2ban/jail.d/jail.local//** and insert the following **
+{{{code: lang="texinfo" linenumbers="True"
+[INCLUDES]
+before = paths-archlinux.conf
+}}}
+
+
+**# If you installed **//SSMTP//** as explained in **//Terminal (+shell)//**, add the following too for mail notifications **
+{{{code: lang="texinfo" linenumbers="True"
+[DEFAULT]
+mta = mail
+destemail = jeppesen@tutanota.com
+}}}
+

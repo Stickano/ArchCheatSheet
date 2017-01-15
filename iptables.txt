@@ -1,0 +1,234 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-13T12:56:33+01:00
+
+====== iptables ======
+Created Friday 13 January 2017
+
+**iptables is a command-line tool for managing the kernel firewall. **
+**It consists of 5 tables;**
+	**# **//raw//**; only for packets - so that they are secured from tracking**
+	**# **//filter//**; The default table - this is where we will be doing most our firewall settings**
+	**# **//nat//**; Port Forwarding**
+	**# **//mangle//**; Specialized packet alterations**
+	**# **//security//**; Mandatory Access Control - more secure but different setup**
+	
+**We'll typically work with **//nat//** and **//filter//**. **
+
+== Chains ==
+**Tables consists of **//chains//** which is rules in a orderly fashion. **
+**The **//default//** table has 3 chains; **//INPUT, OUTPUT //**and **//FORWARD//
+**The **//nat//** table includes; **//PREROUTING, POSTROUTING //**and **//OUTPUT//
+
+== Rules ==
+**Filtering is based on **//rules//**, which are specified by multiple matches and one target.**
+**The build in targets are dropped the very instance they are handled.**
+**The build in targets; **//ACCEPT, DROP, QUEUE //**and **//RETURN//
+**Extended targets are user handled instead - they are not dropped the very instance they are handled.**
+**Extended targets; **//REJECT  //**and **//LOG//
+
+
+===== Starting iptables =====
+**#NOTE : IPv4**
+**# iptables won't run unless it finds **///etc/iptables/iptables.rules //**which is not provided by default. **
+**# Create the rules file**
+$ cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+
+**# Start and Enable the service file **
+$ systemctl start iptables.service
+$ systemctl enable iptables.service
+
+
+===== Usage =====
+**# Some basics for iptables **
+
+== Getting Rule Scheme ==
+**# To list current rules**
+$ iptables -S
+
+**# More information about the current rules (accepted packets etc)**
+$ iptables -nvL --line-numbers 
+
+== Saving Rules ==
+**# Whenever you use the command line to define rules, they have to be saved to the rules files**
+$ sudo zsh -c "iptables-save > /etc/iptables/iptables.rules"
+
+== Reset to default ==
+**# To get the default rules**
+$ iptables-restore < /etc/iptables/empty.rules
+
+
+===== Single Machine Firewall =====
+**# This should be quite sufficient as a single system firewall**
+
+**# Create two chains that will be used (later) to open ports**
+$ iptables -N TCP
+$ iptables -N UDP
+
+== The FORWARD chain ==
+**#** **Drop the Forward chain**
+$ iptables -P FORWARD DROP
+
+== The OUTPUT chain ==
+**# Accept the OUTPUT chain**
+$ iptables -P OUTPUT ACCEPT
+
+== The INPUT chain ==
+**# The INPUT chain needs a little more love. **
+**#** **First we'll DROP the chain completely, then we'll add rules for the packets we want. **
+**# First, DROP the chain **
+$ iptables -P INPUT DROP
+
+**# ACCEPT traffic from the established connection**
+$ iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+**# ACCEPT traffic from the loopback interface (lo), which is required by many services**
+$ iptables -A INPUT -i lo -j ACCEPT
+
+**# ACCEPT ICMPv6 Neightbor Discovery packets, which is always classified INVALID but actually aren't**
+$ iptables -A INPUT -p 41 -j ACCEPT
+
+**# DROP all packets with INVALID checksum, TCP flags, ICMP flags and Out of Sequence packets**
+$ iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
+
+**# ACCEPT new incoming ICMP echo requests**
+$ iptables -A INPUT -p icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
+
+**# The next rules will bind the UDP and TCP chains, that we created earlier, to the INPUT chain**
+**# It will handle all the new incoming connections. **
+**#** **Once a connection is accepted by UDP or TCP, it will be handled by the **//RELATED/ESTABLISHED//** rule**
+**# Attach the chains **
+$ iptables -A INPUT -p udp -m conntrack --ctstate NEW -j UDP
+$ iptables -A INPUT -p tcp --syn -m conntrack --ctstate NEW -j TCP
+
+**# REJECT the packets with **//TCP RESET //**and packets to closed ports**
+$ iptables -A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+$ iptables -A INPUT -p tcp -j REJECT --reject-with tcp-reset
+
+**# REJECT all remaining traffic with icmp protocol unreachable**
+$ iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
+
+== Save the rules ==
+**# We'll save the rules before continuing on - **
+**#** **some of the next rules will update the above rules, so they have to be saved to the rules list first**
+$ sudo zsh -c "iptables-save > /etc/iptables/iptables.rules"
+
+== The UPD and TCP chains ==
+**# This will contain the rules for the chains we created earlier. **
+**# This is where we will add rules to accept incoming connections, such as SSH and HTTP. **
+
+**# ACCEPT web servers **
+$ iptables -A TCP -p tcp --dport 80 -j ACCEPT
+
+**# ACCEPT HTTPS **
+$ iptables -A TCP -p tcp --dport 443 -j ACCEPT
+
+**# ACCEPT remote SSH connections **
+$ iptables -A TCP -p tcp --dport 22 -j ACCEPT
+
+**# ACCEPT DNS server**
+$ iptables -A UDP -p udp --dport 53 -j ACCEPT
+
+== Protecting against SYN and UDP scans ==
+**# To protect against SYN scans, the recent module can be used. **
+**# This will register if a host tries to connect to many ports and reject packets at open ports if so**
+**# First, REJECT hosts that got onto the TCP-PORTSCAN list**
+$ iptables -I TCP -p tcp -m recent --update --seconds 60 --name TCP-PORTSCAN -j REJECT --reject-with tcp-reset
+
+**# Next, we'll add rules to add hosts with rejected packets to the TCP-PORTSCAN list**
+$ iptables -D INPUT -p tcp -j REJECT --reject-with tcp-reset
+$ iptables -A INPUT -p tcp -m recent --set --name TCP-PORTSCAN -j REJECT --reject-with tcp-reset
+
+**# To protect against UDP scans - well.. Linux apparently sends out the **"//UDP port not reachable//**" very slowly**
+**# It would take 10+ hours to do a full UDP port scan on Linux - and is generally just a unreliable protocol.**
+**# However, some of  the common UDP ports might still be recognized by a scanner**
+**# This is handled the same way as with SYN scans. **
+**# First, REJECT hosts port the UDP-PORTSCAN list**
+$ iptables -I UDP -p udp -m recent --update --seconds 60 --name UDP-PORTSCAN -j REJECT --reject-with icmp-port-unreachable
+
+**# And the rules to add hosts to the UDP-PORTSCAN list**
+$ iptables -D INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+$ iptables -A INPUT -p udp -m recent --set --name UDP-PORTSCAN -j REJECT --reject-with icmp-port-unreachable
+
+**# The above commands makes it, so that the default rule is no longer the last rule in the INPUT chain**
+**# It needs to be the last rule, so to correct this we delete and create it again**
+$ iptables -D INPUT -j REJECT --reject-with icmp-proto-unreachable
+$ iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
+
+== Save the rules ==
+**# We'll save the rules before continuing on**
+$ sudo zsh -c "iptables-save > /etc/iptables/iptables.rules"
+
+
+===== IPv6 =====
+**# If you don't use IPv6 it should be disabled - else it should mimic the IPv4 rules. Both demonstrated here.**
+
+== Disable IPv6 ==
+**# Disable IPv6 by adding it to the kernel parameter line in the Grub configuration**
+**# Edit **///etc/default/grub//
+**# And add **//ipv6.disable_ipv6=1 //**to the **//GRUB_CMDLINE_LINUX_DEFAULT=//** variable **
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash ipv6.disable_ipv6=1"
+}}}
+
+
+**# and update your grub**
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+**# Some programs might try and use the IPv6 protocol, even though it's been disabled by kernel**
+**# They should be harmless - but we'll disable that functionality from a couple of applications anyways**
+
+**# dhcpcd**
+**# Add the following lines to **///etc/dhcpcd.conf//
+{{{code: lang="texinfo" linenumbers="True"
+noipv6rs
+noipv6
+}}}
+
+
+**# ntpd**
+**# Create a drop-in snippet for the service file**
+$ systemctl edit ntpd.service
+
+**# and add these lines **
+{{{code: lang="texinfo" linenumbers="True"
+[Service]
+ExecStart=
+ExecStart=/usr/bin/ntpd -4 -g -u ntp:ntp
+}}}
+
+
+
+== Enabled IPv6 ==
+**# We'll use the same rules as defined in IPv4**
+**# First copy the IPv4 rules, to the IPv6 rule file**
+$ cp /etc/iptables/iptables.rules /etc/iptables/ip6tables.rules
+
+**# The **//icmp-port-//** and **//icmp-proto- //**is different in the IPv6 protocol, so the rules file needs to corrected **
+**# Edit the **///etc/iptables/ip6tables.rules //**and replace the two protocols with **//icmp6-adm-prohibited//
+**# This can be done easily in vim.**
+$ vim /etc/iptables/ip6tables.rules
+
+**# Then do a Search and Replace for both instances**
+**# Enter the command mode ( : ) **
+	:%s/icmp-port-unreachable/icmp6-adm-prohibited/g
+	:%s/icmp-proto-unreachable/icmp6-adm-prohibited/g
+	
+**# While you're in Vim, Search ( / ) for **//-A INPUT -m conntrack --ctstate INVALID -j DROP //
+**# and add this line right below**
+{{{code: lang="texinfo" linenumbers="True"
+-A INPUT -s fe80::/10 -p icmpv6 -j ACCEPT
+}}}
+
+
+**# Save and exit vim with the corrected rules**
+
+**# ACCEPT all new incoming ICMP echo requests (make sure the rules has been changes, as explained above)**
+$ ip6tables -A INPUT -p ipv6-icmp --icmpv6-type 128 -m conntrack --ctstate NEW -j ACCEPT
+
+**# ENABLE reverse path filer**
+$ ip6tables -t raw -A PREROUTING -m rpfilter -j ACCEPT
+$ ip6tables -t raw -A PREROUTING -j DROP
+
+**# When done, enable the service file**
+$ systemctl enable ip6tables.services

@@ -5,6 +5,7 @@ Creation-Date: 2016-12-04T20:01:55+01:00
 ====== Network ======
 Created søndag 04 december 2016
 
+== System ==
 **#** **Get network device names**
 $ iw dev
 
@@ -13,6 +14,19 @@ $ iw dev wlp2s0 link
 
 **#** **Intern Address and routing point **
 $ ip addr
+
+== Domain/ Host ==
+**# See if host is up**
+$ ping <HOST>
+
+**# Whois for Domain**
+$ whois <DOMAIN>
+
+**# DNS for Domain**
+$ dig <DOMAIN>
+
+**# Reverse lookup host**
+$ dig -x <HOST>
 
 ===== SS network tool =====
 **# **//ss//** replaces the **//netstat //**tool**

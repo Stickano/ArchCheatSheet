@@ -28,6 +28,9 @@ $ cat /sys/class/power_supply/BAT0/capacity
 **#** **Human-readable disk size/usage**
 $ df -h
 
+**# Show directory usage**
+$ du -sh
+
 **# All disks and their associated partitions**
 $ lsblk -f
 

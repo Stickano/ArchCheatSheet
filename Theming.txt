@@ -28,6 +28,16 @@ $ pacman -S lxappearance
 $ yaourt -S arc-firefox-theme
 
 
+===== Cursor Themes =====
+**# A lil' cursor bling **
+
+== Vanilla DMZ ==
+**# A bit more interesting than the default - still quite neutral though**
+**# Comes in a light and dark version (-aa = dark version)**
+$ pacman -S xcursor-vanilla-dmz
+$ pacman -S xcursor-vanilla-dmz-aa
+
+
 ===== Grub2 =====
 **# Some sweet ass Grub Themes**
 

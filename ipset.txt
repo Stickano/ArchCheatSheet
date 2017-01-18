@@ -45,6 +45,9 @@ $ ipset destroy
 **# **//pg2ipset //**is a tool that takes content from the PG2 IP Blocklist, and blocks those IPs with ipset**
 $ yaourt -S pg2ipset-git
 
+**# This also requires you to have the **//wget //**package installed **
+$ pacman -S wget
+
 **#To update the IP list daily, create a Cron job - see more in **//Additional System Tools//
 **# First, save this script - ex **//~/dotfiles/scripts/ipset-update.sh//
 {{{code: lang="sh" linenumbers="True"

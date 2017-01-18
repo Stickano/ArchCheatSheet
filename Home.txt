@@ -28,6 +28,7 @@ Created lørdag 22 oktober 2016
 [[Bluetooth]] 
 [[Sound]] (pulseaudio + bluetooth speaker)
 [[Cron]] (scheduled jobs)
+[[Desktop_Entries]] 
 [[Additional_rather_useful_software]] 
 
 ===== Software Performance =====
@@ -61,7 +62,7 @@ Created lørdag 22 oktober 2016
 [[i3_mapping]] 
 [[vim_mapping]] 
 [[Sublime_mapping]]  
-[[Terminal]] (Zsh + plugins and Xterm)
+[[Terminal]] (Zsh and URxvt + plugins)
 [[Ranger_mapping]] 
 
 ===== Network =====
@@ -103,10 +104,14 @@ Created lørdag 22 oktober 2016
 [[Sublime]] 
 [[LAMP]] (Apache, MySql and PHP)
 
+===== Gaming =====
+[[Steam]] 
+
 ===== Terminal (+shell) =====
 [[Aliases]]
 [[Functions]] 
 [[Zsh]] (+oh-my-zsh) (shell)
+[[rxvt-unicode]] (terminal)
 [[Gnu_Screen]] 
 [[Xresources]] (terminal)
 [[SSMTP]] (send E-mails from the terminal)

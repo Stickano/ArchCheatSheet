@@ -100,7 +100,7 @@ date.timezone = Europe/Copenhagen
 
 
 == Turn on Errors ==
-**# Edit the error_reporting line nd turn on errors in the display_errors line**
+**# Edit the **//error_reporting//** line and turn on errors in the display_errors line**
 {{{code: lang="texinfo" linenumbers="True"
 error_reporting = E_ALL 
 display_errors=On
@@ -158,4 +158,4 @@ collation_server            = utf8_general_ci
 character_set_client        = utf8
 character_set_server        = utf8
 }}}
-'
+

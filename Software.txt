@@ -19,6 +19,16 @@ $ dmesg
 # **To show kernel drivers handling each device **
 $ lspci -k
 
+**# Show Kernel**
+$ uname -a
+
 == GPU driver ==
 **# Show which video-driver is being used by X-org**
 $ lspci -nnk | grep -i vga -A3 | grep 'in use'
+
+== Application ==
+**# Show possible locations for application**
+$ whereis //<APP_NAME>//
+
+**# Show what will be run be default **
+$ which //<APP_NAME>//

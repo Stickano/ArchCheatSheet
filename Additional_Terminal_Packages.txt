@@ -22,3 +22,9 @@ $ pacman -S sl
 == Large ASCII letters ==
 **# **//figlet//** will transform your text to big ASCII characters**
 $ pacman -S figlet
+
+== Hide mouse cursor on inactivity ==
+**# This might be a little out of category - **
+**#** **but have you ever found yourself annoyed 'bout the mouse when typing/interacting with the terminal?**
+**# I have.. Install **//unclutter//** to hide the mouse when it hasn't been operated for a while**
+$ yaourt -S unclutter-xfixes-git

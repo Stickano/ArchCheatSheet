@@ -18,14 +18,11 @@ $ systemctl enable fail2ban.service
 **# We'll add a little extra security**
 
 == Allow full Read access ==
-**# Which will also fail2ban to set firewall rules with iptables. **
-**# The last two lines limits Fail2ban to places deemed necessary **
+**# Which will also allow fail2ban to set firewall rules with iptables. **
 **# Create a file in **///etc/systemd/system/fail2ban.service.d/capabilities.conf //**and add the following**
 {{{code: lang="texinfo" linenumbers="True"
 [Service]
 CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_NET_ADMIN CAP_NET_RAW
-ReadOnlyDirectories=/
-ReadWriteDirectories=/var/run/fail2ban /var/lib/fail2ban /var/spool/postfix/maildrop /tmp /var/log/fail2ban
 }}}
 
 

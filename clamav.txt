@@ -21,7 +21,7 @@ $ yaourt -S clamav-unofficial-sigs
 
 == Starting the daemon ==
 **# Start/enable the clam service file**
-$ systemctl start clamd.service
+$ systemctl enable clamd.service
 
 == Test clamav ==
 **# Make sure your clamav and its definitions are installed correct (harmless file)**

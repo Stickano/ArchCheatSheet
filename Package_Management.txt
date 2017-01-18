@@ -116,6 +116,11 @@ $ pacman -Sc && sudo pacman-optimize
 **# Though, you can expect there to be updates pretty much every day^**
 $ yaourt -S kalu
 
+== Help the developers at Arch ==
+**# **//pkgstats//** sends a list of installed packages, kernels, architecture and mirrors you use (anonymous)**
+**# to the Arch Linux developers. This is done once a week automatically. **
+$ pacman -S pkgstat
+
 
 ===== Hooks =====
 **# A hook is an action (or set of) to be run when pacman remove/upgrade/install is invoked.**

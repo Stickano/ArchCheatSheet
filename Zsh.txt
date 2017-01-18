@@ -45,6 +45,16 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 }}}
 
 
+== Defining Keybinds ==
+**# To get a key-value, first hit **//Ctrl+v//** and then push the key (or key combo) to get its value**
+**# That value can be used in a **//bindkey//** variable to define its action, ex;**
+**# (Control+Delete to delete forward word) **//Ctrl+v  Ctrl+Delete //** outputs **//^[[3^//
+**# Then we define the action of that value in the our **//.zshrc //**(**//kill-word//** is the command to forward delete word)**
+{{{code: lang="texinfo" linenumbers="True"
+bindkey '^[[3^' kill-word
+}}}
+
+
 
 ===== Oh my Zsh =====
 **# OMZsh is a shitload of additional functions and themes ready to use out-the-box**

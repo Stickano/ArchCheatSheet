@@ -33,18 +33,19 @@ Created Saturday 07 January 2017
 **#** **<leader> = , (comma) **
 
 == Insert Mode (edit content) ==
-**# Insert mode **//i//
+**# Insert mode (before cursor) **//i//
+**# Insert mode (before line) **//I//
 **# New line below, and enter Insert mode **//o//
 **# New line above, and enter Insert mode **//O//
+**# After Cursor **//a//
 **# End of line **//A//
-
-== Navigating Lines ==
-**# You can specify the number of lines to jump by entering a numeric value before using the arrow-keys**
-**# Etc. type **//40//** then press arrow-down, tell Vim to jump down 40 lines.**
+**# Replace 1 character **//r//
+**# Replace many characters **//R//
 
 == Deleting Text ==
 **# Delete character at cursor **//x//
 **# Delete a word **//dw//
+**# Delete from cursor to end of line **//D//
 **# Delete line **//dd//
 **# Delete 3 lines (ex) **3dd
 
@@ -62,9 +63,20 @@ Created Saturday 07 January 2017
 == Matching parenthesis ==
 **# You can navigate to a parenthesis and hit **//%//** to jump to the opening/closing parenthesis. **
 
+== Navigating Lines ==
+**# You can specify the number of lines to jump by entering a numeric value before using the arrow-keys**
+**# Etc. type **//40//** then press arrow-down, tell Vim to jump down 40 lines.**
+
 == Navigation ==
 **# Navigate to the beginning of the document **//gg//
 **# Navigate to the end of the document **//G//
+**# Move to the end of a line **//$//
+**# Move to the beginning of a line **//0 //
+**# Move to the next word **//w//
+**# Move to the beginning of a word **//b//
+**# Move to the end of a word **//e//
+**# Move a sentence back **//(//
+**# Move a sentence forward **//)//
 
 == Folds ==
 **# You can engulf code in **//{{{ }}} //**to make it fold-able**

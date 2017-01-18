@@ -32,3 +32,20 @@ $ ln -s //<file/folder> <target_location>//
 
 **# To remove a symlink**
 $ unlink //<file/folder>//
+
+== Tail ==
+**# To see the last 10 lines of a file**
+$ tail //<FILE_NAME>//
+
+**# You can also follow/ track new content (logs etc) **
+$ tail -f //<FILE_NAME>//
+
+== Network ==
+**# Download file**
+$ wget //<URL/FILE>//
+
+**# Recursive download files**
+$ wget -r //<URL/FILE>//
+
+
+

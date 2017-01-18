@@ -52,6 +52,11 @@ $ ssh //<SERVER_NAME>//
 ===== Server Usage =====
 **# Server side usage**
 
+== URxvt ==
+**# While using URxvt on your local (client) machine, it'll act up connecting to the server.**
+**# Binds all messed and what not - To fix this, install **//rxvt-unicode-terminfo //**on the server machine**
+$ pacman -S rxvt-unicode-terminfo
+
 == Configuration ==
 **# The configuration file can be found in **///etc/ssh/sshd_config	//
 **#** **Note the "d" **//ssh//**d**_config **(daemon)	- This will be referred to as the configuration file **
@@ -116,16 +121,6 @@ $ systemctl edit sshd.socket
 	ListenStream=<IP_ADDRESS>:<PORT_NUMBER>
 }}}
 
-
-
-==== Security ====
-**# Some good to know security tips**
-
-== Fail2Ban ==
-**# This will add rules to the firewall if a password attempt fails to many times.**
-**# Note that this is not necessar if you are connecting through SSH keys**
-$ pacman -S fail2ban
-$ systemctl enable fail2ban.service
 
 
 ==== Tips and Tricks ====

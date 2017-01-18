@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-17T01:26:13+01:00
+
+====== Steam ======
+Created Tuesday 17 January 2017
+
+== Installation ==
+**# These packages are required by Steam (some might already be installed)**
+**# You should also have been through **//Video Driver//** and **//Sound//** for 32-bit support of both sound and video**
+$ pacman -S steam lib32-curl lib32-libgpg-error steam-native-runtime
+
+== Running ==
+**# Always use the **//steam-native//** command - or the **//Steam (Native)//** from dmenu.**
+
+===== Configuration =====
+**# Steam allows you to use custom commands when launching games**
+**# From your Steam Library, right click any game and select Properties - From here, Set the Launch Options**
+**# Steam replaces **//%command%//** with the game-launch command**
+**# Below is a couple of Launch Options examples (**//Game Library > Right Click Game > Options > Set Launch Options//**)**
+
+== 64-bit Games ==
+**# To use the Nvidia driver (optirun) on a 64b game, set this launch option**
+	LD_PRELOAD=/usr/lib/nvidia/libGL.so optirun %command%
+
+
+== 32-bit Games ==
+**# Like-wise for 32b games, set this launch option**
+	LD_PRELOAD=/usr/lib32/nvidia/libGL.so optirun %command%
+	
+
+== Desktop Entries ==
+**# Instead of having to decide between native and runtime when you wanna run steam**
+**# Copy the **//steam.desktop//** to your local application folder**
+$ cp /usr/share/applications/steam.desktop ~/.local/share/applications
+
+**# Then Edit the copied entry and add the following line**
+{{{code: lang="texinfo" linenumbers="True"
+NoDisplay=true
+}}}
+
+
+**# For the Steam Native entry, first create a file in **///usr/local/bin/steam-preload//** and add the following**
+**# This will also force Steam to load the up-to-date system libraries **
+{{{code: lang="texinfo" linenumbers="True"
+LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' /usr/bin/steam "$@"
+}}}
+
+
+**# The Copy the Steam Native entry**
+$ cp /usr/share/applications/steam-native.desktop ~/.local/share/applications
+
+**# And Edit the **//Exec//** line to run our newly created file**
+{{{code: lang="texinfo" linenumbers="True"
+Exec=/usr/local/bin/steam-preload %U
+}}}
+
+
+== Close Button ==
+**# Steam will not react at all when you hit the x (close) button. **
+**# Note, this fix will make sure Steam closes to status-bar, but it is still running!**
+**#** **Edit **///usr/bin/steam//** and add the following environment variable **
+{{{code: lang="texinfo" linenumbers="True"
+export STEAM_FRAME_FORCE_CLOSE=1
+}}}
+
+
+
+===== Troubleshoot =====
+**# This is Game Specific troubleshoot from my Steam library **
+
+== Wasteland 2 ==
+**# WL apparently takes up quite a shitload of mem. **
+**#** **If you experience lock-up during a loadscreen, close down Steam and run the following (not persistent) **
+$ ulimit -n 4096
+
+**# Open Steam > Wasteland again and you should be good to go^**

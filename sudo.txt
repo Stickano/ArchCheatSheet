@@ -45,3 +45,9 @@ Defaults:<USERNAME>      !authenticate
 }}}
 
 
+== Insult when the wrong password was entered ==
+**# Of course, this won't have much effect if you disable asking for PW all together^**
+**# Add this line to the sudoers file**
+{{{code: lang="texinfo" linenumbers="True"
+Defaults	insults
+}}}

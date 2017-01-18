@@ -39,3 +39,14 @@ $ journalctl -f
 **# By default, journalctl truncates the text (off the terminal display) **
 **#** **You can instead make it wordwrap the output**
 $ SYSTEMD_LESS=FRSXMK journalctl
+
+== Reduce log size ==
+**# We don't want our log to take 5% disc-space. **
+**#** **Edit **///etc/systemd/journald.conf//**, uncomment and set the **//SystemMaxUse//
+{{{code: lang="texinfo" linenumbers="True"
+SystemMaxUse=50M
+}}}
+ 
+
+**# Then reduce the current journal to 50M**
+$ journalctl --vacuum-size=50M

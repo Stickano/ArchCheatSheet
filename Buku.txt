@@ -1,0 +1,142 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-01-20T00:38:51+01:00
+
+====== Buku ======
+Created Friday 20 January 2017
+
+**Buku is a CLI tool for managing URLs.**
+
+== Installation ==
+**# The **//buku//** package**
+$ yaourt -S buku
+
+**# To add auto-complete feature for Buku, create a file in **///usr/share/zsh/functions/Completion/_buku //
+**# And add the content of **https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
+**# Then reload Zsh**
+$ compinit
+
+**# **//Rofi//** integration**
+$ yaourt -S buku_run-git 
+
+
+===== Usage =====
+**# Buku defines bookmarks by 3 key values; Title, Tags (category) and Comments (and the URL of course)**
+**# **//>  //**=** **title**
+**# **//+//**  = comment**
+**# **//# //** = tags (category)**
+
+==== Listing Bookmarks ====
+**# Append **//-p//** to list (print) your bookmarks**
+**# You can specify a specific index-number, to list information about that bookmark**
+$ buku -p //<INDEX>//
+
+**# You can also specify a range for the bookmarks you want listed**
+$ buku -p 10-20
+
+**# If **//-p//** is left blank, all bookmarks will be listed**
+
+
+==== Searching Bookmarks ====
+**# Append **//-s //**to search ANY keyword **
+**# Append** //-S//** to search ALL keywords**
+**# Append **//--stag//** to search Tags**
+**# Append **//--deep//** to make a 'loose' search - Ex. **//note//** lists **//notebook//** too**
+
+**# When you Search, you will be prompted to do additional actions**
+**# **//q//** to quit**
+**# **//a//** to open ALL the listed links**
+**# **//s//** specify additional search criteria **
+**# **//?//** for additional actions **
+
+== Any ==
+**# If you append the **//-s//** all bookmarks, with any of the keywords, will be listed**
+$ buku -s category1, category2
+
+== All ==
+**# If you append the **//-S//** the bookmarks needs to match ALL of the keywords**
+**# **//-S //**comes with a couple of unique keywords**
+	**# **//immutable//** = Entries with locked title**
+	**# **//blank//** = Entries with a blank title**
+	
+== Tags ==
+**# To search for specific tag**
+$ buku --stag //category//
+
+**# If **//--stag//** is left blank, ALL tags will be listed**
+
+== Loose ==
+**# For wildcard searching, append the **//-s//** and **//--deep//
+**# Ex, below will also find **//category//
+$ buku -s cat --deep
+
+
+==== Add Bookmarks ====
+**# Append **//-a//** to add a new bookmark**
+
+== Tags (categories) ==
+**# Tags needs to be defined right after the URL - no need to append a option (ex, **//--tags//**)**
+**# You can add multiple categories in a comma-separated list**
+$ //buku// //-a <URL> category1, category2//
+
+== Title ==
+**# Titles - unless specified - is automatically set by the URLs title**
+**# To define your own title, append **//--immutable 1//** and **//-t //
+$ buku -a //<URL> //-t //<TITLE> //--immutable 1
+
+**# If **//-t//** is left blank, no title will be set**
+
+== Comments ==
+**# Attach Comments with **//-c//
+$ buku -a //<URL> //-c This is a comment
+
+
+==== Edit Bookmarks ====
+**# Append **//-u//** to edit (update) bookmarks**
+
+== Title ==
+**# To update the Title to the URLs title**
+$ buku -u //<INDEX>//
+
+**# Or to update it with your own title (as explained above)**
+$ buku -u //<INDEX> //-t //<TITLE>// --immutable 1
+
+== URL ==
+**# To update the URL in a bookmark, append the **//--url//
+$ buku -u //<INDEX>// --url //<NEW_URL>//
+
+== Tags ==
+**# Tags can modified by appending **//--tag//
+**# To add additional tags, use the **//+//** operator**
+$ buku -u //<INDEX> //--tag + category1, category2
+
+**# To delete tags, use the **//-//** operator**
+$ buku -u //<INDEX> --tag - //category1, category2
+
+**# If neither the **//+//** or**// -//** operator is used, the current tags will be overwritten **
+
+== Comments ==
+**# To add/overwrite a comment**
+$ buku -u //<INDEX> //-c This is a new comment
+
+**# If **//-c//** is left blank, the current comment will be deleted**
+
+
+==== Deleting Bookmarks ====
+**# Append **//-d//** to delete bookmarks**
+**# You can space-separate index values, to delete multiple bookmarks**
+**# Ex, to delete 10, 15 and 20**
+$ buku -d 10 15 20
+
+**# You can also delete a range**
+**# Ex, ALL bookmarks in the range of 10 to 20**
+$ buku -d 10-20
+
+
+==== Encryption ====
+**# You are able to lock/unlock your bookmarks**
+**# To lock it (encrypt with 8 hash iterations) **
+$ buku -l
+
+**# To open (decrypt)**
+$ buku -k

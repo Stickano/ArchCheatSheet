@@ -9,7 +9,7 @@ Created Wednesday 08 February 2017
 $ pacman -S wireshark-gtk
 
 **# To allow a user to run Wireshark (without sudo) add the user to the **//wireshark//** group**
-**# Requires you to log out and back in (or reboot) to take effect **
+**# Requires you to log out and back in to take effect **
 $ gpasswd --add //<USER>// wireshark
 
 
@@ -23,6 +23,7 @@ $ gpasswd --add //<USER>// wireshark
 **# You can also specify two IP addresses to see a specific communication between two hosts**
 	ip.addr==//x.x.x.x //&& ip.addr==//x.x.x.x//
 
+
 == Protocol ==
 **# You can specify the protocol directly. Ex to track **//ftp//** packets**
 	ftp
@@ -34,21 +35,25 @@ $ gpasswd --add //<USER>// wireshark
 	dns
 	
 **# You can also exclude protocols**
-**# Here we exclude **//ARP, ICMP and DNS-all// 
+**# Here we exclude **//ARP, ICMP //**and**// DNS-all// 
 	!(arp or icmp or dns)
 	
+
 == Port ==
 **# We can track packets to/from a specific port, ex. port 80 (**//HTTP//**)**
 	tcp.port==80
 	
+
 == TCP resets ==
 **# The reset flag is triggered when the hosts isn't supposed to recieve that package**
 	tcp.flags.reset==1
 	
+
 == Webpages being accessed ==
 **# The GET and POST requests will display websites being accessed for the most parts**
 	http.request
 	
+
 == Searching ==
 **# You can search for specific string in the packets. **
 **#** **Ex, we want to search a username (**//stick//**)**

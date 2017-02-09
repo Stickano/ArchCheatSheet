@@ -14,6 +14,9 @@ $ pacman -S zsh
 **# Then make it the default Shell - don't run with sudo!**
 $ chsh -s /bin/zsh
 
+**# For the **//Fish//**-like syntax highligthing**
+$ pacman -S zsh-syntax-highlighting
+
 == Configuring $PATH ==
 **# Paths should be set in a different configuration, since there is some source conflict with /etc/profile**
 **# To prevent the path from being overwritten, set it in **//~/.zprofile//

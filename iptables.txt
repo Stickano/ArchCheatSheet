@@ -155,6 +155,10 @@ $ iptables -A INPUT -p udp -m recent --set --name UDP-PORTSCAN -j REJECT --rejec
 $ iptables -D INPUT -j REJECT --reject-with icmp-proto-unreachable
 $ iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
 
+== Chromecast ==
+**# Accept connection to the Chromecast**
+$ iptables -I INPUT -p udp -m udp --dport 32768:61000 -j ACCEPT
+
 == Save the rules ==
 **# We'll save the rules before continuing on**
 $ sudo zsh -c "iptables-save > /etc/iptables/iptables.rules"

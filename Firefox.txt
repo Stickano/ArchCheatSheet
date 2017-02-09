@@ -5,7 +5,7 @@ Creation-Date: 2016-12-30T23:46:49+01:00
 ====== Firefox ======
 Created Friday 30 December 2016
 
-**I find Firefox to be just a little slower than Chromium. It also renders the web-content a bit worse than its popular opponent - I just really want to get away from the evil Google empire completely. By this time, I do not have any accounts/relations with Google - and I intend to keep it that way^**
+**I find Firefox to be just a little slower than Chromium. It also renders the web-content a bit worse than its popular opponent - I just really want to get away from the evil Google empire.**
 
 == Installation ==
 **# Firefox from the official repository **
@@ -27,6 +27,9 @@ $ yaourt -S hunspell-da
 **# For additional configuration you can type in **//about:config//** in the address bar.**
 
 **# Default save-session is 15sec; Search for **//browser.sessionstore.interval //**and specify **//300000//
+
+**# There's some issues with external programs opening links to Firefox - Already running issue**
+**# To force new links to open in a tab, Search for **//browser.link.open_newwindow.override.external //**and specify **//3//
 
 **# Recommended header control settings;**
 	**# Search for **//network.http.sendRefererHeader//** and specify **//1//

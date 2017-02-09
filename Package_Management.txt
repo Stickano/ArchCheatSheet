@@ -26,9 +26,11 @@ Created søndag 23 oktober 2016
 
 == A little extra sweetness ==
 **# Add colors to your pacman output, by outcommenting **//#Color //**in **//#// //Misc Options//
+**# Outcomment **//VerbosePkgLists//** to get a more detailed package overview when upgrading the system**
 **# Also, a little nice Easter Egg is the pacman (game) imitation. Add **//ILoveCandy//** to **//#// //Misc Options// 
 {{{code: lang="texinfo" linenumbers="True"
 Color
+VerbosePkgLists
 ILoveCandy
 }}}
 

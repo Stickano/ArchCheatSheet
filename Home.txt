@@ -86,8 +86,9 @@ Created lørdag 22 oktober 2016
 
 ===== Preferred Software =====
 [[Firefox]] 
-[[Vim]] (text editor)
-[[Ranger]] (file-manager)
+[[Vim]] (CLI text editor)
+[[Ranger]] (CLI file-manager)
+[[Buku]] (CLI bookmark-manager)
 [[mplayer]]  (media player)
 [[LibreOffice]] (office-suite)
 [[Feh]] (images/wallpaper)
@@ -113,7 +114,7 @@ Created lørdag 22 oktober 2016
 [[Zsh]] (+oh-my-zsh) (shell)
 [[rxvt-unicode]] (terminal)
 [[Gnu_Screen]] 
-[[Xresources]] (terminal)
+[[Xresources]]
 [[SSMTP]] (send E-mails from the terminal)
 [[Additional_Terminal_Packages]] 
 [[Terminal_Keks]] (lolcat, fortune, cowsay)
@@ -130,3 +131,4 @@ Created lørdag 22 oktober 2016
 
 ===== Analysis =====
 [[nmap]] 
+[[wireshark]] 

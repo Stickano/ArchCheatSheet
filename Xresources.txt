@@ -5,9 +5,9 @@ Creation-Date: 2016-12-18T19:59:19+01:00
 ====== Xresources ======
 Created søndag 18 december 2016
 
-**Xterm is the Xorg Terminal Emulator. **
 **User specified configuration will be read from the **//~/.Xresources //**which is not created by default. **
-**Create this file for **//defining terminal colors, configure terminal preferences, setting DPI, antialiasing, hinting //**and other X font settings. You can also theme your **//screensaver //**or**// Xcoursor //**along with altering preferences for low-level X applications (**//xclock//** etc).**
+**Create this file for **//defining terminal colors, configure terminal preferences, setting DPI, antialiasing, hinting //**and other X font settings. **
+**You can also theme your **//screensaver //**or**// Xcoursor //**along with altering preferences for low-level X applications (**//xclock//** etc).**
 
 == Installation ==
 $ pacman -S xorg-xrdb
@@ -28,7 +28,7 @@ $ pacman -S xorg-xrdb
 	**resource = **The name of the resource whose value is to be changed.
 	**value = **The actual value of the resource. Can be int, bool or string value. 
 
-**# My Xterm configuration file can be found at Github.**
+**# My Xresources configuration file can be found at Github.**
 **# To see currently loaded configurations, run **//xrdb -query -all//
 
 == Character Classes ==

@@ -28,3 +28,26 @@ $ pacman -S figlet
 **#** **but have you ever found yourself annoyed 'bout the mouse when typing/interacting with the terminal?**
 **# I have.. Install **//unclutter//** to hide the mouse when it hasn't been operated for a while**
 $ yaourt -S unclutter-xfixes-git
+
+== Geolocation Information ==
+**# **//Whereami//** can display your current location**
+$ yaourt -S whereami
+
+**# To get the Geolocation**
+$ whereami
+
+**# Or you can change the output to human readable etc (Country, Town)**
+$ whereami -f human
+
+== TODO manager ==
+**# **//Task//** is a nice little todo manager**
+$ pacman -S task
+
+**# To add a task**
+$ task add //Buy Milk//
+
+**# To list all tasks**
+$ task list
+
+**# To mark a task done, ex **//Task 1//
+$ task 1 done

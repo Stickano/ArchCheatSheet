@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-09T23:33:20+01:00
+
+====== Haxor-news ======
+Created Thursday 09 February 2017
+
+**Really badass way to get your daily knowledge. **
+
+== Installation ==
+$ yaourt -S haxor-news
+
+
+===== Usage =====
+**# You'll never again look like a lazy browser - none questions you in the terminal!^**
+
+== List Posts ==
+**# There are several of categories to list; **//Top, Best, Show, Ask, Jobs, New//** and **//Onion//
+**# Ex, to show the top posts**
+$ hn top
+
+**# Listing post is by default set to 10 posts, unless specified**
+**#** **Ex, to show 50 (top) posts**
+$ hn top 50
+
+== Open Post ==
+**# Once you've found an interesting subject, open it with **//view//
+**# Ex, to open post no. 9**
+$ hn view 9
+
+== Comments ==
+**# You could check if there was any good comment to the post**
+**# Ex, for post no. 9 again**
+$ hn view 9 -c | less -r
+
+**# Or to filter most recent comments first**
+$ hn view 9 -cr | less -r
+
+== Hiring and Freelancers ==
+**# For the monthly hiring posts, you can use Regex Filters**
+**# **//(?i) //**= Case Sensitive**
+$ hn hiring "(?i)PHP|HTML"
+
+**# HN also hosts monthly freelancers post and their availabilities - same Regex rules counts here**
+$ hn freelancer "(?i)JavaScript|Node"
+
+== Users ==
+**# To view user info, ex. for User ID 10**
+$ hn user 10
+
+== Open in Browser ==
+**# To view the post in your default browser instead, append **//-b//
+**# Ex, for post no. 9**
+$ hn view 9 -b

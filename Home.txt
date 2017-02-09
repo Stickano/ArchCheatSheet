@@ -31,10 +31,8 @@ Created lørdag 22 oktober 2016
 [[Desktop_Entries]] 
 [[Additional_rather_useful_software]] 
 
-===== Software Performance =====
+===== Performance and Improvements for Wear Down =====
 [[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
-
-===== Hardware Performance and Improvements for Wear Down =====
 [[SSD]] 
 [[CPU]] 
 [[Laptop]] 
@@ -57,13 +55,6 @@ Created lørdag 22 oktober 2016
 [[Users and Groups]] 
 [[Permissions]]  (chmod)
 [[xdg_user_dirs]] (user directories)
-
-===== Key Mappings =====
-[[i3_mapping]] 
-[[vim_mapping]] 
-[[Sublime_mapping]]  
-[[Terminal]] (Zsh and URxvt + plugins)
-[[Ranger_mapping]] 
 
 ===== Network =====
 [[netctl]] (management)
@@ -89,6 +80,7 @@ Created lørdag 22 oktober 2016
 [[Vim]] (CLI text editor)
 [[Ranger]] (CLI file-manager)
 [[Buku]] (CLI bookmark-manager)
+[[Haxor-news]] (CLI news)
 [[mplayer]]  (media player)
 [[LibreOffice]] (office-suite)
 [[Feh]] (images/wallpaper)
@@ -132,3 +124,10 @@ Created lørdag 22 oktober 2016
 ===== Analysis =====
 [[nmap]] 
 [[wireshark]] 
+
+===== Key Mappings =====
+[[i3_mapping]] 
+[[vim_mapping]] 
+[[Sublime_mapping]]  
+[[Terminal]] (Zsh and URxvt + plugins)
+[[Ranger_mapping]] 

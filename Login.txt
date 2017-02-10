@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-10T18:31:34+01:00
+
+====== Login ======
+Created None
+
+**Haven't found any perks by using a Display Manager. **
+**With my setup **//.xinitrc//** is being run on logon anyways, and haven't found a DM that I like.**
+
+== /etc/issue ==
+**# **///etc/issue//** will be prompted before the **//Username//** & **//Password//** request in tty**
+**# Place a nice little welcome message in that file. This one f.ex.^**
+{{{code: lang="texinfo" linenumbers="True"
+ _ __ __ ___       ___ __ _ __ 
+| '__/ _` \ \ /\ / / '__| '__|
+| | | (_| |\ V  V /| |  | |   
+|_|  \__,_| \_/\_/ |_|  |_|   
+
+==============================
+
+Welcome Master
+Please provide your credentials
+
+System.......: Arch Linux \r
+TimeStamp....: \d \t
+On tty.......: \l
+Hostname.....: \n
+
+==============================
+
+}}}
+
+
+
+== Escape Codes ==
+**# As the above shows, you can use Escape Code (**//\d ex//**)**
+**# These are the Escape Codes there is available**
+
+	\b   **Insert the baudrate of the current line.**
+	\d   **Insert the current date.**
+	\s   **Insert the system name, the name of the operating system.**
+	\l   **Insert the name of the current tty line.**
+	\m   **Insert the architecture identifier of the machine, e.g., i486**
+	\n   **Insert the nodename of the machine, also known as the hostname.**
+	\o   **Insert the domainname of the machine.**
+	\r   **Insert the release number of the kernel, e.g., 2.4.16.**
+	\t   **Insert the current time.**
+	\u   **Insert the number of current users logged in.**
+	\U   **Insert the string "1 user" or "<n> users" where <n> is the**
+		   **number of current users logged in.**
+	\v   **Insert the version of the OS, e.g., the build-date etc.**

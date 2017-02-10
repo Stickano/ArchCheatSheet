@@ -16,8 +16,11 @@ $ yaourt -S buku
 **# Then reload Zsh**
 $ compinit
 
-**# **//Rofi//** integration**
+**# **//Rofi//** like run panel (**//Ctrl+Alt+b//**)**
 $ yaourt -S buku_run-git 
+
+**# The **//bukuadd//** script requires **//xsel //**(**//alt+b//**)**
+$ pacman -S xsel
 
 == Database ==
 **# My Buku bookmark database file is stored on Dropbox**
@@ -30,6 +33,10 @@ $ ln -s /home/stick/Dropbox/buku/bookmarks.db /home/stick/.local/share/buku/
 **# **//>  //**=** **title**
 **# **//+//**  = comment**
 **# **//# //** = tags (category)**
+
+== Rofi integration ==
+**# Easily Search and Add bookmark in Rofi like environment with **//Ctrl+Alt+b//
+
 
 ==== Listing Bookmarks ====
 **# Append **//-p//** to list (print) your bookmarks**
@@ -79,6 +86,10 @@ $ buku -s cat --deep
 
 ==== Add Bookmarks ====
 **# Append **//-a//** to add a new bookmark**
+
+== Bukuadd Script ==
+**# **//~/dotfiles/scripts/bukuadd.sh//** lets you add the latest content of Clipboard to Buku**
+**# Copy a URL in the browser and hit **//Alt+b//
 
 == Tags (categories) ==
 **# Tags needs to be defined right after the URL - no need to append a option (ex, **//--tags//**)**

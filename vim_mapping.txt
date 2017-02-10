@@ -26,11 +26,18 @@ Created Saturday 07 January 2017
 **# Search and replace all instances **//:%s/original/replacement/g//
 **# All instances, but confirm before replacing **//:%s/original/replacement/gc//
 
+== Change Color every 10sec ==
+**# Use this little snippet **//:while 1|sleep 10|call NextColor(1)|endwhile//
+**# Stop it with **//Ctrl+c//
+
 
 ===== Normal mode =====
 **# You can reach normal mode by hitting **//Esc//** at any time**
 **# In Normal Mode you just hit the key - or key combo - to activate the action attached**
 **#** **<leader> = , (comma) **
+
+== Nerd Tree (file manager) ==
+**# Open (plugin) file manager with **//Ctrl+n//
 
 == Insert Mode (edit content) ==
 **# Insert mode (before cursor) **//i//
@@ -48,6 +55,9 @@ Created Saturday 07 January 2017
 **# Delete from cursor to end of line **//D//
 **# Delete line **//dd//
 **# Delete 3 lines (ex) **3dd
+
+== Undo Tree ==
+**# A Git-like undo tree with **//F5//
 
 == Searching ==
 **# Search forward **/
@@ -84,6 +94,10 @@ Created Saturday 07 January 2017
 **# Open all folds **//zR//
 **# Close all folds **//zM//
 **# Quickly create a set of fold markers **//zf Space//
+
+== Color Theme ==
+**# Next Color Theme with **//F8//
+**# Random Color Theme with **//Alt+F8//
 
 
 ===== Visual Mode =====

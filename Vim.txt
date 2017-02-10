@@ -13,8 +13,15 @@ $ pacman -S gvim
 **# To manage plugins, install a package manager**
 $ yaourt -S vim-pathogen-git
 
-== Configuration ==
+
+===== Configuration =====
 **# You'll find the configuration at **//~/.vimrc //**(Github)**
+
+== Color Scheme ==
+**# The script for changing colors on the fly (Github) should be placed in **//~/.vim/plugin/setcolors.vim//
+**# Create the folder and Symlink the script**
+$ mkdir ~/.vim/plugin
+$ ln -s /home/stick/dotfiles/.vim/plugin/setcolors.vim /home/stick/.vim/plugin/
 
 
 ===== Modelines =====

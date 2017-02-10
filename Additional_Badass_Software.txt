@@ -70,3 +70,9 @@ $ systemctl --user edit dropbox
 [Service]
 Environment=DISPLAY=:0
 }}}
+
+
+
+== Notebook ==
+**# With #hashtags, search, calendar etc etc. **
+$ yaourt -S rednotebook

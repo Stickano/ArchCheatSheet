@@ -35,6 +35,9 @@ $ pacman -S sysstat
 **# You need the **//i3blocks//** for your i3status bar**
 $ yaourt -S i3blocks
 
+**# **//i3-gaps//** are needed to make a gap between windows, when there's more than 1 window**
+$ yaourt -S i3-gaps
+
 **# The screen locker needs **//xss-lock//** (auto lock/ 10min.)**
 **# You can change the background image for the lockscreen in the **//i3//** config**
 $ yaourt -S xss-lock-git

@@ -14,14 +14,14 @@ Created lørdag 22 oktober 2016
 **5 ) Enable 32bit support from **//Mirros//** in**// Maintenance //
 **6 )** [[Xorg]] (+xinit) (Display Server)
 **7 ) **[[Touchpad]] 
-**8 )** [[XDM]] (Display manager/login prompt)
-**9 )** [[Kernels]] (zen & lts)
-**10 ) **[[DKMS]] 
-**11 )** [[Display_Driver]] (intel/nvidia with bumblebee)
-**12 )** [[AUR_Support]] (yaourt)
-**13 ) **[[i3]] (window manager)
+**8 )** [[Kernels]] (zen & lts)
+**9 ) **[[DKMS]] 
+**10 )** [[Display_Driver]] (intel/nvidia with bumblebee)
+**11 )** [[AUR_Support]] (yaourt)
+**12 ) **[[i3]] (window manager)
 
 ===== Additional System Packages and Configuration =====
+[[Login]] (/etc/issue)
 [[External Devices]] (ntfs/fat) (mount/auto-mount with udisk and udevil)
 [[xset]] (Display Power Management)
 [[Fn-key]] (Function/multimedia-keys) (xbindkeys)

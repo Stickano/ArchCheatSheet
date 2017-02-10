@@ -69,3 +69,14 @@ public class HelloWorld {
 **# This could be placed in a **//.cs//** file somewhere^**
 **# You've might noticed the **//IconName//** method**
 **# Icons can be fount here : **https://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
+
+
+===== Tips and Tricks =====
+**# A few tips for notifications**
+
+== Laptop/ Battery ==
+**# To easily get Battery notifications, also install **//Batify//
+$ yaourt -S batify
+
+**# And update the udev rules**
+$ udevadm control --reload-rules

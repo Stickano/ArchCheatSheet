@@ -15,8 +15,8 @@ Created lørdag 22 oktober 2016
 **6 )** [[Xorg]] (+xinit) (Display Server)
 **7 ) **[[Touchpad]] 
 **8 )** [[Kernels]] (zen & lts)
-**9 ) **[[DKMS]] 
-**10 )** [[Display_Driver]] (intel/nvidia with bumblebee)
+**9 ) **[[DKMS]] (nvidia)
+**10 )** [[Display_Driver]] (intel & bumblebee)
 **11 )** [[AUR_Support]] (yaourt)
 **12 ) **[[i3]] (window manager)
 
@@ -29,6 +29,7 @@ Created lørdag 22 oktober 2016
 [[Sound]] (pulseaudio + bluetooth speaker)
 [[Cron]] (scheduled jobs)
 [[Desktop_Entries]] 
+[[Dunst]] (Desktop notifications)
 [[Additional_rather_useful_software]] 
 
 ===== Performance and Improvements for Wear Down =====
@@ -84,7 +85,6 @@ Created lørdag 22 oktober 2016
 [[mplayer]]  (media player)
 [[LibreOffice]] (office-suite)
 [[Feh]] (images/wallpaper)
-[[Dunst]] (Notifications)
 [[Additional Badass Software]] (random list of goodies)
 
 ===== Eye Candy =====

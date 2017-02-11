@@ -78,37 +78,56 @@ $ pacman -S xorg-xprop
 **# A nice cheat-sheet for these icons can be found here **http://fontawesome.io/cheatsheet/
 **# Then just copy the icon you'd like into the string in the configuration file.**
 
-== Saving Window Layout # THIS NEED RE-WRITING / NOT REALLY FUNCTIONAL ==
-**# Needs **//perl-anyevent-i3//** and **//perl-json-xs//
+===== Saving & Restoring Workspace Layout =====
+**# Requires **//perl-anyevent-i3//** and **//perl-json-xs//
 $ pacman -S perl-anyevent-i3 perl-json-xs
 
-**# Create a layout your workspaces. Remember what programs/commands is run.**
+== Save Workspace Layout ==
+**# Navigate to the workspace **
+**# Then open and arrange the programs the way you'd like it to be restore**
 **# Then save that layout to a json file.**
-**#** //N//** = workspace.**
-$ i3-save-tree --workspace //N// > ~/.config/i3/layouts/workspace_//N//.json
+**#** //N//** = workspace (numeric).**
+$ i3-save-tree --workspace //N// > ~/dotfiles/.config/i3/layouts/workspace_//N//.json
 
 **# Once the workspace files has been created, they need to be edited**
-**# **//N//** still equals workspace^**
-$ tail -n +2 ~/.config/i3/layouts/workspace_N.json | fgrep -v '// splitv' | sed 's|//||g' > ~/.config/i3/layouts/workspace_N.json
+**# Open it with your favorite editor and look for the following **
+	 "swallows": [
+				   {
+				   // "class": "",
+				   // "instance": "",
+				   // "title": "",
+				   // "transient_for": ""
+				   }
+				]
+	
+**# We just need **//class//** and **//instance//** so remove the bottom two lines and comment out the two needed**
+**# Also note the trailing , (comma) after **//instance//** - remove this too**
+	 "swallows": [
+		   {
+			  "class": "",
+			  "instance": ""
+		]
 
-**# Then create execute-able Shell files to use the json snippets.**
-**# Let's say you have 2 workspaces set up. **
-# **Create 2 files in **//~/.config/i3/layouts//
-**# **//load_layout_1.sh //**AND	**// load_layout_2.sh load//
-**# These files needs to look like the following.**
-**# Note that the applications that needs to run on a desktop, needs to specified**
-**# **//N//** is funny enough still the number of the workspace^**
+**# Note, that the **//instance//** variable is for named windows. **
+**# You could ex specify something like; **//"instance": "Special"//
+**# Now only windows open with the name **//Special//** will correspond. Ex; **//urxvt -name Special//
+
+
+== Load Workspace Layout ==
+**# Once the workspace layout has been saved (as showed above), **
+**# create a script that will load the layout and run the applications**
+**# Change**// N//** accordingly; **//~/dotfiles/.config/i3/layouts/load_workspace_N.json//
 
 	#!/bin/bash
-	# First we append the saved layout of worspace N to workspace M
-	i3-msg "workspace M; append_layout ~/.config/i3/layouts/workspace_N.json"
+	# First we append the saved layout to the workspace - Change //N// accordingly 
+	i3-msg "workspace //N//; append_layout ~/dotfiles/.config/i3/layouts/workspace_//N//.json"
 	
-	# And finally we fill the containers with the programs they had
-	(uxterm &)
+	# Then run the programs, Ex
+	(urxvt &)
 	(firefox &)
-	(nautilus &)
+	(zim &)
 
-**# Make the Shell files executeable**
+**# Make the Shell files **executable
 $ chmod u+x ~/.config/i3/layouts/load_layout_//N//.sh
 
 **# You can now run the Shell scripts - or add them to your **//i3//** config**

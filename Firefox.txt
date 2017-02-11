@@ -68,8 +68,18 @@ $ yaourt -S hunspell-da
 	**# **//uBlock//**; Another popular blocker**
 
 **# Nice Tweaks**
-	**# **//FindBar Tweak//**; Displays search-results in the scroll-bar**
 	**# **//Disable Ctrl-Q Shortcut//**; I've hit that key-combo once to many..**
+	
+
+
+== Netflix, Viaplay etc ==
+**# Install the **//User Agent Switcher //**addon**
+**# To get the button (at current time at least) go to the menu > Customize, here the button is available.**
+**# Add a new User Agent with this string  **
+{{{code: lang="texinfo" linenumbers="True"
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2876.0 Safari/537.36
+}}}
+
 
 
 ===== Tips and Tricks =====

@@ -41,6 +41,12 @@ $ notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-in
 **# The first string is the **//summary//**, the second is the **//body//**.**
 **# This could be placed in a **//.sh//** script somewhere.**
 
+== Urgency ==
+**# You can also define the urgency of the message**
+**# **//low, normal//** or**// critical//** - only **//critical//** will stay longer than 10sec**
+**# append **//-u//** to define the urgency of the message**
+$ notify-send 'Hello world!' 'This is an example notification.' -u critical
+
 == Writing notifications as root ==
 **# Get your UID - In my case, I had UID **//1000//
 $ //id -u //

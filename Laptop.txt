@@ -5,17 +5,59 @@ Creation-Date: 2016-10-23T20:14:39+02:00
 ====== Laptop ======
 Created søndag 23 oktober 2016
 
+**Some useful Laptop tools for power management ex.**
 
-===== Usefull Packages =====
+===== TLP =====
+**# Advanced power management, not much setup is required**
+$ pacman -S tlp
 
-== Laptop Mode Tools ==
-Controls for many power-saving features. 
-Install the //laptop-mode-tools// (AUR) package
+**# Enable its two services **
+$ systemctl enable tlp.service
+$ systemctl enable tlp-sleep.service
 
-Main configuration file is located at ///etc/laptop-mode.conf//	
-Configuration files are located at 	///etc/laptopmode/conf.d///
+**# And disable **//rfkill//
+$ systemctl disable systemd-rfkill.service
 
-**Check available modules and their status : **
-$ grep -r '^\(CONTROL\|ENABLE\)_' /etc/laptop-mode/conf.d
+== Usage ==
+**# Status report with configuration and active settings**
+$ tlp-stat
 
-**Enable ** //laptop-mode.service	//
+**# Verbose information**
+$ tlp-stat -v
+
+**# Show warnings**
+$ tlp-stat -w
+
+**# Battery information**
+$ tlp-stat -b
+
+**# Disk data**
+$ tlp-stat -d
+
+**# USB devices**
+$ tlp-stat -u
+
+**# PCI devices**
+$ tlp-stat -e
+
+**# CPU data**
+$ tlp-stat -p
+
+**# Temperature**
+$ tlp-stat -t
+
+**# Radio devices (wifi, bluetooth etc)**
+$ tlp-stat -r
+
+**# System information (bios & system a.a.)**
+$ tlp-stat -s
+
+== Configuration ==
+**# **//TLP//** keeps all its configuration in **///etc/default/tlp//
+
+**# Disk I/O Scheduler**
+**# Using the Zen-kernel, the **//bfq//** scheduler is preferred**
+**# Search for **//DISK_IOSCHED=//** outcomment and change its value to **//bfq cfq//
+{{{code: lang="texinfo" linenumbers="True"
+DISK_IOSCHED="bfq cfq"
+}}}

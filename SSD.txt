@@ -5,7 +5,9 @@ Creation-Date: 2016-10-23T15:55:48+02:00
 ====== SSD ======
 Created søndag 23 oktober 2016
 
-== HDparm ==
+**Some tools and configuration for Disk optimization. **
+
+===== HDparm =====
 **# Allows you to set spin down/up (power-saving) parameters for a disk. Also affects SSD disks.** 
 $ pacman -S hdparm
 
@@ -27,12 +29,92 @@ ACTION=="add", SUBSYSTEM=="block", KERNEL=="sda", RUN+="/usr/bin/hdparm -B 254 -
 
 	
 
-== I/O Top ==
+===== I/O Top =====
 **# Follow what, and how often, an application writes to the disk.** 
 $ pacman -S iotop
 
 **# invoke it with** 
 $ iotop -boqqq
+
+
+===== Smartmontools =====
+**# **//smartmontools//** can be used to monitor disk health state through the S.M.A.R.T monitoring**
+$ pacman -S smartmontools
+
+**# The SMART monitoring is probably already running, **
+**# but we wan't to exclude SCSI commands since we are on a ATA device**
+$ smartctl --smart=on --device=ata /dev/sda
+
+==== Usage ====
+**# You can get the devices connected with; **//lsblk//
+**# Get some device information - change **//X//** accordingly throughout **
+$ smartctl -i /dev/sd//X //
+
+== Daemon ==
+**# **//smartd//** can automatically run test and notify is issues is reported **
+**# This requires you to have setup Dunst (notifications) and the SSMTP (mail)**
+**# Enable the Daemon service file**
+$ systemctl enable smartd.service
+
+**# The configuration file is stored in **///etc/smartd.conf//
+**# Only 1 line will be outcommented - comment this line and define this line instead**
+{{{code: lang="texinfo" linenumbers="True"
+/dev/sda -a -n standby,q -W 4,35,40 -s (S/../.././02|L/../../6/03) -m jeppesen@tutanota.com -M /usr/local/bin/smartnotify
+}}}
+
+**# The above line will monitor on **//sda//** (change accordingly) **
+	//-a //**= all errors**
+	//-n //** = disable checking if disk is in standby**
+	//-W//** = alert on temperature too. **
+		**It will log on 4degree change and 35degree hit, and alert at 40degree**
+	//-s//** = scheduled self test, each day between 2-3am, and Saturdays between 3-4am**
+	//-m//** = send mail to this address - change accordingly **
+	//-M //**= execute this script (notification and mail content)**
+
+**# Copy this script to **///usr/local/bin/smartnotify//
+**# Change the user (**//stick//**) accordingly **
+{{{code: lang="texinfo" linenumbers="True"
+#! /bin/sh
+
+# Send mail      
+echo "$SMARTD_MESSAGE" | mail -s "$SMARTD_FAILTYPE" "$SMARTD_ADDRESS"
+
+# Notify user                                                        
+wall "$SMARTD_MESSAGE"
+
+# Desktop notification
+sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/stick/bus notify-send "S.M.A.R.T Error ($SMARTD_FAILTYPE)" "$SMARTD_MESSAGE" -u critical --icon=dialog-warning
+}}}
+
+
+
+== Test the disk (safe) ==
+**# You can see what tests your disk is capable to run **
+$ smartctl -c /dev/sd//X//
+
+**# The above (in my case) might produce something like**
+	Short self-test routine 
+	recommended polling time: 	 (   2) minutes.
+	Extended self-test routine
+	recommended polling time: 	 (  10) minutes.
+	
+**# So here we are able to test with **//Short//** and **Extended** - it also shows how long the test will take^**
+**# The **//Short//** test should catch most error**
+$ smartctl -t short /dev/sd//X//
+
+**# This will start the test in the background.**
+**# You'll have to wait x-minutes (2min ex, will be posted) to see the result.**
+**# Once time has elapsed, you can view the health result with**
+$ smartctl -H /dev/sd//X//
+
+**# To view recent reports **
+$ smartctl -l selftest /dev/sd//X//
+
+**# Or a more verbose report **
+$ smartctl -a /dev/sd//X//
+
+**# If the report show Failing Health Status, it has already failed or predicted within 24hours**
+**# Make a backup asap^**
 
 
 ===== TRIM =====

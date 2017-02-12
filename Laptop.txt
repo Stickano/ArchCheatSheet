@@ -61,3 +61,30 @@ $ tlp-stat -s
 {{{code: lang="texinfo" linenumbers="True"
 DISK_IOSCHED="bfq cfq"
 }}}
+
+
+
+===== Powertop =====
+**# **//Powertop//** is a intel tool that can help us with power suggestion,**
+**# system information** **and show apps with high power consumption.**
+$ pacman -S powertop
+
+**# To get a report**
+$ powertop --html=powerreport.html
+
+**# This will create a **//powerreport.html//** file, open this and examine the suggestions etc.**
+
+
+===== Disable Power/Suspend/Hibernate Buttons =====
+**# Systemd can handle the ACPI events **
+**# Edit **///etc/systemd/logind.conf//
+**# Outcomment and define **//ignore//** to these 4 events (power, hibernation, suspend and lid-close)**
+{{{code: lang="texinfo" linenumbers="True"
+HandlePowerKey=ignore
+HandleSuspendKey=ignore
+HandleHibernateKey=ignore
+HandleLidSwitch=ignore
+}}}
+
+
+**# Changes will take affect after next reboot**

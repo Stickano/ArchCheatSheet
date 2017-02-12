@@ -1,0 +1,70 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-12T04:17:37+01:00
+
+====== Kernel Modules ======
+Created Sunday 12 February 2017
+
+**Kernel modules are snippets of code that can be loaded/unloaded on demand. They extend functionality for the Kernel without the need to reboot.**
+
+== Obtaining information ==
+**# Modules are stored in **///usr/lib/modules/<KERNEL_RELEASE>///
+**# You can get the Kernel Release with; **//uname -r//
+
+**# Currently loaded modules**
+$ lsmod
+
+**# Show information about a module **
+$ modinfo //<MODULE_NAME>//
+
+**# Show options set for a loaded module**
+$ systool -v -m //<MODULE_NAME>//
+
+**# Show configuration for a specific module**
+$ modprobe -c | grep //<MODULE_NAME>//
+
+**# Show comprehensive configuration for all modules**
+$ modprobe -c | less
+
+== Manual handling ==
+**# If you've updated the kernel and not yet rebooted, **//modprobe//** will not work!**
+**# This will take immediate effect. No reboot required. **
+
+**# Load a module**
+$ modprobe //<MODULE_NAME>//
+
+**# Unload module**
+$ modprobe -r //<MODULE_NAME>//
+
+**# Set options (**//key=value//**)**
+$ modprobe //<MODULE_NAME> <PARAMETER>=<VALUE>//
+
+== Load module at boot ==
+**# Modules can be enabled by storing the module name in a configuration file in **///etc/modules-load.d///
+**# The configuration file needs to be named the same as the module, ending with **//.conf//
+**# So if we f.ex. wanted to load **//virtio-net//**, create a file **///etc/modules-load.d/virtio-net.conf//
+{{{code: lang="texinfo" linenumbers="True"
+# Load virtio-net.ko at boot
+virtio-net
+}}}
+
+
+== Configure module at boot ==
+**# Configurations can be stored in **///etc/modprobe.d/ //**and needs to end with **//.conf  //**(name optional)**
+**# The syntax goes as; **//options <MODULE_NAME> <PARAMETER>=<VALUE>//
+
+**# Ex. for a Thinkpad fan (**//key=value//**); **///etc/modprobe.d/thinkfan.conf//
+{{{code: lang="texinfo" linenumbers="True"
+options thinkpad_acpi fan_control=1
+}}}
+
+
+== Blacklist module at boot ==
+**# Create/edit **///etc/modprobe.d/blacklist.conf// 
+**# Modules may be added in a line separated fashion **
+**# A better way of blacklisting, is to use; **//install <MODULE_NAME>// /bin/false 
+**# Ex, to blacklist **//pcspkr//**  (speaker beep)**
+{{{code: lang="texinfo" linenumbers="True"
+install pcspkr /bin/false
+}}}
+

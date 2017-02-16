@@ -17,7 +17,7 @@ Created Friday 13 January 2017
 
 == Chains ==
 **Tables consists of **//chains//** which is rules in a orderly fashion. **
-**The **//default//** table has 3 chains; **//INPUT, OUTPUT //**and **//FORWARD//
+**The **//filter //**(default) table has 3 chains; **//INPUT, OUTPUT //**and **//FORWARD//
 **The **//nat//** table includes; **//PREROUTING, POSTROUTING //**and **//OUTPUT//
 
 == Rules ==

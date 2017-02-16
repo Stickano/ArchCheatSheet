@@ -8,7 +8,7 @@ Created Tuesday 17 January 2017
 **Desktop Entries are the configurations that describe how an application should run - along with appearance (icon etc) in menu entries. **
 
 == General ==
-**# Desktop entries resides in;**
+**# Desktop entries resides in and must end with **//.desktop//**;**
 	**# **///usr/share/applications//
 	**# **///usr/local/share/applications//
 	**# **//~/.local/share/applications	//**# Takes precedence over the above two**

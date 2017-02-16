@@ -5,8 +5,7 @@ Creation-Date: 2017-01-13T21:26:48+01:00
 ====== Fail2ban ======
 Created Friday 13 January 2017
 
-**Fail2ban will help protect against brute force attacks, by adding the host to the IP-block list. This is done by adding rules to iptables. We'll also configure, so that a E-mail will be sent, whenever a host has been blocked.**
-**# We'll added a little extra security for Fail2Ban**
+**Fail2ban will help protect against brute force attacks, by adding the host to the IP-block list. This is done by adding rules to iptables. We'll also configure, so that a E-mail will be sent, whenever a host has been blocked. We'll added a little extra security to Fail2Ban**
 
 == Installation ==
 $ pacman -S fail2ban
@@ -28,7 +27,8 @@ CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_NET_ADMIN CAP_NET_RAW
 
 == Jails ==
 **# Jails are the configuration for Fail2ban**
-**# It comes with paths/locations for some different distros - but not for Arch. The Fedora paths should work.**
+**# It comes with paths/locations for some different distros - but not for Arch. **
+**#** **The Fedora paths should work though.**
 $ cp /etc/fail2ban/paths-fedora.conf /etc/fail2ban/paths-archlinux.conf
 
 **# The default Jail configuration can be found at **///etc/fail2ban/jail.conf //**but this file should not be edited **

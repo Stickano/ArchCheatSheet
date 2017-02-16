@@ -88,7 +88,7 @@ $ screen -r
 
 **# Send crtl+a to the current window : **crtl+a **a**
 
-== Regions ==
+== Split Window ==
 **# Split current region into two : **crtl+a **S**
 
 **# Switch between regions : **crtl+a **tab**

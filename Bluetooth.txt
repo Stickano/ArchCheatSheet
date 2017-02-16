@@ -43,7 +43,7 @@ $ connect //<MAC_ADDRESS>//
 ===== Troubleshoot =====
 **# I've encountered quite a few issues with Bluetooth. Here's the fixes I've come about. **
 
-== Not being able to power on the bluetooth device ==
+== Not being able to power on the bluetooth device, or device not found in bluetoothctl ==
 **# Failed to set power on: org.bluez.Error.Blocked (**//bluetoothctl//**)**
 **# You can check and see, if the device is up/down**
 $ hciconfig

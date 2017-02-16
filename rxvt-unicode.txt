@@ -37,14 +37,6 @@ URxvt.perl-ext-common: extension_name_1,extension_name_2,...
 
 **# Here is some of the favorites;**
 
-== Tabs ==
-**# Add **//tabbedex//** to the extension list (extension)**
-**# The control are;**
-	**# **//Ctrl+t //**= New Tab**
-	**# **//Ctrl+<Tab>//** = Move to Next tab**
-	**# **//Shift+Up//** = Name/Rename a tab**
-	
-
 == Resize Font ==
 **# Add**// resize-font//** to the extension list (extension)**
 **# Resize with **//Ctrl+Up/Down//

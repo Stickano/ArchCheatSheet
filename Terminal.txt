@@ -8,19 +8,12 @@ Created Tuesday 10 January 2017
 ===== URxvt =====
 **# A little sweetnes from URxvt - well, from the plugins I guess**
 
-== Tabs ==
-**# Manage tabs in your terminal;**
-	**# **//Ctrl+t //**= New Tab**
-	**# **//Ctrl+<Tab>//** = Move to Next tab**
-	**# **//Ctrl+Shift+<tab>//** = Move to Previous tab**
-	**# **//Ctrl+Up//** = Name/Rename a tab**
-
-
 == Resize Font ==
 **# Resize with **//Ctrl+Up/Down//
 
 == Keyboard Select ==
 **# **//Alt+Esc//** activates Keyboard Select**
+**# Begin search with **//Alt+s//
 **# Use with;**
 	**#** h j k l **=** **Move cursor left/down/up/right (also with arrow keys)**
 	**#** g G 0 ^ $ H M L f F ; , w W b B e E **=** **More Vi-like cursor movement keys**

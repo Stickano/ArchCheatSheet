@@ -72,7 +72,7 @@ $ systemctl enable smartd.service
 	//-M //**= execute this script (notification and mail content)**
 
 **# Copy this script to **///usr/local/bin/smartnotify//
-**# Change the user (**//stick//**) accordingly **
+**# Change the user and userId (**//stick //**and **//1000//**) accordingly. You can get userId with;**// id//
 {{{code: lang="texinfo" linenumbers="True"
 #! /bin/sh
 
@@ -83,10 +83,12 @@ echo "$SMARTD_MESSAGE" | mail -s "$SMARTD_FAILTYPE" "$SMARTD_ADDRESS"
 wall "$SMARTD_MESSAGE"
 
 # Desktop notification
-sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/stick/bus notify-send "S.M.A.R.T Error ($SMARTD_FAILTYPE)" "$SMARTD_MESSAGE" -u critical --icon=dialog-warning
+sudo -u stick DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "S.M.A.R.T Error ($SMARTD_FAILTYPE)" "$SMARTD_MESSAGE" -u critical --icon=dialog-warning
 }}}
 
 
+**# And make it executable **
+$ chmod +x /usr/local/bin/smartnotify
 
 == Test the disk (safe) ==
 **# You can see what tests your disk is capable to run **

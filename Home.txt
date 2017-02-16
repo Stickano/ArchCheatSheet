@@ -2,133 +2,474 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-10-22T01:30:01+02:00
 
-====== Linux Cheat Sheet (Arch) ======
+====== Archlinux Cheat Sheet ======
 Created lørdag 22 oktober 2016
 
-===== Base Installation and Configuration =====
-**# Follow the order to a stable base setup**
-**1 )** [[Arch_Base]] (Arch installation)
-**2 ) Check out **//netctl//** in **//Network//** for wifi setup and auto connection **
-**3 ) Check out **//Users// //and Groups//** in **//Users//** to create a user**
-**4 ) **[[sudo]] 
-**5 ) Enable 32bit support from **//Mirros//** in**// Maintenance //
-**6 )** [[Xorg]] (+xinit) (Display Server)
-**7 ) **[[Touchpad]] 
-**8 )** [[Kernels]] (zen & lts)
-**9 ) **[[DKMS]] (nvidia)
-**10 )** [[Display_Driver]] (intel & bumblebee)
-**11 )** [[AUR_Support]] (yaourt)
-**12 ) **[[i3]] (window manager)
+== Foreword ==
+**# Author : Henrik Jeppesen**
+**# Author Email : Jeppesen@tutanota.com**
+**# Updated Version : **https://github.com/Stickano/ArchCheatSheet
 
-===== Additional System Packages and Configuration =====
-[[Login]] (/etc/issue)
-[[External Devices]] (ntfs/fat) (mount/auto-mount with udisk and udevil)
-[[xset]] (Display Power Management)
-[[Fn-key]] (Function/multimedia-keys) (xbindkeys)
-[[Bluetooth]] 
-[[Sound]] (pulseaudio + bluetooth speaker)
-[[Cron]] (scheduled jobs)
-[[Desktop_Entries]] 
-[[Dunst]] (Desktop notifications)
-[[Additional_rather_useful_software]] 
+**## What is this?**
+**#**
+**# This will take you through the steps of getting a stable Arch installation**
+**# It will help you configure and install additional packages, **
+**#** **so that your system has a lot of additional features and usability.  **
 
-===== Performance and Improvements for Wear Down =====
-[[PSD_and_ASD]] (Profile/Anything-sync-daemon) (browser performance)
-[[SSD]] 
-[[CPU]] 
-[[Laptop]] (TLP)
+**## What will be covered?**
+**#**
+**# Coming from the typical Desktops, I found myself missing many features in my daily workflow. **
+**# In my quest for covering those features, I stumbled upon some new ones \o/**
+**# This has been an attempt to mimic a full fledged Desktop - but tailored for my needs only. **
+**#**
+**# A lot of configuration is left out. This is because that the programs has been configured**
+**# along the way. This also means, that a whole dotfile repository is waiting for you to abuse.**
+**# The dotfile repository can be found at **https://github.com/Stickano/dotfiles
+**# which a.a. covers configuration for i3, Vim, Zsh, Urxvt etc etc.**
+
+**## That's quite objective. What are your daily needs and workflow then?**
+**#**
+**# I'm on a laptop. More specific, a Asus UX32LN.**
+**# I am the only user of my computer. **
+**# Like many other, I have my daily web routines. **
+**# I want my media handled with ease - movies, pictures and music.**
+**# I do a little web-development - and trying to expand development in general. **
+**# I like the thought of a somewhat secure system - but it mostly has to handle itself. **
+**# I too wanna be able to fire up Steam and launch a oldie but goldie from time to time.**
+**# ..and then I apparently enjoys to play with my system a bit to much. **
+
+**## What kind of guru are you?**
+**#**
+**# I am no power user at all. I found it to be great fun, to customize my system after the best **
+**# of my understandings. A lot of Wikis and Documentations has been read - sleepless nights**
+**# scavenging the web for tips and tricks and configuration guides - but I cannot stress it enough;**
+**# I am no power user!  So please, don't take this Cheat Sheet to serious. **
+
+**## Oh.. okay. So why then?**
+**#**
+**# This Cheat Sheet is made because I kept going through the Arch Wiki - over and over again. **
+**# I've had a lot of failures. Done a lot of re-installs.**
+**# At some point I figured that I wanted some place local, where I could quickly reference for**
+**# installation, configuration or usage. **
+**#**
+**# A lot of good information is found at the Arch Wiki - So many goodies actually. **
+**# It just became to time consuming in the end, to scavenge through the pages for the information**
+**# that I needed. **
+
+
+**# Don't put to much though in the arrangement with some of these items. **
+**# It is part of my idea on what a fully functional system should act like. **
+**#**
+**# There might be hidden gems inside sections, that isn't noted from outside the articles.**
+**# By this I mean, that even though the section says **//PulseAudio//** it also holds the configurations**
+**# and additional packages needed to get it working with my Bluetooth Speaker. **
+**# Tips and Tricks are frequent throughout this whole Cheat Sheet - and these Tips and Tricks**
+**# are based more on logic connection, than defined in the Headline.**
+
+
+===== System Base =====
+**# The following section will help you through what I consider a bare minimum.**
+**# Follow the below order for a somewhat painless and stable setup. **
+
+**1) Arch Base Installation**
+	[[Arch_Base]] 
+
+**2 ) Network Connectivity **
+	**Check out **//netctl//** in **//Network// 
+	
+**3 ) Create a new User**
+	**Check out **//Users// //and Groups//** in **//Users// 
+	
+**4 ) Define some privileges for our newly created user**
+	[[sudo]]
+	
+**5 ) Enable 32bit support **
+	**Check out **//Mirros//** in**// Maintenance //
+
+**6 ) Display Server (+xinit)**
+	[[Xorg]] 
+	
+**7 ) Touchpad was mad out of the box - Configure it early**
+	[[Touchpad]] 
+	
+**8 ) Stable everyday use kernel and Long Time Support **
+	[[Kernels]]
+
+**9 ) Nvidia Video Driver**
+	[[DKMS]] 
+	
+**10 ) Intel Video Driver and extended Nvidia controls**
+	[[Display_Driver]] 
+
+**11 ) AUR Support (Unofficial Packages)**
+	[[Yaourt]] 
+	
+**12 ) Window Manager**
+	[[i3]] 
+
+
+===== Extended System Functionality =====
+**# Now we should have a workspace to navigate around on. Quick and Stable - yet so useless. **
+**# We still need quite a few things, before it is what I'd consider robust system. **
+
+**# These steps will help you further configure some obvious functionality.**
+**# Most are additional packages that needs to be installed, but there is also a few**
+**# pointers on configuring from the System Base. **
+
+**# We are not using a Display Manager - Define a nice Welcome Message instead**
+	[[Login]] 
+
+**# Auto mount external devices (USB/HDD)**
+	[[External Devices]] 
+
+**# Display Power Management**
+	[[Xset]] 
+
+**# Keyboard - mainly Xbinkeys**
+	[[Fn-key]] 
+
+**# Additional Radio Device - used to stream audio to BT speaker**
+	[[Bluetooth]] 
+
+**# Sound - Covers bluetooth speaker too**
+	[[Pulseaudio]] 
+
+**# Scheduled Jobs - used by some packages throughout **
+	[[Cron]] 
+
+**# Desktop Notifications**
+	[[Dunst]] 
+	
+**# Email Notifications - also provides the feature to send mails from the Terminal^**
+	[[SSMTP]] 
+
+**# Check these out too!**
+	[[Additional_rather_useful_software]] 
+
+
+===== Performance and Improvements on Wear Down =====
+**# We are well away with our base setup. **
+**# Before we start making our system useful for everyday jobs,**
+**# we'll first improve some overall performance. **
+
+**# Browser Performance**
+	[[PSD_and_ASD]]
+
+**# Hardware Specific **
+	[[SSD]] 
+	[[CPU]] 
+
+**# Power Management**
+	[[Laptop]] 
+
 
 ===== System Tools =====
-[[Basic_Tools_and_General_Examples]]  
-[[Service_Management]] (systemd)
-[[Package_Management]] (pacman)
-[[Kernel_Modules]] 
-[[xdg-utils]] (mime-type/filetype default application)
-[[ls]] (output information)
-[[sed]] 
+**# Here are some of the everyday tools you will be working with - and some not so everyday. **
+**# Much is installed by Arch Base, but there is a few additional packages and pointers. **
+
+**# Some very low-level, yet good to know tools**
+	[[Basic_Tools_and_General_Examples]]  
+	[[ls]] (Output Explanation)
+	[[sed]] (Text Manipulation)
+
+**# Service Manager**
+	[[Systemd]]
+	
+**# Package Manager**
+	[[Pacman]] 
+	
+**# Pointers on Desktop Entries (Application default run options)**
+	[[Desktop_Entries]]
+	
+**# Pointers on handling Kernel Modules**
+	[[Kernel_Modules]] 
+	
+**# File Types default application (mime-types)**
+	[[xdg-utils]] 
+	 
 
 ===== Maintenance =====
-[[Mirrors]] 
-[[Pacnew_and_Pacsave]] 
-[[Clean_the_Filesystem]] (pacman cache, orphans, old configurations, broken symlinks)
-[[Downgrading]] (package/kernel)
+**# Awesome. Now we got a fast and stable system - and we know how to manage the basics of it!**
+**# Before we continue to all the additional user specific packages, let's first see how we can**
+**# keep our system at its best even after a long time of abuse. **
 
-===== Users =====
-[[Users and Groups]] 
-[[Permissions]]  (chmod)
-[[xdg_user_dirs]] (user directories)
+**#** **Some of these steps needs to be configured just once - but is considered by the system to**
+**# be maintained as you go. Other steps requires you to manually perform some maintenance **
+**#** **actions from time to time.**
+
+== Configure Once ==
+**# Automatically Update Mirrors**
+	[[Mirrors]]
+ 
+
+== Revisit Frequently ==
+**# When Upgrading Packages**
+	[[Pacnew_and_Pacsave]] 
+	
+**# Cleaning the Filesystem - Pacman cache, Orphans, Old configurations, Broken symlinks**
+	[[Clean_the_Filesystem]] 
+
+
+== When Needed ==
+**# Downgrade Kernels or Packages in case of problems**
+	[[Downgrading]]
+
+
+===== Users and Groups =====
+**# Linux recommends you to have a User Account with limited privileges, so that you don't**
+**# accidentally mess up the system. Users (including the root account) have their own **
+**# privileges which defines read, write and execute for their own files and folders.**
+
+**# Users can be placed in groups and privileges can then be defined for those groups. **
+**# This gives a pretty dynamic way of handling privileges, both for users and their system-wide**
+**# controls,  but also for your own personal files and how they should be handled by others. **
+**# Users, Groups and Permissions are all explained in these steps. **
+
+== Configure Once ==
+**# Create a set of default User Directories**
+	[[xdg_user_dirs]]
+
+
+== Administrate ==
+**# Manage Users and Groups**
+	[[Users and Groups]]
+	
+**# Manage Permissions and some Explanation (drwx)**
+	[[Permissions]]  
+	
 
 ===== Network =====
-[[netctl]] (management)
+**# More Network information can be found throughout. This is mainly based on management**
+**# of your network connection. **
+
+**#** **Being on a Laptop I am very depending on my WiFi to work. **
+**# Ethernet, not so much. Both are covered (barely) in these steps though. **
+
+**# I have found the commonly installed package Network Manager works sketchy on my system.**
+**# It tends to leave my connectivity unstable, so this package is left out. Quite frankly I like **//netctl//
+**# better anyways - Simple, more stable and really not that much of a hassle to set up. **
+
+**# WiFi and Ethernet Management**
+	[[netctl]] 
+
 
 ===== Getting Information =====
-[[Hardware]]
-[[Software]] 
-[[Network]] (mainly ss)
-[[journalctl]] (system journal/log)
+**# This section will (hopefully) help us getting the information we need to get further.**
+**# Whether that information might be driver, kernel hardware, network or log information**
+**# pointers can be found in this section.**
 
-===== Security =====
-[[clamav]] (anti-virus)
-[[lynis]] (security audit)
-[[KeePass]] (password manager)
-[[Tor]] 
-[[iptables]] (Firewall) 
-[[iptable_rules]] (25 common rules)
-[[ipset]] (block IPs + blocklist)
-[[Fail2ban]] 
+**#Some tips on getting Hardware information**
+	[[Hardware]]
 
-===== Preferred Software =====
-[[Firefox]] 
-[[Vim]] (CLI text editor)
-[[Ranger]] (CLI file-manager)
-[[Buku]] (CLI bookmark-manager)
-[[Haxor-news]] (CLI news)
-[[mplayer]]  (media player)
-[[LibreOffice]] (office-suite)
-[[Feh]] (images/wallpaper)
-[[Additional Badass Software]] (random list of goodies)
+**# Logs, Kernel Modules, Drivers and Application information**
+	[[Software]] 
 
-===== Eye Candy =====
-[[Theming]] 
-[[Fonts]] 
-[[Additional_sweetass_software]] (random list of orgasms for the eyes)
+**# Connectivity - Mainly **//ss//** network tool**
+	[[Network]]
+	
+**# System Journal**
+	[[journalctl]] 
 
-===== Development =====
-[[Git]] 
-[[Sublime]] 
-[[LAMP]] (Apache, MySql and PHP)
-
-===== Gaming =====
-[[Steam]] 
 
 ===== Terminal (+shell) =====
-[[Aliases]]
-[[Functions]] 
-[[Zsh]] (+oh-my-zsh) (shell)
-[[rxvt-unicode]] (terminal)
-[[Gnu_Screen]] 
-[[Xresources]]
-[[SSMTP]] (send E-mails from the terminal)
-[[Additional_Terminal_Packages]] 
-[[Terminal_Keks]] (lolcat, fortune, cowsay)
+**# Now let us begin with some of the fun stuff. I find myself staring in a terminal window**
+**# even more often than I stare at the browser. It is such a powerful (and wonderful) tool**
+**# that it needs a little extra caress.**
+
+**# In this section we'll both extend its functionality and style it a little, to make it look 21th century. **
+
+**# Extended functionality with Aliases and Functions**
+	[[Aliases]]
+	[[Functions]]
+
+**# Zsh Shell** 
+	[[Zsh]] 
+
+**# Terminal **
+	[[rxvt-unicode]]
+	[[Xresources]] (a little out of category, but hey)
+
+**# Terminal Wrapper**
+	[[Gnu_Screen]] 
+
+**# A little extra!**
+	[[Additional_Terminal_Packages]] 
+	[[Terminal_Keks]] (lolcat, fortune, cowsay)
+
+
+===== Security =====
+**# Security is a quite large subject. I like the idea of making it harder for whom ever might **
+**# be trying to listen in though. Several security steps has been taken - but several more**
+**# could probably be added. **
+
+**# The Firewall steps will also take you through the steps of blocking IPs from a blocklist.**
+
+**# Anti Virus**
+	[[clamav]] 
+
+**# Firewall**
+	[[iptables]] 
+	[[iptable_rules]] (25 common rules)
+	[[ipset]] 
+	[[Fail2ban]] 
+
+**# Password Manager**
+	[[KeePass]]
+
+**# Security Audit**
+	[[lynis]] 
+	
+**# Secure Browsing**
+	[[Tor]]
+
+
+===== Preferred Software =====
+**# We've come a long way.**
+**# Now let's look at some useful tools, so we can get on with our lives. **
+
+**# I've found myself to fall more and more in love with the terminal. **
+**# The more i play around in the terminal, the more I have wanted to move my everyday tools**
+**# to the terminal. This is of course to have quickly access to as much as possible, through**
+**# just one point of interest. **
+
+**# This section has both GUI and CLI tools. **
+
+== GUI Tools ==
+**# Web Browser**
+	[[Firefox]] 
+	
+**# Office Suite**
+	[[LibreOffice]]
+
+
+== CLI Tools ==
+**# Text Editor**
+	[[Vim]]
+
+**# File Manager**
+	[[Ranger]]
+
+**# Bookmark Manager**
+	[[Buku]]
+
+**# News **
+	[[Haxor-news]] 
+	[[Reddit_Terminal_Viewer]] 
+	
+**# IRC**
+	[[irssi]] 
+
+**# Video Player**
+	[[mplayer]]  
+
+**# Image Viewer (Also used to display a Wallpaper)**
+	[[Feh]]
+	
+
+== A little bit of both ==
+**# Random list of goodies!**
+	[[Additional Badass Software]] 
+
+
+===== Eye Candy =====
+**# We'll pimp our system a little - make a pleasant on the eyes^**
+
+**# Themes for various situations **
+	[[Theming]] 
+
+**# Some delicious fonts **
+	[[Fonts]]
+	
+**# Random list of orgasm for the eyes!** 
+	[[Additional_sweetass_software]] 
+
+
+===== Development =====
+**# With a few years on my back as a Web Developer and a passion to generally learn new**
+**# development techniques, this section will handle exactly that. **
+
+**# Development Control**
+	[[Git]] 
+
+**# Development IDE**
+	[[Sublime]] 
+	
+**# Apache, MySQL and PHP**
+	[[LAMP]]
+	
+
+===== Gaming =====
+**# Ain't nobody got time for that.. I still like the opportunity though. **
+
+**# 100+ Linux Games on Steam \o/**
+	[[Steam]] 
+
 
 ===== SSH =====
-[[Server_and_Client]] 
-[[Keys]] 
-[[Agent]] 
-[[scp]] (transfer files over SSH)
+**# Having an old computer act as server (whatever its purpose), is a great use of old hardware**
+**# and a great waste of valuable time! This section will help you communicate with that spoiled **
+**# little time consumer. Oh joy!**
+
+**# Having a SSH key grants you several other benefits though. Such as quickly and hazzle-free**
+**# authentication when publishing to Github via Git. **
+
+**# SSH Server and Client Setup**
+	[[Server_and_Client]] 
+	
+**# SSH Keys**
+	[[Keys]]
+	
+**# SSH Agent - Providing SSH keys to requesting services**
+	[[Agent]] 
+
+**# Transfer files via SSH**
+	[[scp]] 
+
 
 ===== Crypto =====
-[[GPG]]  (GnuPG)
-[[monero]] (currency)
+**# Cryptography is a mighty interesting subject - might very well be needed given this day and age**
+**# in the modern world. **
+
+**# GnuPG - Encrypt/decrypt your files/messages**
+	[[GPG]]
+
+**# Crypto Currency - Coin Farmer**  
+	[[monero]]
+
 
 ===== Analysis =====
-[[nmap]] 
-[[wireshark]] 
+**# Information is key in almost any given situation. **
+**# Here is a few tools to gather that extra information. **
 
-===== Key Mappings =====
-[[i3_mapping]] 
-[[vim_mapping]] 
-[[Sublime_mapping]]  
-[[Terminal]] (Zsh and URxvt + plugins)
-[[Ranger_mapping]] 
+**# Network Host Scanner**
+	[[nmap]] 
+
+**# Network Packet Monitor**
+	[[wireshark]] 
+
+
+===== Key Binds =====
+**# At this point I have no more configurations or packages to throw at you. **
+**# Hope it was manageable. Bare in mind, that his was not actually meant to teach you**
+**# the technical stuff, but rather how to quickly install, configure and a quick scope of it capabilities. **
+**# Thank's for reading and happy tinkering.**
+
+**# Phew, that sure was a lot of configuration. At this point we've already forgot what we are**
+**# capable of. Good thing this section is a throwback section - covering only the most necessary **
+**# handling. **
+
+**# Navigate the Window Manager**
+	[[i3_mapping]] 
+
+**# Our Text Editor**
+	[[vim_mapping]] 
+
+**# Our Developer IDE**
+	[[Sublime_mapping]]  
+
+**# Actions from our Terminal (Missing Aliases and Functions)**
+	[[Terminal]] 
+
+**# Navigating our File Manager**
+	[[Ranger_mapping]] 
+

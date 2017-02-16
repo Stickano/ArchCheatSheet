@@ -1,0 +1,310 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-12T19:57:07+01:00
+
+====== irssi ======
+Created Sunday 12 February 2017
+
+//irssi//** is a CLI Internet Relay Chat (IRC) client.**
+**My **//irssi//** configuration (Github) requires a lot of the Scripts included in this article. Download all the scripts and symlink to autorun (as explained later Scripts). **//Irssi//** will be run inside a **//Tmux//** instance (better than **//Screen//** for this purpose) - an **//Alias//** is included in my configuration files, and below you'll find a Desktop file for quickly running **//irssi//** from **//dmenu//**.**
+
+===== Installation =====
+**# The Client**
+$ pacman -S irssi
+
+== Desktop Notifications ==
+**# From the AUR.**
+$ yaourt -S irssi-libnotify-git
+
+**# Create the **//scripts/autorun //**folder, if it doesn't already exist; **//~/.irssi/scripts/autorun//
+**# And create a Symlink from the Script to that folder**
+$ ln -s /usr/share/irssi/scripts/notify.pl /home/stick/.irssi/scripts/autorun/
+
+== Tmux ==
+**# **//Tmux//** will be used for better Nicklist and Channel list**
+$ pacman -S tmux
+
+**# Configuration (Github) is read from **//~/.tmux.conf//
+
+**# Then create a file at **///etc/systemd/system/tmux@.service //**with the following; **
+{{{code: lang="texinfo" linenumbers="True"
+[Unit]
+Description=Start tmux in detached session
+
+[Service]
+Type=forking
+User=%I
+ExecStart=/usr/bin/tmux new-session -s %u -d
+ExecStop=/usr/bin/tmux kill-session -t %u
+
+[Install]
+WantedBy=multi-user.target
+}}}
+
+
+**# And enable the service file - change username (**//stick//**) accordingly **
+$ systemctl enable tmux@stick.service
+
+
+===== Configuration =====
+**# Configuration at Github - read from **//~/.irssi/config//
+**# Once you've find configurations you like, use the **///set//** command**
+**# Ex, for **//timestamp//** format (hour : min : sec)**
+	/set timestamp_format %H:%M:%S
+
+**# Then save it to the configuration file (persistent)**
+	/save
+	
+**# You are also able to save the layout (window arrangement, split windows etc)**
+	/layout save
+
+
+== Themes ==
+**# Theme library at **https://irssi-import.github.io/themes/
+**# A nice theme is **//xchat2//
+
+**# Themes can be stored in **//~/.irssi//
+**# Then load them with**
+	/set theme //<THEME_NAME>.theme//
+
+**# Don't forget to save if you want it be persistent **
+	/save
+	
+
+===== Scripts =====
+**# Scripts can be added to **//~/.irssi/scripts//
+**# Then loaded with **
+	/script load //<SCRIPT_NAME>.pl//
+	
+**# To autostart a script upon starting **//irssi//**, symlink from the **//~/.irssi/scripts///** to **//~/.irssi/scripts/autorun///
+**# Ex, to autostart the **//ASCII//** script, download it to **//~/.irssi/scripts/ascii.pl//
+**# And the symlink it to the **//autorun//** folder (create if needed)**
+$ ln -s /home/stick/.irssi/scripts/ascii.pl /home/stick/.irssi/scripts/autorun/
+	
+**# Scripts can be found at **https://scripts.irssi.org/ **- here are some of the favourites^**
+
+== ASCII art ==
+**# Based on **//figlet//
+**# Use with; **/ascii [-c1234] //<TEXT>//
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/ascii.pl
+
+== Unicode Emoticons ==
+**# Outputs various Unicode emoticons **
+**# Use with; **///emo//
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/emo.pl
+
+== Autostuff ==
+**# Quickly save Channels, Servers and Windows for auto connect/arrange**
+**# Save with; **///autostuff//
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/autostuff.pl
+
+== Highlight Window ==
+**# Monitors in all channels and highlight things that concerns you **
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/hilightwin.pl
+**# Create a split window with the name of **//hilight//
+	/window new split
+	/window name hilight
+	
+
+== Nicklist ==
+**# To get a nickname list.**
+**# Run **//irssi//** inside a **//Tmux//** terminal-window. **
+**# **[[https://github.com/irssi/scripts.irssi.org/blob/master/scripts/tmux-nicklist-portable.pl|https]][[://github.com/irssi/scripts.irssi.org/blob/master/scripts/tmux-nicklist-portable.pl]]
+
+== Assign Colors to Nicknames ==
+**# Different colors for Nicks**
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/nickcolor.pl
+
+== Channel list ==
+**# For a channel list on the left side (run irssi from inside Tmux)**
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/adv_windowlist.pl
+
+== Prompt bar ==
+**# Animated prompt bar**
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/twprompt.pl
+**# Replace the default prompt bar with;**
+	/sbar prompt remove prompt
+	/sbar prompt remove prompt_empty
+	/sbar prompt add -before input -priority 100 -alignment left twprompt
+	/toggle twprompt_instruct
+	/save
+
+
+== ROT13 encode/decode ==
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/rot13.pl
+**# Use with;**
+	/rot13 //<MESSAGE>//
+	/unrot13 //<MESSAGE>//
+
+
+== Print System info ==
+**# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/sysinfo_dg.pl
+**# Print info with; **///sysinfo//
+
+
+===== Usage =====
+**# Some of the basic usage in **//irssi//
+**# Channel Operators;**
+	<@nick> **= OPs**
+	<+nick> **= Voices**
+	< nick> **= Others**
+
+
+== Servers and Channels ==
+**# Some predefined servers are available, list them with**
+	/network list
+	
+**# To add a new network**
+	/server add -network //<NAME_IT> <SERVER_ADDRESS> <PORT>//
+
+**# To join a server (ex for **//Freenode//**)**
+	/connect Freenode
+
+**# To join a channel on the connected server (ex **//archlinux//**)**
+	/join #archlinux
+	
+**# To leave a Channel**
+	/leave #archlinux
+	
+**# Get information about a Channel**
+	/msg ChanServ info //<CHANNEL>//
+	
+
+== Perform auto actions ==
+**# To automatically join Channel when you connect to a Network.**
+	/channel add -auto #//<CHANNEL_NAME> <NETWORK>//
+	
+**# To automatically identify (and wait 2sec before joining channels)**
+	/network add -autosendcmd "/^msg NickServ identify //<PASSWORD>;wait 2000//" //<NETWORK>//
+
+
+== Windows ==
+**# You are able to split a window and define what to have in both windows**
+**# Ex, you could have;**
+	Split window 1: **win#1** - Status window, **win#2** - Messages window
+	Split window 2: **win#3** - IRCnet/#channel1, **win#4** - IRCnet/#channel2
+	Split window 3: **win#5** - efnet/#channel1, **win#6** - efnet/#channel2
+	
+**# Hitting **//Alt+6//** would take you to the **//win#6 - efnet/#channel2 //**window**
+
+**# To create a new split window**
+	/window new
+	
+**# To create a new hidden window**
+	/window new hide
+	
+**# To close a split or hidden window**
+	/window close
+
+**# Make the split window a hidden window**
+**# Define what hidden window number to place it on**
+	/window hide //<WINDOW_NUMBER>//
+	
+**# Place a hidden window in the split window **
+**# Those the numeric value of a window**
+	/window show //<WINDOW_NUMBER>//
+	
+**# Shrink, Grow and Balance the Split window**
+	/window shrink //<NUMBER_OF_LINES>//
+	/window grow //<NUMBER_OF_LINES>//
+	/window balance
+
+
+== Search text ==
+**# Search for all lines with **//booty//
+	/lastlog booty
+
+**# Only search 10 occurrences**
+	/lastlog booty 10
+	
+**# Print all Topic changes**
+	/lastlog -topics
+	
+**# If you'd like to get the conversation around a searched word (lines)**
+**# irssi shows the timestamp when you search for words, **
+**#** **you can then use the **//scrollback//** to go back to that period**
+	/scrollback goto //<HH:MM//>
+	
+**# To get back to the bottom of the scrollback**
+	/scrollback end
+	
+
+== Auto Completion/Correction ==
+**# **//irssi//** has a really sweet feature, where you can tell it to auto complete/correct words**
+**# Say, we want to correct **//anywyas//** to **//anyways//** - let's say it's a mistake we often do^**
+	/completion -auto anywyas anyways
+
+**# We can also make <tab> completions**
+**# Say we wanna be able to write **//sio//** and than <tab> to replace it with **//http://irssi.org/scripts //**f.ex.**
+	/completion sio http://irssi.org/scripts
+
+
+== Profile/nickname ==
+**# To set your nickname**
+	/set nick //<NICKNAME>//
+	
+**# Alternative nickname (if first choice is taken)**
+	/set alternate_nick //<NICKNAME>//
+	
+
+== Account ==
+**# Freenode (deletes inactive users) **
+**# To register as a user **
+	/msg NickServ register //<PASSWORD> <EMAIL>//
+	
+**# Then wait for the confirmation mail and follow instructions**
+
+**# Login to a registered profile (user)**
+	/msg NickServ identify //<NICKNAME> <PASSWORD>//
+
+
+== Register Channel ==
+**# Instead of bots, you can register a channel with ChanServ**
+	/msg ChanServ register //<CHANNEL> <PASSWORD>//
+	
+**# Give OP to user (including yourself) **
+	/msg ChanServ op //<CHANNEL> <PASSWORD>//
+	
+**# To grant other people full (founder) rights**
+	/msg ChanServ flags //<CHANNEL> <USER_ACCOUNT> //+F
+
+**# To grant other people the Voice rights **
+	/msg ChanServ flags //<CHANNEL> <USER_ACCOUNT> +v//
+
+**# Lock, so that the Topic cant be changed (**//on/off//**)**
+	/msg ChanServ set //<CHANNEL>// topiclock on
+	
+**# Use ChanServ as a bot - only leaves when updates, crashes etc from the ChanServ service**
+	/msg ChanServ set //<CHANNEL>// guard on
+	
+**# Secure OP - so that only admins will be get the OP status**
+	/msg ChanServ set //<CHANNEL> secure on//
+	
+**# Set Email of a Channel**
+	/msg ChanServ set //<CHANNEL> //email// <EMAIL_ADDRESS>//
+	
+**# Set URL of a Channel**
+	/msg ChanServ set //<CHANNEL>// url //<URL_ADDRESS>//
+
+
+===== Desktop Entry =====
+**# To run irssi from your dmenu/rofi, copy the following into **//~/.local/share/applications/irssi.desktop//
+{{{code: lang="texinfo" linenumbers="True"
+[Desktop Entry]
+
+# Can be; Application, Link (web-link), Directory
+Type=Application
+
+# The name of the application
+Name=irssi
+
+# A comment which can/will be used as a tooltip
+Comment=IRC Client
+
+# The executable of the application, possibly with arguments.
+Exec=urxvt -hold -name irc -e zsh -c 'tmux new-session irssi' 
+
+# The name of the icon that will be used to display this entry
+Icon=irc
+
+}}}

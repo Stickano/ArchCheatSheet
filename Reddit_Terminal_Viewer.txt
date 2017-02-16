@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-15T15:41:18+01:00
+
+====== Reddit Terminal Viewer ======
+Created Wednesday 15 February 2017
+
+**RTV allows you to read Reddit news from your terminal^**
+
+===== Installation =====
+**# I couldn't get the **//rtv//** or **//rtv-git//** (AUR) packages to work. **
+**# The workaround was to install it through the **//Python//** package tool**
+$ pacman -S python-pip
+
+**# Then install it with PIP (SUDO!)**
+$ sudo pip install rtv
+
+== urlview ==
+**# So you are able to launch links in your browser, install a urlviewer**
+$ yaourt -S urlview
+
+**# Edit **///etc/urlview/system.urlview//** and change the **//COMMAND//** variable**
+**# Assuming your still on Firefox (**//%s//** will be replaced with the URL);**
+{{{code: lang="texinfo" linenumbers="True"
+COMMAND firefox %s
+}}}
+
+
+
+===== Usage =====
+**# RTV is pretty self explanatory **
+**# Hit **//?//** to open the Help menu**
+
+== Login ==
+**# Login by hitting **//u// 
+**# This will open your browser > Reddit and ask for permission.**
+**# You have to do a **///front//** to refresh the mainpage after logging in**
+
+== Navigation ==
+**# Navigate up/down with **//Up/Down//** arrow keys**
+**# Open/back in articles with **//Left/Right//** arrow keys**
+
+== Open Links ==
+**# With the **//urlview//** package installed, you can navigate a post/comment with a URL and hit **//b//
+**# Then hit **//Enter//** to open the link in your browser^**
+
+== Navigate Sub Reddits ==
+**# Navigate Reddit (sub-reddits) with **/////
+**# Ex, go to Arch Reddit **///r/archlinux//
+**# Or combine sub reddits **///r/archlinux+linux//
+
+**# Back to Front with **///front//
+
+**# Your profile page **///u/me//
+**# Or others profile **///u/<PROFILE_NAME>//
+
+== Vote ==
+**# Upvote with **//a//
+**# Downvote with **//z//

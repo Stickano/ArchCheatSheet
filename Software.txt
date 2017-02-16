@@ -5,7 +5,7 @@ Creation-Date: 2016-10-31T16:31:53+01:00
 ====== Software ======
 Created mandag 31 oktober 2016
 
-**We'll list a few methods of getting Driver, kernel and log information**
+**We'll list a few methods of getting Application, Driver, kernel and log information**
 
 == Logs ==
 **#** Y**ou can use **//|grep //** for a more specific result**
@@ -32,3 +32,13 @@ $ whereis //<APP_NAME>//
 
 **# Show what will be run be default **
 $ which //<APP_NAME>//
+
+== tldr ==
+**# **//man//** pages are genius**
+**# **//tldr //**is the to long don't read of **//man//** pages **
+**# It will cut straight to the chase and tell you the most common commands^**
+$ yaourt -S nodejs-tldr-git
+
+**# Then just use it the same way, you would with **//man//
+**# Ex for **//tar//
+$ tldr tar

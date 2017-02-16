@@ -2,7 +2,7 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-10-22T20:34:05+02:00
 
-====== Service Management ======
+====== Systemd ======
 Created lørdag 22 oktober 2016
 
 **systemd manages system units **//.sockets .service .mount //**and**// .device  //**files.**

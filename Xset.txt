@@ -2,10 +2,10 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-12-26T05:44:50+01:00
 
-====== xset ======
+====== Xset ======
 Created mandag 26 december 2016
 
-**# Display Power Management Signaling (DPMS) is easiest defined with **//xset//
+**Display Power Management Signaling (DPMS) is easiest defined with **//xset//
 
 == Installation ==
 $ pacman -S xorg-xset

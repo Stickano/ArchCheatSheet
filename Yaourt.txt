@@ -2,10 +2,10 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2016-10-23T13:12:22+02:00
 
-====== AUR Support ======
+====== Yaourt ======
 Created søndag 23 oktober 2016
 
-== Yaourt Installation ==
+== Installation ==
 **#** **Edit your pacman configuration file **///etc/pacman.conf //**and add the following repository** 
 {{{code: lang="texinfo" linenumbers="True"
 [archlinuxfr]

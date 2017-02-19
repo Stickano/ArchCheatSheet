@@ -40,7 +40,7 @@ Created lørdag 22 oktober 2016
 
 **## What kind of guru are you?**
 **#**
-**# I am no power user at all. I found it to be great fun, to customize my system after the best **
+**# I am no power user at all. I found it to be great fun to customize my system after the best **
 **# of my understandings. A lot of Wikis and Documentations has been read - sleepless nights**
 **# scavenging the web for tips and tricks and configuration guides - but I cannot stress it enough;**
 **# I am no power user!  So please, don't take this Cheat Sheet to serious. **
@@ -185,8 +185,46 @@ Created lørdag 22 oktober 2016
 	[[Kernel_Modules]] 
 	
 **# File Types default application (mime-types)**
-	[[xdg-utils]] 
-	 
+	[[Mimeo]] 
+
+
+===== Network =====
+**# More Network information can be found throughout. This is mainly based on management**
+**# of your network connection. **
+
+**#** **Being on a Laptop I am very depending on my WiFi to work. **
+**# Ethernet, not so much. Both are covered (barely) in these steps though. **
+
+**# I have found the commonly installed package Network Manager works sketchy on my system.**
+**# It tends to leave my connectivity unstable, so this package is left out. Quite frankly I like **//netctl//
+**# better anyways - Simple, more stable and really not that much of a hassle to set up. **
+
+**# WiFi and Ethernet Management**
+	[[netctl]] 
+
+
+===== Users and Groups =====
+**# Linux recommends you to have a User Account with limited privileges, so that you don't**
+**# accidentally mess up the system. Users (including the root account) have their own **
+**# privileges which defines read, write and execute for their own files and folders.**
+
+**# Users can be placed in groups and privileges can then be defined for those groups. **
+**# This gives a pretty dynamic way of handling privileges, both for users and their system-wide**
+**# controls,  but also for your own personal files and how they should be handled by others. **
+**# Users, Groups and Permissions are all explained in these steps. **
+
+== Configure Once ==
+**# Create a set of default User Directories**
+	[[xdg_user_dirs]]
+
+
+== Administrate ==
+**# Manage Users and Groups**
+	[[Users and Groups]]
+	
+**# Manage Permissions and some Explanation (drwx)**
+	[[Permissions]]  
+	
 
 ===== Maintenance =====
 **# Awesome. Now we got a fast and stable system - and we know how to manage the basics of it!**
@@ -215,50 +253,12 @@ Created lørdag 22 oktober 2016
 	[[Downgrading]]
 
 
-===== Users and Groups =====
-**# Linux recommends you to have a User Account with limited privileges, so that you don't**
-**# accidentally mess up the system. Users (including the root account) have their own **
-**# privileges which defines read, write and execute for their own files and folders.**
-
-**# Users can be placed in groups and privileges can then be defined for those groups. **
-**# This gives a pretty dynamic way of handling privileges, both for users and their system-wide**
-**# controls,  but also for your own personal files and how they should be handled by others. **
-**# Users, Groups and Permissions are all explained in these steps. **
-
-== Configure Once ==
-**# Create a set of default User Directories**
-	[[xdg_user_dirs]]
-
-
-== Administrate ==
-**# Manage Users and Groups**
-	[[Users and Groups]]
-	
-**# Manage Permissions and some Explanation (drwx)**
-	[[Permissions]]  
-	
-
-===== Network =====
-**# More Network information can be found throughout. This is mainly based on management**
-**# of your network connection. **
-
-**#** **Being on a Laptop I am very depending on my WiFi to work. **
-**# Ethernet, not so much. Both are covered (barely) in these steps though. **
-
-**# I have found the commonly installed package Network Manager works sketchy on my system.**
-**# It tends to leave my connectivity unstable, so this package is left out. Quite frankly I like **//netctl//
-**# better anyways - Simple, more stable and really not that much of a hassle to set up. **
-
-**# WiFi and Ethernet Management**
-	[[netctl]] 
-
-
 ===== Getting Information =====
 **# This section will (hopefully) help us getting the information we need to get further.**
 **# Whether that information might be driver, kernel hardware, network or log information**
 **# pointers can be found in this section.**
 
-**#Some tips on getting Hardware information**
+**# Some tips on getting Hardware information**
 	[[Hardware]]
 
 **# Logs, Kernel Modules, Drivers and Application information**
@@ -361,6 +361,9 @@ Created lørdag 22 oktober 2016
 
 **# Video Player**
 	[[mplayer]]  
+	
+**# Music Player**
+	[[Cmus]] 
 
 **# Image Viewer (Also used to display a Wallpaper)**
 	[[Feh]]
@@ -396,6 +399,9 @@ Created lørdag 22 oktober 2016
 	
 **# Apache, MySQL and PHP**
 	[[LAMP]]
+	
+**# Images/Design**
+	[[Gimp]] 
 	
 
 ===== Gaming =====

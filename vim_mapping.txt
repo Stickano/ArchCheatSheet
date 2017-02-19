@@ -38,6 +38,7 @@ Created Saturday 07 January 2017
 
 == Nerd Tree (file manager) ==
 **# Open (plugin) file manager with **//Ctrl+n//
+**# To show Hidden files in NerdTree, hit **//I //
 
 == Insert Mode (edit content) ==
 **# Insert mode (before cursor) **//i//

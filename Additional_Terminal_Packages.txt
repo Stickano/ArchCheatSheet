@@ -8,8 +8,8 @@ Created torsdag 22 december 2016
 **Will try and collect a list of nice additions to the terminal**
 
 == System info and distro logo in terminal ==
-**# **//alsi//** will output systeminfo along with a distro logo in the terminal**
-$ yaourt -S alsi
+**# **//neofetch//** will output systeminfo along with a distro logo in the terminal**
+$ yaourt -S neofetch
 
 == Analog clock in tty/terminal ==
 **# Use with **//clockywock//

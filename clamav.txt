@@ -10,6 +10,7 @@ $ pacman -S clamav
 
 == Update ==
 **# Update the virus definitions after installation**
+**# NOTE! This must be done the first time, BEFORE enabling the service.**
 $ freshclam
 
 **# Enable clam update service, so clamav will always have the latest virus definitions**
@@ -18,10 +19,6 @@ $ systemctl enable freshclamd.service
 == Additional virus definition/databases ==
 **# Install some un-official virus definitions as well**
 $ yaourt -S clamav-unofficial-sigs
-
-== Starting the daemon ==
-**# Start/enable the clam service file**
-$ systemctl enable clamd.service
 
 == Test clamav ==
 **# Make sure your clamav and its definitions are installed correct (harmless file)**
@@ -40,3 +37,19 @@ $ clamscan -r -i ///path/to/folder//
 
 **# Scan entire system**
 $ clamscan -r -i --exclude-dir='^/sys|^/dev' /
+
+
+===== Troubleshoot =====
+**# Lord know there's been a few..**
+
+== Clamd was not notified on freshclam ==
+**# When I tried to run **//freshclam//** it failed. The following should be the solution.**
+**# Add a sock file for clamd **
+$ touch /var/lib/clamav/clamd.sock
+$ chown clamav:clamav /var/lib/clamav/clamd.sock
+
+**# Then Edit  **///etc/clamav/clamd.conf //**and uncomment the following line**
+{{{code: lang="texinfo" linenumbers="True"
+LocalSocket /var/lib/clamav/clamd.sock
+}}}
+

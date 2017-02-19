@@ -9,7 +9,7 @@ Created søndag 23 oktober 2016
 $ watch grep \"cpu MHz\" /proc/cpuinfo
 
 == Thermald ==
-**# Helps prevent overheating situations.**
+**# Will help keep your system at a accepted temperature**
 $ yaourt -S thermald
 
 == i7z ==

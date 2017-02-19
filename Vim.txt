@@ -23,6 +23,24 @@ $ yaourt -S vim-pathogen-git
 $ mkdir ~/.vim/plugin
 $ ln -s /home/stick/dotfiles/.vim/plugin/setcolors.vim /home/stick/.vim/plugin/
 
+== Remove White GTK Border ==
+**# Gvim has a ugly thick white border, which it inherits from the GTK settings. **
+**# Edit/Create **//~/.gtkrc-2.0//** and paste the following**
+{{{code: lang="texinfo" linenumbers="True"
+style "no-resize-handle"
+{
+    GtkWindow::resize-grip-height = 0
+    GtkWindow::resize-grip-width = 0
+}
+
+class "GtkWidget" style "no-resize-handle"
+style "vimfix" {
+  bg[NORMAL] = "#242424" # this matches my gvim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
+}}}
+
+
 
 ===== Modelines =====
 **# According to my vimrc, Vim will check the bottom of the file it's editing **

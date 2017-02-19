@@ -1,0 +1,93 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-16T17:59:40+01:00
+
+====== Cmus ======
+Created Thursday 16 February 2017
+
+**Cmus is a CLI music player.**
+
+== Installation ==
+$ pacman -S cmus
+
+
+===== Scripts =====
+**#** **You can extend Cmus functionality with scripts; **https://github.com/cmus/cmus/wiki
+**# Here are some of the favorites^**
+
+== Desktop Notifications ==
+**# Requires notify-send (Dunst)**
+**# **https://github.com/cmus/cmus/wiki/status_diplay_notify_send.py
+**# Download and place the script in **//~/.config/cmus/status.py //**and make it executable **
+$ chmod a+x ~/.config/cmus///status.py//
+
+**# In Cmus, navigate to the Settings screen (**//7//**)** **and search for (**/////**) **//status_display_program//
+**# Define it to our script; **status_display_program=/home/stick/.config/cmus/status.py
+
+
+===== Usage =====
+**# There is 7 different screen in Cmus, navigate these with **//1, 2, 3, 4, 5//** and **//6//
+	1 **= Now playing (simple view)**
+	2 **= Library**
+	3 **= Playlist**
+	4** = Queue**
+	5 **= Add Music**
+	6 **= Library Filters**
+	7 **= Settings/Keybinds**
+	
+
+== Adding music to your Library ==
+**# Navigate to the fifth screen, **//5//
+**# Then add the folder/song to your library with **//a//
+**# This should move your highlight one folder/song down. **
+**#** **This means the folder/song you just added is available in your library. **
+
+==== Basic Controls ====
+**# Move to your Simple View screen, **//1//
+
+== Navigation ==
+**# Switch between **//Artist/Album//** and **//Track//** window with **//<Tab>//
+**# To expand a **//Artist/Album//** folder, use **//Space//
+
+== Playing Tracks ==
+**# Play track with **//Enter//
+**# Pause/Play with **//c//
+**# Toggle shuffle with **//s//
+**# Next track with **//b//
+**# Previous track with **//z//
+
+== Searching ==
+**# Search for Tracks, Artist or Albums with **/
+**# Next result with **//n//
+**# Previous result with **//N		//
+
+== Jump in Tracks ==
+**# Backward/Forward 10sec with **//Left / Right//
+**# Backward/Forward 1min with **//< / >//
+
+== Volume Control ==
+**# Volume Up/Down with **//- / +//
+
+== Queue ==
+**# Add a track to Queue with **//e//
+
+
+===== Tips and Tricks =====
+**# Some sweet additions **
+
+== Music Visualizer ==
+**# **//Cava//** can be used to nice CLI visualization of the music playing**
+$ yaourt -S cava
+
+**# Then edit **//~/.config/cava/config //**and uncomment these two lines;**
+{{{code: lang="texinfo" linenumbers="True"
+method = pulse
+source = auto
+}}}
+
+
+**# Usage**
+**# You can Increase/Decrease sensitivity with **//Up / Down//
+**# Increase/Decrease bar width with **//Left / Right//
+**# Change bar color with **//c//
+**# Change background color with **//b//

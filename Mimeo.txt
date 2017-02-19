@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-04T16:14:07+01:00
+
+====== Mimeo ======
+Created søndag 04 december 2016
+
+//Xdg-utils//** does not work without a Desktop Environment. We'll be using a tool that makes **//xdg-open//** fall back to something working with just a Window Manager - **//mimeo//**. **
+
+== Installation ==
+**# NOTE! I had to skip the PGP check, but this might have changed**
+$  yaourt --m-arg --skippgpcheck -Sb xdg-utils-mimeo
+
+== Get mime-type ==
+**# Ex, to determine filetype for a file called **//photo.jpg//
+$ mimeo -m photo.jpg
+
+**# Should return something like **//image/jpeg//
+
+== Get default application for mime-type ==
+**# You can either point to a file**
+$ mimeo -d photo.jpg
+
+**# Or the mime-type**
+$ mimeo -d image/jpeg
+
+== Change default application ==
+**# The default applications to choose from can be found in **///usr/share/applications///
+**# To change the default application for a mime-type**
+$ mimeo --add image/jpeg feh.desktop
+
+== Open Application ==
+**# You can open a item with your default application**
+$ mimeo photo.jpg
+
+== A little to get you started^ ==
+**# Images; Feh/jpg/png/gif**
+$ mimeo --add image/jpeg feh.desktop
+$ mimeo --add image/png feh.desktop    
+$ mimeo --add image/gif feh.desktop   
+
+**# Video; Mplayer/ogg/mp4/webm**
+$ mimeo --add video/ogg mplayer.desktop
+$ mimeo --add video/mp4 mplayer.desktop
+$ mimeo --add video/webm mplayer.desktop
+
+
+**# Text; Gvim/plain, Mupdf/pdf**
+$ mimeo --add text/plain gvim.desktop  
+$ mimeo --add application/pdf mupdf.desktop
+
+**# Devel; Sublime/html/php/css/javascript**
+$ mimeo --add text/html sublime_text_3.desktop
+$ mimeo --add application/x-php sublime_text_3.desktop     
+$ mimeo --add text/css sublime_text_3.desktop            
+$ mimeo --add application/javascript sublime_text_3.desktop     

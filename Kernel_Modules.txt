@@ -60,14 +60,14 @@ options thinkpad_acpi fan_control=1
 
 
 == Blacklist module at boot ==
-**# Create/edit **///etc/modprobe.d/blacklist.conf// 
-**# Modules may be added in a line separated fashion **
-**# A better way of blacklisting, is to use; **//install <MODULE_NAME>// /bin/false 
-**# Ex, to blacklist **//pcspkr//**  (speaker beep)**
+**# Add to your Grub configuration (comma separated list) **///etc/default/grub// 
 {{{code: lang="texinfo" linenumbers="True"
-install pcspkr /bin/false
+GRUB_CMDLINE_LINUX_DEFAULT="modprobe.blacklist=module1,module2,module3"
 }}}
 
+
+**# And generate the config file**
+$ grub-mkconfig -o /boot/grub/grub.cfg
 
 == Tainted kernel ==
 **# Check if any modules are tainting the kernel**
@@ -76,3 +76,15 @@ $ cat /proc/sys/kernel/tainted
 **# If the value is anything than **//0//** something is tainting the kernel**
 **# Check what is tainting the kernel **
 $ dmesg | grep -i taint
+
+
+===== Tips and Tricks =====
+**# Some modules tips **
+
+== proc_thermal ==
+**# Creates a **//unsupported_event//** kernel warning. **
+**#** **Disable it by creating/editing **///etc/modprobe.d/blacklist.conf //**and add the following;**
+{{{code: lang="texinfo" linenumbers="True"
+install proc_thermal /bin/false
+}}}
+

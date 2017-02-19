@@ -18,6 +18,9 @@ $ pacman -S rofi
 **# My logout script requires **//polkit //**too (Github)**
 $ pacman -S polkit
 
+**# An Authentication Agent helps authenticate the user, and is a common thing in DEs.**
+$ pacman -S polkit-gnome
+
 **# For the **//$mod+l//** lock screen you need **//imagemagick//** and **//scrot// **(Github)**
 **# You also need a icon (**https://www.iconfinder.com**) and correct it in the **//i3 //**config.**
 $ pacman -S imagemagick scrot

@@ -15,16 +15,18 @@ Created søndag 18 december 2016
 
 **# To open the terminal **//$mod+Enter//
 **# To open dmenu **//Alt+d//
-
 **# HDMI controls with **//$mod+p//
+
+**# Open Firefox with **//Alt+w//
 
 == Navigation ==
 **# Float a window with **//$mod+Shift+Space//
 **# To switch focus between Tiling and Floating containers, use **//$mod+Space//
 
 **# Move around in the Window-three with **//$mod+Arrow-keys//
+**# Move to Urgent Window with **//$mod+x//
 
-**# Split between Horizontal and Vertical window tiling with **//$mod+v //**and **//$mod+h//
+**# Toggle Horizontal and Vertical window tiling with **//$mod+v//
 
 **# Change the container layout (stacked, tabbed or split)**
 **# Stacking = **//$mod+s//
@@ -32,7 +34,6 @@ Created søndag 18 december 2016
 **# Split = **//$mod+e//
 
 **# Move to workspaces with **//$mod+1,2,3 etc//
-**# You are able to go back and forth workspaces hitting **//$mod+4//** twice etc.**
 **# Further more, you can drag a container along back and forth with **//$mod+z//
 
 **# Navigate back and forth between the last two containers  **//Alt+<tap>//

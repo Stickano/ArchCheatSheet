@@ -9,7 +9,7 @@ Created torsdag 22 december 2016
 
 ===== Fortune =====
 **# Fortune will display a random quote **
-$ pacman -S fortune
+$ pacman -S fortune-mod
 
 **# A set of "offensive" quotes can be found in **///usr/share/fortune/off///
 

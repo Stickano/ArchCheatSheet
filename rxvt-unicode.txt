@@ -20,9 +20,6 @@ $ yaourt -S urxvt-resize-font-git
 **# For Vi-like navigation in Terminal **
 $ pacman -S urxvt-perls
 
-**# Tabs**
-$ yaourt -S ''urxvt''-tabbedex-git
-
 == Configuration ==
 **# URxvt reads its configuration from **//~/.Xresources //**(Github)**
 

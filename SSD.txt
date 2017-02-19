@@ -59,14 +59,14 @@ $ systemctl enable smartd.service
 **# The configuration file is stored in **///etc/smartd.conf//
 **# Only 1 line will be outcommented - comment this line and define this line instead**
 {{{code: lang="texinfo" linenumbers="True"
-/dev/sda -a -n standby,q -W 4,35,40 -s (S/../.././02|L/../../6/03) -m jeppesen@tutanota.com -M /usr/local/bin/smartnotify
+/dev/sda -a -n standby,q -W 4,35,45 -s (S/../.././02|L/../../6/03) -m jeppesen@tutanota.com -M /usr/local/bin/smartnotify
 }}}
 
 **# The above line will monitor on **//sda//** (change accordingly) **
 	//-a //**= all errors**
 	//-n //** = disable checking if disk is in standby**
 	//-W//** = alert on temperature too. **
-		**It will log on 4degree change and 35degree hit, and alert at 40degree**
+		**It will log on 4degree change and 35degree hit, and alert at 45degree**
 	//-s//** = scheduled self test, each day between 2-3am, and Saturdays between 3-4am**
 	//-m//** = send mail to this address - change accordingly **
 	//-M //**= execute this script (notification and mail content)**

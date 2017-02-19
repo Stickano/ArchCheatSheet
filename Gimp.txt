@@ -1,0 +1,53 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-19T03:29:28+01:00
+
+====== Gimp ======
+Created Sunday 19 February 2017
+
+**I must admit, that I am a sucker for Photoshop - so we'll try and mimic that the best we can. **
+
+== Installation ==
+$ pacman -S gimp
+
+
+===== Configuration =====
+**# Run Gimp once to create its configuration/installation folder**
+**# Gimps configuration/installation files will be read from **//~/.gimp-2.8//
+
+== Single window mode ==
+**# From inside Gimp, go to **//Windows //**> **//Single-Window Mode//
+
+== Keyboard shortcuts ==
+**# Download and Overview; **http://epierce.freeshell.org/gimp/gimp_ps.php
+**# This file need to override the **//~/.gimp-2.8/menurc //**default file **
+
+== Theme ==
+**# **http://migf1.deviantart.com/art/Clearlooks-Flat-Icons-Gimp-2-8-Themes-v-1-0-1-484289796
+**# Download, extract and move the content to a folder in **//~/.gimp-2.8/themes/clearlooks///
+
+== Disable layer boundaries ==
+**# These Blue and Yellow lines outlining the layers.. **
+**# Go to **//Edit//** > **//Preferences//** > **//Image Windows //**> **//Appearance //**and uncheck **//Show Layer Boundary//   
+**# This needs to be done under both **//Normal//** and **//Fullscreen//
+
+== Move tool to move the active layer ==
+**# Make the move tool move the active layer, instead of the object under the mouse.**
+**# In Gimp, Select the Move tool. In the bottom of the left toolbar, you have the **//Mode//** options**
+**# From there, check the **//Move the active layer//
+**# To make it persistent, go to **//Edit //**> **//Preferences//** > **//Tool Options//** and click **//Save Tool Options Now//
+
+== Snap to canvas edge ==
+**# Edit **//~/.gimp-2.8/gimprc//** and add the following**
+{{{code: lang="texinfo" linenumbers="True"
+(default-snap-to-canvas yes)
+(default-snap-to-grid yes)
+}}}
+
+
+== Smart remove tool ==
+**# Install the following packet **
+$ yaourt -S gimp-plugin-resynthesizer-git
+
+**# You can now make your selection, go to **//Filter //**> **//Enhance //**> **//Heal Selection//
+

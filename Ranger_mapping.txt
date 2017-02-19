@@ -40,7 +40,7 @@ Created Thursday 12 January 2017
 	:meta author Some Student		**# Key = **//author//**  and Value = **//Some Student//
 	:meta year 1970				**# Key = **//year//**  and Value = **//1970//
 	:meta comment Pretty Good Stuff	**# Key = **//comment//** and Value = **//Pretty Good Stuff//
-	
+
 
 == Filename Output ==
 **# The file titles is called with **//:linemode //**which can be altered to display different outputs**
@@ -52,7 +52,6 @@ Created Thursday 12 January 2017
 	**# **//metaauthor //**= Show the metadata key **//author//
 	**# **//metayear//** = Show the metadata key **//year//
 	**# **//metacomment //**= show the metadata key **//comment//
-
 
 == Directory Flattening ==
 **# **//N//** = number of subfolders to dig into**
@@ -71,7 +70,6 @@ Created Thursday 12 January 2017
 	**# **//toggle_under //**= changes **//foo-bar-text //**to/from **//foo_bar_text//
 	**# **//toggle_space //**= changes "**//foo bar text//**" to/from **//foo-bar-text//
 	
-
 
 ===== Key Binds =====
 **# General key actions - or key combos**

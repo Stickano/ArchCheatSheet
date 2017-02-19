@@ -23,8 +23,8 @@ Welcome Master
 Please provide your credentials
 
 System.......: Arch Linux \r
-TimeStamp....: \d \t
-On tty.......: \l
+Date.........: \d \t
+On...........: \l
 Hostname.....: \n
 
 ==============================
@@ -33,7 +33,7 @@ Hostname.....: \n
 
 
 
-== Escape Codes ==
+**# Escape Codes**
 **# As the above shows, you can use Escape Code (**//\d ex//**)**
 **# These are the Escape Codes there is available**
 
@@ -50,3 +50,15 @@ Hostname.....: \n
 	\U   **Insert the string "1 user" or "<n> users" where <n> is the**
 		   **number of current users logged in.**
 	\v   **Insert the version of the OS, e.g., the build-date etc.**
+
+
+===== Tips and Tricks =====
+**# Just a few^**
+
+== Auto login ==
+**# To have your system skip the tty login, and open your Xorg/WM session upon boot**
+**# This will start a user sessions along with the Xorg Display Server.**
+$ yaourt -S xlogin-git
+
+**# Then Enable the service file (SUDO!)**
+$ systemctl enable xlogin@stick

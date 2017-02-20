@@ -764,7 +764,7 @@ Typical Terminal Usage and Extended Plugin Functionality
   * Clearing Text
   * Plugin Functionality 
     * Base64 Encode/Decode
-    * Quickly Add 'sudo' To the Beginning of the Line
+    * Quickly Add `sudo` To the Beginning of the Line
     * URL Encode/Decode
     * Open Search Engine from the Terminal
     

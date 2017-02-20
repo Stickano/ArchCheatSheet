@@ -31,7 +31,7 @@ Below you will find a rough overview of the configuration steps and additional p
   * Kernels 
   * Video Driver 
   * AUR Support 
-  * i3 Window Manager
+  * Window Manager
 * [**Extended System Functionality**](#extended-system-functionality) <br />
   * Login 
   * External Devices 
@@ -136,84 +136,84 @@ Below you will find a rough overview of the configuration steps and additional p
 
 <br /><br />
 ## System Base
-The System Base is what I consider a absolute bare minimum.
+**The System Base is what I consider a absolute bare minimum.**
 
-##### Arch Installation
-Will take you through the process of installing Arch on a UEFI/GPT scheme
+#### Arch Installation
+  * On UEFI/GPT
 
-##### Getting Network Connectivity
+#### Network Connectivity
 
-##### Creating a new User
+#### Creating a new User
 
-##### Sudo
-Granting sudo rights to our newly created user
+#### Sudo
+  * Granting sudo rights to our newly created user
   * Running X-applications as sudo
   * Tips and Tricks
   
-##### Enable 32bit support
+#### Enable 32bit support
 
-##### Display Server
+#### Display Server
   * Xorg
     * Securing
     * Autostart Applications
 
-##### Touchpad
+#### Touchpad
 Touchpad worked mad out of the box - it will be configured early
 
-##### Kernels
+#### Kernels
   * Zen
   * Long Time Support
   
-##### DKMS
+#### DKMS
   * Nvidia Driver
 
-##### Display Driver
+#### Display Driver
   * Intel HD (mesa)
   * Nvidia Utilities
   * Bumblebee
   
-##### AUR Support
+#### AUR Support
   * Yaourt
     * Configuration
     * Usage
     
-##### i3
-A Window Manager is used instead of a Desktop Environment
-  * Configuration
-  * Save and Load workspace layouts
-  * Additional Packages
-    * Rofi
-    * Polkit
-    * Polkit-gnome
-    * xss-lock
-    * Imagemagick
-    * Scrot
-    * lm_sensors
-    * acpi
-    * sysstat
-    * i3block
-    * Font Awesome
-    * i3-gaps
+#### Window Manager
+  * i3
+    * Configuration
+    * Save and Load workspace layouts
+    * Additional Packages
+      * Rofi
+      * Polkit
+      * Polkit-gnome
+      * xss-lock
+      * Imagemagick
+      * Scrot
+      * lm_sensors
+      * acpi
+      * sysstat
+      * i3block
+      * Font Awesome
+      * i3-gaps
    
 <br /><br />    
 ## Extended System Functionality
 This section extends the systems functionality and is still considered pretty basic/minimum.
 
-##### Login 
-No Display Manager is used
-  * Welcome Message
-  * Tips and Tricks
-    * Auto Login
+#### Login 
+  * No Display Manager is Used
+    * Welcome Message
+    * Tips and Tricks
+      * Auto Login
 
-##### External Devices 
+#### External Devices 
   * Auto mount external devices
   * NTFS and FAT support
   
-##### Display Power Management
+#### Display Power Management
   * Xset
     * Usage
   
-##### Keyboard
+#### Keyboard
   * Fn-Key
     * Screen Backlight Control
     * Xbindkeys
@@ -221,12 +221,12 @@ No Display Manager is used
       * Keyboard Backlight Control
       * Toggle Touchpad
     
-##### Bluetooth
+#### Bluetooth
   * Bluez
     * Usage
     * Troubleshoot
   
-##### Sound
+#### Sound
   * PulseAudio
     * Default Device
     * Additional Packages
@@ -237,22 +237,22 @@ No Display Manager is used
       * Tips and Tricks
         * Auto Connect
 
-##### Scheduled Jobs
+#### Scheduled Jobs
   * Cronie
     * Usage
     * Examples
   
-##### Email Notifications
+#### Email Notifications
   * SSMTP
     * Configuration
     * Usage
   
-##### Desktop Notifications
+#### Desktop Notifications
   * Dunst
     * Usage
     * Creating Notifications
 
-##### Additional Useful Software
+#### Additional Useful Software
   * Clipboard Manager
     * Xclip
 
@@ -260,11 +260,11 @@ No Display Manager is used
 ## Performance Improvements
 Reducing weardown and improving the system in general.
 
-##### Browser Performance
+#### Browser Performance
   * \[Profile/Anything\]-sync-daemon
     * Configuration
   
-##### SSD
+#### SSD
   * HDparm
     * Configuration
   * I/O Top
@@ -277,23 +277,23 @@ Reducing weardown and improving the system in general.
   * Swappiness
   * Zswap
 
-##### CPU
+#### CPU
   * Thermald
   * i7z
   * Cpu Power (Frequency Scaling)
 
-##### Laptop
+#### Laptop
   * Power Management
+    * Powertop
     * TLP
       * Usage
-  * Powertop
   * Disable Power/Suspend/Hibernate buttons
 
 <br /><br />
 ## System Tools
 Some tools you will commonly work with - and some not so commonly.
 
-##### Basic Tools and General Examples
+#### Basic Tools and General Examples
   * Locate (mlocate)
   * Htop
   * Creating Bootable USBs
@@ -302,17 +302,17 @@ Some tools you will commonly work with - and some not so commonly.
   * Tail
   * Wget
 
-##### ls
+#### ls
   * Output Explained
 
-##### sed
+#### sed
   * Various Examples
 
-##### Service Manager
+#### Service Manager
   * Systemd
     * Usage
 
-##### Package Manager
+#### Package Manager
   * Pacman
     * Configuration
     * Usage
@@ -323,11 +323,11 @@ Some tools you will commonly work with - and some not so commonly.
       * Useful Hooks
     * Troubleshoot
 
-##### Desktop Entries
+#### Desktop Entries
   * Manage Entries
   * Writing Entries
 
-##### Kernel Modules
+#### Kernel Modules
   * Obtaining Information
   * Manual Handling
   * Handling at Boot
@@ -336,7 +336,7 @@ Some tools you will commonly work with - and some not so commonly.
     * Blacklisting
   * Tainted Kernel
 
-##### Mime Types
+#### Mime Types
   * Mimeo
     * Usage
     * Examples
@@ -345,7 +345,7 @@ Some tools you will commonly work with - and some not so commonly.
 ## Network Management
 Various network information can be found throughout - This is only for managing connectivity
 
-##### Netctl
+#### Netctl
   * Wifi
   * Ethernet
   * Automatic Connectivity
@@ -354,10 +354,10 @@ Various network information can be found throughout - This is only for managing 
 ## Users and Groups
 The opportunity to set up more users is available.
 
-##### Creating User Directories
+#### Creating User Directories
   * xdg-user-dirs
 
-##### Managing Users and Groups
+#### Managing Users and Groups
   * Users
     * Adding Users
     * Deleting Users
@@ -370,7 +370,7 @@ The opportunity to set up more users is available.
     * General Usage
     * General User Groups
   
-##### Permissions
+#### Permissions
   * Explanation
   * General Examples
   * Bulk Chmod
@@ -380,15 +380,15 @@ The opportunity to set up more users is available.
 ## Maintenance
 A few pointers on System Maintenance. Some steps will manage themselves, others will need a revisit from time to time.
 
-##### Mirrors
+#### Mirrors
   * European Servers
   * Automatic Mirror Upgrade
     * Reflector
   
-##### Pac\[new/save\]
+#### Pac\[new/save\]
   * Locating New Files
 
-##### Clean The Filesystem
+#### Clean The Filesystem
   * Package Cache
   * Orphans
   * Old Configuration Files
@@ -397,7 +397,7 @@ A few pointers on System Maintenance. Some steps will manage themselves, others 
   * Tips and Tricks
     * BleachBit
   
-##### Downgrade
+#### Downgrade
   * Package
   * Kernel
 
@@ -405,7 +405,7 @@ A few pointers on System Maintenance. Some steps will manage themselves, others 
 ## Getting Information
 Pointers on where to obtain some vital information.
 
-##### Hardware
+#### Hardware
   * PCI Busses
   * Memory 
   * Battery
@@ -421,7 +421,7 @@ Pointers on where to obtain some vital information.
       * Memory
       * Kernel (out of category, but hey)
 
-##### Software
+#### Software
   * Logs
   * Dmesg
   * Kernel
@@ -430,46 +430,46 @@ Pointers on where to obtain some vital information.
   * Additional Packages
     * tldr
   
-##### Network
+#### Network
   * Local Information
   * Host/Domain Information
   * SS Network Tool
     * Analysis Example
     * Basic Usage
   
-##### Journalctl
+#### Journalctl
   * Usage
 
 <br /><br />
 ## Terminal and Shell
 We might as well improve the window we'll be spending most our time in.
 
-##### Aliases
+#### Aliases
   * System General
   * Keks
 
-##### Functions
+#### Functions
   * Extract
   * Copy/move and goto dir
   * Arch RSS Feed
   * Toggle Monitor Blank
   * Weather Forecast
 
-##### Zsh
+#### Zsh
   * Configuration
   * Oh My Zsh
     * Plugins
   
-##### Urxvt
+#### Urxvt
   * Extensions
 
-##### Xresources 
+#### Xresources 
   * Syntax Explanation
 
-##### Gnu Screen
+#### Gnu Screen
   * Usage
 
-##### Additional Terminal Packages
+#### Additional Terminal Packages
   * Neofetch
   * Clockywock
   * sl
@@ -478,7 +478,7 @@ We might as well improve the window we'll be spending most our time in.
   * Unclutter
   * Task
 
-##### Terminal Keks
+#### Terminal Keks
   * Fortune
   * Cowsay
   * Lolcat
@@ -487,13 +487,13 @@ We might as well improve the window we'll be spending most our time in.
 ## Security
 Some pointers on keeping your system Secure. This is based on Single Machine security.
 
-##### Anti Virus
+#### Anti Virus
   * Clamav
     * Additional Definitions
     * Usage
     * Troubleshoot
   
-##### Firewall
+#### Firewall
   * IPtables
     * A Little Explanation
     * Usage
@@ -508,16 +508,16 @@ Some pointers on keeping your system Secure. This is based on Single Machine sec
   * Fail2Ban
     * Configuration
 
-##### Password Manager
+#### Password Manager
   * KeePass
     * Using With Firefox
     * Troubleshoot
   
-##### Security Audith
+#### Security Audith
   * Lynis
     * Usage
   
-##### Browsing
+#### Browsing
   * Tor
     * Configuration
     * Using Tor with other Applications
@@ -527,7 +527,7 @@ Some pointers on keeping your system Secure. This is based on Single Machine sec
 ## Preferred Software
 We are closing in on that complete system. These are some of my favorite software for everyday tasks.
 
-##### Browser
+#### Browser
   * Firefox
     * Configuration
     * Preferred Addons
@@ -535,17 +535,17 @@ We are closing in on that complete system. These are some of my favorite softwar
     * Tips and Tricks
     * Troubleshoot
   
-##### Office Suite
+#### Office Suite
   * LibreOffice
     * Configuration
   
-##### Text Editor
+#### Text Editor
   * Vim
     * Configuration
     * Modelines
     * Plugins
   
-##### File Manager
+#### File Manager
   * Ranger
     * Configuration
     * Themes
@@ -555,40 +555,40 @@ We are closing in on that complete system. These are some of my favorite softwar
       * w3w (image preview in terminal)
       * zfz (search)
     
-##### Bookmark Manager
+#### Bookmark Manager
   * Buku
     * Usage
   
-##### News
+#### News
   * Haxor News
     * Usage
   * Reddit Terminal Viewer
     * Usage
   
-##### IRC
+#### IRC
   * Irssi
     * Configuration
     * Scripts
     * Usage
   
-##### Video Player
+#### Video Player
   * Mplayer ***needs revisit***
     * Key Binds
     * Creating and Playing Playlists
     * Additional Options 
   
-##### Music Player
+#### Music Player
   * Cmus
     * Scripts
     * Usage
     * Tips and Tricks
       * Cava
     
-##### Image Viewer
+#### Image Viewer
 Feh is also used for displaying the Desktop Wallpaper
   * Feh 
   
-##### Additional Badass Software
+#### Additional Badass Software
   * Record My Desktop
   * MuPDF
   * Zim
@@ -599,19 +599,19 @@ Feh is also used for displaying the Desktop Wallpaper
 ## Eye Candy
 Making the system pleasant on the eyes^
 
-##### Theming 
+#### Theming 
   * Lxappearance
   * Theme Collection (Or it will be hopefully)
     * Window Themes
     * Cursor Themes
     * Grub2
     
-##### Fonts
+#### Fonts
 I've made the decission not to use Infinality - I do miss those smooth fonts though..
   * Sweet Fonts
   * Configuration
   
-##### Additional Sweetass Software
+#### Additional Sweetass Software
   * Compton
   * Redshift
 
@@ -619,22 +619,22 @@ I've made the decission not to use Infinality - I do miss those smooth fonts tho
 ## Development
 I do a little Web Development, so that is the main focus. 
 
-##### Version Control
+#### Version Control
   * Git
     * Usage
       * A Few Typical Examples
 
-##### IDE
+#### IDE
   * Sublime
     * Plugins
     
-##### LAMP
+#### LAMP
   * Apache
   * PHP
   * MySQL
     * Adminer
     
-##### Design
+#### Design
   * Gimp
     * Configuration
     
@@ -642,17 +642,17 @@ I do a little Web Development, so that is the main focus.
 ## Gaming
 Who doesn't like the opportunity, eh?!
 
-##### Steam
+#### Steam
   * Configuration
   
-##### Game Specific Troubleshoot
+#### Game Specific Troubleshoot
   * Wasteland 2
   
 <br /><br />
 ## SSH
 For quick authentication and communication with your server(s) and services.
 
-##### Server and Client
+#### Server and Client
   * Client 
     * Usage
     * Configuration
@@ -662,14 +662,14 @@ For quick authentication and communication with your server(s) and services.
     * Running the Daemon
     * Tips and Tricks
     
-##### Keys
+#### Keys
   * Quick Info
   * Generating Keys
   
-##### Agent
+#### Agent
   * Starting with Bash
   
-##### Transfer via SSH
+#### Transfer via SSH
   * SCP
     * Usage
       * Basic Examples
@@ -678,14 +678,14 @@ For quick authentication and communication with your server(s) and services.
 ## Cryptography
 We should all try to protect ourself in this modern age.
 
-##### GPG
+#### GPG
   * GnuPG
     * Setting Up
     * Signatures
     * Usage
     * Tips and Tricks
     
-##### Currency
+#### Currency
   * Monero
   * Wallet (not monero specific, but hey)
     * Creating
@@ -696,19 +696,19 @@ We should all try to protect ourself in this modern age.
 ## Analysis
   Information is key!
   
-##### Nmap 
+#### Nmap 
   * Usage
     * Evading Firewalls
     * Scripts
       
-##### WireShark
+#### WireShark
   * Filters
   
 <br /><br />
 ## Key Binds
 This is the Throwback section. Here to remind you of some of the wonders your system can do.
 
-##### Window Manager
+#### Window Manager
 Binds for i3
   * System
     * Log out / Shutdown Options
@@ -718,7 +718,7 @@ Binds for i3
   * Scratchpad
   * Containers
   
-##### Editor 
+#### Editor 
 Binds and Commands for Vim
   * Command 
     * Find and Replace
@@ -734,7 +734,7 @@ Binds and Commands for Vim
     * Indent
   * Plugin Features
     
-##### IDE
+#### IDE
 Binds and Commands for Sublime 
   * Smart Selecting
   * Smart Moving

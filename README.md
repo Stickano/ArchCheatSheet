@@ -1,11 +1,13 @@
 # Arch Cheat Sheet
 My local Arch Linux Cheat Sheet.
 
+This Sheet is still a work in progress.
+
 This documentation has been created in [Zim Desktop Wiki](http://zim-wiki.org/).
 You can download the content of this repository, along with Zim, to have a local example.
 A live example can be found at [sloa.dk](http://sloa.dk.linux14.unoeuro-server.com/archCheat/Home.html). 
 
-A image preview gallery of the end result can be found [here](#http://imgur.com/a/CwiW2). 
+A image preview gallery of the end result can be found [here](http://imgur.com/a/CwiW2). 
 
 <p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" /></a></p>
 

@@ -418,7 +418,7 @@ Pointers on where to obtain some vital information.
     * lshw
     * hwinfo
     * dmidecode
-  * Tips and Trick
+  * Tips and Tricks
     * /proc
       * CPU
       * Memory
@@ -778,13 +778,13 @@ Binds and Commands for Ranger
   - Directory Flattening
   - Rename
   - Bulk Renaming
-  - Quickly toggle replace ' ' with '-' in Filenames
-  - Same goes with '-' and '\_'
+  - Quickly toggle replace ` ` with `-` in Filenames
+  - Same goes with `-` and `_`
   - Navigating
   - Quick Navigation
   - Hidden Files
   - Searching
   - Tabs
-  - Copy and Moving Files
+  - Copying and Moving Files
   - Marking Files
   - Disk Usage for Current Directory

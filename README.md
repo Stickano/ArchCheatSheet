@@ -134,8 +134,8 @@ Below you will find a rough overview of the configuration steps and additional p
   * The Powers in your Terminal
   * File Manager
 
-
-### System Base
+<br /><br />
+## System Base
 The System Base is what I consider a absolute bare minimum.
 
 ##### Arch Installation
@@ -194,9 +194,9 @@ A Window Manager is used instead of a Desktop Environment
     * i3block
     * Font Awesome
     * i3-gaps
-    
-    
-### Extended System Functionality
+   
+<br /><br />    
+## Extended System Functionality
 This section extends the systems functionality and is still considered pretty basic/minimum.
 
 ##### Login 
@@ -256,8 +256,8 @@ No Display Manager is used
   * Clipboard Manager
     * Xclip
 
-
-### Performance Improvements
+<br /><br />
+## Performance Improvements
 Reducing weardown and improving the system in general.
 
 ##### Browser Performance
@@ -289,8 +289,8 @@ Reducing weardown and improving the system in general.
   * Powertop
   * Disable Power/Suspend/Hibernate buttons
 
-
-### System Tools
+<br /><br />
+## System Tools
 Some tools you will commonly work with - and some not so commonly.
 
 ##### Basic Tools and General Examples
@@ -341,8 +341,8 @@ Some tools you will commonly work with - and some not so commonly.
     * Usage
     * Examples
 
-
-### Network Management
+<br /><br />
+## Network Management
 Various network information can be found throughout - This is only for managing connectivity
 
 ##### Netctl
@@ -350,8 +350,8 @@ Various network information can be found throughout - This is only for managing 
   * Ethernet
   * Automatic Connectivity
 
-
-### Users and Groups
+<br /><br />
+## Users and Groups
 The opportunity to set up more users is available.
 
 ##### Creating User Directories
@@ -376,8 +376,8 @@ The opportunity to set up more users is available.
   * Bulk Chmod
   * Change Ownership
 
-
-### Maintenance
+<br /><br />
+## Maintenance
 A few pointers on System Maintenance. Some steps will manage themselves, others will need a revisit from time to time.
 
 ##### Mirrors
@@ -401,8 +401,8 @@ A few pointers on System Maintenance. Some steps will manage themselves, others 
   * Package
   * Kernel
 
-
-### Getting Information
+<br /><br />
+## Getting Information
 Pointers on where to obtain some vital information.
 
 ##### Hardware
@@ -440,8 +440,8 @@ Pointers on where to obtain some vital information.
 ##### Journalctl
   * Usage
 
-
-### Terminal and Shell
+<br /><br />
+## Terminal and Shell
 We might as well improve the window we'll be spending most our time in.
 
 ##### Aliases
@@ -483,8 +483,8 @@ We might as well improve the window we'll be spending most our time in.
   * Cowsay
   * Lolcat
 
-
-### Security
+<br /><br />
+## Security
 Some pointers on keeping your system Secure. This is based on Single Machine security.
 
 ##### Anti Virus
@@ -523,8 +523,8 @@ Some pointers on keeping your system Secure. This is based on Single Machine sec
     * Using Tor with other Applications
       * Firefox
 
-
-### Preferred Software
+<br /><br />
+## Preferred Software
 We are closing in on that complete system. These are some of my favorite software for everyday tasks.
 
 ##### Browser
@@ -595,8 +595,8 @@ Feh is also used for displaying the Desktop Wallpaper
   * Dropbox
   * Rednotebook
   
-  
-### Eye Candy
+<br /><br />
+## Eye Candy
 Making the system pleasant on the eyes^
 
 ##### Theming 
@@ -614,8 +614,9 @@ I've made the decission not to use Infinality - I do miss those smooth fonts tho
 ##### Additional Sweetass Software
   * Compton
   * Redshift
-  
-### Development
+
+<br /><br />
+## Development
 I do a little Web Development, so that is the main focus. 
 
 ##### Version Control
@@ -637,8 +638,8 @@ I do a little Web Development, so that is the main focus.
   * Gimp
     * Configuration
     
-    
-### Gaming
+<br /><br />  
+## Gaming
 Who doesn't like the opportunity, eh?!
 
 ##### Steam
@@ -647,8 +648,8 @@ Who doesn't like the opportunity, eh?!
 ##### Game Specific Troubleshoot
   * Wasteland 2
   
-
-### SSH
+<br /><br />
+## SSH
 For quick authentication and communication with your server(s) and services.
 
 ##### Server and Client
@@ -673,8 +674,8 @@ For quick authentication and communication with your server(s) and services.
     * Usage
       * Basic Examples
    
-   
-### Cryptography
+<br /><br /> 
+## Cryptography
 We should all try to protect ourself in this modern age.
 
 ##### GPG
@@ -691,20 +692,20 @@ We should all try to protect ourself in this modern age.
     * Using
   * Mining
   
-  
-### Analysis
+<br /><br />
+## Analysis
   Information is key!
   
 ##### Nmap 
-    * Usage
-      * Evading Firewalls
-      * Scripts
+  * Usage
+    * Evading Firewalls
+    * Scripts
       
 ##### WireShark
   * Filters
   
-  
-### Key Binds
+<br /><br />
+## Key Binds
 This is the Throwback section. Here to remind you of some of the wonders your system can do.
 
 ##### Window Manager

@@ -10,7 +10,7 @@ A image preview gallery of the end result can be found [here](http://imgur.com/a
 I do apologize for this half-hearted attempt of a video, but here goes ¯\\_(ツ)_/¯
 <p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" /></a></p>
 
-
+<br /><br />
 ## Good-to-know
 This will take you through the steps of getting a stable Arch installation and then further extend the systems functionality.
 It is not meant to teach you about the technologies, but rather meant as a reference point to quickly get pointers on installation, configuration and a somewhat loose explanation of the programs usability. 
@@ -19,12 +19,9 @@ Coming from the typical Desktop Environments I have gotten quite acustomed to so
 
 This is based on my personal setup on a Asus UX32LN laptop. 
 This setup does not necessarily satisfy your needs, and there is no guarantees that the steps will work on your system. 
-
+<br /><br />
 ###### Tip
 <dd>You might also be interested in my [dotfile repository](https://github.com/Stickano/dotfiles), where my configuration for these programs can be found. </dd>
-
-###### Tip
-<dd>You'll get the best overview of the items included in this Cheat Sheet on this Github page and you will find a little Foreword text, along with a few more lines of explaination for each category, in the Sheet itself. </dd>
 
 
 ## Included in this Cheat Sheet (20.02.2017)

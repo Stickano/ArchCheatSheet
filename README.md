@@ -5,6 +5,11 @@ Created in [Zim Desktop Wiki](http://zim-wiki.org/).
 You can download the content of this repository, along with Zim, to have a local example of this Cheat Sheet. 
 A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html). 
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo
+" target="_blank"><img src="http://img.youtube.com/vi/svpvXU5f5Uo/0.jpg" 
+alt="Youtube: System Preview" width="640" height="480" border="10" align="center" /></a>
+
+
 ## Good-to-know
 This will take you through the steps of getting a stable Arch installation and then further extend the systems functionality.
 It is not meant to teach you about the technologies, but rather meant as a reference point to quickly get pointers on installation, configuration and a somewhat loose explanation of the programs usability. 

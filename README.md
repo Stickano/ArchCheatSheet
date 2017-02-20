@@ -5,7 +5,7 @@ Created in [Zim Desktop Wiki](http://zim-wiki.org/).
 You can download the content of this repository, along with Zim, to have a local example of this Cheat Sheet. 
 A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html). 
 
-<p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" height="480" /></a></p>
+<p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" /></a></p>
 
 
 ## Good-to-know

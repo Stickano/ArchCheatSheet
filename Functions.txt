@@ -61,19 +61,6 @@ mvg (){
 }}}
 
 
-== Run in background (only works with bash) ==
-**# Will release a program from the terminal. **
-**# Ex. mplayer whitch takes up the terminal, when run from terminal.** 
-**# Use with** //quiet// //command//
-{{{code: lang="texinfo" linenumbers="True"
-quiet (){
-  nohup $1 &>/dev/null &
-}
-# The complete is a bash command. 
-complete -A command quiet
-}}}
-
-
 == Arch news feed (rss) ==
 **# Use with **//feed //
 {{{code: lang="texinfo" linenumbers="True"

@@ -142,7 +142,8 @@ $ systemctl enable fstrim.timer
 	
 
 ===== Reduce swap writes =====
-**# Swappiness determines how happy you are with writing from the RAM to swap partition. Default is 60.**
+**# Swappiness determines how happy you are with writing from the RAM to swap partition. **
+**#** **Default is 60.**
 **# To see current swappiness value** 
 $ cat /proc/sys/vm/swappiness
 

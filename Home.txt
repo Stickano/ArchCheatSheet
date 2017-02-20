@@ -6,66 +6,47 @@ Creation-Date: 2016-10-22T01:30:01+02:00
 Created lørdag 22 oktober 2016
 
 == Foreword ==
-**# Author : Henrik Jeppesen**
-**# Author Email : Jeppesen@tutanota.com**
+**# Author : Henrik ( Jeppesen@tutanota.com )**
 **# Updated Version : **https://github.com/Stickano/ArchCheatSheet
+**# Dotfile Repository : **https://github.com/Stickano/dotfiles
 
-**## What is this?**
+**## What this is**
 **#**
-**# This will take you through the steps of getting a stable Arch installation**
-**# It will help you configure and install additional packages, **
-**#** **so that your system has a lot of additional features and usability.  **
+**# This is my local Archlinux Cheat Sheet. **
+**# It has been created so I would have a place where I could quickly reference **
+**# for installation, configuration and some basic usage. **
 
-**## What will be covered?**
+**## What this is not**
 **#**
-**# Coming from the typical Desktops, I found myself missing many features in my daily workflow. **
-**# In my quest for covering those features, I stumbled upon some new ones \o/**
-**# This has been an attempt to mimic a full fledged Desktop - but tailored for my needs only. **
-**#**
-**# A lot of configuration is left out. This is because that the programs has been configured**
-**# along the way. This also means, that a whole dotfile repository is waiting for you to abuse.**
-**# The dotfile repository can be found at **https://github.com/Stickano/dotfiles
-**# which a.a. covers configuration for i3, Vim, Zsh, Urxvt etc etc.**
+**# Don't expect to get wiser on the technologies used in this Sheet. **
+**# The explanation is often left out and only a quick, one-line note is followed with the steps.**
+**# This is - if I have to be honest - probably not even a good reference point. **
+**# I am by no mean a power user, so this Sheet is created of my best understandings and findings.**
+**# There isn't to much configuration in this Sheet - this has been done along the way and the **
+**# necessary configuration files can be found at my dotfile repository. **
 
-**## That's quite objective. What are your daily needs and workflow then?**
+**## Why this sheet was made**
 **#**
-**# I'm on a laptop. More specific, a Asus UX32LN.**
-**# I am the only user of my computer. **
-**# Like many other, I have my daily web routines. **
-**# I want my media handled with ease - movies, pictures and music.**
-**# I do a little web-development - and trying to expand development in general. **
-**# I like the thought of a somewhat secure system - but it mostly has to handle itself. **
-**# I too wanna be able to fire up Steam and launch a oldie but goldie from time to time.**
-**# ..and then I apparently enjoys to play with my system a bit to much. **
+**# I have been scavenging the same Wiki pages, over and over, from the Archlinux Wikipedia.**
+**# At some point I decided to have just the information I needed, at a local and easy accessible **
+**# location. I have for many years used the traditional Desktop Environments, but when I wanted**
+**# to try something new - in this case i3 Window Manager - I decided to document my steps from **
+**# a fresh installation. As said, coming from the typical DEs I found myself missing a lot of the **
+**# traditional features found in such environments, features that I had come to rely on **
+**#** **in my everyday workflow. Therefore, this has also been an attempt to mimic some of the**
+**# traditional features found in a fully fledged Desktop Environment - but suited for my personal**
+**# needs.**
 
-**## What kind of guru are you?**
+**## What the focus is on**
 **#**
-**# I am no power user at all. I found it to be great fun to customize my system after the best **
-**# of my understandings. A lot of Wikis and Documentations has been read - sleepless nights**
-**# scavenging the web for tips and tricks and configuration guides - but I cannot stress it enough;**
-**# I am no power user!  So please, don't take this Cheat Sheet to serious. **
+**# This setup is done on a Asus UX32NL Laptop.**
+**# Everyday tasks - web, media etc - had to run smoothly.**
+**# I do a little web-development, so there's some focus on that too. **
+**# I like the idea of a somewhat secure system - but it has to manage itself. **
+**# Fast, responsive and optimized for everyday use and work related tasks.  **
 
-**## Oh.. okay. So why then?**
-**#**
-**# This Cheat Sheet is made because I kept going through the Arch Wiki - over and over again. **
-**# I've had a lot of failures. Done a lot of re-installs.**
-**# At some point I figured that I wanted some place local, where I could quickly reference for**
-**# installation, configuration or usage. **
-**#**
-**# A lot of good information is found at the Arch Wiki - So many goodies actually. **
-**# It just became to time consuming in the end, to scavenge through the pages for the information**
-**# that I needed. **
-
-
-**# Don't put to much though in the arrangement with some of these items. **
-**# It is part of my idea on what a fully functional system should act like. **
-**#**
-**# There might be hidden gems inside sections, that isn't noted from outside the articles.**
-**# By this I mean, that even though the section says **//PulseAudio//** it also holds the configurations**
-**# and additional packages needed to get it working with my Bluetooth Speaker. **
-**# Tips and Tricks are frequent throughout this whole Cheat Sheet - and these Tips and Tricks**
-**# are based more on logic connection, than defined in the Headline.**
-
+**# You will find a better overview (index-tree), of what this Cheat Sheet contains**
+**# at the sheets Github page. Best of luck and happy tinkering \o**
 
 ===== System Base =====
 **# The following section will help you through what I consider a bare minimum.**
@@ -80,11 +61,14 @@ Created lørdag 22 oktober 2016
 **3 ) Create a new User**
 	**Check out **//Users// //and Groups//** in **//Users// 
 	
+**3.5 ) Consider installing Git and cloning Dotfile and CheatSheet repository**
+	Make it a matter of copypasta!
+	
 **4 ) Define some privileges for our newly created user**
 	[[sudo]]
 	
 **5 ) Enable 32bit support **
-	**Check out **//Mirros//** in**// Maintenance //
+	**Check out **//Mirrors//** in**// Maintenance //
 
 **6 ) Display Server (+xinit)**
 	[[Xorg]] 
@@ -92,7 +76,7 @@ Created lørdag 22 oktober 2016
 **7 ) Touchpad was mad out of the box - Configure it early**
 	[[Touchpad]] 
 	
-**8 ) Stable everyday use kernel and Long Time Support **
+**8 ) Stable everyday use kernel and Long Time Support (Zen & lts)**
 	[[Kernels]]
 
 **9 ) Nvidia Video Driver**
@@ -112,10 +96,6 @@ Created lørdag 22 oktober 2016
 **# Now we should have a workspace to navigate around on. Quick and Stable - yet so useless. **
 **# We still need quite a few things, before it is what I'd consider robust system. **
 
-**# These steps will help you further configure some obvious functionality.**
-**# Most are additional packages that needs to be installed, but there is also a few**
-**# pointers on configuring from the System Base. **
-
 **# We are not using a Display Manager - Define a nice Welcome Message instead**
 	[[Login]] 
 
@@ -125,14 +105,17 @@ Created lørdag 22 oktober 2016
 **# Display Power Management**
 	[[Xset]] 
 
-**# Keyboard - mainly Xbinkeys**
+**# Keyboard **
 	[[Fn-key]] 
 
-**# Additional Radio Device - used to stream audio to BT speaker**
-	[[Bluetooth]] 
+**# Bluetooth**
+	[[Bluez]] 
 
 **# Sound - Covers bluetooth speaker too**
 	[[Pulseaudio]] 
+
+**# Email Notifications - also provides the feature to send mails from the Terminal^**
+	[[SSMTP]] 
 
 **# Scheduled Jobs - used by some packages throughout **
 	[[Cron]] 
@@ -140,9 +123,6 @@ Created lørdag 22 oktober 2016
 **# Desktop Notifications**
 	[[Dunst]] 
 	
-**# Email Notifications - also provides the feature to send mails from the Terminal^**
-	[[SSMTP]] 
-
 **# Check these out too!**
 	[[Additional_rather_useful_software]] 
 
@@ -158,9 +138,7 @@ Created lørdag 22 oktober 2016
 **# Hardware Specific **
 	[[SSD]] 
 	[[CPU]] 
-
-**# Power Management**
-	[[Laptop]] 
+	[[Laptop]] (Power Management) 
 
 
 ===== System Tools =====
@@ -192,26 +170,14 @@ Created lørdag 22 oktober 2016
 **# More Network information can be found throughout. This is mainly based on management**
 **# of your network connection. **
 
-**#** **Being on a Laptop I am very depending on my WiFi to work. **
-**# Ethernet, not so much. Both are covered (barely) in these steps though. **
-
-**# I have found the commonly installed package Network Manager works sketchy on my system.**
-**# It tends to leave my connectivity unstable, so this package is left out. Quite frankly I like **//netctl//
-**# better anyways - Simple, more stable and really not that much of a hassle to set up. **
-
 **# WiFi and Ethernet Management**
 	[[netctl]] 
 
 
 ===== Users and Groups =====
-**# Linux recommends you to have a User Account with limited privileges, so that you don't**
-**# accidentally mess up the system. Users (including the root account) have their own **
-**# privileges which defines read, write and execute for their own files and folders.**
-
-**# Users can be placed in groups and privileges can then be defined for those groups. **
-**# This gives a pretty dynamic way of handling privileges, both for users and their system-wide**
-**# controls,  but also for your own personal files and how they should be handled by others. **
-**# Users, Groups and Permissions are all explained in these steps. **
+**# It is recommended to keep your User and Administrator (root) profile apart. **
+**# Though I'm the sole user of this system, the option to manage several users**
+**# is available in this section.**
 
 == Configure Once ==
 **# Create a set of default User Directories**
@@ -230,10 +196,6 @@ Created lørdag 22 oktober 2016
 **# Awesome. Now we got a fast and stable system - and we know how to manage the basics of it!**
 **# Before we continue to all the additional user specific packages, let's first see how we can**
 **# keep our system at its best even after a long time of abuse. **
-
-**#** **Some of these steps needs to be configured just once - but is considered by the system to**
-**# be maintained as you go. Other steps requires you to manually perform some maintenance **
-**#** **actions from time to time.**
 
 == Configure Once ==
 **# Automatically Update Mirrors**
@@ -273,10 +235,7 @@ Created lørdag 22 oktober 2016
 
 ===== Terminal (+shell) =====
 **# Now let us begin with some of the fun stuff. I find myself staring in a terminal window**
-**# even more often than I stare at the browser. It is such a powerful (and wonderful) tool**
-**# that it needs a little extra caress.**
-
-**# In this section we'll both extend its functionality and style it a little, to make it look 21th century. **
+**# quite often. Such a wonderful (and powerful) tool needs a little extra caress^**
 
 **# Extended functionality with Aliases and Functions**
 	[[Aliases]]
@@ -298,11 +257,7 @@ Created lørdag 22 oktober 2016
 
 
 ===== Security =====
-**# Security is a quite large subject. I like the idea of making it harder for whom ever might **
-**# be trying to listen in though. Several security steps has been taken - but several more**
-**# could probably be added. **
-
-**# The Firewall steps will also take you through the steps of blocking IPs from a blocklist.**
+**Several security steps has been taken - but several more could probably be added. **
 
 **# Anti Virus**
 	[[clamav]] 
@@ -326,13 +281,6 @@ Created lørdag 22 oktober 2016
 ===== Preferred Software =====
 **# We've come a long way.**
 **# Now let's look at some useful tools, so we can get on with our lives. **
-
-**# I've found myself to fall more and more in love with the terminal. **
-**# The more i play around in the terminal, the more I have wanted to move my everyday tools**
-**# to the terminal. This is of course to have quickly access to as much as possible, through**
-**# just one point of interest. **
-
-**# This section has both GUI and CLI tools. **
 
 == GUI Tools ==
 **# Web Browser**
@@ -409,15 +357,15 @@ Created lørdag 22 oktober 2016
 
 **# 100+ Linux Games on Steam \o/**
 	[[Steam]] 
+	
+**# Game Specific Troubleshoot**
+	[[Wasteland_2]] 
 
 
 ===== SSH =====
 **# Having an old computer act as server (whatever its purpose), is a great use of old hardware**
 **# and a great waste of valuable time! This section will help you communicate with that spoiled **
 **# little time consumer. Oh joy!**
-
-**# Having a SSH key grants you several other benefits though. Such as quickly and hazzle-free**
-**# authentication when publishing to Github via Git. **
 
 **# SSH Server and Client Setup**
 	[[Server_and_Client]] 
@@ -433,8 +381,8 @@ Created lørdag 22 oktober 2016
 
 
 ===== Crypto =====
-**# Cryptography is a mighty interesting subject - might very well be needed given this day and age**
-**# in the modern world. **
+**# Cryptography is a mighty interesting subject - Hope I will be able to learn more about **
+**# the subject at some point.**
 
 **# GnuPG - Encrypt/decrypt your files/messages**
 	[[GPG]]
@@ -458,7 +406,8 @@ Created lørdag 22 oktober 2016
 **# At this point I have no more configurations or packages to throw at you. **
 **# Hope it was manageable. Bare in mind, that his was not actually meant to teach you**
 **# the technical stuff, but rather how to quickly install, configure and a quick scope of it capabilities. **
-**# Thank's for reading and happy tinkering.**
+**# At this point, I would suggest you to trim down all this nonsense text. Get a better overview. **
+**# Thanks for reading though - and once again, happy tinkering^**
 
 **# Phew, that sure was a lot of configuration. At this point we've already forgot what we are**
 **# capable of. Good thing this section is a throwback section - covering only the most necessary **

@@ -12,12 +12,11 @@ Created søndag 18 december 2016
 **# To reload the configuration file **//$mod+Shift+c//
 **# To restart i3 in place **//$mod+Shift+r//
 **# Log out/ shutdown options **//$mod+Shift+e//
-
-**# To open the terminal **//$mod+Enter//
-**# To open dmenu **//Alt+d//
 **# HDMI controls with **//$mod+p//
 
+**# To open the terminal **//$mod+Enter//
 **# Open Firefox with **//Alt+w//
+**# To open dmenu **//Alt+d//
 
 == Navigation ==
 **# Float a window with **//$mod+Shift+Space//
@@ -52,4 +51,5 @@ Created søndag 18 december 2016
 
 **# To move a container to a different workspace, use **//$mod+Shift+1,2,3 etc.//
 
-**# Resize a container with **//$mod+r//** this will enter resize mode. Use the arrow keys and hit ESC when satisfied.**
+**# Resize a container with **//$mod+r//** this will enter resize mode. **
+**#** **Use the arrow keys and hit ESC when satisfied.**

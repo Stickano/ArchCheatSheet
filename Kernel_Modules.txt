@@ -77,14 +77,3 @@ $ cat /proc/sys/kernel/tainted
 **# Check what is tainting the kernel **
 $ dmesg | grep -i taint
 
-
-===== Tips and Tricks =====
-**# Some modules tips **
-
-== proc_thermal ==
-**# Creates a **//unsupported_event//** kernel warning. **
-**#** **Disable it by creating/editing **///etc/modprobe.d/blacklist.conf //**and add the following;**
-{{{code: lang="texinfo" linenumbers="True"
-install proc_thermal /bin/false
-}}}
-

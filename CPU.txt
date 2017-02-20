@@ -17,8 +17,8 @@ $ yaourt -S thermald
 $ pacman -S i7z
 
 **# Invoke with **
-$ i7z		**# CLI**
-$ i7z-gui		**# GUI**
+$ i7z
+$ i7z-gui	
 
 == CpuPower ==
 **# Assists with CPU frequency scaling** 
@@ -31,3 +31,17 @@ $ systemctl enable cpupower.service
 {{{code: lang="texinfo" linenumbers="True"
 governor='performance'
 }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

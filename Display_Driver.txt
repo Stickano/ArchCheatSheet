@@ -41,7 +41,7 @@ EndSection
 
 == Installation ==
 **# Install the following packages (32-bit support included)**
-$ pacman -S nvidia-utils lib32-nvidia-utils
+$ pacman -S nvidia-utils lib32-nvidia-utils nvidia-settings
 
 == Configuration ==
 **# Get the BusID the same way as the example above (Intel HD)** 

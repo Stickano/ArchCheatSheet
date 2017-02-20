@@ -70,9 +70,9 @@ $ mount /dev/sdaX /mnt/boot       **#** The **EFI** boorable partition
 $ mount /dev/sdaX /mnt/home      **#** The **Home** partition
 
 == Installation ==
-**# You can edit the /etc/pacman.d/mirrorlist and move preferred mirrors to the top, if you like.**
+**# You can Edit **///etc/pacman.d/mirrorlist//** and move preferred mirrors to the top, if you like.**
 
-**#** **Install the Arch Base : **
+**#** **Install the Arch Base **
 $ pacstrap /mnt base
 
 == Post installation ==
@@ -83,11 +83,12 @@ $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
 
 **#** **Set the time zone **
+**# This will generate **///etc/adjtime//
 $ ln -s /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
-$ hwclock --systohc       **# Generates /etc/adjtime**		
+$ hwclock --systohc       		
 
 **#** **Locale **
-# **Edit** /etc/locale.gen **and uncomment BOTH** //en_US.UFT-8 //**and**// da_DK.UTF-8//
+**#** **Edit** /etc/locale.gen **and uncomment BOTH** //en_US.UFT-8 //**and**// da_DK.UTF-8//
 {{{code: lang="texinfo" linenumbers="True"
 da_DK.UTF-8 UTF-8
 en_US.UTF-8 UTF-8 	
@@ -140,7 +141,9 @@ $ passwd
 **# Intel Microcode (**//ucode//**) provides system stability and is detected automatically by **//mkconfig//**.**
 **# **//efibootmgr//** is needed for our EFI system.**
 $ pacman -S grub intel-ucode efibootmgr
-$ pacman -S os-prober		**# If dual-booting**
+
+**# If dual-booting, also install this package**
+$ pacman -S os-prober		
 
 **#** **Install to **///boot//** partition **
 $ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub

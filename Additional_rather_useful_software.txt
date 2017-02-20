@@ -12,12 +12,3 @@ $ pacman -S xclip
 **# You can pipe content to the Clipboard, ex **
 $ uptime | xclip
 
-== Fuseiso ==
-**# We can mount **//.iso//** files with fuseiso**
-$ yaourt -S fuseiso
-
-**# To mount a image file**
-$ fuseiso -p //<image>//.iso ///path/to/mountpoint//
-
-**# To unmount a image file**
-$ fusermount -u ///path/to/mountpoint//

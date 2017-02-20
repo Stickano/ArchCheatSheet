@@ -41,6 +41,6 @@ $ yaourt -Syua
 $ yaourt -C				
 
 **#** **Ignore pgp-key signature check**
-**#** **Yaourt has fucked with me before. Change the **//siglevel//** variable in **//pacman.conf//** they said.. **
+**#** **Change the **//siglevel//** variable in **//pacman.conf//** they said.. **
 **#** **To make **//yaourt//** ignore key-signing (could not verify pgp-key yadada)**
 $ yaourt --m-arg --skippgpcheck -Sb //<PACKAGE_NAME>//

@@ -5,7 +5,13 @@ Creation-Date: 2016-12-22T04:42:03+01:00
 ====== DKMS ======
 Created torsdag 22 december 2016
 
-**Dynamic Kernel Module Support - handles rebuild of package modules residing outside the kernel three.**
+**Dynamic Kernel Module Support - handles rebuild of package modules residing outside the kernel three. **
+
+
+
+
+
+
 **This means, that modules will be rebuild when new kernels are installed - instead of waiting for maintainer to release new build.**
 
 == Installation ==
@@ -39,5 +45,11 @@ $ dkms autoinstall
 {{{code: lang="texinfo" linenumbers="True"
 source /usr/share/bash-completion/completions/dkms
 }}}
+
+
+
+
+
+
 
 

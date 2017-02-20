@@ -61,7 +61,7 @@ $ fg //N//
 == Dirhistory ==
 **# Navigate back and forth in folder with **//Alt+Left/Right	//
 
-== Encode64 ==
+== base64 ==
 **# Encode **
 $ encode64 //<string>//
 

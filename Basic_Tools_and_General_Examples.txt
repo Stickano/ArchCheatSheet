@@ -26,7 +26,7 @@ $ htop
 == Create a bootable USB with dd ==
 $ dd bs=4M if=/path/to/image of=/dev/sdX && sync
 
-== Creating Symlinks ==
+== Symlinks ==
 **# Use absolute paths! Etc **///home/<user>/folder/file//
 $ ln -s //<file/folder> <target_location>//
 

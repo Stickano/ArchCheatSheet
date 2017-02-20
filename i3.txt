@@ -73,7 +73,8 @@ exec i3
 **# Install the **//xorg-xprop//** package**
 $ pacman -S xorg-xprop
 
-**# Run **//xprop//** and watch your cursor turn into a corsair. Now click the Window you want information about.**
+**# Run **//xprop//** and watch your cursor turn into a corsair. **
+**#** **Now click the Window you want information about.**
 **# The **//WM_CLASS(STRING) = "Navigator", "Firefox" //**(etc) is probably what you are looking for.**
 
 == Icons in Workspace bar ==
@@ -94,7 +95,8 @@ $ i3-save-tree --workspace //N// > ~/dotfiles/.config/i3/layouts/workspace_//N//
 
 **# Once the workspace files has been created, they need to be edited**
 **# Open it with your favorite editor and look for the following **
-	 "swallows": [
+{{{code: lang="texinfo" linenumbers="True"
+"swallows": [
 				   {
 				   // "class": "",
 				   // "instance": "",
@@ -102,15 +104,20 @@ $ i3-save-tree --workspace //N// > ~/dotfiles/.config/i3/layouts/workspace_//N//
 				   // "transient_for": ""
 				   }
 				]
-	
+}}}
+
+
 **# We just need **//class//** and **//instance//** so remove the bottom two lines and comment out the two needed**
 **# Also note the trailing , (comma) after **//instance//** - remove this too**
-	 "swallows": [
+{{{code: lang="texinfo" linenumbers="True"
+"swallows": [
 		   {
 			  "class": "",
 			  "instance": ""
 		]
+}}}
 
+ 
 **# Note, that the **//instance//** variable is for named windows. **
 **# You could ex specify something like; **//"instance": "Special"//
 **# Now only windows open with the name **//Special//** will correspond. Ex; **//urxvt -name Special//
@@ -120,15 +127,17 @@ $ i3-save-tree --workspace //N// > ~/dotfiles/.config/i3/layouts/workspace_//N//
 **# Once the workspace layout has been saved (as showed above), **
 **# create a script that will load the layout and run the applications**
 **# Change**// N//** accordingly; **//~/dotfiles/.config/i3/layouts/load_workspace_N.json//
+{{{code: lang="texinfo" linenumbers="True"
+#!/bin/bash
+# First we append the saved layout to the workspace - Change N accordingly 
+i3-msg "workspace N; append_layout ~/dotfiles/.config/i3/layouts/workspace_N.json"
 
-	#!/bin/bash
-	# First we append the saved layout to the workspace - Change //N// accordingly 
-	i3-msg "workspace //N//; append_layout ~/dotfiles/.config/i3/layouts/workspace_//N//.json"
-	
-	# Then run the programs, Ex
-	(urxvt &)
-	(firefox &)
-	(zim &)
+# Then run the programs, Ex
+(urxvt &)
+(firefox &)
+(zim &)
+}}}
+
 
 **# Make the Shell files **executable
 $ chmod u+x ~/.config/i3/layouts/load_layout_//N//.sh

@@ -74,7 +74,8 @@ $ yaourt -S hunspell-da
 
 == Netflix, Viaplay etc ==
 **# Install the **//User Agent Switcher //**addon**
-**# To get the button (at current time at least) go to the menu > Customize, here the button is available.**
+**# To get the button (at current time at least) go to the menu > Customize, **
+**#** **here the button is available.**
 **# Add a new User Agent with this string  **
 {{{code: lang="texinfo" linenumbers="True"
 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2876.0 Safari/537.36

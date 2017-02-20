@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-20T01:50:47+01:00
+
+====== Wasteland 2 ======
+Created Monday 20 February 2017
+
+**# WL apparently takes up quite a shitload of mem. **
+**#** **If you experience lock-up during a loadscreen, close down Steam and run the following**
+**# NOTE; Not persistent **
+$ ulimit -n 4096
+
+**# Open Steam > Wasteland again and you should be good to go^**

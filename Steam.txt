@@ -66,12 +66,3 @@ export STEAM_FRAME_FORCE_CLOSE=1
 
 
 
-===== Troubleshoot =====
-**# This is Game Specific troubleshoot from my Steam library **
-
-== Wasteland 2 ==
-**# WL apparently takes up quite a shitload of mem. **
-**#** **If you experience lock-up during a loadscreen, close down Steam and run the following (not persistent) **
-$ ulimit -n 4096
-
-**# Open Steam > Wasteland again and you should be good to go^**

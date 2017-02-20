@@ -1,9 +1,11 @@
 # Arch Cheat Sheet
 My local Arch Linux Cheat Sheet.
 
-Created in [Zim Desktop Wiki](http://zim-wiki.org/).
-You can download the content of this repository, along with Zim, to have a local example of this Cheat Sheet. 
-A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html). 
+This documentation has been created in [Zim Desktop Wiki](http://zim-wiki.org/).
+You can download the content of this repository, along with Zim, to have a local example.
+A live example can be found at [sloa.dk](http://sloa.dk.linux14.unoeuro-server.com/archCheat/Home.html). 
+
+A image preview gallery of the end result can be found [here](#http://imgur.com/a/CwiW2). 
 
 <p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" /></a></p>
 
@@ -12,12 +14,17 @@ A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html).
 This will take you through the steps of getting a stable Arch installation and then further extend the systems functionality.
 It is not meant to teach you about the technologies, but rather meant as a reference point to quickly get pointers on installation, configuration and a somewhat loose explanation of the programs usability. 
 
-Having worked in a typical Desktop Environment for many years, I have gotten a little dependent on a lot of typical features you see in such environments. This has been an attempt to mimic what I have come to know as a everyday work environment and somewhere along the way I'm pretty sure the KISS philosophy got lost - so don't expect to much of that. 
+Coming from the typical Desktop Environments I have gotten quite acustomed to some of the general features you see in such Environments. This sheet is the documentation of my quest to try and mimic some of those feautres, that I felt was missing in my everyday workflow - but suited for my personal needs only. I'm pretty sure that somewhere along the way the KISS philosiphy was lost, so don't expect to much of that
 
 This is based on my personal setup on a Asus UX32LN laptop. 
 This setup does not necessarily satisfy your needs, and there is no guarantees that the steps will work on your system. 
 
-You might also be interested in my [dotfile repository](https://github.com/Stickano/dotfiles), where my configuration for most of these programs can be found. 
+###### Tip
+<dd>You might also be interested in my [dotfile repository](https://github.com/Stickano/dotfiles), where my configuration for these programs can be found. </dd>
+
+###### Tip
+<dd>You'll get the best overview of the items included in this Cheat Sheet on this Github page and you will find a little Foreword text, along with a few more lines of explaination for each category, in the Sheet itself. </dd>
+
 
 ## Included in this Cheat Sheet (20.02.2017)
 This sheet has been broken up in 18 major categories (so far at least).

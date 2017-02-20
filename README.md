@@ -1,4 +1,4 @@
-# ArchCheatSheet
+# Arch Cheat Sheet
 My local Arch Linux Cheat Sheet.
 
 Created in [Zim Desktop Wiki](http://zim-wiki.org/).
@@ -22,117 +22,121 @@ Some of the categories doesn't hold much information, whereas others will take a
 Below you will find a rough overview of the configuration steps and additional packages.
 
 * [**System Base**](#system-base) <br />
-  * Arch Installation
-  * Network Connectivity 
-  * Sudo 
-  * Enabling 32bit Support
-  * Display Server 
-  * Touchpad
-  * Kernels 
-  * Video Driver 
-  * AUR Support 
-  * Window Manager
+  * [Arch Installation](#arch-installation)
+  * [Network Connectivity](#network-connectivity)
+  * [Create a new User](#create-a-new-user)
+  * [Sudo](#sudo)
+  * [Enabling 32bit Support](#enable-32bit-support)
+  * [Display Server](#display-server)
+  * [Touchpad](#touchpad)
+  * [Kernels](#kernels)
+  * [DKMS](#dkms)
+  * [Video Driver](#video-driver) 
+  * [AUR Support](#aur-support)
+  * [Window Manager](#window-manager)
 * [**Extended System Functionality**](#extended-system-functionality) <br />
-  * Login 
-  * External Devices 
-  * Display Power Management 
-  * Keyboard
-  * Bluetooth
-  * Sound 
-  * Scheduled Jobs 
-  * Email Notifications 
-  * Desktop Notifications
-  * Additional Packages
+  * [Login](#login)
+  * [External Devices](#external-devices)
+  * [Display Power Management](#display-power-management)
+  * [Keyboard](#keyboard)
+  * [Bluetooth](#bluetooth)
+  * [Sound](#sound)
+  * [Scheduled Jobs](#scheduled-jobs) 
+  * [Email Notifications](#email-notifications)
+  * [Desktop Notifications](#desktop-notifications)
+  * [Additional Packages](#additional-useful-software)
 * [**Performance Improvements**](#performance-improvements) <br />
-  * Browser Performance 
+  * [Browser Performance](#browser-performance) 
   * Hardware Specific
-    * SSD
-    * CPU
-    * Laptop
+    * [SSD](#ssd)
+    * [CPU](#cpu)
+    * [Laptop](#laptop)
 * [**System Tools**](#system-tools) <br />
   * Good to know tools
-    * Basic Tools and General Examples
-    * ls 
-    * sed
-  * Service Manager 
-  * Package Manager 
-  * Desktop Entries
-  * Mime Types 
+    * [Basic Tools and General Examples](#basic-tools-and-general-examples)
+    * [ls](#ls)
+    * [sed](#sed)
+  * [Service Manager](#service-manager) 
+  * [Package Manager](#package-manager)
+  * [Desktop Entries](#desktop-entries)
+  * [Kernel Modules](#kernel-modules)
+  * [Mime Types](#mime-types)
 * [**Network Management**](#network-management) <br />
-  * Netctl
+  * [Netctl](#netctl)
 * [**Users and Groups**](#users-and-groups) <br />
-  * User Directories 
-  * Manage Users and Groups
-  * Manage Permissions
+  * [User Directories](#creating-user-directories) 
+  * [Manage Users and Groups](#managing-users-and-groups)
+  * [Manage Permissions](#permissions)
 * [**Maintenance**](#maintenance) <br />
-  * Mirrors 
-  * Pacnew and Pacsave
-  * Cleaning the File System 
-  * Downgrade
+  * [Mirrors](#mirrors)
+  * [Pacnew and Pacsave](#pac\[new/save\])
+  * [Cleaning the File System](#clean-the-filesystem)
+  * [Downgrade](#downgrade)
 * [**Getting Information**](#getting-information) <br />
-  * Hardware 
-  * Software 
-  * Network 
-  * Journalctl
+  * [Hardware](#hardware) 
+  * [Software](#software)
+  * [Network](#network)
+  * [Journalctl](#journalctl)
 * [**Terminal and Shell**](#terminal-and-shell) <br />
-  * Aliases and Functions
-  * Zsh and Oh-My-Zsh
-  * Urxvt
-  * Xresources
-  * Wrapper
-  * Keks and Extras
+  * [Aliases](#aliases) and [Functions](#functions)
+  * [Zsh](#zsh) and Oh-My-Zsh
+  * [Urxvt](#urxvt)
+  * [Xresources](#xresources)
+  * [Wrapper](#wrapper)
+  * [Keks](#terminal-keks) and [Extras](#additional-terminal-packages)
 * [**Security**](#security) <br />
-  * Anti Virus 
-  * Firewall
+  * [Anti Virus](#anti-virus) 
+  * [Firewall](#firewall)
     * IPtables
     * IPset
     * Fail2Ban
-  * Password Manager 
-  * Security Audit 
-  * Secure Browsing
+  * [Password Manager](#password-manager) 
+  * [Security Audit](#security-audith) 
+  * [Secure Browsing](#browsing)
 * [**Preferred Software**](#preffered-software) <br />
   * GUI Tools
-    * Web Browser
-    * Office Suite
+    * [Web Browser](#browser)
+    * [Office Suite](#office-suite)
   * CLI Tools
-    * Text Editor 
-    * File Manager
-    * Bookmark Manager
-    * News
-    * IRC 
-    * Video Player
-    * Image Viewer
-  * And a few random goodies
+    * [Text Editor](#text-editor) 
+    * [File Manager](#file-manager)
+    * [Bookmark Manager](#bookmark-manager)
+    * [News](#news)
+    * [IRC](#irc) 
+    * [Video Player](#video-player)
+    * [Music Player](#music-player)
+    * [Image Viewer](#image-viewer)
+  * [And a few random goodies](#additional-badass-software)
 * [**Eye Candy**](#eye-candy) <br />
-  * Theming
-  * Fonts
-  * A few additional eye-gasms
+  * [Theming](#theming)
+  * [Fonts](#fonts)
+  * [A few additional eye-gasms](#additional-sweetass-software)
 * [**Development**](#development) <br />
-  * Control 
-  * IDE 
-  * LAMP
-  * Design
+  * [Version Control](#version-control) 
+  * [IDE](#ide) 
+  * [LAMP](#lamp)
+  * [Design](#design)
 * [**Gaming**](#gaming) <br />
-  * Steam
-  * Game Specific Troubleshoots
+  * [Steam](#steam)
+  * [Game Specific Troubleshoots](#game-specific-troubleshoot)
 * [**SSH**](#ssh) <br />
-  * Server and Client
-  * Keys
-  * Agent
-  * Transfer via SSH
+  * [Server and Client](#server-and-client)
+  * [Keys](#keys)
+  * [Agent](#agent)
+  * [Transfer via SSH](#transfer-via-ssh)
 * [**Cryptography**](#cryptography) <br />
-  * GPG
-  * Currency 
+  * [GPG](#gpg)
+  * [Currency](#currency) 
 * [**Analysis**](#analysis) <br />
   * Network
-    * Nmap
-    * WireShark 
+    * [Nmap](#nmap)
+    * [WireShark](#wireshark) 
 * [**Key Binds**](#key-binds) <br />
-  * Window Manager 
-  * Text Editor
-  * IDE
-  * The Powers in your Terminal
-  * File Manager
+  * [Window Manager](#window-manager-binds)
+  * [Text Editor](#editor-binds)
+  * [IDE](#ide-binds)
+  * [The Powers in your Terminal](#powers-of-the-terminal)
+  * [File Manager](#file-manager-binds)
 
 <br /><br />
 ## System Base
@@ -143,7 +147,7 @@ Below you will find a rough overview of the configuration steps and additional p
 
 #### Network Connectivity
 
-#### Creating a new User
+#### Create a new User
 
 #### Sudo
   * Granting sudo rights to our newly created user
@@ -158,7 +162,6 @@ Below you will find a rough overview of the configuration steps and additional p
     * Autostart Applications
 
 #### Touchpad
-Touchpad worked mad out of the box - it will be configured early
 
 #### Kernels
   * Zen
@@ -167,7 +170,7 @@ Touchpad worked mad out of the box - it will be configured early
 #### DKMS
   * Nvidia Driver
 
-#### Display Driver
+#### Video Driver
   * Intel HD (mesa)
   * Nvidia Utilities
   * Bumblebee
@@ -466,8 +469,9 @@ We might as well improve the window we'll be spending most our time in.
 #### Xresources 
   * Syntax Explanation
 
-#### Gnu Screen
-  * Usage
+#### Wrapper
+  * Gnu Screen
+    * Usage
 
 #### Additional Terminal Packages
   * Neofetch
@@ -708,7 +712,7 @@ We should all try to protect ourself in this modern age.
 ## Key Binds
 This is the Throwback section. Here to remind you of some of the wonders your system can do.
 
-#### Window Manager
+#### Window Manager Binds
 Binds for i3
   * System
     * Log out / Shutdown Options
@@ -718,7 +722,7 @@ Binds for i3
   * Scratchpad
   * Containers
   
-#### Editor 
+#### Editor Binds
 Binds and Commands for Vim
   * Command 
     * Find and Replace
@@ -734,7 +738,7 @@ Binds and Commands for Vim
     * Indent
   * Plugin Features
     
-#### IDE
+#### IDE Binds
 Binds and Commands for Sublime 
   * Smart Selecting
   * Smart Moving
@@ -749,3 +753,38 @@ Binds and Commands for Sublime
     * Renaming
     * Snippet Examples
   * Plugin Features
+
+#### Powers of the Terminal
+Typical Terminal Usage and Extended Plugin Functionality
+  * Resize Fonts
+  * Vim-like Movements
+  * Put to Background
+  * Searching History
+  * Opening Commands in the Editor
+  * Clearing Text
+  * Plugin Functionality 
+    * Base64 Encode/Decode
+    * Quickly Add 'sudo' To the Beginning of the Line
+    * URL Encode/Decode
+    * Open Search Engine from the Terminal
+    
+#### File Manager Binds
+Binds and Commands for Ranger
+  - Trash Management
+  - Extraction
+  - Compression
+  - Tagging (metadata)
+  - Changing Filename Output
+  - Directory Flattening
+  - Rename
+  - Bulk Renaming
+  - Quickly toggle replace ' ' with '-' in Filenames
+  - Same goes with '-' and '\_'
+  - Navigating
+  - Quick Navigation
+  - Hidden Files
+  - Searching
+  - Tabs
+  - Copy and Moving Files
+  - Marking Files
+  - Disk Usage for Current Directory

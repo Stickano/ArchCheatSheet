@@ -6,8 +6,8 @@ You can download the content of this repository, along with Zim, to have a local
 A live example can be found at [sloa.dk](https://sloa.dk/archCheat/Home.html). 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo
-" target="_blank"><img src="http://img.youtube.com/vi/svpvXU5f5Uo/0.jpg" 
-alt="Youtube: System Preview" width="640" height="480" border="10" align="center" /></a>
+" target="_blank" align="center"><img src="http://img.youtube.com/vi/svpvXU5f5Uo/0.jpg" 
+alt="Youtube: System Preview" width="640" height="480" border="10" /></a>
 
 
 ## Good-to-know

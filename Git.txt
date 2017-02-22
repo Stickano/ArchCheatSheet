@@ -22,7 +22,7 @@ $ pacman -S git aspell
 $ git config --global user.name  "Henrik Jeppesen"
 $ git config --global user.email "Jeppesen@tutanota.com"
 
-**# Default editor (nano)**
+**# Default editor (vim)**
 $ git config --global core.editor "vim"
 
 

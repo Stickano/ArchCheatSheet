@@ -92,7 +92,7 @@ $ optirun -c <compress-method>
 **# Less FPS and performance, but seems not to load the system as much.**
 
 **#** **Persistent change for all application.** Proxy **is the default.**
-# **Edit the configuration file and add your preferred** <compress-method> **to** //VGLTransport=//
+**#** **Edit the configuration file and add your preferred** <compress-method> **to** //VGLTransport=//
 {{{code: lang="texinfo" linenumbers="True"
 VGLTransport=proxy
 }}}
@@ -100,10 +100,10 @@ VGLTransport=proxy
 
 == Pixel Readback ==
 **# Setting **//VGL_READBACK//** to **//pbo//** should have improved performance - I did not notice any though**.
-**# The default value**
+**# The default value;**
 $ VGL_READBACK=sync optirun glxspheres64	
 
-**# Should have improved performance**
+**# To change the PR to **//pbo//**;**
 $ VGL_READBACK=pbo optirun glxspheres64		
 	
 **# Persistent change** 

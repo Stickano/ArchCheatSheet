@@ -11,7 +11,7 @@ Created søndag 23 oktober 2016
 $ nano 		
 
 == Create the bootable USB ==
-# **Download your favourite Arch distro^	You can use dd to create the bootable USB** 
+**#** **Download your favorite Arch distro^	You can use dd to create the bootable USB** 
 $ dd if=/path/to/arch_image.iso of=/dev/sdX bs=4M && sync
 
 == Boot ==

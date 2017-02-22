@@ -15,10 +15,10 @@ $ pacman -S linux-zen linux-lts
 **# Edit the Grub configuration in **///etc/default/grub //
 **# We'll add a parameter and disable the sub-tree feature.**
 
-== Kernel Parameter ==
 **#** **Kernel parameters can be added to the** //GRUB_CMDLINE_LINUX_DEFAULT=// 
 **Ex.** 	//GRUB_CMDLINE_LINUX_DEFAULT="quiet splash //parameter1 parameter2//"//
 
+== I/O Scheduler ==
 **#** **Enable the BFQ scheduler**
 {{{code: lang="texinfo" linenumbers="True"
 GRUB_CMDLINE_LINUX_DEFAULT="elevator=bfq"

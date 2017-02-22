@@ -30,8 +30,8 @@ exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
 **# Create a copy of the default **//xinitrc //**file**
 $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 
-**# By default it starts a few applications. **These** can be out commented in the **//~/xinitrc//** file.**
-**# You can append applications to start leading with a & for multiple entries.**
+**# By default it starts a few applications. These can be commented out in the **//~/xinitrc//** file.**
+**# You can append applications to start leading with a **//&//** (ampersand) for multiple entries.**
 **# Lines after **//exec//** won't be read.**
 {{{code: lang="texinfo" linenumbers="True"
 application1 &

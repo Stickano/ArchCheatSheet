@@ -35,18 +35,18 @@ export XAUTHORITY=/home/<username>/.Xauthority
 ===== Tips and Tricks =====
 **# Some random Tips and Tricks**
 
-== Don't ask for PW when using sudo ==
-**# Edit the sudoers file**
+== Change password timeout ==
+**# The default lets you use **//sudo//** commands in a 5min time span **
+**# Let's change this to 30 - I am a bit slow sometimes..**
 $ EDITOR=nano visudo
 
-**# Add the following to the bottom of the file**
+**# And add the following **
 {{{code: lang="texinfo" linenumbers="True"
-Defaults:<USERNAME>      !authenticate
+Defaults:stick timestamp_timeout=30
 }}}
 
 
 == Insult when the wrong password was entered ==
-**# Of course, this won't have much effect if you disable asking for PW all together^**
 **# Add this line to the sudoers file**
 {{{code: lang="texinfo" linenumbers="True"
 Defaults	insults

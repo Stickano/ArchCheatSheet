@@ -148,7 +148,7 @@ Below you will find a rough overview of the configuration steps and additional p
 
 <br /><br />
 ## System Base
-**The System Base is what I consider a absolute bare minimum.**
+The System Base is what I consider a absolute bare minimum.
 
 #### Arch Installation
   * On UEFI/GPT
@@ -184,6 +184,11 @@ Below you will find a rough overview of the configuration steps and additional p
   * Bumblebee
   
 #### AUR Support
+  * Makepkg
+    * Configuration
+    * Usage
+  * Cower
+    * Usage
   * Yaourt
     * Configuration
     * Usage
@@ -584,7 +589,7 @@ We are closing in on that complete system. These are some of my favorite softwar
     * Usage
   
 #### Video Player
-  * Mplayer ***needs revisit***
+  * Mplayer 
     * Key Binds
     * Creating and Playing Playlists
     * Additional Options 

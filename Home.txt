@@ -61,12 +61,12 @@ Created lørdag 22 oktober 2016
 **3 ) Create a new User**
 	**Check out **//Users// //and Groups//** in **//Users// 
 	
-**3.5 ) Consider installing Git and cloning Dotfile and CheatSheet repository**
-	Make it a matter of copypasta!
-	
 **4 ) Define some privileges for our newly created user**
 	[[sudo]]
-	
+
+**4.5 ) Consider installing Git and cloning Dotfile and CheatSheet repository**
+	Make it a matter of copypasta!
+		
 **5 ) Enable 32bit support **
 	**Check out **//Mirrors//** in**// Maintenance //
 
@@ -86,7 +86,7 @@ Created lørdag 22 oktober 2016
 	[[Display_Driver]] 
 
 **11 ) AUR Support (Unofficial Packages)**
-	[[Yaourt]] 
+	**Check out **//makepkg//** and **//cower //**in **//System Tools//
 	
 **12 ) Window Manager**
 	[[i3]] 
@@ -154,7 +154,12 @@ Created lørdag 22 oktober 2016
 	[[Systemd]]
 	
 **# Package Manager**
-	[[Pacman]] 
+	[[Pacman]]   
+	
+**# Unofficial Packages (AUR)**
+	[[makepkg]] 
+	[[Cower]]
+	[[Yaourt]]
 	
 **# Pointers on Desktop Entries (Application default run options)**
 	[[Desktop_Entries]]

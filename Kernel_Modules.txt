@@ -60,14 +60,14 @@ options thinkpad_acpi fan_control=1
 
 
 == Blacklist module at boot ==
-**# Add to your Grub configuration (comma separated list) **///etc/default/grub// 
+**# Create/edit **///etc/modprobe.d/blacklist.conf//
+**# Modules may be added in a line separated fashion**
+**# It should be better to blacklist modules with; **//install <MODULE_NAME> /bin/false//
+**# Ex, to disable the speaker-beep**
 {{{code: lang="texinfo" linenumbers="True"
-GRUB_CMDLINE_LINUX_DEFAULT="modprobe.blacklist=module1,module2,module3"
+install pcspkr /bin/false
 }}}
 
-
-**# And generate the config file**
-$ grub-mkconfig -o /boot/grub/grub.cfg
 
 == Tainted kernel ==
 **# Check if any modules are tainting the kernel**

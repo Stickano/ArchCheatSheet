@@ -17,7 +17,7 @@ This will take you through the steps of getting a stable Arch installation and t
 
 This is based on my personal setup on a Asus UX32LN laptop. This setup does not necessarily satisfy your needs, and there is no guarantees that the steps will work on your system. 
 
-<br /><br />
+<br />
 #### What this is
  This is my local Archlinux Cheat Sheet. <br />
  It has been created so I would have a place where I could quickly reference for installation, configuration and some basic usage. 
@@ -40,7 +40,7 @@ Coming from the typical Desktop Environments I have gotten quite acustomed to so
  I like the idea of a somewhat secure system - but it has to manage itself.<br /> 
  Fast, responsive and optimized for everyday use and work related tasks.<br />
 
-<br /><br />
+<br />
 ###### Tip
 <dd>You might also be interested in my [dotfile repository](https://github.com/Stickano/dotfiles), where my configuration for these programs can be found. </dd>
 
@@ -48,7 +48,7 @@ Coming from the typical Desktop Environments I have gotten quite acustomed to so
 ## Included in this Cheat Sheet
 This sheet has been broken up in 18 major categories (so far at least).
 Some of the categories doesn't hold much information, whereas others will take a few hours to go through.
-Below you will find a rough overview of the configuration steps and additional packages.
+Below you will find a rough overview of what is being covered in this sheet. 
 
 * [**System Base**](#system-base) <br />
   * [Arch Installation](#arch-installation)

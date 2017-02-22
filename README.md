@@ -66,6 +66,7 @@ Below you will find a rough overview of the configuration steps and additional p
     * [sed](#sed)
   * [Service Manager](#service-manager) 
   * [Package Manager](#package-manager)
+  * [AUR Packages](#aur-packages)
   * [Desktop Entries](#desktop-entries)
   * [Kernel Modules](#kernel-modules)
   * [Mime Types](#mime-types)
@@ -95,9 +96,6 @@ Below you will find a rough overview of the configuration steps and additional p
 * [**Security**](#security) <br />
   * [Anti Virus](#anti-virus) 
   * [Firewall](#firewall)
-    * IPtables
-    * IPset
-    * Fail2Ban
   * [Password Manager](#password-manager) 
   * [Security Audit](#security-audith) 
   * [Secure Browsing](#browsing)
@@ -183,15 +181,7 @@ The System Base is what I consider a absolute bare minimum.
   * Nvidia Utilities
   * Bumblebee
   
-#### AUR Support
-  * Makepkg
-    * Configuration
-    * Usage
-  * Cower
-    * Usage
-  * Yaourt
-    * Configuration
-    * Usage
+#### Getting familiar with makepkg and cower
     
 #### Window Manager
   * i3
@@ -338,6 +328,16 @@ Some tools you will commonly work with - and some not so commonly.
       * Writing Hooks
       * Useful Hooks
     * Troubleshoot
+    
+#### AUR Packages
+  * Makepkg
+    * Configuration
+    * Usage
+  * Cower
+    * Usage
+  * Yaourt
+    * Configuration
+    * Usage
 
 #### Desktop Entries
   * Manage Entries
@@ -704,10 +704,10 @@ We should all try to protect ourself in this modern age.
     
 #### Currency
   * Monero
-  * Wallet (not monero specific, but hey)
-    * Creating
-    * Using
-  * Mining
+    * Wallet 
+      * Creating
+      * Using
+    * Mining
   
 <br /><br />
 ## Analysis

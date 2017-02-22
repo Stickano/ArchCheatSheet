@@ -181,7 +181,8 @@ The System Base is what I consider a absolute bare minimum.
   * Nvidia Utilities
   * Bumblebee
   
-#### Getting familiar with makepkg and cower
+#### AUR Support
+  * Getting familiar with makepkg and cower
     
 #### Window Manager
   * i3

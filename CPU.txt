@@ -27,14 +27,14 @@ $ pacman -S cpupower
 **#** **Enable the service**
 $ systemctl enable cpupower.service
 
-**# Edit **///etc/default/cpupower //**and change **//governor=//
-{{{code: lang="texinfo" linenumbers="True"
-governor='performance'
-}}}
+**# There are a couple of different Governors, which will have impact on the systems performance**
+**# These seems to be the most common Governor settings;**
+	**# **//performance //**= Run the CPU at maximum frequency **
+	**# **//powersave //**= Run the CPU at minimum frequency **
+	**# **//ondemand//** = Scales the frequency dynamically according to the current load**
 
-
-
-
+**# To activate a particular Governor, ex **//performance//
+$ cpupower frequency-set -g performance
 
 
 

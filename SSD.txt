@@ -7,27 +7,6 @@ Created søndag 23 oktober 2016
 
 **Some tools and configuration for Disk optimization. **
 
-===== HDparm =====
-**# Allows you to set spin down/up (power-saving) parameters for a disk. Also affects SSD disks.** 
-$ pacman -S hdparm
-
-**# You can get information about your disk with**
-$ hdparm -I /dev/sda
-
-**#** **Power Parameters **
-**#** //-B//** = the value, that will determine the parameter.** 
-**# The lower a value, the more aggressive power-saving (PS) is used. Aggressive PS tears on the disk.** 
-	1 - 127**		# allows spin down**
-	128 - 254**	# doesn't allow spin down**
-	255**			# disables the feature**
-	
-**#** **Set persistent configuration **
-**# Create a udev rule in** ///etc/udev/rules.d/50-hdparm.rules //**and add the following**
-{{{code: lang="texinfo" linenumbers="True"
-ACTION=="add", SUBSYSTEM=="block", KERNEL=="sda", RUN+="/usr/bin/hdparm -B 254 -S 0 /dev/sda"
-}}}
-
-	
 
 ===== I/O Top =====
 **# Follow what, and how often, an application writes to the disk.** 

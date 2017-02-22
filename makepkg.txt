@@ -1,0 +1,126 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-21T16:44:21+01:00
+
+====== makepkg ======
+Created Tuesday 21 February 2017
+
+**It is recommended not to use AUR-helpers (like Yaourt), but instead learn and understand how the process works. It should be a matter of 3 simple steps; Acquire the build files, Verify that it does not have malicious intend, and running **//makepkg -si//** which in return will download, resolve dependencies with **//pacman//**, compile and install it. **
+
+**A **//PKGBUILD//** should be available with the software you download. This file is basically just a Shell script defining the programs install instructions (either compiling or acquire files needed). When **//makepkg//** is invoked, it will leave these instructions in a binary format, which **//pacman//** can read and install.**
+
+**Mandatory variables in a **//PKGBUILD//** are;**
+	pkgname 
+	pkgver 
+	pkgrel
+	arch
+	
+**Also **//licens//** is typical defined - **//makepkg //**will throw an error if not set - though this is not mandatory. **
+
+**Make sure the **//base-devel//** package is installed. **
+
+
+===== Configuration =====
+**# A user specific configuration file is available for all of these configuration steps (Github) **
+**#** **and will be read from **//~/.makepkg.conf //**- this precedes the system configuration at **///etc/makepkg.conf//
+
+== tmpfs mount options ==
+**# It is important that **//tmpfs//** is not mounted with **//noexec//
+**# This is not a default setting (I think) but just to be sure, you can verify it with**
+$ findmnt --target /tmp
+
+**# If it is mounted with **//noexec//**, edit **///etc/fstab//** and define the mount options**
+**# If you already have a **///tmp//** line, edit this and correct the options, else create a new entry**
+{{{code: lang="texinfo" linenumbers="True"
+tmpfs   /tmp         tmpfs   rw,nodev,nosuid          0  0
+}}}
+
+
+== Enable compile in tmpfs ==
+**# Edit the configuration file **///etc/makepkg.conf //**and uncomment the **//BUILDDIR=/tmp/makepkg//** variable **
+
+== Multi-core optimization ==
+**# To specify the number of jobs that can run simultaneous (defined by the no. of cores available), **
+**#** **uncomment and change the **//MAKEFLAGS//** variable in **//makepkg.conf//
+{{{code: lang="texinfo" linenumbers="True"
+MAKEFLAGS="-j$(nproc)"
+}}}
+
+
+== Specify CPU architecture ==
+**# By default, makepkg will try and determine the architecture, but it is recommended to specify **
+**# it yourself. This will optimize programs for the specific architecture. **
+
+**# You can check your architecture with**
+$ gcc -c -Q -march=native --help=target | grep march
+
+**# And change the **//CFLAGS//** and **//CXXFLAGS//** variables in the **//makepkg.conf//
+**# **//Haswell//** was the architecture of my system.**
+{{{code: lang="texinfo" linenumbers="True"
+CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"
+CXXFLAGS="${CFLAGS}"
+}}}
+
+
+== 32bit packages on 64bit systems ==
+**# If you need the option to build 32bit packages, we have to install the 32bit compiler **
+**# Make sure the 32bit repository is enabled, otherwise you won't find this package**
+**# Answer yes to remove the current **//gcc//** package - the **//gcc-libs//** can handle both 32 and 64-bit**
+$ pacman -S multilib-devel
+
+**# Then create a file in **//~/.makepkg.i686.conf //**with the following **
+{{{code: lang="texinfo" linenumbers="True"
+CARCH="i686"
+CHOST="i686-unknown-linux-gnu"
+CFLAGS="-m32 -march=i686 -mtune=generic -O2 -pipe -fstack-protector-strong"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="-m32 -Wl,-O1,--sort-common,--as-needed,-z,relro"
+}}}
+
+
+**# And invoke **//makepkg//** for 32bit packages with the following**
+$ linux32 makepkg --config ~/.makepkg.i686.conf
+
+
+===== Installing Packages =====
+**# From acquiring to installing packages **
+**# A nice little tool to search the AUR is **//cower//** - This package does not come from the official **
+**# repository though. So, this is the software we'll be using as example on how to install unofficial **
+**# packages and in return it will leave us with easy and quick way to search AUR packages^**
+
+**# Packages can be found at **https://aur.archlinux.org
+**# A easy way of getting our packages is with Git **
+**# Ex, the git for **//cower//** can be found at **https://aur.archlinux.org/cower.git
+
+== Acquire build files ==
+**# Navigate to the build folder, clone the repository and navigate to the new folder**
+$ cd ~/makepkg/packages
+$ git clone https://aur.archlinux.org/cower.git
+$ cd cower 
+
+**# Alternative you can download a packages tarball and extract it **
+$ cd ~/makepkg/packages
+$ curl -L -O //https://aur.archlinux.org/cgit/aur.git/snapshot/<PACKAGE_NAME>.tar.gz
+$ tar -xvf //<PACKAGE_NAME>//.tar.gz
+$ cd //<NEW_FOLDER>//
+
+== Building the package ==
+**# It is important to go through the **//PKGBUILD//** and any **//.install//** files for malicious commands**
+$ less PKGBUILD
+$ less //<PACKAGE_NAME>//.install
+
+**# When you are satisfied, make the package**
+$ makepkg -sirc
+
+**# **//-s//** = automatically install dependencies. **
+**#	If the dependencies does not come from the official repository, **
+**#**	**you will have to install it manually first.**
+**# **//-i//** = Install the package if the build was successful.**
+**# **//-r//** = Remove build-time dependencies.**
+**# **//-c//** = Clean temporary build files.**
+
+**# With **//cower //**I actually got a PGP error, so we'll have to add his key first**
+$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+
+**# Then run the **//makepkg -sirc //**command again**
+**# Once a package has been installed, the cower folder can be removed again. Voila.**

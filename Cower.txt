@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-22T13:29:52+01:00
+
+====== Cower ======
+Created Wednesday 22 February 2017
+
+**Cower will search and download packages from the AUR, which will include the **//PKGBUILD//** that we can use with **//makepkg//**. Cower is installed in the **//makepkg//** article. **
+
+== Configuration ==
+**# Cower configuration file can be found at Github and is read from **//~/.config/cower/config//
+
+
+===== Usage =====
+**# Cower works quite a lot like Pacman. **
+
+== Searching ==
+**# Search packages (space separated list)**
+$ cower -s //<PACKAGE_NAME> <PACKAGE_NAME2>//
+
+**# Or get information about a package **
+$ cower -i //<PACKAGE_NAME>//
+
+== Packages and Updates ==
+**# My config (Github) will download all packages to **//~/makepkg/packages/// 
+**# To download a package **
+$ cower -d //<PACKAGE_NAME>//
+
+**# To check for Updates**
+$ cower -u
+
+**# You can also download updates by passing the **//-d//** flag along**
+$ cower -ud
+
+== Updates (or large amount of packages) ==
+**# Custom script and alias available to iterate through **//PKGBUILDS//** with the editor,**
+**# and a function that can bulk install the downloaded updates.**
+
+**# To view all the new **//PKGBUILDS//** in the **//Gvim//
+$ cownew
+
+**# Once you've gone through the PKGBUILDS, install them **
+$ cowup
+
+**# This can also be used if you just downloaded a lot of package from the AUR and would like**
+**# to bulk install em - meaning; that this is not update specific, but that will most likely have the **
+**# most use-cases. **

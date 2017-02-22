@@ -5,6 +5,8 @@ Creation-Date: 2016-10-23T13:12:22+02:00
 ====== Yaourt ======
 Created søndag 23 oktober 2016
 
+**You should probably try and use, learn and live by **//cower//** and **//makepkg//** steps instead. **
+
 == Installation ==
 **#** **Edit your pacman configuration file **///etc/pacman.conf //**and add the following repository** 
 {{{code: lang="texinfo" linenumbers="True"

@@ -1,33 +1,52 @@
 # Arch Cheat Sheet
 My local Arch Linux Cheat Sheet. <br />
-This Sheet is still a work in progress.
+This is still being activly worked on.
 
 This documentation has been created in [Zim Desktop Wiki](http://zim-wiki.org/).
 You can download the content of this repository, along with Zim, to have a local example.
 A live example can be found at [sloa.dk](http://sloa.dk.linux14.unoeuro-server.com/archCheat/Home.html). 
 
 A image preview gallery of the end result can be found [here](http://imgur.com/a/CwiW2). <br />
-I do apologize for this half-hearted attempt of a video, but here goes ¯\\_(ツ)_/¯
+I do apologize for this half-hearted attempt of a video, but here goes ¯\\\_(ツ)\_/¯ <br />
 <p align="center"><a href="http://www.youtube.com/watch?feature=player_embedded&v=svpvXU5f5Uo" target="_blank"><img src="https://raw.githubusercontent.com/Stickano/ArchCheatSheet/master/screenshot_play.png" alt="Youtube: System Preview" width="640" /></a></p>
 
 <br /><br />
 ## Good-to-know
-This will take you through the steps of getting a stable Arch installation and then further extend the systems functionality.
-It is not meant to teach you about the technologies, but rather meant as a reference point to quickly get pointers on installation, configuration and a somewhat loose explanation of the programs usability. 
 
-Coming from the typical Desktop Environments I have gotten quite acustomed to some of the general features you see in such Environments. This sheet is the documentation of my quest to try and mimic some of those feautres, that I felt was missing in my everyday workflow - but suited for my personal needs only. I'm pretty sure that somewhere along the way the KISS philosiphy was lost, so don't expect to much of that
+This will take you through the steps of getting a stable Arch installation and then further extend the systems functionality. It is not meant to teach you about the technologies, but rather meant as a reference point to quickly get pointers on installation, configuration and a somewhat loose explanation of the programs usability.
 
-This is based on my personal setup on a Asus UX32LN laptop. 
-This setup does not necessarily satisfy your needs, and there is no guarantees that the steps will work on your system. 
-<br /><br />
+This is based on my personal setup on a Asus UX32LN laptop. This setup does not necessarily satisfy your needs, and there is no guarantees that the steps will work on your system.
+
+#### What this is
+ This is my local Archlinux Cheat Sheet. <br />
+ It is a place to quickly reference for installation, configuration and some basic usage. 
+
+#### What this is not
+Don't expect to get wiser on the technologies used in this Sheet.<br />
+The explanation is often left out and only a quick, one-line note is followed with the steps.<br />
+This is - if I have to be honest - probably not even a good reference point. <br />
+I am by no mean a power user, so this Sheet is created of my best understandings and findings.<br />
+There isn't to much configuration in this Sheet - this has been done along the way and the <br />
+necessary configuration files can be found at my dotfile repository. 
+
+#### Why this sheet was made
+Coming from the typical Desktop Environments I have gotten quite acustomed to some of the general features you see in such Environments. This sheet is the documentation of my quest to try and mimic some of those feautres, that I felt was missing in my everyday workflow - but suited for my personal needs only. I'm pretty sure that somewhere along the way the KISS philosiphy was lost, so don't expect to much of that.
+
+#### What the focus is on
+ This setup is done on a Asus UX32NL Laptop.<br />
+ Everyday tasks - web, media etc - had to run smoothly.<br />
+ I do a little web-development, so there's some focus on that too. <br />
+ I like the idea of a somewhat secure system - but it has to manage itself.<br /> 
+ Fast, responsive and optimized for everyday use and work related tasks.<br />
+
 ###### Tip
 <dd>You might also be interested in my [dotfile repository](https://github.com/Stickano/dotfiles), where my configuration for these programs can be found. </dd>
 
-
-## Included in this Cheat Sheet (20.02.2017)
+<br /><br />
+## Included in this Cheat Sheet
 This sheet has been broken up in 18 major categories (so far at least).
 Some of the categories doesn't hold much information, whereas others will take a few hours to go through.
-Below you will find a rough overview of the configuration steps and additional packages.
+Below you will find a rough overview of what is being covered in this sheet. 
 
 * [**System Base**](#system-base) <br />
   * [Arch Installation](#arch-installation)
@@ -66,6 +85,7 @@ Below you will find a rough overview of the configuration steps and additional p
     * [sed](#sed)
   * [Service Manager](#service-manager) 
   * [Package Manager](#package-manager)
+  * [AUR Packages](#aur-packages)
   * [Desktop Entries](#desktop-entries)
   * [Kernel Modules](#kernel-modules)
   * [Mime Types](#mime-types)
@@ -95,9 +115,6 @@ Below you will find a rough overview of the configuration steps and additional p
 * [**Security**](#security) <br />
   * [Anti Virus](#anti-virus) 
   * [Firewall](#firewall)
-    * IPtables
-    * IPset
-    * Fail2Ban
   * [Password Manager](#password-manager) 
   * [Security Audit](#security-audith) 
   * [Secure Browsing](#browsing)
@@ -148,7 +165,7 @@ Below you will find a rough overview of the configuration steps and additional p
 
 <br /><br />
 ## System Base
-**The System Base is what I consider a absolute bare minimum.**
+The System Base is what I consider a absolute bare minimum.
 
 #### Arch Installation
   * On UEFI/GPT
@@ -184,9 +201,7 @@ Below you will find a rough overview of the configuration steps and additional p
   * Bumblebee
   
 #### AUR Support
-  * Yaourt
-    * Configuration
-    * Usage
+  * Getting familiar with makepkg and cower
     
 #### Window Manager
   * i3
@@ -333,6 +348,16 @@ Some tools you will commonly work with - and some not so commonly.
       * Writing Hooks
       * Useful Hooks
     * Troubleshoot
+    
+#### AUR Packages
+  * Makepkg
+    * Configuration
+    * Usage
+  * Cower
+    * Usage
+  * Yaourt
+    * Configuration
+    * Usage
 
 #### Desktop Entries
   * Manage Entries
@@ -584,7 +609,7 @@ We are closing in on that complete system. These are some of my favorite softwar
     * Usage
   
 #### Video Player
-  * Mplayer ***needs revisit***
+  * Mplayer 
     * Key Binds
     * Creating and Playing Playlists
     * Additional Options 
@@ -699,10 +724,10 @@ We should all try to protect ourself in this modern age.
     
 #### Currency
   * Monero
-  * Wallet (not monero specific, but hey)
-    * Creating
-    * Using
-  * Mining
+    * Wallet 
+      * Creating
+      * Using
+    * Mining
   
 <br /><br />
 ## Analysis

@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-23T13:00:47+01:00
+
+====== Backlight ======
+Created Thursday 23 February 2017
+
+**Xbacklight should already be installed - it is part of the **//xorg-server-utils//** package.  Xbacklight does not remember the brightness over boots though, so we will fix that with a different package that uses ACPI controls instead - which is something systemd can remember across boots. We'll also install a package to dim the brightness on inactivity - not turning of the display, just dimming it. **
+
+== Acpilight ==
+**# Acpilight will make sure Xbacklight uses ACPI instead**
+**# The **//xbacklight//** command stays - it is just an extended functionality**
+$ yaourt -S acpilight
+
+**# Put your user in the **//Video//** group**
+$ gpasswd --add stick video
+
+**# And create a file in **///etc/udev/rules.d/90-backlight.rules//** with the following **
+{{{code: lang="texinfo" linenumbers="True"
+SUBSYSTEM=="backlight", ACTION=="add", \
+  RUN+="/bin/chgrp video %S%p/brightness", \
+  RUN+="/bin/chmod g+w %S%p/brightness"
+}}}
+
+
+**# Effects will take place after the next reboot. **
+
+
+== Brightd ==
+**# Brightd will dim the screen on inactivity **
+$ yaourt -S brightd
+
+**# Brightd is included in my **//xinitrc //**and settings are set to 60sec**

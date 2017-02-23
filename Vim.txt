@@ -61,7 +61,8 @@ widget "vim-main-window.*GtkForm" style "vimfix"
 **# Some sweet plugins can be found at **http://vimawesome.com/
 
 **# Here is some of the favorites!**
-**# A nice and easy way to install plugins, is to navigate to the **//~/.vim/bundle//** folder and clone repositories **
+**# A nice and easy way to install plugins, is to navigate to the **//~/.vim/bundle//** folder **
+**#** **and clone the repositories **
 $ cd ~/.vim/bundle
 
 **# Solarized Color Scheme (sweet color scheme)**

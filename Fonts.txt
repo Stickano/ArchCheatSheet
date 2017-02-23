@@ -29,7 +29,7 @@ $ ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
 
 **# The same rules defined in **///etc/fonts/conf.avail///
 **# can also be defined in a user-configuration **//~/.config/fontconfig/fonts.conf//
-**# User-defined configuration at Github.**
+**# User-defined configuration can be found at Github.**
 **# When using the **//fonts.conf//** you should Symlink to **//50-user.conf//
 $ cd ~/.config/fontconfig/conf.d/
 $ ln -s /etc/fonts/conf.avail/50-user.conf

@@ -42,7 +42,7 @@ $ pkgfile -u
 $ systemctl enable pkgfile-update.timer
 
 **# Then add the following to the **//~/.zshrc//** file **
-**#** **(My configuration already includes this, just make sure to install the package and enable the service)**
+**#** **This is already incl. in my configuration. Just make sure the package is installed.**
 {{{code: lang="texinfo" linenumbers="True"
 source /usr/share/doc/pkgfile/command-not-found.zsh
 }}}
@@ -52,7 +52,8 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 **# To get a key-value, first hit **//Ctrl+v//** and then push the key (or key combo) to get its value**
 **# That value can be used in a **//bindkey//** variable to define its action, ex;**
 **# (Control+Delete to delete forward word) **//Ctrl+v  Ctrl+Delete //** outputs **//^[[3^//
-**# Then we define the action of that value in the our **//.zshrc //**(**//kill-word//** is the command to forward delete word)**
+**# Then we define the action of that value in the our **//.zshrc //
+**#** **( **//kill-word//** is the command to forward delete word)**
 {{{code: lang="texinfo" linenumbers="True"
 bindkey '^[[3^' kill-word
 }}}

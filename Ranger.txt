@@ -54,5 +54,6 @@ set colorscheme ColorScheme
 **# Run a clean instance (without the local **//~/.config/ranger/* //**configurations)**
 $ ranger --clean
 
-**# If this solves the issue - you can ex. do the **//Copy Default Configurations//** from above - or sort your own out**
+**# If this solves the issue - you can ex. do the **//Copy Default Configurations//** from above - **
+**#** **or sort your own out**
 

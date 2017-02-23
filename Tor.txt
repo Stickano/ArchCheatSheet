@@ -93,7 +93,7 @@ $ systemctl start tor.service
 **# If you want applications to run over tor, these are the settings needed;**
 	//SOCKS5//** 	# Connection Type**
 	//localhost	//**# Address**
-	//9050	//**# Port**
+	//9050	        //**# Port**
 
 
 == Using with Firefox ==

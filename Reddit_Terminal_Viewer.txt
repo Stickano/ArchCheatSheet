@@ -45,7 +45,7 @@ COMMAND firefox %s
 **# Then hit **//Enter//** to open the link in your browser^**
 
 == Navigate Sub Reddits ==
-**# Navigate Reddit (sub-reddits) with **/////
+**# Navigate Reddit (sub-reddits) with **/
 **# Ex, go to Arch Reddit **///r/archlinux//
 **# Or combine sub reddits **///r/archlinux+linux//
 

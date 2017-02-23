@@ -15,7 +15,7 @@ $ pacman -S lxappearance
 **# You can run **//lxappearance //**to get the GUI controls. **
 
 == Configuration ==
-**# Changing a font value in lxappearance (and apply) will generate a couple of configs for gtk-2 and gtk-3.**
+**# Changing a font value in lxappearance (and apply) will generate configurations for gtk-2 and gtk-3.**
 **# Find them in **//~/.gtkrc-2.0 //**and **//~/.config/gtk-3.0/settings.ini //**and change the content to your liking.**
 
 

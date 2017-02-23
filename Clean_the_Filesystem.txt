@@ -50,5 +50,6 @@ $ pacman -Qet            **# List installed packages (not dependencies)**
 
 == BeachBit ==
 **# BleachBit can help you clean the system by removing unwanted files. **
-**#** **Be careful though. I think this has caused issues for my **//Firefox//**, so I'd disable cleaning that when running.**
+**#** **Be careful though. I think this has caused issues for my **//Firefox//**, **
+**#** **so I'd disable cleaning that when running.**
 $ pacman -S bleachbit

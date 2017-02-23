@@ -101,7 +101,8 @@ $ profile-cleaner f
 
 ===== Troubleshoot =====
 **# This is a silly matter, that became of great annoyance to me. **
-**# I wanted to run two instances of Firefox on startup - One for browsing and one for the devel workspace**
+**# I wanted to run two instances of Firefox on startup - **
+**#** **One for browsing and one for the devel workspace**
 **# An error kept occurring thought, something like **//An instance of Firefox is already running yadada//
 **# My workaround became creating a different Profile for the second Firefox instance..**
 

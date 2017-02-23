@@ -80,13 +80,12 @@ done
 }}}
 
 
-
 ===== List of Keks =====
 **# Because why not?**
 {{{code: lang="texinfo" linenumbers="True"
 # Logs
 alias wtf='dmesg'
-alias onoz='cat /var/log/errors.log'
+
 
 # mkdir, rm, cp and mv
 alias icanhas='mkdir'
@@ -103,7 +102,7 @@ alias nomnom='killall'
 
 # reboot and shutdown
 alias cya='reboot'
-alias kthxbai='halt'
+alias kkthxbye='halt'
 }}}
 
 

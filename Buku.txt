@@ -29,13 +29,15 @@ $ ln -s /home/stick/Dropbox/buku/bookmarks.db /home/stick/.local/share/buku/
 
 
 ===== Usage =====
-**# Buku defines bookmarks by 3 key values; Title, Tags (category) and Comments (and the URL of course)**
+**# Buku defines bookmarks by 3 key values; Title, Tags (category) and Comments **
+**#** **(and the URL of course)**
 **# **//>  //**=** **title**
 **# **//+//**  = comment**
 **# **//# //** = tags (category)**
 
-== Rofi integration ==
-**# Easily Search and Add bookmark in Rofi like environment with **//Ctrl+Alt+b//
+== Easy Handling (Rofi integration a.a.) ==
+**# To easily add a link, Copy it (**//Ctrl+c//**) and hit **//Alt+b//
+**# Easily Search bookmark in Rofi like environment with **//Ctrl+Alt+b//
 
 
 ==== Listing Bookmarks ====

@@ -16,6 +16,17 @@ $ w
 $ whoami
 
 
+==== User Directories ====
+**# To create the typical directories - Desktop, Document, Download etc.**
+**#** **This can easily be done with **//xdg-user-dirs//
+$ pacman -S xdg-user-dirs
+
+**# Then create the directories**
+$ xdg-user-dirs-update
+
+**# To change the default directories, you can edit **//~/.config/user-dirs.dirs//
+
+
 ==== User management ====
 **#** **To see all users : **sudo passwd -Sa
 **#** **Getting UID's : **id -u //<USER_NAME>//
@@ -77,7 +88,7 @@ games               **# access to some game software**
 http                  **# access to files served by the HTTP server**
 log                   **# access to logs in **///var/log/// 	
 rfkill                 **# access to control wireless power (TX-power)**
-sys                   **# access to administor printers**
+sys                   **# access to administrate printers**
 users                **# standard user group**
 uucp                 **# RS-232 ports and their connected devices (old keyboard, printer, mouses etc)**
 wheel               **# administration group commonly used to give access to **//sudo/su//** none is set by default**

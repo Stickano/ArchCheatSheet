@@ -13,7 +13,7 @@ Created Sunday 12 February 2017
 $ pacman -S irssi
 
 == Desktop Notifications ==
-**# From the AUR.**
+**# This requires **//notify-listener//** is running in the background (**//xinitrc//**)**
 $ yaourt -S irssi-libnotify-git
 
 **# Create the **//scripts/autorun //**folder, if it doesn't already exist; **//~/.irssi/scripts/autorun//
@@ -104,7 +104,6 @@ $ ln -s /home/stick/.irssi/scripts/ascii.pl /home/stick/.irssi/scripts/autorun/
 **# Create a split window with the name of **//hilight//
 	/window new split
 	/window name hilight
-	
 
 == Nicklist ==
 **# To get a nickname list.**
@@ -128,7 +127,6 @@ $ ln -s /home/stick/.irssi/scripts/ascii.pl /home/stick/.irssi/scripts/autorun/
 	/sbar prompt add -before input -priority 100 -alignment left twprompt
 	/toggle twprompt_instruct
 	/save
-
 
 == ROT13 encode/decode ==
 **# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/rot13.pl

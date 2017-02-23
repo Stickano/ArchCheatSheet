@@ -27,9 +27,9 @@ $ netctl stop //<PROFILE_NAME>//
 $ netctl reenable //<PROFILE_NAME>//
 
 ==== Automatic Connection on System Logon ====
-# **The **//wpa_actiond//** packages is actually for automatically switching profiles**
-#** when moving from on saved hotspot to another saved hotspot.**
-# **This package can also be used to automatically connect to a profile when logging on though.**
+**#** **The **//wpa_actiond//** packages is actually for automatically switching profiles**
+**# when moving from on saved hotspot to another saved hotspot.**
+**#** **This package can also be used to automatically connect to a profile when logging on though.**
 
 **#** **Install the **//wpa_actiond//** package **
 $ pacman -S wpa_actiond
@@ -62,7 +62,7 @@ ExcludeAuto=yes
 **# Some random Tips and Tricks**
 
 == Ethernet cable hotplug ==
-**#** **You can bring a device up/down upon ethernet cable insertion/removal with the **//ifplugd//**	package**
+**#** **You can bring a device up/down upon ethernet cable insertion/removal with the **//ifplugd   //**package**
 $ pacman -S ifplugd
 
 **#** //Ifplugd//** default configuration file can be found at **///etc/ifplugd/ifplugd.conf	//

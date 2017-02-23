@@ -49,8 +49,9 @@ $ mimeo --add video/webm mplayer.desktop
 $ mimeo --add text/plain gvim.desktop  
 $ mimeo --add application/pdf mupdf.desktop
 
-**# Devel; Sublime/html/php/css/javascript**
+**# Devel; Sublime/html/php/css/javascript/markdown**
 $ mimeo --add text/html sublime_text_3.desktop
 $ mimeo --add application/x-php sublime_text_3.desktop     
 $ mimeo --add text/css sublime_text_3.desktop            
 $ mimeo --add application/javascript sublime_text_3.desktop     
+$ mimeo --add text/markdown sublime_text_3.desktop       

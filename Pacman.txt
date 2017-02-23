@@ -14,12 +14,8 @@ Created søndag 23 oktober 2016
 
 == Skip package from being upgraded ==
 **# Add packages to the** IgnorePkg= **option. **
-**#** **Additional packages can be added with a space-seperated list.**
+**#** **Additional packages can be added with a space-separated list.**
 **# The same can be done for a group (Gnome ex.) with the** //IgnoreGroup=// **option.**
-
-== Error suppression ==
-**# Pacman will report an error when locales are missing. **
-**# Suppress this error by commenting the** //CheckSpace// **option.**
 
 == 32-bit libraries (multilib) ==
 **# Uncomment the multilib repository for 32-bit supported packages (Steam ex.)**
@@ -100,8 +96,8 @@ $ yaourt -S pacolog
 $ pacolog //<PACKAGE_NAME>//
 
 == Save a list of installed packages ==
-**# You can save a list of installed packages and speed up installation of same packages on a fresh install. **
-**# Create a list **
+**# You can save a list of installed packages and speed up installation of same packages **
+**#** **on a fresh install. Create a list with **
 $ pacman -Qqen > pkglist.txt
 
 **# To install the packages from the newly created list** 

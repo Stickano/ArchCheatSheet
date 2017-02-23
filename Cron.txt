@@ -18,8 +18,8 @@ $ gpasswd --add stick users
 
 
 ===== Usage =====
-**# If you installed **//SSMTP//** as explained in **//Terminal (+shell)//**, you will be notified when a job has been run**
-**# Cron can be used in two ways - either you place executable Shell scripts in one of the job folder**
+**# If you installed **//SSMTP//** in the previous step, you will be notified when a job has been run**
+**# Cron can be used in two ways - place executable Shell scripts in one of the job folders.**
 **# This will execute the file in the appropriate time according to which folder the script is located**
 **# Places for Shell executable **
 	** # **///etc/cron.hourly//

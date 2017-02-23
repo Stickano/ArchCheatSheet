@@ -32,7 +32,7 @@ $ chmod g=	~/Documents            **# no access for group (empty space means no 
 	[group] : r-x = 4+0+1 = 5
 	[other] : r-x = 4+0+1 = 5
 
-**# Would be produce as**
+**# Would be produced as**
 $ chmod 755 //<FILE_NAME>//
 
 == Bulk chmod ==

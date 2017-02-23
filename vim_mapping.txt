@@ -75,7 +75,7 @@ Created Saturday 07 January 2017
 **# You can navigate to a parenthesis and hit **//%//** to jump to the opening/closing parenthesis. **
 
 == Navigating Lines ==
-**# You can specify the number of lines to jump by entering a numeric value before using the arrow-keys**
+**# You can specify the number of lines to jump by entering a numeric value before moving**
 **# Etc. type **//40//** then press arrow-down, tell Vim to jump down 40 lines.**
 
 == Navigation ==

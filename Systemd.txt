@@ -7,15 +7,15 @@ Created lørdag 22 oktober 2016
 
 **systemd manages system units **//.sockets .service .mount //**and**// .device  //**files.**
 
-**List running units : **systemctl
-**Failed units : **systemctl --failed
-**Start unit : **systemctl start //unit//
-**Stop unit : **systemctl stop //unit//
-**Restart unit : **systemctl restart //unit//
-**Unit status : **systemctl status //unit//
-**Enable a unit on boot : **systemctl enable //unit//
-**Disable a unit on boot : **systemctl disable //unit//
-**See if is enabled or not : **systemctl is-enabled //unit//
+**#** **List running units : **systemctl
+**#** **Failed units : **systemctl --failed
+**#** **Start unit : **systemctl start //unit//
+**#** **Stop unit : **systemctl stop //unit//
+**#** **Restart unit : **systemctl restart //unit//
+**#** **Unit status : **systemctl status //unit//
+**#** **Enable a unit on boot : **systemctl enable //unit//
+**#** **Disable a unit on boot : **systemctl disable //unit//
+**#** **See if is enabled or not : **systemctl is-enabled //unit//
 
 == Tips and Tricks ==
 **#** **GUI tool for systemd **

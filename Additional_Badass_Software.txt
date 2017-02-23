@@ -26,7 +26,7 @@ $ mupdf -p 225 ///path/to/pdf//
 
 **# Binds;**
 	**# **//Ctrl+Scroll//** to zoom**
-	**# **/////** = (slash) to start a search**
+	**# **/** = (slash) to start a search**
 	**# **//n//** = find next place for searched word**
 	**# **//N//** = find previous place for searched word**
 	**# **//[ ]//** = rotate clock/counter-clockwise **

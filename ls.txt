@@ -16,8 +16,8 @@ drwxr-xr-x  6 stick stick 4096 16.10.2016 10:02 Downloads/
 etc.
 
 **# The **//drwxr-xr-x//** is the **//file-type//** and the **//permissions//**, followed by the **//user//** and **//group//**.** 
-	**[file type]     [owner]    [group]     [others]    user     group**
-			d               rwx           r-x             r-x        stick      stick
+	**[file type]     [user]    [group]     [others]    user     group**
+		 d             rwx           r-x             r-x        stick      stick
 
 
 == File types ==
@@ -29,7 +29,7 @@ $ info ls -n "What information is listed"
 ( l ) **= symbolic** 
 
 == Permissions ==
-**# Each owner, group and other has 3 characters that defines their permissions,** rwx **etc.**
+**# Each user, group and other has 3 characters that defines their permissions,** rwx **etc.**
 |                 |                        |                     |
 |:----------------|:-----------------------|:--------------------|
 | First letter :  | - = cannot be read,    | r = read access     |

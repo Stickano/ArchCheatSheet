@@ -31,6 +31,8 @@ $ yaourt -S hunspell-da
 **# There's some issues with external programs opening links to Firefox - Already running issue**
 **# To force new links to open in a tab, Search for **//browser.link.open_newwindow.override.external //**and specify **//3//
 
+**# To keep the tabs in Fullscreen mode; Search for **//browser.fullscreen.autohide//** and specify **//false//
+
 **# Recommended header control settings;**
 	**# Search for **//network.http.sendRefererHeader//** and specify **//1//
 	**# Search for **//network.http.referer.XOriginPolicy //**and specify **//1// 
@@ -56,6 +58,16 @@ $ yaourt -S hunspell-da
 	
 **# Piss annoying feature (on touchpad at least) is the load url on middle-click thingy**
 	**# Search for **//middlemouse.contentLoadURL//** and specify **//false//
+	
+== Remove Window Controls (min/max/close) ==
+**# In fullscreen mode, these buttons will magically appear..**
+**# To get rid of them, we'll have to create a file in the firefox profile folder.**
+**# Create a file in **//~/.mozilla/firefox/<RANDOM_STRING>.default/chrome/userChrome.css//
+**# Note that the folder probably need to be created as well^**
+**# Use this setting**
+{{{code: lang="texinfo" linenumbers="True"
+#window-controls { display:none!important; }
+}}}
 
 
 == Preferred Addons ==
@@ -70,7 +82,6 @@ $ yaourt -S hunspell-da
 **# Nice Tweaks**
 	**# **//Disable Ctrl-Q Shortcut//**; I've hit that key-combo once to many..**
 	
-
 
 == Netflix, Viaplay etc ==
 **# Install the **//User Agent Switcher //**addon**

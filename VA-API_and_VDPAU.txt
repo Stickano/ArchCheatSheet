@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-23T19:05:19+01:00
+
+====== VA-API and VDPAU ======
+Created Thursday 23 February 2017
+
+**VA-API and VDPAU makes is possible for video cards to decode/encode video and thus offloade some workforce from the CPU. It says that it will therefore save power (by offloading to CPU) but I do seriously doubt that, since it'll just bring an even more power-demanding device into play.**
+
+**VA-API is for the Intel Driver and VDPAU is for the Nvidia driver.**
+
+== Installation ==
+**# This uses VDPAU as backend for VA-API**
+$ pacman -S libva-vdpau-driver
+
+**# These two packages will make VA-API work as backend for VDPAU**
+$ pacman -S libvdpau-va-gl libva-intel-driver
+
+== Verifying ==
+**# To verify VA-API, install **//libva//
+$ pacman -S libva
+
+**# and run **
+$ vainfo
+
+**# You should get something like below, a driver has been found is it should handle the rest itself**
+	vainfo: Driver version: Intel i965 driver ....
+	
+**# To verify VDPAU, install **//vdpauinfo//
+$ pacman -S vdpauinfo
+
+**# and run**
+$ vdpauinfo
+
+**# You should have something like this in the output**
+	Information string: OpenGL/VAAPI backend for VDPAU
+	

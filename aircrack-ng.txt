@@ -1,0 +1,74 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-25T16:02:56+01:00
+
+====== aircrack-ng ======
+Created Saturday 25 February 2017
+
+**Aircrack-ng is one of the more common tools in any offensive arsenal. In this article we'll assume that the network device we'll be working with is called **//wifi1 //**   (see Alpha-AWUS036H for more info on naming)**
+
+== Installation ==
+$ pacman -S aircrack-ng
+
+
+===== Usage =====
+**# Aircrack-ng comes with a variety of tools. **
+**#** **Below is some core information a couple of basic examples for some of these tools.**
+
+== Airmon-ng ==
+**# This tool is used to put our network device into promiscuous mode. **
+**#** **Read the **//Alpha-AWUS036H//** for an alternative method.**
+**# To put our device into monitor (promiscuous) mode**
+$ airmon-ng start wifi1
+
+**# Take notice of the output. It will change the name of the device. Ex, from **//wifi1//** to**// wifi1mon//
+
+
+== Airodump-ng ==
+**# Used to capture packets. Use it with the monitor device you just set up (**//airmon-ng//**)**
+$ airodump-ng wifi1mon
+
+**# What we are most interested in is the **//BSSID//** and the **//Channel//
+**# We can then narrow down our monitor (look for handshake) to a specific BSSID**
+**# The **//--write//** is the file that Airodump-ng will output to, which we can later review for Handshakes.**
+$ airodump-ng wifi1mon --bssid //<BSSID_ADDRESS>// --channel //<CHANNEL_NO> //--write //<FILE_NAME>//
+
+
+== Aireplay-ng ==
+**# Is a powerful tool in the Aircrack suite. It is used for a couple of purposes, f.ex. to Deauth people**
+**# from a network. It is also used for ARP injections, WEP and WPA2 password attacks and replay attacks.**
+**# Aireplay-ng can read **//pcap//** files, which we a.a. can generate with **//Wireshark//
+
+**# To Deauth a specific person on the network, obtain hes MAC (**//airodump//**) and run the following**
+$ aireplay-ng --deauth 1 -a //<CLIENT_MAC_ADDRESS>// wifi1mon
+
+**# To Deauth everyone on a network (For capturing reconnects/handshakes)**
+$ aireplay-ng --deauth 100 -a //<AP_MAC_ADDRESS> //wifi1mon
+
+
+== Aircrack-ng ==
+**# Is the main tool in the Suite. It is used to crack passwords statically for WEP or dictionary cracks**
+**# on WPA2 once the handshake is captured. **
+**# Password lists (wordlist) can be found here; **https://wiki.skullsecurity.org/Passwords
+
+**# Once you have a handshake, try and crack a password with (dictionary)**
+$ aircrack-ng //path/to/cap/file// -w ///path/to/wordlist//
+
+
+== Airdecap-ng ==
+**# Is used to decrypt the traffic on a network. Once we have the password we are able to decrypt**
+**# everyone's traffic to the Access Point. **
+
+
+== Airtun-ng ==
+**# Is tools to set up a virtual tunnel that will monitor specified packages on a network and connects**
+**# to an IDE (like Snort) that can alert us. **
+
+
+== Airolib-ng ==
+**# Stores or manages ESSID and password lists that will help us speed up WPA/WPA2 password cracking.**
+
+
+== Airbase-ng ==
+**# Is used to turn our system into a AP - for tricking clients into associating with our machine instead**
+**# of the real AP.**

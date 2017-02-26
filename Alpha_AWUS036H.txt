@@ -1,0 +1,65 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-25T03:28:23+01:00
+
+====== Alpha AWUS036H ======
+Created Saturday 25 February 2017
+
+**The Alpha AWUS036H, using the RTL8187L chipset, works out the box - but we are gonna tweak it a little for our needs.**
+
+== Starting the Device ==
+**# The device dosen't power up itself once plugged in. Power it up with**
+**# Get the device name with**
+$ iwconfig
+**# OR**
+$ ip link
+
+**# In my example the card was named **//wlp0s20u2//
+$ ip link set wlp0s20u2 up              
+
+== Driver ==
+**# We'll need a patched version of the driver**
+$ yaourt -S backports-patches-git
+
+== Promiscuous Mode ==
+**# To have our monitors catch all packages, we'll need to put it in promiscuous mode**
+**# Create a file in **///etc/systemd/system/promiscuous@.service //**with the following**
+{{{code: lang="texinfo" linenumbers="True"
+[Unit]
+Description=Set %i interface in promiscuous mode
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ip link set dev %i promisc on
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+}}}
+
+
+**# Then you can Enable Promiscuous Mode for a specific card with (Change accordingly)**
+**# FIRST down the device (up it again when the service is started)**
+$ ip link set wlp0s20u down
+
+**# Then start the service**
+$ systemctl start promiscuous@wlp0s20u3.service
+
+**# If you have the **//aircrack-ng//** suite installed, this can also easily be done with**
+$ airmon-ng start wlp0s20u
+
+== Change name of Device ==
+**# The **//wlp0s20u3//** might be an annoying name to remember. Below will take affect after a reboot.**
+**# To change it, first get the MAC-address of the device (change **//wlp0s20u2//** accordingly)**
+$ cat /sys/class/net/wlp0s20u2/address 
+
+**# Create a file in **///etc/udev/rules.d/10-network.rules//** with the following (Change the MAC accordingly) **
+{{{code: lang="texinfo" linenumbers="True"
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="wifi1"
+}}}
+
+
+**# It is recommended not to use names like **//wlan//** and **//eth//** - since my devices is called **//wlp//** I assume**
+**# it counts for that default names as well. Therefore, our new device will be named **//wifi1//
+

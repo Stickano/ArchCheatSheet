@@ -25,9 +25,3 @@ SUBSYSTEM=="backlight", ACTION=="add", \
 
 **# Effects will take place after the next reboot. **
 
-
-== Brightd ==
-**# Brightd will dim the screen on inactivity **
-$ yaourt -S brightd
-
-**# Brightd is included in my **//xinitrc //**and settings are set to 60sec**

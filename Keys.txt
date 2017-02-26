@@ -5,7 +5,7 @@ Creation-Date: 2016-11-22T23:38:53+01:00
 ====== Keys ======
 Created tirsdag 22 november 2016
 
-**SSH Keys are used instead of passwords - an fast authentication. **
+**SSH Keys are used instead of passwords - a fast authentication. **
 
 == A quick info ==
 **SSH keys are generated in pairs - one public and one private. Share the public key all you want, but safeguard the private key. **

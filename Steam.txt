@@ -15,9 +15,10 @@ $ pacman -S steam lib32-curl lib32-libgpg-error steam-native-runtime
 
 ===== Configuration =====
 **# Steam allows you to use custom commands when launching games**
-**# From your Steam Library, right click any game and select Properties - From here, Set the Launch Options**
+**# From your Steam Library, right click any game and select Properties to set the the Launch Options.**
 **# Steam replaces **//%command%//** with the game-launch command**
-**# Below is a couple of Launch Options examples (**//Game Library > Right Click Game > Options > Set Launch Options//**)**
+**# Below is a couple of Launch Options examples **
+**#** **(**//Game Library > Right Click Game > Options > Set Launch Options//**)**
 
 == 64-bit Games ==
 **# To use the Nvidia driver (optirun) on a 64b game, set this launch option**

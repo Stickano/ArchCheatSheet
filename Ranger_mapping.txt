@@ -21,8 +21,12 @@ Created Thursday 12 January 2017
 **# In order to extract you have to copy (**//yy//**) a compressed - or multiple - file(s)**
 **# Then navigate to the place you want the file(s) extracted, and use the command **//:extracthere//
 
+
 ===== Commands =====
 **# Commands are accessed by hitting : (colon), then typing the wanted command**
+
+== Create Directory ==
+**# As simple as typing **//:mkdir <DIR_NAME>// 
 
 == Compression ==
 **# Highlight the files you'd like to compress and type**// :compress <FILE_NAME>.<EXT>//
@@ -31,7 +35,6 @@ Created Thursday 12 January 2017
 	**# **//.tar.gz//
 	**# **//.rar//
 	**# **//.7z//
-
 
 == Metadata ==
 **# You can leave comments (metadata) on a file (Ranger specific) with **//:meta <KEY> <VALUE>//
@@ -52,6 +55,7 @@ Created Thursday 12 January 2017
 	**# **//metaauthor //**= Show the metadata key **//author//
 	**# **//metayear//** = Show the metadata key **//year//
 	**# **//metacomment //**= show the metadata key **//comment//
+
 
 == Directory Flattening ==
 **# **//N//** = number of subfolders to dig into**

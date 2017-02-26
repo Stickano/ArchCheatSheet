@@ -85,7 +85,7 @@ ChallengeResponseAuthentication no
 **# The public key, from the client, will have to be located on the server machine.**
 **# Say our clients public SSH key is located on our servers home folder **//~///<somekey>//.pub//
 
-**# Create, if it doesn't already exists, a folder at **//.ssh//
+**# Create, if it doesn't already exists, a folder at **//~/.ssh//
 $ mkdir ~/.ssh
 $ chmod 700 ~/.ssh
 
@@ -102,7 +102,7 @@ $ chmod 600 ~/.ssh/authorized_keys
 
 == The easy way ==
 **#** **just starting the daemon to constantly be running (preferred option below)**
-**# This method might come in handy if you have several (maybe unknown) IP-adresses connecting**
+**# This method might come in handy if you have several (maybe unknown) IPs connecting**
 $ systemctl enable sshd.service		**# Note the preferred option below!**
 
 == The preferred way ==

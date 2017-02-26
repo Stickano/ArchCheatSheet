@@ -35,7 +35,7 @@ $ netctl reenable //<PROFILE_NAME>//
 $ pacman -S wpa_actiond
 
 **#** **Enable with systemd **
-$ netctl-auto@wlp2s0.service          **# You can get your device name with** //iw dev//
+$ systemctl enable netctl-auto@wlp2s0.service          **# You can get your device name with** //iw dev//
 
 **# To reconnect a network, restart the service**
 $ systemctl restart netctl-auto@wlp2s0.service

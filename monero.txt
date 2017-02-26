@@ -53,8 +53,7 @@ $ balance
 **# To send money**
 $ transfer //<address> <amount>//
 
-
-===== Mining =====
+== Mining ==
 **# To mine monero coins you'll have to mine with a pool. **
 **# To first monero mining pools seems to have a 100% donation rate, which is nice.**
 **# They take a little higher fee though (1.9%), but it goes to a good cause I guess.**

@@ -124,3 +124,7 @@ $ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 
 **# Then run the **//makepkg -sirc //**command again**
 **# Once a package has been installed, the cower folder can be removed again. Voila.**
+
+== Removing Packages ==
+**# Can be done with pacman^**
+$ pacman -Rs //<PACKAGE_NAME>//

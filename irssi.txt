@@ -58,11 +58,8 @@ $ systemctl enable tmux@stick.service
 **# You are also able to save the layout (window arrangement, split windows etc)**
 	/layout save
 
-
 == Themes ==
 **# Theme library at **https://irssi-import.github.io/themes/
-**# A nice theme is **//xchat2//
-
 **# Themes can be stored in **//~/.irssi//
 **# Then load them with**
 	/set theme //<THEME_NAME>.theme//
@@ -70,6 +67,29 @@ $ systemctl enable tmux@stick.service
 **# Don't forget to save if you want it be persistent **
 	/save
 	
+== SSL Connection (Freenode) ==
+**# Freenode uses a different port for SSL, open irssi and specify it**
+	/server add -auto -ssl -ssl_verify -ssl_capath /etc/ssl/certs -network freenode -port 6697 chat.freenode.net
+	
+**# Then create a certificate that is valid for 730 days **
+**# This will take you through a few steps - you don't have to fill em out. **
+$ openssl req -newkey rsa:2048 -days 730 -x509 -keyout irssi.key -out irssi.crt -nodes 
+$ cat irssi.crt irssi.key > ~/.irssi/irssi.pem
+$ chmod 600 ~/.irssi/irssi.pem
+$ rm irssi.crt irssi.key
+
+**# To get your fingerprint (used in next step)**
+$ openssl x509 -sha1 -fingerprint -noout -in ~/.irssi/irssi.pem | sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
+	
+**# In irssi, disconnect and add the certificate **
+	/disconnect Freenode
+	/server add -ssl_cert ~/.irssi/irssi.pem -network freenode chat.freenode.net 6697
+	
+**# and connect back to Freenode again**
+	/connect Freenode
+	/msg NickServ identify YOUR_PASSWORD
+	/msg NickServ cert add YOUR_FINGERPRINT
+
 
 ===== Scripts =====
 **# Scripts can be added to **//~/.irssi/scripts//
@@ -105,6 +125,7 @@ $ ln -s /home/stick/.irssi/scripts/ascii.pl /home/stick/.irssi/scripts/autorun/
 	/window new split
 	/window name hilight
 
+
 == Nicklist ==
 **# To get a nickname list.**
 **# Run **//irssi//** inside a **//Tmux//** terminal-window. **
@@ -128,12 +149,12 @@ $ ln -s /home/stick/.irssi/scripts/ascii.pl /home/stick/.irssi/scripts/autorun/
 	/toggle twprompt_instruct
 	/save
 
+
 == ROT13 encode/decode ==
 **# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/rot13.pl
 **# Use with;**
 	/rot13 //<MESSAGE>//
 	/unrot13 //<MESSAGE>//
-
 
 == Print System info ==
 **# **https://github.com/irssi/scripts.irssi.org/blob/master/scripts/sysinfo_dg.pl

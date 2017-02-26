@@ -27,7 +27,7 @@ Created lørdag 22 oktober 2016
 **4 ) Define some privileges for our newly created user**
 	[[sudo]]
 
-**4.5 ) Consider installing Git and cloning Dotfile and CheatSheet repository**
+**4.5 ) Consider installing **//Git//** and cloning Dotfile and CheatSheet repository**
 	Make it a matter of copypasta!
 		
 **5 ) Enable 32bit support **
@@ -72,6 +72,9 @@ Created lørdag 22 oktober 2016
 **# Keyboard **
 	[[Fn-key]] 
 
+**# Network**
+	[[Alpha_AWUS036H]] 
+
 **# Bluetooth**
 	[[Bluez]] 
 
@@ -96,6 +99,9 @@ Created lørdag 22 oktober 2016
 
 **# Browser Performance**
 	[[PSD_and_ASD]]
+	
+**# Video Acceleration**
+	[[VA-API_and_VDPAU]] 
 
 **# Hardware Specific **
 	[[SSD]] 
@@ -360,6 +366,13 @@ Created lørdag 22 oktober 2016
 
 **# Network Packet Monitor**
 	[[wireshark]] 
+	
+	
+===== Pentest =====
+**# A few offensive tools and pointers.**
+
+**# The suite of all suites **
+	[[aircrack-ng]] 
 
 
 ===== Key Binds =====
@@ -367,7 +380,7 @@ Created lørdag 22 oktober 2016
 **# Hope it was manageable. Bare in mind, that his was not actually meant to teach you**
 **# the technical stuff, but rather how to quickly install, configure and a quick scope of it capabilities. **
 **# At this point, I would suggest you to trim down all this nonsense text. Get a better overview. **
-**# Thanks for reading though - and once again, happy tinkering^**
+**# Happy Tinkering!**
 
 **# Phew, that sure was a lot of configuration. At this point we've already forgot what we are**
 **# capable of. Good thing this section is a throwback section - covering only the most necessary **

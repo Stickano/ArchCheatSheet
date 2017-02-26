@@ -11,7 +11,7 @@ Created onsdag 23 november 2016
 
 **When signing files it's vice versa. You sign with your private key and others can verify with your public key.**
 
-**# In below examples a document called **//doc//** will be used as example file to encrypt/decrypt.**
+**In below examples a document called **//doc//** will be used as example file to encrypt/decrypt.**
 
 ===== Installation and Setup =====
 **# Install the **//gnupg//** package**

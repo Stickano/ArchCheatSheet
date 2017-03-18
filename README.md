@@ -64,13 +64,12 @@ Below you will find a rough overview of what is being covered in this sheet.
 * [**Extended System Functionality**](#extended-system-functionality) <br />
   * [Login](#login)
   * [External Devices](#external-devices)
-  * [Display Power Management](#display-power-management)
+  * [Display](#display)
   * [Keyboard](#keyboard)
   * [Bluetooth](#bluetooth)
   * [Sound](#sound)
   * [Scheduled Jobs](#scheduled-jobs) 
-  * [Email Notifications](#email-notifications)
-  * [Desktop Notifications](#desktop-notifications)
+  * [Notifications](#notifications)
   * [Additional Packages](#additional-useful-software)
 * [**Performance Improvements**](#performance-improvements) <br />
   * [Browser Performance](#browser-performance) 
@@ -235,9 +234,13 @@ This section extends the systems functionality and is still considered pretty ba
   * Auto mount external devices
   * NTFS and FAT support
   
-#### Display Power Management
-  * Xset
-    * Usage
+#### Display
+  * Display Power Management
+    * Xset
+      * Usage
+  * Backlight
+    * acpilight
+    * lightd
   
 #### Keyboard
   * Fn-Key
@@ -268,13 +271,11 @@ This section extends the systems functionality and is still considered pretty ba
     * Usage
     * Examples
   
-#### Email Notifications
-  * SSMTP
+#### Notifications
+  * SSMTP (Email)
     * Configuration
     * Usage
-  
-#### Desktop Notifications
-  * Dunst
+  * Dunst (Desktop)
     * Usage
     * Creating Notifications
 
@@ -291,8 +292,6 @@ Reducing weardown and improving the system in general.
     * Configuration
   
 #### SSD
-  * HDparm
-    * Configuration
   * I/O Top
   * Smartmontools
     * Usage
@@ -301,7 +300,6 @@ Reducing weardown and improving the system in general.
   * TRIM
   * FStab atime
   * Swappiness
-  * Zswap
 
 #### CPU
   * Thermald

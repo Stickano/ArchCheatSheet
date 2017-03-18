@@ -88,6 +88,9 @@ Created lørdag 22 oktober 2016
 **# Scheduled Jobs - used by some packages throughout **
 	[[Cron]] 
 	
+**# Dual Booting**
+	[[:Windows]] 
+	
 **# Check these out too!**
 	[[Additional_rather_useful_software]] 
 
@@ -200,7 +203,7 @@ Created lørdag 22 oktober 2016
 	[[journalctl]] 
 
 
-===== Terminal (+shell) =====
+===== Shell and Terminal =====
 **# Now let us begin with some of the fun stuff. I find myself staring in a terminal window**
 **# quite often. Such a wonderful (and powerful) tool needs a little extra caress^**
 
@@ -208,7 +211,7 @@ Created lørdag 22 oktober 2016
 	[[Aliases]]
 	[[Functions]]
 
-**# Zsh Shell** 
+**# Shell** 
 	[[Zsh]] 
 
 **# Terminal **
@@ -310,7 +313,8 @@ Created lørdag 22 oktober 2016
 	[[Git]] 
 
 **# Development IDE**
-	[[Sublime]] 
+	[[Sublime]]
+	[[MonoDevelopment]]  
 	
 **# Apache, MySQL and PHP**
 	[[LAMP]]
@@ -368,6 +372,7 @@ Created lørdag 22 oktober 2016
 	[[wireshark]] 
 	
 	
+
 ===== Pentest =====
 **# A few offensive tools and pointers.**
 

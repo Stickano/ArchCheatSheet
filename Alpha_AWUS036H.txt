@@ -39,27 +39,5 @@ WantedBy=multi-user.target
 }}}
 
 
-**# Then you can Enable Promiscuous Mode for a specific card with (Change accordingly)**
-**# FIRST down the device (up it again when the service is started)**
-$ ip link set wlp0s20u down
-
-**# Then start the service**
+**# Then you can Enable/Start Promiscuous Mode for a specific card (Change accordingly)**
 $ systemctl start promiscuous@wlp0s20u3.service
-
-**# If you have the **//aircrack-ng//** suite installed, this can also easily be done with**
-$ airmon-ng start wlp0s20u
-
-== Change name of Device ==
-**# The **//wlp0s20u3//** might be an annoying name to remember. Below will take affect after a reboot.**
-**# To change it, first get the MAC-address of the device (change **//wlp0s20u2//** accordingly)**
-$ cat /sys/class/net/wlp0s20u2/address 
-
-**# Create a file in **///etc/udev/rules.d/10-network.rules//** with the following (Change the MAC accordingly) **
-{{{code: lang="texinfo" linenumbers="True"
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="wifi1"
-}}}
-
-
-**# It is recommended not to use names like **//wlan//** and **//eth//** - since my devices is called **//wlp//** I assume**
-**# it counts for that default names as well. Therefore, our new device will be named **//wifi1//
-

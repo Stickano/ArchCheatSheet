@@ -183,7 +183,7 @@ Exec = /bin/sync
  
 
 ===== Troubleshoot =====
-**# A few troubleshoot examples from the Arch Wiki**
+**# A few troubleshoot examples **
 
 == "Failed to commit transaction (conflicting files)" error : ==
 	error: could not prepare transaction
@@ -207,9 +207,15 @@ $ find /var/cache/pacman/pkg/ -iname "*.part" -exec rm {} \;
 **# Close all instances of pacman and run** 
 $ rm /var/lib/pacman/db.lck
 
+== Key could not be looked up remotely ==
+**# Ex.** 
+	downloading required keys...
+	error: key "F22FB1D78A77AEAB" could not be looked up remotely
+	error: required key missing from keyring
 
-
-
+**# Problems with the Keyring can be solved by re-installing the keyring**
+$ pacman -Sy archlinux-keyring
+$ pacman -Su
 
 
 

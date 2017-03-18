@@ -13,7 +13,10 @@ Created onsdag 28 december 2016
 **# By default alsa doesn't detect the correct device for me. **
 **# To correct this, create/edit **///etc/modprobe.d/modprobe.conf//
 **# And add the following line. A reboot is required before it'll take effect.**
-	options snd_hda_intel index=1
+{{{code: lang="texinfo" linenumbers="True"
+options snd_hda_intel index=1
+}}}
+
 
 
 ===== PulseAudio =====
@@ -22,8 +25,11 @@ Created onsdag 28 december 2016
 == Installation ==
 $ pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins
 
-== Pavucontrol ==
-**# To get GUI controls, install **//pavucontrol //
+== Volume Controls ==
+**# CLI Curses controls**
+$ cower -d pulsemixer
+
+**# And if you are in the mood for a GUI tool^**
 $ pacman -S pavucontrol
 
 == Pulseaudio-ctl ==
@@ -39,6 +45,7 @@ $ yaourt -S pulseaudio-ctl
 	pulseaudio-ctl down 50		**# Decrease vol by 50 %**
 	pulseaudio-ctl set 40		**# Set vol to 40%**
 	pulseaudio-ctl atmost 30	**# Set vol to 30% if current higher than that**
+	
 
 
 ===== Bluetooth Speaker =====
@@ -54,8 +61,11 @@ $ pacman -S pulseaudio-bluetooth bluez-libs bluez-firmware
 == Tips and Tricks ==
 **# To autoconnect when starting the **//bluetooth.service//
 **# First add this to the **//~/.config/pulse/default.pa//
-	**# automatically switch to newly-connected devices**
-	load-module module-switch-on-connect
+{{{code: lang="texinfo" linenumbers="True"
+# automatically switch to newly-connected devices
+load-module module-switch-on-connect
+}}}
+
 
 **# Then **//trust//** the device through the **//bluetoothctl//** shell**
 **# Obtain and pair the device MAC as explained in **bluetooth 
@@ -66,6 +76,9 @@ $ trust //<MAC_ADDRESS>//
 **# (the **//bluetoothctl//** > **//power on//** powering on)**
 **# To correct this, create a udev rule in **///etc/udev/rules.d/10-local.rules//
 **# Add the following**
-	**# Set bluetooth power up**
-	ACTION=="add", SUBSYSTEM=="bluetooth", KERNEL=="hci[0-9]*", RUN+="/usr/bin/hciconfig %k up"
+{{{code: lang="texinfo" linenumbers="True"
+# Set bluetooth power up
+ACTION=="add", SUBSYSTEM=="bluetooth", KERNEL=="hci[0-9]*", RUN+="/usr/bin/hciconfig %k up"
+}}}
+
 

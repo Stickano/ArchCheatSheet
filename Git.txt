@@ -42,7 +42,7 @@ $ git add //file1 file2//
 $ git add .        **# note the dot (.)**
 
 **# This will record the state of the files. **
-**#** If** files are later modified, run **//git add//** again to add a new version to the index.**
+**#** **If files are later modified, run **//git add//** again to add a new version to the index.**
 
 == Ignoring files ==
 **# It is possible to create a list for files, which should not be included when running **//git add .//** 	(add all)**
@@ -78,7 +78,7 @@ $ git ls-files
 ===== Commit Changes =====
 **# You should commit changes to a branch (See a little further down)**
 **# Once changes/additions has been made, commit those changes. Commit often.**
-**# **//a//** will add changes from all known files.**
+**# **//-a//** will add changes from all known files.**
 **# If -**m "message"** is excluded, the default text-editor will open, allowing you to add a long message.**
 $ git commit -m "Short Message."
 

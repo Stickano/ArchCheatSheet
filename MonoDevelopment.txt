@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-27T16:15:59+01:00
+
+====== MonoDevelopment ======
+Created Monday 27 February 2017
+
+**I cry a little every time I fire up Windows, so being able to do some small basic C# in Linux will be nice.**
+
+== Installation ==
+**# We'll need a couple of packages for the framework and the IDE**
+$ pacman -S mono mono-basic monodevelop mono-tools
+
+**# Mono calls Xterm when you run projects - install it for your Console Applications**
+$ pacman -S xterm
+
+
+== Running applications ==
+**# Again, limited to the Console Applications I'm quite sure**
+$ mono ///path/to/exe/file//

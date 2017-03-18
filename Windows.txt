@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-03-18T16:51:23+01:00
+
+====== Windows ======
+Created Saturday 18 March 2017
+
+**When dual-booting Windows/Arch, the time is not running correct in Arch.. Thank you Microsoft.**
+**We can fix this be setting the time to UTC in Windows though, so fire up that sucker OS. **
+
+== Regedit ==
+**# We need to Add a entry in the Regedit, so do the **//Super+r//** to open the Run dialog and type; **//regedit//
+**# Navigate into the following sub-folder**
+	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
+
+**# Right click and Add a **//DWORD//** with **//hexadecimal//** called **//RealTimeIsUniversal//**, set the value to **//1//

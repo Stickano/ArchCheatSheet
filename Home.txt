@@ -52,7 +52,7 @@ Created lørdag 22 oktober 2016
 	**Check out **//makepkg//** and **//cower //**in **//System Tools//
 	
 **12 ) Window Manager**
-	[[i3]] 
+	[[i3]]  (+some)
 
 
 ===== Extended System Functionality =====
@@ -89,7 +89,7 @@ Created lørdag 22 oktober 2016
 	[[Cron]] 
 	
 **# Dual Booting**
-	[[:Windows]] 
+	[[Windows]] 
 	
 **# Check these out too!**
 	[[Additional_rather_useful_software]] 
@@ -105,6 +105,9 @@ Created lørdag 22 oktober 2016
 	
 **# Video Acceleration**
 	[[VA-API_and_VDPAU]] 
+	
+**# Watchdog**
+	[[Disable_Watchdog]] 
 
 **# Hardware Specific **
 	[[SSD]] 
@@ -312,11 +315,11 @@ Created lørdag 22 oktober 2016
 **# Development Control**
 	[[Git]] 
 
-**# Development IDE**
-	[[Sublime]]
+**# Integrated Development Environment **
+	[[Sublime]] 
 	[[MonoDevelopment]]  
 	
-**# Apache, MySQL and PHP**
+**# Web Services**
 	[[LAMP]]
 	
 **# Images/Design**

@@ -44,7 +44,7 @@ Target = pacman-mirrorlist
 Description = Updating pacman-mirrorlist with reflector and removing pacnew...
 When = PostTransaction
 Depends = reflector
-Exec = /usr/bin/bash -c "reflector --verbose -l 30 --number 20 -p https --sort rate --save /etc/pacman.d/mirrorlist &&  -f /etc/pacman.d/mirrorlist.pacnew  && rm /etc/pacman.d/mirrorlist.pacnew"
+Exec = /usr/bin/env sh -c "reflector --verbose -l 30 --number 20 --age 24 --sort rate --save /etc/pacman.d/mirrorlist; if [[ -f /etc/pacman.d/mirrorlist.pacnew ]]; then rm /etc/pacman.d/mirrorlist.pacnew; fi"
 }}}
 
 	

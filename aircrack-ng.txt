@@ -16,9 +16,7 @@ $ pacman -S aircrack-ng
 **#** **Below is some core information a couple of basic examples for some of these tools.**
 
 == Airmon-ng ==
-**# This tool is used to put our network device into promiscuous mode. **
-**#** **Read the **//Alpha-AWUS036H//** for an alternative method.**
-**# To put our device into monitor (promiscuous) mode**
+**# This tool is used to put our network device into monitor mode. **
 $ airmon-ng start wifi1
 
 **# Take notice of the output. It will change the name of the device. Ex, from **//wifi1//** to**// wifi1mon//

@@ -75,7 +75,7 @@ $ nmap -spoof-mac Cisco <//host>//
 **# To not stress a network, you can delay the scans - specialy effective on larger networks.**
 $ nmap -scan_delay 5s //host//
 
-**# Sometimes a host might take a long time to respond - can beøøø due to FW ex.**
+**# Sometimes a host might take a long time to respond - can be due to FW ex.**
 **# If you don't want to waste your time, set a timelimit per host**
 $ nmap -host-timeout 5s <//host>//
 

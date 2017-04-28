@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-03-30T02:51:50+02:00
+
+====== Disable Watchdog ======
+Created Thursday 30 March 2017
+
+**Watchdog is not needed in our case (mainly servers I believe). **
+
+== Boot Parameter ==
+**# To disable the Watchdog, add **//nowatchdog//** to the boot parameter**
+**# Edit **///etc/default/grub //**and edit the **//GRUB_CMDLINE_LINUX_DEFAULT //**variable**
+{{{code: lang="texinfo" linenumbers="True"
+GRUB_CMDLINE_LINUX_DEFAULT="quite splash nowatchdog"
+}}}
+
+
+**# And generate a new grub-config**
+$  grub-mkconfig -o /boot/grub/grub.cfg
+
+
+== Blacklist Module ==
+**# Once disabled, blacklist the module from loading **
+**# Edit/create **///etc/modprobe.d/blacklist.conf //**and add the following to a new line**
+{{{code: lang="texinfo" linenumbers="True"
+install iTCO_wdt /bin/false
+}}}

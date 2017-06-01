@@ -24,6 +24,13 @@ $ i7z-gui
 **# Assists with CPU frequency scaling** 
 $ pacman -S cpupower
 
+**# You can load a specific governor at boot-time by defining it in **///etc/default/cpupower//
+**# Ex;**
+{{{code: lang="texinfo" linenumbers="True"
+governor='performance'
+}}}
+
+
 **#** **Enable the service**
 $ systemctl enable cpupower.service
 

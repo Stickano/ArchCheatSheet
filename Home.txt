@@ -1,12 +1,8 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-10-22T01:30:01+02:00
-
 ====== Archlinux Cheat Sheet ======
 Created lørdag 22 oktober 2016
 
 == Foreword ==
-**# Please read the Github page for more details.**
+**# Read the Github page for more details.**
 **# Author : Henrik ( Jeppesen@tutanota.com )**
 **# Updated Version : **https://github.com/Stickano/ArchCheatSheet
 **# Dotfile Repository : **https://github.com/Stickano/dotfiles
@@ -90,6 +86,9 @@ Created lørdag 22 oktober 2016
 	
 **# Dual Booting**
 	[[Windows]] 
+	
+**# Virtual Machine**
+	[[VirtualBox]] 
 	
 **# Check these out too!**
 	[[Additional_rather_useful_software]] 
@@ -401,7 +400,7 @@ Created lørdag 22 oktober 2016
 	[[vim_mapping]] 
 
 **# Our Developer IDE**
-	[[Sublime_mapping]]  
+	[[Sublime_qmapping]]  
 
 **# Actions from our Terminal (Missing Aliases and Functions)**
 	[[Terminal]] 

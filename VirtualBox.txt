@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-04-29T11:22:13+02:00
+
+====== VirtualBox ======
+Created Saturday 29 April 2017
+
+
+== Installation ==
+**# Core packages (the **//linux-[lts/zen]-headers//** should already be installed)**
+$ pacman -S virtualbox virtualbox-host-dkms net-tools virtualbox-guest-iso
+
+**# Extension Package from the AUR**
+**# Provides USB, webcam etc functionality in VM**
+$ cower -d virtualbox-ext-oracle
+$ cowup 
+
+== Configuration ==
+**# Add your user to the **//vboxusers//** group**
+$ gpasswd --add stick vboxusers 
+
+
+===== Using =====
+**# How to install and configure your Virtual Machines**
+
+== Installing Image ==
+**# Download the image you wish to make a VM off**
+**# Open VirtualBox and click **//New//
+
+**# Choose a **//Type//** and **//Version//** along with a relevant name.**
+**# Allocate some memory - don't overdo it. Somewhere between 2-4GB, on my 8GB machine.**
+**# Select **//Create a Virtual Hard Disk Drive//
+**# Choose **//VHD//** for Windows products and **//VDI//** for everything else. **
+**# Dynamically allocated space works fine**
+**# Give it an initial size**
+
+**# The "machine" is now set-up and you are able to install a image file on it**
+**# Right click the VM and select **//Settings//
+**# Go to **//Storage//** and select the Empty device in the sub-node**
+**# Click the little Disc next to the Drop-down (SATA Port1) and select your image file to install**
+**# Start the VM to start the installer. Voila. **
+
+== Import OVA/OVF files ==
+**# Go to **//File > Import Appliance //
+**# This will setup your pre-defined VM installation **
+
+== Additional Settings ==
+**# Once a system has been installed, you can increase the performance for that VM**
+**# Right click the VM and select **//Settings//
+
+**# You can Enable Shared Clipboard in **//General > Advanced//
+**# You can set Base-Memory in **//System //**- don't overdo, somewhere between 2-4GB on my 8GB machine**
+**# In **//System > Processor //**you can add an additional core**
+**# Enable **//3D //**and **//2D Acceleration //**in **//Display//** and crank that **//Video Memory //**to max (256MB)**
+**# In **//Storage//**, select the VM name (sub-node) and check **//Solid State Drive//
+
+== Guest Addition ==
+**# The guest addition allows for hardware acceleration, shared clipboard a.a.**
+**# The package has been installed with the Core files (above)**
+**# Once your system is installed, mount the Guest ISO at the USB device and install the additions from**
+**# inside the system itself. **
+
+**# The Guest ISO can be found at **///usr/lib/virtualbox/additions/VBoxGuestAdditions.iso//
+**# Mount this in VirtualBox, either by Right-clicking a VM and select **//Settings > Storage //**and mounting it**
+**# Or by mounting it through **//Devices//** at the top of a running VM.**
+
+**# In Windows f.ex. you just open the File-Manager and double click the USB device (VirtualBox Guest)**
+**# and let the auto-installer do the rest. **
+
+== Fullscreen View (troubleshoot) ==
+**# The Fullscreen doesn't work with I3**
+**# Right click your VM and select **//Settings > User Interface//** and deselect the **//Show in Full-screen/Seamless//
+**# Toggle Fullscreen with **//Right Ctrl+F//
+
+
+===== Tips and Tricks =====
+**# A few goodies**
+
+== Windows 10 Development Environment ==
+**# Need to work in Visual Studio according to my school.. **
+**# You can download a VM of the Windows Development Environment from the following link;**
+**# **https://developer.microsoft.com/en-us/windows/downloads/virtual-machines

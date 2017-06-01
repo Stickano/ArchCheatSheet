@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-01-09T22:21:32+01:00
-
 ====== Sublime ======
 Created Monday 09 January 2017
 
@@ -48,6 +44,12 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 == DocBlockr ==
 **# Documentation/comments with ease**
 **# Install with Package Control; **//DocBlcokr//
+
+== StringEncode ==
+**# Lets you manipulate string - very useful to escape out syntax characters for code previews**
+**# Convert special characters into their HTML entity; **//html_entitize//
+**# Convert HTML entities into special characters; **//html_deentitize//
+**# And much more! Check out the options with; **//stringEncode//
 
 == Spacegray (theme) ==
 **# Pretty sweet theme**

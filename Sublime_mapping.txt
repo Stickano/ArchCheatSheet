@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-01-10T00:57:48+01:00
-
 ====== Sublime mapping ======
 Created Tuesday 10 January 2017
 

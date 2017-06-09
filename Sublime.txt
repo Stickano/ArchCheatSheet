@@ -45,6 +45,9 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 **# Documentation/comments with ease**
 **# Install with Package Control; **//DocBlcokr//
 
+== Nbspr ==
+**# Let's you easily toggle spaces with **//&nbsp;// 
+
 == StringEncode ==
 **# Lets you manipulate string - very useful to escape out syntax characters for code previews**
 **# Convert special characters into their HTML entity; **//html_entitize//

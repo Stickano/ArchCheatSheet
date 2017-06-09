@@ -65,3 +65,6 @@ Created Tuesday 10 January 2017
 == DocBlockr ==
 **# Start to type **///**//** and hit **//<tab> //**to jump to next line and enclose comment**
 **# If there is a function directly below, dockblokr will prepare documentation for that function**
+
+== Nbspr ==
+**# Select some text and hit **//Ctrl+Shift+Q//** to toggle between **//spaces//** and **//&nbsp;//

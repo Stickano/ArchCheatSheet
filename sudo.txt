@@ -38,7 +38,7 @@ export XAUTHORITY=/home/<username>/.Xauthority
 == Change password timeout ==
 **# The default lets you use **//sudo//** commands in a 5min time span **
 **# Let's change this to 30 - I am a bit slow sometimes..**
-$ EDITOR=nano visudo
+$ EDITOR=vim sudo visudo
 
 **# And add the following **
 {{{code: lang="texinfo" linenumbers="True"
@@ -50,4 +50,12 @@ Defaults:stick timestamp_timeout=30
 **# Add this line to the sudoers file**
 {{{code: lang="texinfo" linenumbers="True"
 Defaults	insults
+}}}
+
+
+== Disable password for user ==
+**# Be aware that this is not good practice **
+**# Add to the sudoer file - change **//USER_NAME//** accordingly **
+{{{code: lang="texinfo" linenumbers="True"
+Defaults:USER_NAME      !authenticate
 }}}

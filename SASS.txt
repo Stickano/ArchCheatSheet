@@ -1,0 +1,12 @@
+====== SASS ======
+Created Thursday 08 June 2017
+
+**# In order to install the SASS pre-compiler, first install **//Ruby//
+$ pacman -S ruby
+
+**# Ruby provides you its own package manager, called **//gem//
+**# Use **//gem//** to install **//SASS//
+$ sudo gem install sass
+
+**# Confirm its installation**
+$ sass -v

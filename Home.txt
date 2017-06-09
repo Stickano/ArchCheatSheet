@@ -320,6 +320,7 @@ Created lørdag 22 oktober 2016
 	
 **# Web Services**
 	[[LAMP]]
+	[[SASS]] 
 	
 **# Images/Design**
 	[[Gimp]] 
@@ -400,7 +401,7 @@ Created lørdag 22 oktober 2016
 	[[vim_mapping]] 
 
 **# Our Developer IDE**
-	[[Sublime_qmapping]]  
+	[[Sublime_mapping]] 
 
 **# Actions from our Terminal (Missing Aliases and Functions)**
 	[[Terminal]] 

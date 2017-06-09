@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-10-31T16:31:32+01:00
-
 ====== Hardware ======
 Created mandag 31 oktober 2016
 

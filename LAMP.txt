@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-01-10T02:47:06+01:00
-
 ====== LAMP ======
 Created Tuesday 10 January 2017
 
@@ -159,3 +155,17 @@ character_set_client        = utf8
 character_set_server        = utf8
 }}}
 
+
+
+===== Tips and Tricks =====
+**# A couple of additions**
+
+== Imagick ==
+**# For the imagick features - which have a nice collection of features - install the following package from the AUR**
+$ cower -d php-imagick
+$ cowup
+
+**# Then add the following line to the **//extensions //**section in the **///etc/php/php.ini //**file**
+{{{code: lang="texinfo" linenumbers="True"
+extension=imagick.so
+}}}

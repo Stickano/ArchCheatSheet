@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-01-07T03:57:30+01:00
-
 ====== vim mapping ======
 Created Saturday 07 January 2017
 
@@ -113,3 +109,28 @@ Created Saturday 07 January 2017
 **# Switch case **//~//
 **# Indent right **//>//
 **# Indent left **//<//
+
+
+===== Vimdiff =====
+**# Open and differentiate between two files**
+$ vimdiff /path/to/file1 /path/to/file2
+
+== Commands ==
+**# Re-scan the files for differences **//:diffupdate//
+
+== Navigate the two files ==
+**# Jump between the two files with **//Ctrl+w Ctrl+w //**(double)**
+
+== Search Differences ==
+**# Next Difference with **//]c//
+**# Previous Difference  **//[c//
+
+== Bring changes to their counterpart file ==
+**# diff-obtain (do) brings changes from the other file, to the current file **//do//
+**# diff-put (dp) sends changes from the current file, to the other file **//dp//
+
+== Fold & Unfold ==
+**# Unfold text with **//zo//
+**# Refold it with **//zc//
+**# Unfold both files completely **//zr//
+**# Fold both files completely **//zm//

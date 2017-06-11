@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-12-04T15:48:06+01:00
-
 ====== Additional Badass Software ======
 Created søndag 04 december 2016
 
@@ -76,3 +72,13 @@ Environment=DISPLAY=:0
 == Notebook ==
 **# With #hashtags, search, calendar etc etc. **
 $ yaourt -S rednotebook
+
+
+== E-book Converter ==
+**# Convert E-books to **//.mobi//** format for, Kindle devices, with **//Calibre//
+$ pacman -S calibre
+
+**# Convert with their included script, **//ebook-converter //
+**# Note that you give the path to the E-book in question (**//.epub//** ex), then give it what suffix it should convert to (**//.mobi//**)**
+$ ebook-convert /path/to/.epub .mobi
+

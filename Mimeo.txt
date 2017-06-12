@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2016-12-04T16:14:07+01:00
-
 ====== Mimeo ======
 Created søndag 04 december 2016
 
@@ -10,6 +6,9 @@ Created søndag 04 december 2016
 == Installation ==
 **# NOTE! I had to skip the PGP check, but this might have changed**
 $  yaourt --m-arg --skippgpcheck -Sb xdg-utils-mimeo
+
+**# You might have to import their GPG key**
+$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1D1F0DC78F173680
 
 == Get mime-type ==
 **# Ex, to determine filetype for a file called **//photo.jpg//

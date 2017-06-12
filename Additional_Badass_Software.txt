@@ -7,6 +7,10 @@ Created søndag 04 december 2016
 **# **//gtk-recordmydesktop//** allows you to record videos of your desktop**
 $ pacman -S gtk-recordmydesktop
 
+**# Later versions seems to flicker quite a lot - try recording with the following;**
+$ recordmydesktop --use-jack system:capture_1 --v_bitrate 2000000
+
+
 == PDF Reader ==
 **# **//MuPDF//** is a pretty simple/sweet reader**
 $ pacman -S mupdf

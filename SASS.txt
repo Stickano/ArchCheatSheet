@@ -1,6 +1,7 @@
 ====== SASS ======
 Created Thursday 08 June 2017
 
+===== Installation =====
 **# In order to install the SASS pre-compiler, first install **//Ruby//
 $ pacman -S ruby
 
@@ -10,3 +11,17 @@ $ sudo gem install sass
 
 **# Confirm its installation**
 $ sass -v
+
+
+===== Usage =====
+**# Write you SASS in documents with a **//.scss //**suffix.**
+**# Once satisfied, convert the document to a normal CSS file**
+$ sass //input.scss output.css//
+
+**# You may also have SASS watch a file, and change the output in live action**
+**# Note the file separator : (colon)**
+$ sass --watch input.scss:output.css
+
+**# If you have a directory with several files, make SASS watch the whole directory and change the output live**
+**# Note the file separator : (colon)**
+$ sass --watch //input-dir//://output-dir//

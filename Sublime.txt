@@ -65,3 +65,31 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 }
 }}}
 
+
+== Sass ==
+**# For LaTex and Sublime - adds SASS syntax support**
+
+== AutoPrefixr ==
+**# Creates the vendor prefixes (browser specific properties)**
+**# Requres Note.js 4+ (you probably have it)**
+
+== Code Intel ==
+**# The **//SublimeCodeIntel //**provides hints to methods, functions, objects a.a. **
+**# Must have for the OOD. **
+
+== SublimeLinter ==
+**# Helps check the code. It interacts and checks code integrity in many forms and ways.**
+
+== SublimeLinter-Php ==
+**# Same as above, but with the PHP extension. **
+
+== GitGutter ==
+**# Keeps track of the latest changes (since last commit) with a little dot next to the line number.**
+
+== PHP Completion Kit ==
+**# With PHP 7+ support.  **
+
+== CSS3 ==
+**# Better CSS3 highlighting **
+**# Once installed, disable the default CSS plugin by hitting **//Ctrl+P //**and type **//Disable Package//
+**# From there, disable the **//CSS//** package.**

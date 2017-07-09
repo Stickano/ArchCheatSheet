@@ -1,7 +1,3 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-02-16T17:59:40+01:00
-
 ====== Cmus ======
 Created Thursday 16 February 2017
 

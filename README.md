@@ -1,6 +1,7 @@
 # Arch Cheat Sheet
+This is no longer being maintained. 
+
 My local Arch Linux Cheat Sheet. <br />
-This is still being activly worked on.
 
 This documentation has been created in [Zim Desktop Wiki](http://zim-wiki.org/).
 You can download the content of this repository, along with Zim, to have a local example.

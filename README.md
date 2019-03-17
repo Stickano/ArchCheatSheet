@@ -1,5 +1,6 @@
 # Arch Cheat Sheet
-This is no longer being maintained. 
+
+**This is no longer being maintained. **
 
 My local Arch Linux Cheat Sheet. <br />
 
